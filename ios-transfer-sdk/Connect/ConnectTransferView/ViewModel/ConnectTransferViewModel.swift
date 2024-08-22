@@ -8,19 +8,26 @@
 
 import UIKit
 import Combine
+import AtomicTransact
 
 class ConnectTransferViewModel: NSObject {
 
     private var transferModel: TransferModel? = nil
     private let pdsAPIPath = "server/authenticate/v2/transfer/deposit-switch"
     private var pdsAPIToken = Set<AnyCancellable>()
+    private var transferEventCommonDataDict:NSDictionary?
+    private var pdsBaseURLString:String?
     
     func getThemeColor() -> UIColor {
         return UIColor(red: 207/255, green: 69/255, blue: 0, alpha: 1.0)
     }
     
-    func getPartenrName() -> String {
+    func getPartnerName() -> String {
         return transferModel?.transferData?.metadata?.applicationName ?? ""
+    }
+    
+    func getTransferModel() -> TransferModel? {
+        self.transferModel
     }
     
     func getNextButtonTitleTextColor() -> UIColor {
@@ -34,6 +41,8 @@ class ConnectTransferViewModel: NSObject {
             return
         }
         
+        self.setTransferEventCommonDataDict(fullPDSURL: transferModelURL)
+                
         var urlRequest = URLRequest(url: transferModelURL)
         urlRequest.httpMethod = "POST"
         
@@ -87,18 +96,40 @@ class ConnectTransferViewModel: NSObject {
         var transferModelURL = ""
         
         if let port = currentURL.port {
-            transferModelURL = "https://\(host):\(port)/\(pdsAPIPath)?\(queryParams)"
+            self.pdsBaseURLString = "https://\(host):\(port)"
             
         }else {
-            transferModelURL = "https://\(host)/\(pdsAPIPath)?\(queryParams)"
+            self.pdsBaseURLString = "https://\(host)"
         }
         
+        transferModelURL = "\(self.pdsBaseURLString!)/\(pdsAPIPath)?\(queryParams)"
         setUpAppLanguage(currentURLString: currentURLString)
         
         return URL(string: transferModelURL)
     }
+
+    private func getTransferToken() -> String? {
+        self.transferModel?.transferData?.userToken
+    }
+
+    private func getTransferProductType() -> AtomicConfig.ProductType? {
+
+        guard let productType = self.transferModel?.transferData?.product else {
+            return nil
+        }
+
+        return AtomicConfig.ProductType(rawValue: productType)
+    }
+
+    private func getMetaDataDict() -> [String: String]? {
+        self.transferModel?.transferData?.metadata?.getMetaDataDict()
+    }
     
-    func setUpAppLanguage(currentURLString: String) {
+}
+
+//MARK: - App Language Get Set Methods
+extension ConnectTransferViewModel {
+    private func setUpAppLanguage(currentURLString: String) {
         if let urlComponent = URLComponents(string: currentURLString) {
             
             let queryItems = urlComponent.queryItems
@@ -115,5 +146,164 @@ class ConnectTransferViewModel: NSObject {
             UserDefaults.standard.synchronize()
         }
     
+    }
+    
+    private func getCurrentAppLanguage() -> String {
+        if let appleLanguages = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String], let currentLanguage = appleLanguages.first {
+            return currentLanguage
+        }
+
+        return "en" // Default Language
+    }
+}
+
+//MARK: - Deposit Switch Flow Config Methods
+extension ConnectTransferViewModel {
+    
+    func getTransferConfig() -> AtomicConfig? {
+
+        guard let publicToken = self.getTransferToken() else {
+            return nil
+        }
+
+        guard let product = self.getTransferProductType() else {
+            return nil
+        }
+        
+        let config = AtomicConfig(publicToken: publicToken, scope: .userLink, tasks: [.init(operation: product)], theme: .init(brandColor: self.getThemeColor(), dark: .light), language: getCurrentAppLanguage(), metadata: getMetaDataDict(), customer: AtomicConfig.Customer.init(name: getPartnerName()))
+
+        return config
+    }
+}
+
+//MARK: - Connect Transfer Event Methods
+extension ConnectTransferViewModel {
+    
+    func getTransferEventCommonDataDict() -> NSDictionary? {
+        
+        self.transferEventCommonDataDict
+    }
+    
+    private func setTransferEventCommonDataDict(fullPDSURL: URL) {
+        
+        guard let urlComponent = URLComponents(url: fullPDSURL, resolvingAgainstBaseURL: false) else {
+            return
+        }
+        
+        var queryItems: [String : String] = [:]
+        
+        for item in urlComponent.queryItems ?? [] {
+            
+            if let customerId = item.getQueryValue(for: TransferEventDataName.customerId.rawValue) {
+                queryItems[TransferEventDataName.customerId.rawValue] = customerId
+            }
+            
+            if let partnerId = item.getQueryValue(for: TransferEventDataName.partnerId.rawValue) {
+                queryItems[TransferEventDataName.partnerId.rawValue] = partnerId
+            }
+            
+            if let timestamp = item.getQueryValue(for: TransferEventDataName.timestamp.rawValue) {
+                queryItems[TransferEventDataName.timestamp.rawValue] = timestamp
+            }
+            
+            if let ttl = item.getQueryValue(for: TransferEventDataName.ttl.rawValue) {
+                queryItems[TransferEventDataName.ttl.rawValue] = ttl
+            }
+            
+            if let type = item.getQueryValue(for: TransferEventDataName.type.rawValue) {
+                queryItems[TransferEventDataName.type.rawValue] = type
+            }
+
+            if let sessionId = item.getQueryValue(for: "signature") {
+                queryItems[TransferEventDataName.sessionId.rawValue] = sessionId
+            }
+            
+        }
+        
+        if let experience = self.transferModel?.transferData?.experience, let experienceId = experience.id {
+            queryItems[TransferEventDataName.experience.rawValue] = experienceId
+        }
+        
+        self.transferEventCommonDataDict = queryItems as NSDictionary
+        
+    }
+    
+    func getResponseForDone(isError: Bool = false, reason: String?) -> NSDictionary? {
+        guard var commonResponse = getTransferEventCommonDataDict() as? [String: String] else {
+            return nil
+        }
+        
+        commonResponse[TransferEventDataName.code.rawValue] = isError ? "100" : "200"
+        
+        if let reason = reason {
+            commonResponse[TransferEventDataName.reason.rawValue] = reason
+        }
+        
+        return commonResponse as NSDictionary
+    }
+    
+    func getResponseForFinish(responseData: AtomicTransact.TransactResponse.ResponseData) -> NSDictionary? {
+        
+        guard let responseForDone = getResponseForDone(reason: responseData.reason) as? [String:Any] else {
+            return nil
+        }
+        
+        let dict = responseForDone.merging(responseData.data) { _, _ in }
+        
+        return dict as NSDictionary
+    }
+    
+    func getUserEventDict(event: AtomicEvents, interactionResponse: TransactInteraction) -> NSDictionary? {
+        
+        guard var commonResponse = getTransferEventCommonDataDict() as? [String: Any] else {
+            return nil
+        }
+        
+        switch event {
+            
+        case .SEARCH_BY_COMPANY:
+            commonResponse[TransferEventDataName.action.rawValue] = UserEvents.SEARCH_PAYROLL_PROVIDER.rawValue
+            commonResponse[TransferEventDataName.searchTerm.rawValue] = interactionResponse.value["query"]
+            
+        case .SELECTED_COMPANY_FROM_SEARCH_BY_COMPANY_PAGE:
+            commonResponse[TransferEventDataName.action.rawValue] = UserEvents.SELECT_PAYROLL_PROVIDER.rawValue
+            commonResponse[TransferEventDataName.payrollProvider.rawValue] = interactionResponse.value["company"]
+            
+        case .CLICKED_CONTINUE_FROM_FORM_ON_LOGIN_PAGE, .CLICKED_CONTINUE_FROM_FORM_ON_INTERRUPT_PAGE:
+            commonResponse[TransferEventDataName.action.rawValue] = UserEvents.SUBMIT_CREDENTIALS.rawValue
+            commonResponse[TransferEventDataName.inputType.rawValue] = interactionResponse.value["input"]
+            
+        case .CLICKED_EXTERNAL_LOGIN_RECOVERY_LINK_FROM_LOGIN_HELP_PAGE:
+            commonResponse[TransferEventDataName.action.rawValue] = UserEvents.EXTERNAL_LINK.rawValue
+            commonResponse[TransferEventDataName.buttonName.rawValue] = interactionResponse.value["button"]
+            
+        case .CLICKED_CONTINUE_FROM_PERCENTAGE_DEPOSIT_AMOUNT_PAGE, .CLICKED_CONTINUE_FROM_FIXED_DEPOSIT_AMOUNT_PAGE:
+            commonResponse[TransferEventDataName.action.rawValue] = UserEvents.CHANGE_DEFAULT_ALLOCATION.rawValue
+            commonResponse[TransferEventDataName.depositOption.rawValue] = interactionResponse.value["distributionType"]
+            commonResponse[TransferEventDataName.depositAllocation.rawValue] = interactionResponse.value["distributionAmount"]
+            
+        case .CLICKED_BUTTON_TO_START_AUTHENTICATION:
+            commonResponse[TransferEventDataName.action.rawValue] = UserEvents.SUBMIT_ALLOCATION.rawValue
+            commonResponse[TransferEventDataName.depositOption.rawValue] = interactionResponse.value["distributionType"]
+            commonResponse[TransferEventDataName.depositAllocation.rawValue] = interactionResponse.value["distributionAmount"]
+            
+        case .VIEWED_TASK_COMPLETED_PAGE:
+            commonResponse[TransferEventDataName.action.rawValue] = UserEvents.TASK_COMPLETED.rawValue
+            commonResponse[TransferEventDataName.status.rawValue] = interactionResponse.value["state"]
+            
+        case .VIEWED_ACCESS_UNAUTHORIZED_PAGE:
+            commonResponse[TransferEventDataName.action.rawValue] = UserEvents.UNAUTHORIZED.rawValue
+            commonResponse[TransferEventDataName.expired.rawValue] = false
+            
+        case .VIEWED_EXPIRED_TOKEN_PAGE:
+            commonResponse[TransferEventDataName.action.rawValue] = UserEvents.UNAUTHORIZED.rawValue
+            commonResponse[TransferEventDataName.expired.rawValue] = true
+            
+        default:
+            break
+            
+        }
+        
+        return commonResponse as NSDictionary
     }
 }

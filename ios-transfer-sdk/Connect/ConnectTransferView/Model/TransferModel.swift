@@ -58,6 +58,8 @@ struct TransferData: Codable {
 
 struct Experience : Codable {
 
+    var id:String?
+    
     enum CodingKeys: CodingKey {
         
     }
@@ -84,4 +86,18 @@ struct Metadata : Codable {
         applicationName = try values.decodeIfPresent(String.self, forKey: .applicationName)
     }
 
+    func getMetaDataDict() -> [String:String]? {
+        
+        guard let id = self.id else {
+            return nil
+        }
+        
+        guard let applicationName = self.applicationName else {
+            return nil
+        }
+        
+        var metaDataDict = [CodingKeys.id.rawValue: id, CodingKeys.applicationName.rawValue: applicationName]
+        
+        return metaDataDict
+    }
 }

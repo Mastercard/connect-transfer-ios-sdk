@@ -253,23 +253,9 @@ extension String {
 }
 
 extension ViewController: ConnectTransferEventDelegate {
-    func didCloseWithError(error: String) {
-        if Thread.isMainThread {
-            self.activityIndicator.stopAnimating()
-            
-            let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
-            self.present(alert, animated: true)
-            
-        }else {
-            DispatchQueue.main.async {
-                self.didLoadDone()
-            }
-        }
-    }
     
-    func didLoadDone() {
-        
+    func onInitializeTransferDone(_ data: NSDictionary?) {
+        print(data as Any)
         if Thread.isMainThread {
             self.activityIndicator.stopAnimating()
             self.connectNavController = UINavigationController(rootViewController: self.transferViewController)
@@ -281,9 +267,37 @@ extension ViewController: ConnectTransferEventDelegate {
             self.present(self.connectNavController, animated: true)
         }else {
             DispatchQueue.main.async {
-                self.didLoadDone()
+                self.onInitializeTransferDone(data)
             }
         }
-        
     }
+    
+    func onTermsAndConditionsAccepted(_ data: NSDictionary?) {
+        print(data as Any)
+    }
+    
+    func onInitializeDepositSwitch(_ data: NSDictionary?) {
+        print(data as Any)
+    }
+    
+    func onTransferEnd(_ data: NSDictionary?) {
+        print(data as Any)
+        if Thread.isMainThread {
+            self.activityIndicator.stopAnimating()
+            
+            let alert = UIAlertController(title: "Error", message: data!["reason"] as? String ?? "" , preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            self.present(alert, animated: true)
+            
+        }else {
+            DispatchQueue.main.async {
+                self.onTransferEnd(data)
+            }
+        }
+    }
+    
+    func onUserEvent(_ data: NSDictionary?) {
+        print(data as Any)
+    }
+    
 }
