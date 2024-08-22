@@ -1,0 +1,78 @@
+include:
+  - project: 'devops/central-ci'
+    ref: master
+    file: '/cx-scan.yml'
+  - project: devops/central-ci
+    file: jobs/by-stage/scan/black-duck-scan.yml
+
+stages:
+  - savevariables
+  - readvariables
+  - build
+  - postbuild
+  #  - scan-container
+  - scan
+
+
+save_variables:
+  stage: savevariables
+  script:
+    - echo "FINICITY_APP_KEY_SAVED=${FINICITY_APP_KEY}" >> keys.env
+    - echo "PARTNER_ID_SAVED=${PARTNER_ID}" >> keys.env
+    - echo "PARTNER_SECRET_SAVED=${PARTNER_SECRET}" >> keys.env
+    - cat keys.env
+  artifacts:
+    reports:
+      dotenv: keys.env
+  
+
+read_variables:
+  stage: readvariables
+  script:
+    - echo "$FINICITY_APP_KEY_SAVED"
+    - echo "$PARTNER_ID_SAVED"
+    - echo "$PARTNER_SECRET_SAVED"
+  
+
+build_project:
+  stage: build
+  script:
+    - echo "$FINICITY_APP_KEY_SAVED"
+#    - xcodebuild -project Connect.xcodeproj -scheme TestApp -derivedDataPath derivedData -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest' FINICITY_APP_KEY=$FINICITY_APP_KEY_SAVED ONLY_ACTIVE_ARCH=YES | xcpretty
+    - xcrun xcodebuild test -project Connect.xcodeproj -scheme TestApp -derivedDataPath derivedData -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest' FINICITY_APP_KEY=$FINICITY_APP_KEY_SAVED ONLY_ACTIVE_ARCH=YES | xcpretty
+  artifacts:
+    name: "derived-data"
+    paths:
+      - derivedData/
+    expire_in: 1 days
+  tags:
+    - xcode
+
+coverage:
+  stage: postbuild
+  script:
+    - slather coverage -s
+    - slather
+    - swiftlint > sonar-reports/swiftlint.txt
+  artifacts:
+    when: always
+    reports: #cobertura: sonar-reports/cobertura.xml
+    paths:
+      - sonar-reports
+    expire_in: 1 days
+  tags:
+    - xcode
+
+# scan container:
+#   image: dcr.fini.city/devops/osiris
+#   stage: scan-container
+#   script:
+#     - scan_container $CI_REGISTRY_IMAGE:$CI_PIPELINE_ID
+
+sonarqube:
+  stage: scan
+  script:
+    - sonar-scanner
+  tags:
+    - xcode
+  allow_failure: true

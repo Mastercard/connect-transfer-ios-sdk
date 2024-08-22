@@ -1,0 +1,16 @@
+PODS:
+  - MastercardOpenBankingConnect (3.0.2)
+
+DEPENDENCIES:
+  - MastercardOpenBankingConnect
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - MastercardOpenBankingConnect
+
+SPEC CHECKSUMS:
+  MastercardOpenBankingConnect: 648428cc58be2519c48490a5e183b137b3ecb6c7
+
+PODFILE CHECKSUM: 5e24b61696ebac3a1a16968be96a4848e176d1e5
+
+COCOAPODS: 1.15.2
