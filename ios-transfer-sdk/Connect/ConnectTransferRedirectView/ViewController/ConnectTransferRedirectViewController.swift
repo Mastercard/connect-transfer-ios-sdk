@@ -23,6 +23,7 @@ class ConnectTransferRedirectViewController: UIViewController {
     //MARK: - Variables
     private var redirectViewModel: ConnectTransferRedirectViewModel
     
+    //MARK: - Init Methods
     init(partnerName: String, themeColor: UIColor) {
         self.redirectViewModel = ConnectTransferRedirectViewModel(partnerName: partnerName, themeColor: themeColor)
         super.init(nibName: "ConnectTransferRedirectViewController", bundle: nil)
@@ -39,6 +40,7 @@ class ConnectTransferRedirectViewController: UIViewController {
         setUpNavigationView()
         setUpRedirectingLabel()
         setUpLoaderTheme()
+//        goToFailureScreen()
     }
     
     deinit {
@@ -93,6 +95,13 @@ class ConnectTransferRedirectViewController: UIViewController {
             let exitPopUpViewController = ExitPopUpViewController(currentNavigationController: navigationController, partnerName: self.redirectViewModel.getPartnerName(), themeColor: self.redirectViewModel.getThemeColor())
             exitPopUpViewController.modalPresentationStyle = .overCurrentContext
             self.present(exitPopUpViewController, animated: true)
+        }
+    }
+    
+    func goToFailureScreen() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let failureScreenVC = FailureViewController(partnerName: self.redirectViewModel.getPartnerName(), themeColor: self.redirectViewModel.getThemeColor())
+            self.navigationController?.pushViewController(failureScreenVC, animated: true)
         }
     }
 }
