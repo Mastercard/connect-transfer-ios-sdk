@@ -41,6 +41,8 @@
 		770DCFB22B8CAD9800CBBAF4 /* MastercardOpenBankingConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFAF2B8CAD9700CBBAF4 /* MastercardOpenBankingConnect.swift */; };
 		770DCFB32B8CAD9800CBBAF4 /* MastercardOpenBankingConnectAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFAD2B8CAD9700CBBAF4 /* MastercardOpenBankingConnectAPI.swift */; };
 		770DCFB42B8CAD9800CBBAF4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFB02B8CAD9700CBBAF4 /* Config.swift */; };
+		7721065D2C78CB290094A6E6 /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = 7721065C2C78CB290094A6E6 /* AtomicTransact */; };
+		7721065F2C78CB2F0094A6E6 /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = 7721065E2C78CB2F0094A6E6 /* AtomicTransact */; };
 		77337E422BD817710028792D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77337E412BD817710028792D /* File.swift */; };
 		777F62132C6A23E700A342AD /* FailureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F62092C6A23E700A342AD /* FailureModel.swift */; };
 		777F62142C6A23E700A342AD /* FailureViewControllerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F620B2C6A23E700A342AD /* FailureViewControllerUtil.swift */; };
@@ -89,10 +91,6 @@
 		F4C6E59C2C57C19300723739 /* ConnectTransferRedirectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4C6E59A2C57C19300723739 /* ConnectTransferRedirectViewController.xib */; };
 		F4C6E5A02C57CE2E00723739 /* ConnectTransferRedirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6E5992C57C19300723739 /* ConnectTransferRedirectViewController.swift */; };
 		F4C6E5A12C57CE2E00723739 /* ConnectTransferRedirectViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = F4C6E59A2C57C19300723739 /* ConnectTransferRedirectViewController.xib */; };
-		F4CF3FE32C537899006CA1E1 /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = F4CF3FE22C537899006CA1E1 /* AtomicTransact */; };
-		F4CF3FE52C537899006CA1E1 /* AtomicTransactSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F4CF3FE42C537899006CA1E1 /* AtomicTransactSwiftUI */; };
-		F4CF3FEB2C5380B0006CA1E1 /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = F4CF3FEA2C5380B0006CA1E1 /* AtomicTransact */; };
-		F4CF3FED2C5380B0006CA1E1 /* AtomicTransactSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F4CF3FEC2C5380B0006CA1E1 /* AtomicTransactSwiftUI */; };
 		F4CF3FF02C53AF0C006CA1E1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CF3FEF2C53AF0C006CA1E1 /* Helper.swift */; };
 		F4CF3FF12C53B106006CA1E1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CF3FEF2C53AF0C006CA1E1 /* Helper.swift */; };
 		F4EF923B2C638A5C009F3A13 /* ConnectMedia.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = F4CF40162C53DD2E006CA1E1 /* ConnectMedia.xcassets */; };
@@ -215,8 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4CF3FEB2C5380B0006CA1E1 /* AtomicTransact in Frameworks */,
-				F4CF3FED2C5380B0006CA1E1 /* AtomicTransactSwiftUI in Frameworks */,
+				7721065F2C78CB2F0094A6E6 /* AtomicTransact in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,8 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4CF3FE32C537899006CA1E1 /* AtomicTransact in Frameworks */,
-				F4CF3FE52C537899006CA1E1 /* AtomicTransactSwiftUI in Frameworks */,
+				7721065D2C78CB290094A6E6 /* AtomicTransact in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +285,7 @@
 				F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */,
 				219261E82652E7D600879BAF /* Frameworks */,
 				6BA9DA452416D35E00884A40 /* Config.xcconfig */,
-				6B94CDDC23A819F20077D65A /* ConnectTransfer */,
+				6B94CDDC23A819F20077D65A /* Connect */,
 				6B94CDE723A819F30077D65A /* ConnectTests */,
 				2134234A2583F6D200C06BB8 /* TestApp */,
 				214B5BEB25895E9F00FA6A1E /* TestAppUITests */,
@@ -308,7 +304,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6B94CDDC23A819F20077D65A /* ConnectTransfer */ = {
+		6B94CDDC23A819F20077D65A /* Connect */ = {
 			isa = PBXGroup;
 			children = (
 				777F62122C6A23E700A342AD /* FailureView */,
@@ -328,7 +324,7 @@
 				F414C2DD2C61117A00A7ACAD /* Extensions */,
 				F4CF40162C53DD2E006CA1E1 /* ConnectMedia.xcassets */,
 			);
-			path = ConnectTransfer;
+			path = Connect;
 			sourceTree = "<group>";
 		};
 		6B94CDE723A819F30077D65A /* ConnectTests */ = {
@@ -565,8 +561,7 @@
 			);
 			name = TestApp;
 			packageProductDependencies = (
-				F4CF3FEA2C5380B0006CA1E1 /* AtomicTransact */,
-				F4CF3FEC2C5380B0006CA1E1 /* AtomicTransactSwiftUI */,
+				7721065E2C78CB2F0094A6E6 /* AtomicTransact */,
 			);
 			productName = TestApp;
 			productReference = 213423492583F6D200C06BB8 /* TestApp.app */;
@@ -605,8 +600,7 @@
 			);
 			name = ConnectTransfer;
 			packageProductDependencies = (
-				F4CF3FE22C537899006CA1E1 /* AtomicTransact */,
-				F4CF3FE42C537899006CA1E1 /* AtomicTransactSwiftUI */,
+				7721065C2C78CB290094A6E6 /* AtomicTransact */,
 			);
 			productName = Connect;
 			productReference = 6B94CDDA23A819F20077D65A /* ConnectTransfer.framework */;
@@ -672,7 +666,7 @@
 			);
 			mainGroup = 6B94CDD023A819F20077D65A;
 			packageReferences = (
-				F4CF3FE12C537899006CA1E1 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */,
+				7721065B2C78CB1B0094A6E6 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */,
 			);
 			productRefGroup = 6B94CDDB23A819F20077D65A /* Products */;
 			projectDirPath = "";
@@ -1325,7 +1319,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F4CF3FE12C537899006CA1E1 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */ = {
+		7721065B2C78CB1B0094A6E6 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/atomicfi/atomic-transact-ios";
 			requirement = {
@@ -1336,25 +1330,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F4CF3FE22C537899006CA1E1 /* AtomicTransact */ = {
+		7721065C2C78CB290094A6E6 /* AtomicTransact */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F4CF3FE12C537899006CA1E1 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
+			package = 7721065B2C78CB1B0094A6E6 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
 			productName = AtomicTransact;
 		};
-		F4CF3FE42C537899006CA1E1 /* AtomicTransactSwiftUI */ = {
+		7721065E2C78CB2F0094A6E6 /* AtomicTransact */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F4CF3FE12C537899006CA1E1 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
-			productName = AtomicTransactSwiftUI;
-		};
-		F4CF3FEA2C5380B0006CA1E1 /* AtomicTransact */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F4CF3FE12C537899006CA1E1 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
+			package = 7721065B2C78CB1B0094A6E6 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
 			productName = AtomicTransact;
-		};
-		F4CF3FEC2C5380B0006CA1E1 /* AtomicTransactSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F4CF3FE12C537899006CA1E1 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
-			productName = AtomicTransactSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
