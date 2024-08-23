@@ -13,7 +13,10 @@ class ConnectTransferViewModel: NSObject {
 
     private var transferModel: TransferModel? = nil
     private let pdsAPIPath = "server/authenticate/v2/transfer/deposit-switch"
+    private let connectTransferCompleteAPIPath = "server/auto/v2/complete"
     private var pdsAPIToken = Set<AnyCancellable>()
+    private var host:String? = nil
+    private var transferModelURString:String? = nil
     
     func getThemeColor() -> UIColor {
         return UIColor(red: 207/255, green: 69/255, blue: 0, alpha: 1.0)
@@ -115,5 +118,78 @@ class ConnectTransferViewModel: NSObject {
             UserDefaults.standard.synchronize()
         }
     
+    }
+    
+    func apiForConnectTranserComplete(completionHandler: @escaping (Bool, String?) -> Void) {
+        
+        guard let connectTranserCompleteURL = self.getURLForConnectTranserComplete(currentURLString: self.transferModelURString!) else {
+            completionHandler(false, nil)
+            return
+        }
+        
+        
+        let parameters : [String:Any] = ["reportData":[]]
+        
+        
+        guard let httpBody = try? JSONSerialization.data(
+            withJSONObject: parameters,
+            options: []
+        )
+        else {
+            return
+        }
+        
+        var urlRequest = URLRequest(url: connectTranserCompleteURL)
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = httpBody// pass dictionary to data object and set it as request
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        
+        let headers = ["authorization": "Bearer " + (transferModel?.token)!]
+        for (key, value) in headers {
+            urlRequest.setValue(value, forHTTPHeaderField: key)
+        }
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                
+                DispatchQueue.main.async {
+                    completionHandler(false, error?.localizedDescription)
+                }
+                return
+            }
+            guard let data = data, let response = response  else { return }
+            // handle data
+            DispatchQueue.main.async {
+                completionHandler(true, nil)
+            }
+        }.resume()
+    }
+    
+    
+    func getURLForConnectTranserComplete(currentURLString: String) -> URL? {
+        
+        guard let currentURL = URL(string: currentURLString) else {
+            return nil
+        }
+        
+        guard let host = currentURL.host else {
+            return nil
+        }
+        
+        if(self.host != nil){
+            self.host = host
+        }
+        
+        var transferModelURL = ""
+        
+        if let port = currentURL.port {
+            transferModelURL = "http://\(host):\(port)/\(connectTransferCompleteAPIPath)"
+            
+        }else {
+            transferModelURL = "https://\(host)/\(connectTransferCompleteAPIPath)"
+        }
+        
+        return URL(string: transferModelURL)
     }
 }
