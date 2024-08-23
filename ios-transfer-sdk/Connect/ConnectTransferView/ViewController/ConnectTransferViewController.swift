@@ -57,6 +57,17 @@ public class ConnectTransferViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func nextButtonAction(_ sender: Any) {
+        
+        self.transferViewModel.apiForTermsAndConditionConsent() { (isSuccess, error) in
+            
+            if isSuccess {
+                
+            }
+            
+            else {
+            }
+        }
+        
         DispatchQueue.main.async {
             let connectTransferRedirectViewController = ConnectTransferRedirectViewController(partnerName: self.transferViewModel.getPartenrName(), themeColor: self.transferViewModel.getThemeColor())
             self.navigationController?.pushViewController(connectTransferRedirectViewController, animated: true)

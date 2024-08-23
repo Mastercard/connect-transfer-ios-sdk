@@ -13,7 +13,10 @@ class ConnectTransferViewModel: NSObject {
 
     private var transferModel: TransferModel? = nil
     private let pdsAPIPath = "server/authenticate/v2/transfer/deposit-switch"
+    private let pdsTermsAndConditionAPIPath = "server/terms-and-policies"
     private var pdsAPIToken = Set<AnyCancellable>()
+    private var host:String? = nil
+    private var transferModelURString:String? = nil
     
     func getThemeColor() -> UIColor {
         return UIColor(red: 207/255, green: 69/255, blue: 0, alpha: 1.0)
@@ -115,5 +118,88 @@ class ConnectTransferViewModel: NSObject {
             UserDefaults.standard.synchronize()
         }
     
+    }
+    
+    
+    func apiForTermsAndConditionConsent(completionHandler: @escaping (Bool, String?) -> Void) {
+        
+        guard let termsAndConditionURL = self.getURLTermsAndConditionConsentAPI(currentURLString: self.transferModelURString!) else {
+            completionHandler(false, nil)
+            return
+        }
+        
+        
+        let parameters : [String:Any] = ["context":"partner","language":"en","termsAndConditionsVersion":"20231121","privacyPolicyVersion":"20230925"]
+        
+        guard let httpBody = try? JSONSerialization.data(
+             withJSONObject: parameters,
+             options: []
+          )
+        else {
+             return
+        }
+
+        var urlRequest = URLRequest(url: termsAndConditionURL)
+        urlRequest.httpMethod = "PUT"
+     
+        urlRequest.httpBody = httpBody// pass dictionary to data object and set it as request
+                
+        let headers = ["authorization": "Bearer " + (transferModel?.token)!]
+
+       
+
+        for (key, value) in headers {
+            urlRequest.setValue(value, forHTTPHeaderField: key)
+        }
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+         
+        
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                
+                DispatchQueue.main.async {
+                    completionHandler(false, error?.localizedDescription)
+                }
+                return
+            }
+          guard let data = data, let response = response  else { return }
+          // handle data
+            DispatchQueue.main.async {
+                completionHandler(true, nil)
+            }
+        }.resume()
+    
+        
+    }
+    
+    
+    func getURLTermsAndConditionConsentAPI(currentURLString: String) -> URL? {
+        
+        guard let currentURL = URL(string: currentURLString) else {
+            return nil
+        }
+        
+        guard let queryParams = currentURL.query else {
+            return nil
+        }
+        
+        guard let host = currentURL.host else {
+            return nil
+        }
+        
+        if(self.host != nil){
+            self.host = host
+        }
+        
+        var transferModelURL = ""
+        
+        if let port = currentURL.port {
+            transferModelURL = "http://\(host):\(port)/\(pdsTermsAndConditionAPIPath)"
+            
+        }else {
+            transferModelURL = "https://\(host)/\(pdsTermsAndConditionAPIPath)"
+        }
+        return URL(string: transferModelURL)
     }
 }
