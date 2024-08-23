@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -32,7 +31,7 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hai-tc-Ght" customClass="NavigationView" customModule="Connect" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="430" height="40"/>
-                            <color key="backgroundColor" systemColor="systemRedColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="2hJ-Dm-4h6"/>
                             </constraints>
@@ -73,7 +72,7 @@
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNN-zP-Jbl" customClass="PoweredByView" customModule="Connect" customModuleProvider="target">
                             <rect key="frame" x="24" y="815" width="382" height="19"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="19" id="EbR-Ou-ucc"/>
                             </constraints>
@@ -102,7 +101,7 @@
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="z9M-Bc-ObD" firstAttribute="top" secondItem="hai-tc-Ght" secondAttribute="bottom" constant="10" id="5B8-UO-GYv"/>
                         <constraint firstItem="hJu-9F-knZ" firstAttribute="trailing" secondItem="z9M-Bc-ObD" secondAttribute="trailing" id="9b3-12-H7M"/>
@@ -130,7 +129,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="I8k-ib-bwu" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="OXy-X0-VfG"/>
                 <constraint firstItem="I8k-ib-bwu" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="rAZ-F1-ETH"/>
@@ -140,11 +139,5 @@
     </objects>
     <resources>
         <image name="Frame" width="224" height="146"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
