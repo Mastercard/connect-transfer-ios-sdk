@@ -40,7 +40,6 @@ class ConnectTransferRedirectViewController: UIViewController {
         setUpNavigationView()
         setUpRedirectingLabel()
         setUpLoaderTheme()
-//        goToFailureScreen()
     }
     
     deinit {
@@ -98,10 +97,4 @@ class ConnectTransferRedirectViewController: UIViewController {
         }
     }
     
-    func goToFailureScreen() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let failureScreenVC = FailureViewController(partnerName: self.redirectViewModel.getPartnerName(), themeColor: self.redirectViewModel.getThemeColor())
-            self.navigationController?.pushViewController(failureScreenVC, animated: true)
-        }
-    }
 }
