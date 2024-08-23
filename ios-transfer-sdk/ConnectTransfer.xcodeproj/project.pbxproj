@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		6BAE6BA02514ED9900D5C059 /* Universal-Connect */ = {
+		6BAE6BA02514ED9900D5C059 /* Universal-ConnectTransfer */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 6BAE6BA32514ED9900D5C059 /* Build configuration list for PBXAggregateTarget "Universal-Connect" */;
+			buildConfigurationList = 6BAE6BA32514ED9900D5C059 /* Build configuration list for PBXAggregateTarget "Universal-ConnectTransfer" */;
 			buildPhases = (
 				6BAE6BA42514EDE100D5C059 /* Run Script */,
 			);
 			dependencies = (
 			);
-			name = "Universal-Connect";
+			name = "Universal-ConnectTransfer";
 			productName = "Universal-Connect";
 		};
 /* End PBXAggregateTarget section */
@@ -33,7 +33,7 @@
 		214B5BFF2589636C00FA6A1E /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212CDB162565CB9700118601 /* Version.swift */; };
 		214B5C052589655400FA6A1E /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D037E258942E900342EF5 /* AccessibilityIdentifier.swift */; };
 		216D037F258942E900342EF5 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D037E258942E900342EF5 /* AccessibilityIdentifier.swift */; };
-		6B94CDE423A819F30077D65A /* Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B94CDDA23A819F20077D65A /* Connect.framework */; };
+		6B94CDE423A819F30077D65A /* ConnectTransfer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B94CDDA23A819F20077D65A /* ConnectTransfer.framework */; };
 		6B94CDE923A819F30077D65A /* ConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B94CDE823A819F30077D65A /* ConnectTests.swift */; };
 		6B94CDEB23A819F30077D65A /* Connect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B94CDDD23A819F20077D65A /* Connect.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6B94CDF823A81AA50077D65A /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B94CDF723A81AA50077D65A /* ConnectViewController.swift */; };
@@ -162,10 +162,10 @@
 		214B5BEC25895E9F00FA6A1E /* TestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppUITests.swift; sourceTree = "<group>"; };
 		214B5BEE25895E9F00FA6A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		216D037E258942E900342EF5 /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
-		6B94CDDA23A819F20077D65A /* Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B94CDDA23A819F20077D65A /* ConnectTransfer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConnectTransfer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B94CDDD23A819F20077D65A /* Connect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Connect.h; sourceTree = "<group>"; };
 		6B94CDDE23A819F20077D65A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B94CDE323A819F30077D65A /* ConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B94CDE323A819F30077D65A /* ConnectTransferTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectTransferTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B94CDE823A819F30077D65A /* ConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectTests.swift; sourceTree = "<group>"; };
 		6B94CDEA23A819F30077D65A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B94CDF723A81AA50077D65A /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
@@ -240,7 +240,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B94CDE423A819F30077D65A /* Connect.framework in Frameworks */,
+				6B94CDE423A819F30077D65A /* ConnectTransfer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +289,7 @@
 				F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */,
 				219261E82652E7D600879BAF /* Frameworks */,
 				6BA9DA452416D35E00884A40 /* Config.xcconfig */,
-				6B94CDDC23A819F20077D65A /* Connect */,
+				6B94CDDC23A819F20077D65A /* ConnectTransfer */,
 				6B94CDE723A819F30077D65A /* ConnectTests */,
 				2134234A2583F6D200C06BB8 /* TestApp */,
 				214B5BEB25895E9F00FA6A1E /* TestAppUITests */,
@@ -300,15 +300,15 @@
 		6B94CDDB23A819F20077D65A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6B94CDDA23A819F20077D65A /* Connect.framework */,
-				6B94CDE323A819F30077D65A /* ConnectTests.xctest */,
+				6B94CDDA23A819F20077D65A /* ConnectTransfer.framework */,
+				6B94CDE323A819F30077D65A /* ConnectTransferTests.xctest */,
 				213423492583F6D200C06BB8 /* TestApp.app */,
 				214B5BEA25895E9F00FA6A1E /* TestAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6B94CDDC23A819F20077D65A /* Connect */ = {
+		6B94CDDC23A819F20077D65A /* ConnectTransfer */ = {
 			isa = PBXGroup;
 			children = (
 				777F62122C6A23E700A342AD /* FailureView */,
@@ -328,7 +328,7 @@
 				F414C2DD2C61117A00A7ACAD /* Extensions */,
 				F4CF40162C53DD2E006CA1E1 /* ConnectMedia.xcassets */,
 			);
-			path = Connect;
+			path = ConnectTransfer;
 			sourceTree = "<group>";
 		};
 		6B94CDE723A819F30077D65A /* ConnectTests */ = {
@@ -590,9 +590,9 @@
 			productReference = 214B5BEA25895E9F00FA6A1E /* TestAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		6B94CDD923A819F20077D65A /* Connect */ = {
+		6B94CDD923A819F20077D65A /* ConnectTransfer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6B94CDEE23A819F30077D65A /* Build configuration list for PBXNativeTarget "Connect" */;
+			buildConfigurationList = 6B94CDEE23A819F30077D65A /* Build configuration list for PBXNativeTarget "ConnectTransfer" */;
 			buildPhases = (
 				6B94CDD523A819F20077D65A /* Headers */,
 				6B94CDD623A819F20077D65A /* Sources */,
@@ -603,18 +603,18 @@
 			);
 			dependencies = (
 			);
-			name = Connect;
+			name = ConnectTransfer;
 			packageProductDependencies = (
 				F4CF3FE22C537899006CA1E1 /* AtomicTransact */,
 				F4CF3FE42C537899006CA1E1 /* AtomicTransactSwiftUI */,
 			);
 			productName = Connect;
-			productReference = 6B94CDDA23A819F20077D65A /* Connect.framework */;
+			productReference = 6B94CDDA23A819F20077D65A /* ConnectTransfer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6B94CDE223A819F30077D65A /* ConnectTests */ = {
+		6B94CDE223A819F30077D65A /* ConnectTransferTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6B94CDF123A819F30077D65A /* Build configuration list for PBXNativeTarget "ConnectTests" */;
+			buildConfigurationList = 6B94CDF123A819F30077D65A /* Build configuration list for PBXNativeTarget "ConnectTransferTests" */;
 			buildPhases = (
 				6B94CDDF23A819F30077D65A /* Sources */,
 				6B94CDE023A819F30077D65A /* Frameworks */,
@@ -626,9 +626,9 @@
 				6B94CDE623A819F30077D65A /* PBXTargetDependency */,
 				213423622583F7DE00C06BB8 /* PBXTargetDependency */,
 			);
-			name = ConnectTests;
+			name = ConnectTransferTests;
 			productName = ConnectTests;
-			productReference = 6B94CDE323A819F30077D65A /* ConnectTests.xctest */;
+			productReference = 6B94CDE323A819F30077D65A /* ConnectTransferTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -661,7 +661,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6B94CDD423A819F20077D65A /* Build configuration list for PBXProject "Connect" */;
+			buildConfigurationList = 6B94CDD423A819F20077D65A /* Build configuration list for PBXProject "ConnectTransfer" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -678,9 +678,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6B94CDD923A819F20077D65A /* Connect */,
-				6B94CDE223A819F30077D65A /* ConnectTests */,
-				6BAE6BA02514ED9900D5C059 /* Universal-Connect */,
+				6B94CDD923A819F20077D65A /* ConnectTransfer */,
+				6B94CDE223A819F30077D65A /* ConnectTransferTests */,
+				6BAE6BA02514ED9900D5C059 /* Universal-ConnectTransfer */,
 				213423482583F6D200C06BB8 /* TestApp */,
 				214B5BE925895E9F00FA6A1E /* TestAppUITests */,
 			);
@@ -865,7 +865,7 @@
 		};
 		6B94CDE623A819F30077D65A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6B94CDD923A819F20077D65A /* Connect */;
+			target = 6B94CDD923A819F20077D65A /* ConnectTransfer */;
 			targetProxy = 6B94CDE523A819F30077D65A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1286,7 +1286,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6B94CDD423A819F20077D65A /* Build configuration list for PBXProject "Connect" */ = {
+		6B94CDD423A819F20077D65A /* Build configuration list for PBXProject "ConnectTransfer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6B94CDEC23A819F30077D65A /* Debug */,
@@ -1295,7 +1295,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6B94CDEE23A819F30077D65A /* Build configuration list for PBXNativeTarget "Connect" */ = {
+		6B94CDEE23A819F30077D65A /* Build configuration list for PBXNativeTarget "ConnectTransfer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6B94CDEF23A819F30077D65A /* Debug */,
@@ -1304,7 +1304,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6B94CDF123A819F30077D65A /* Build configuration list for PBXNativeTarget "ConnectTests" */ = {
+		6B94CDF123A819F30077D65A /* Build configuration list for PBXNativeTarget "ConnectTransferTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6B94CDF223A819F30077D65A /* Debug */,
@@ -1313,7 +1313,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6BAE6BA32514ED9900D5C059 /* Build configuration list for PBXAggregateTarget "Universal-Connect" */ = {
+		6BAE6BA32514ED9900D5C059 /* Build configuration list for PBXAggregateTarget "Universal-ConnectTransfer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6BAE6BA12514ED9900D5C059 /* Debug */,

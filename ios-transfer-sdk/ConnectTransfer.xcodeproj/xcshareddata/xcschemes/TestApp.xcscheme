@@ -17,7 +17,7 @@
                BlueprintIdentifier = "213423482583F6D200C06BB8"
                BuildableName = "TestApp.app"
                BlueprintName = "TestApp"
-               ReferencedContainer = "container:Connect.xcodeproj">
+               ReferencedContainer = "container:ConnectTransfer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,7 +34,7 @@
             BlueprintIdentifier = "213423482583F6D200C06BB8"
             BuildableName = "TestApp.app"
             BlueprintName = "TestApp"
-            ReferencedContainer = "container:Connect.xcodeproj">
+            ReferencedContainer = "container:ConnectTransfer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <CommandLineArguments>
@@ -68,7 +68,7 @@
                BlueprintIdentifier = "214B5BE925895E9F00FA6A1E"
                BuildableName = "TestAppUITests.xctest"
                BlueprintName = "TestAppUITests"
-               ReferencedContainer = "container:Connect.xcodeproj">
+               ReferencedContainer = "container:ConnectTransfer.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -76,9 +76,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6B94CDE223A819F30077D65A"
-               BuildableName = "ConnectTests.xctest"
-               BlueprintName = "ConnectTests"
-               ReferencedContainer = "container:Connect.xcodeproj">
+               BuildableName = "ConnectTransferTests.xctest"
+               BlueprintName = "ConnectTransferTests"
+               ReferencedContainer = "container:ConnectTransfer.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -100,7 +100,7 @@
             BlueprintIdentifier = "213423482583F6D200C06BB8"
             BuildableName = "TestApp.app"
             BlueprintName = "TestApp"
-            ReferencedContainer = "container:Connect.xcodeproj">
+            ReferencedContainer = "container:ConnectTransfer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -117,7 +117,7 @@
             BlueprintIdentifier = "213423482583F6D200C06BB8"
             BuildableName = "TestApp.app"
             BlueprintName = "TestApp"
-            ReferencedContainer = "container:Connect.xcodeproj">
+            ReferencedContainer = "container:ConnectTransfer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

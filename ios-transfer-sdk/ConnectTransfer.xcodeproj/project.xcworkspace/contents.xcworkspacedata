@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Connect.xcodeproj">
+      location = "self:/Users/e113257/connect-transfer-ios-sdk/ios-transfer-sdk/ConnectTransfer.xcodeproj">
    </FileRef>
 </Workspace>

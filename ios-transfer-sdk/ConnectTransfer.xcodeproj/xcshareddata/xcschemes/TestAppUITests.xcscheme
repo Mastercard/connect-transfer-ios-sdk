@@ -17,10 +17,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6B94CDE223A819F30077D65A"
-               BuildableName = "ConnectTests.xctest"
-               BlueprintName = "ConnectTests"
-               ReferencedContainer = "container:Connect.xcodeproj">
+               BlueprintIdentifier = "214B5BE925895E9F00FA6A1E"
+               BuildableName = "TestAppUITests.xctest"
+               BlueprintName = "TestAppUITests"
+               ReferencedContainer = "container:ConnectTransfer.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -35,6 +35,23 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "213423482583F6D200C06BB8"
+            BuildableName = "TestApp.app"
+            BlueprintName = "TestApp"
+            ReferencedContainer = "container:ConnectTransfer.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "CONNECT_URL"
+            value = "$(CONNECT_URL)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -42,6 +59,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "213423482583F6D200C06BB8"
+            BuildableName = "TestApp.app"
+            BlueprintName = "TestApp"
+            ReferencedContainer = "container:ConnectTransfer.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
