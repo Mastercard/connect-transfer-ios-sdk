@@ -18,9 +18,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "214B5BE925895E9F00FA6A1E"
-               BuildableName = "TestAppUITests.xctest"
-               BlueprintName = "TestAppUITests"
+               BlueprintIdentifier = "6B94CDE223A819F30077D65A"
+               BuildableName = "ConnectTransferTests.xctest"
+               BlueprintName = "ConnectTransferTests"
                ReferencedContainer = "container:ConnectTransfer.xcodeproj">
             </BuildableReference>
          </TestableReference>
