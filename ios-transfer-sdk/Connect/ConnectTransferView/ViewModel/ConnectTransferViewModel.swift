@@ -87,7 +87,7 @@ class ConnectTransferViewModel: NSObject {
         var transferModelURL = ""
         
         if let port = currentURL.port {
-            transferModelURL = "https://\(host):\(port)/\(pdsAPIPath)?\(queryParams)"
+            transferModelURL = "http://\(host):\(port)/\(pdsAPIPath)?\(queryParams)"
             
         }else {
             transferModelURL = "https://\(host)/\(pdsAPIPath)?\(queryParams)"

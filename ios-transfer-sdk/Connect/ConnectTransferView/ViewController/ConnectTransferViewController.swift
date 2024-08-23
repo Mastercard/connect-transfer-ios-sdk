@@ -25,6 +25,11 @@ public class ConnectTransferViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var transferDescriptionLabel: UILabel!
     
+    @IBOutlet weak var allStepsView: UIView!
+    
+    @IBOutlet weak var stepNeededView: UIView!
+    @IBOutlet weak var stepNeededLabel: UILabel!
+    
     @IBOutlet weak var step1View: UIView!
     @IBOutlet weak var step1Label: UILabel!
     @IBOutlet weak var step1InstructionLabel: UILabel!
@@ -37,9 +42,9 @@ public class ConnectTransferViewController: UIViewController {
     @IBOutlet weak var step3Label: UILabel!
     @IBOutlet weak var step3InstructionLabel: UILabel!
     
-    @IBOutlet weak var step4View: UIView!
-    @IBOutlet weak var step4Label: UILabel!
-    @IBOutlet weak var step4InstructionLabel: UILabel!
+    @IBOutlet weak var permissionView: UIView!
+    @IBOutlet weak var lockIcon: UIImageView!    
+    @IBOutlet weak var permissionLabel: UILabel!
     
     @IBOutlet weak var termsAndCondtionText: UILabel!
     @IBOutlet weak var nextButton: UIButton!
@@ -85,6 +90,7 @@ public class ConnectTransferViewController: UIViewController {
         self.setUpTransferTitleLabel()
         self.setUpTransferDescription()
         self.setUpStepsView()
+        self.setUpPermissionView()
         self.setUpTermsAndConditonsText()
         self.setUpNextButton()
     }
@@ -133,24 +139,27 @@ public class ConnectTransferViewController: UIViewController {
     }
     
     private func setUpTransferDescription() {
-        let transferDescriptionMutableString = NSMutableAttributedString(string: String(format: TransferViewControllerUtil.getTransferDescriptionText(), self.transferViewModel.getPartenrName()), attributes: [NSAttributedString.Key.foregroundColor : TransferViewControllerUtil.getDefaultOnLightTextColor(), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)])
+        let transferDescriptionMutableString = NSMutableAttributedString(string: TransferViewControllerUtil.getTransferDescriptionText(), attributes: [NSAttributedString.Key.foregroundColor : TransferViewControllerUtil.getDefaultOnLightTextColor(), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)])
         
-        let partenerNameRange = transferDescriptionMutableString.mutableString.range(of: self.transferViewModel.getPartenrName())
+        let mastercardNameRange = transferDescriptionMutableString.mutableString.range(of: TransferViewControllerUtil.getMastercardText())
         
-        transferDescriptionMutableString.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)], range: partenerNameRange)
+        transferDescriptionMutableString.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)], range: mastercardNameRange)
         
         let atomicNameRange = transferDescriptionMutableString.mutableString.range(of: TransferViewControllerUtil.getAtomicText())
         
         transferDescriptionMutableString.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)], range: atomicNameRange)
         
-        let finicityNameRange = transferDescriptionMutableString.mutableString.range(of: TransferViewControllerUtil.getFincityText())
-        
-        transferDescriptionMutableString.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)], range: finicityNameRange)
-        
         self.transferDescriptionLabel.attributedText = transferDescriptionMutableString
     }
     
     private func setUpStepsView() {
+        self.allStepsView.backgroundColor = TransferViewControllerUtil.getAllStepBackgroundColor()
+        self.allStepsView.setBorder(borderColor: TransferViewControllerUtil.getAllStepBorderColor())
+        
+        self.stepNeededLabel.text = TransferViewControllerUtil.getStepInstructionText()
+        self.stepNeededLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        self.stepNeededLabel.textColor = TransferViewControllerUtil.getDefaultOnLightTextColor()
+        
         self.step1Label.setUpStepLabelAttributes(text: "1", themeColor: self.transferViewModel.getThemeColor())
         
         self.step1InstructionLabel.setUpStepInstructionAttribute(text: TransferViewControllerUtil.getTransferFirstStepText())
@@ -163,9 +172,13 @@ public class ConnectTransferViewController: UIViewController {
         
         self.step3InstructionLabel.setUpStepInstructionAttribute(text: TransferViewControllerUtil.getTransferThirdStepText())
         
-        self.step4Label.setUpStepLabelAttributes(text: "4", themeColor: self.transferViewModel.getThemeColor())
-        
-        self.step4InstructionLabel.setUpStepInstructionAttribute(text: String(format: TransferViewControllerUtil.getTransferFourthStepText(), self.transferViewModel.getPartenrName()))
+    }
+    
+    private func setUpPermissionView() {
+        self.lockIcon.image = UIImage(named: "lock")
+        self.permissionLabel.text = TransferViewControllerUtil.getPermissionText()
+        self.permissionLabel.textColor = TransferViewControllerUtil.getPermissionTextColor()
+        self.permissionLabel.font = UIFont.systemFont(ofSize: 10, weight: .medium)
     }
     
     private func setUpTermsAndConditonsText(){
