@@ -29,14 +29,11 @@
 		213423552583F6D300C06BB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 213423542583F6D300C06BB8 /* Assets.xcassets */; };
 		213423582583F6D300C06BB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213423562583F6D300C06BB8 /* LaunchScreen.storyboard */; };
 		214B5BED25895E9F00FA6A1E /* TestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214B5BEC25895E9F00FA6A1E /* TestAppUITests.swift */; };
-		214B5BF92589636500FA6A1E /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B94CDF723A81AA50077D65A /* ConnectViewController.swift */; };
 		214B5BFF2589636C00FA6A1E /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212CDB162565CB9700118601 /* Version.swift */; };
 		214B5C052589655400FA6A1E /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D037E258942E900342EF5 /* AccessibilityIdentifier.swift */; };
 		216D037F258942E900342EF5 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D037E258942E900342EF5 /* AccessibilityIdentifier.swift */; };
 		6B94CDE423A819F30077D65A /* ConnectTransfer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B94CDDA23A819F20077D65A /* ConnectTransfer.framework */; };
 		6B94CDE923A819F30077D65A /* ConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B94CDE823A819F30077D65A /* ConnectTests.swift */; };
-		6B94CDEB23A819F30077D65A /* Connect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B94CDDD23A819F20077D65A /* Connect.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6B94CDF823A81AA50077D65A /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B94CDF723A81AA50077D65A /* ConnectViewController.swift */; };
 		770DCFB12B8CAD9800CBBAF4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFAE2B8CAD9700CBBAF4 /* Model.swift */; };
 		770DCFB22B8CAD9800CBBAF4 /* MastercardOpenBankingConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFAF2B8CAD9700CBBAF4 /* MastercardOpenBankingConnect.swift */; };
 		770DCFB32B8CAD9800CBBAF4 /* MastercardOpenBankingConnectAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFAD2B8CAD9700CBBAF4 /* MastercardOpenBankingConnectAPI.swift */; };
@@ -161,12 +158,10 @@
 		214B5BEE25895E9F00FA6A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		216D037E258942E900342EF5 /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
 		6B94CDDA23A819F20077D65A /* ConnectTransfer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConnectTransfer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B94CDDD23A819F20077D65A /* Connect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Connect.h; sourceTree = "<group>"; };
 		6B94CDDE23A819F20077D65A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B94CDE323A819F30077D65A /* ConnectTransferTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectTransferTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B94CDE823A819F30077D65A /* ConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectTests.swift; sourceTree = "<group>"; };
 		6B94CDEA23A819F30077D65A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B94CDF723A81AA50077D65A /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 		6BA9DA452416D35E00884A40 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		770DCFAD2B8CAD9700CBBAF4 /* MastercardOpenBankingConnectAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MastercardOpenBankingConnectAPI.swift; sourceTree = "<group>"; };
 		770DCFAE2B8CAD9700CBBAF4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -272,18 +267,10 @@
 			path = TestAppUITests;
 			sourceTree = "<group>";
 		};
-		219261E82652E7D600879BAF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
 		6B94CDD023A819F20077D65A = {
 			isa = PBXGroup;
 			children = (
 				F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */,
-				219261E82652E7D600879BAF /* Frameworks */,
 				6BA9DA452416D35E00884A40 /* Config.xcconfig */,
 				6B94CDDC23A819F20077D65A /* Connect */,
 				6B94CDE723A819F30077D65A /* ConnectTests */,
@@ -308,9 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				777F62122C6A23E700A342AD /* FailureView */,
-				6B94CDDD23A819F20077D65A /* Connect.h */,
 				6B94CDDE23A819F20077D65A /* Info.plist */,
-				6B94CDF723A81AA50077D65A /* ConnectViewController.swift */,
 				F4C6E58B2C57AE8B00723739 /* ConnectTransferView */,
 				F4C6E5972C57C16000723739 /* ConnectTransferRedirectView */,
 				F4F519212C64A18300557516 /* ExitPopUpView */,
@@ -539,7 +524,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B94CDEB23A819F30077D65A /* Connect.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,7 +762,6 @@
 				F4C6E5832C57698D00723739 /* ConnectTransferViewController.swift in Sources */,
 				F4C6E5842C57698D00723739 /* ConnectTransferViewController.xib in Sources */,
 				F4CF3FF12C53B106006CA1E1 /* Helper.swift in Sources */,
-				214B5BF92589636500FA6A1E /* ConnectViewController.swift in Sources */,
 				213423502583F6D200C06BB8 /* ViewController.swift in Sources */,
 				2134234C2583F6D200C06BB8 /* AppDelegate.swift in Sources */,
 				777F621C2C6A262900A342AD /* FailureViewModel.swift in Sources */,
@@ -820,7 +803,6 @@
 				212CDB172565CB9700118601 /* Version.swift in Sources */,
 				777F62152C6A23E700A342AD /* FailureViewController.swift in Sources */,
 				F411D73F2C6A53BA00BE39C2 /* Bundle+Extension.swift in Sources */,
-				6B94CDF823A81AA50077D65A /* ConnectViewController.swift in Sources */,
 				F414C2E52C611C8200A7ACAD /* UITapGestureRecognizer+Extension.swift in Sources */,
 				F414C2D42C610B4200A7ACAD /* NavigationView.swift in Sources */,
 				F414C2D62C610B4200A7ACAD /* PoweredByView.swift in Sources */,

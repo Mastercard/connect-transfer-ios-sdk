@@ -14,11 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var urlInput: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var connectButton: UIButton!
     @IBOutlet weak var pdsURLInput: UITextField!
     @IBOutlet weak var launchConnectTransferButton: UIButton!
     
-    var connectViewController: ConnectViewController!
     var transferViewController: ConnectTransferViewController!
     var connectNavController: UINavigationController!
     let gradientLayer = CAGradientLayer()
@@ -38,11 +36,8 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
         
         urlInput.accessibilityIdentifier = AccessiblityIdentifer.UrlTextField.rawValue
-        connectButton.accessibilityIdentifier = AccessiblityIdentifer.ConnectButton.rawValue
         
         urlInput.becomeFirstResponder()
-        let newUrl = "partnerapp://"
-        newUrl.isStringLink()
     }
     
     
@@ -65,10 +60,6 @@ class ViewController: UIViewController {
         activityIndicator.color = .white
         
         infoView.layer.cornerRadius = 8
-        connectButton.layer.cornerRadius = 24
-        connectButton.isEnabled = false
-        connectButton.setTitleColor(UIColor(red: 254.0/255.0, green: 254.0/255.0, blue: 254.0/255.0, alpha: 0.32), for: .disabled)
-        connectButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         
         launchConnectTransferButton.layer.cornerRadius = 24
         launchConnectTransferButton.isEnabled = false
@@ -93,11 +84,6 @@ class ViewController: UIViewController {
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    @IBAction func connectButtonClicked(_ sender: Any) {
-        view.endEditing(true)
-        activityIndicator.startAnimating()
-        openWebKitConnectView()
-    }
     
     @IBAction func launchConnectTransferAction(_ sender: Any) {
         activityIndicator.startAnimating()
@@ -107,75 +93,8 @@ class ViewController: UIViewController {
             self.transferViewController.loadConnectTransfer(with: connectTransferUrl)
         }
     }
-    
-    
-    func openWebKitConnectView() {
-        if let connectUrl = urlInput.text {
-            print("creating & loading connectViewController")
-            self.connectViewController = ConnectViewController()
-            self.connectViewController.delegate = self
-          //  self.connectViewController.load(connectUrl)
-          //  self.connectViewController.load(connectUrl,redirectUrl: "partnerapp://") // Depplink
-            self.connectViewController.load(connectUrl,redirectUrl: "https://acmelending.net") // Universal link
-        } else {
-            print("no connect url provided.")
-            activityIndicator.stopAnimating()
-        }
-    }
-    
-}
 
-extension ViewController: ConnectEventDelegate {
-    func onCancel(_ data: NSDictionary?) {
-        print("onCancel:")
-        print(data?.debugDescription ?? "no data in callback")
-        self.activityIndicator.stopAnimating()
-        // Needed to trigger deallocation of ConnectViewController
-        self.connectViewController = nil
-        self.connectNavController = nil
-    }
     
-    func onDone(_ data: NSDictionary?) {
-        print("onDone:")
-        print(data?.debugDescription ?? "no data in callback")
-        self.activityIndicator.stopAnimating()
-        // Needed to trigger deallocation of ConnectViewController
-        self.connectViewController = nil
-        self.connectNavController = nil
-    }
-    
-    func onError(_ data: NSDictionary?) {
-        print("onError:")
-        print(data?.debugDescription ?? "no data in callback")
-        self.activityIndicator.stopAnimating()
-        // Needed to trigger deallocation of ConnectViewController
-        self.connectViewController = nil
-        self.connectNavController = nil
-    }
-    
-    func onLoad() {
-        print("onLoad:")
-        self.connectNavController = UINavigationController(rootViewController: self.connectViewController)
-        if(UIDevice.current.userInterfaceIdiom == .phone){
-            self.connectNavController.modalPresentationStyle = .fullScreen
-        }else{
-            self.connectNavController.modalPresentationStyle = .automatic
-        }
-        
-        self.connectNavController.isModalInPresentation = true
-        self.connectNavController.presentationController?.delegate = self
-        self.present(self.connectNavController, animated: true)
-    }
-    
-    func onRoute(_ data: NSDictionary?) {
-        print("onRoute:")
-        print(data?.debugDescription ?? "no data in callback")
-    }
-    
-    func onUser(_ data: NSDictionary?) {
-        print("onUser:")
-        print(data?.debugDescription ?? "no data in callback")
-    }
 }
 
 extension ViewController: UIAdaptivePresentationControllerDelegate {
@@ -193,62 +112,17 @@ extension ViewController: UITextFieldDelegate {
         let isEnabled = newLength > 0
         
         if textField == self.urlInput {
-            connectButton.isEnabled = isEnabled
+            launchConnectTransferButton.isEnabled = isEnabled
             // Adjust opacity based on button enabled state
             if isEnabled {
-                connectButton.backgroundColor = UIColor(red: 254.0 / 255.0, green: 254.0 / 255.0, blue: 254.0 / 255.0, alpha: 0.24)
+                launchConnectTransferButton.backgroundColor = UIColor(red: 254.0 / 255.0, green: 254.0 / 255.0, blue: 254.0 / 255.0, alpha: 0.24)
             } else {
-                connectButton.backgroundColor = UIColor(red: 254.0 / 255.0, green: 254.0 / 255.0, blue: 254.0 / 255.0, alpha: 0.16)
+                launchConnectTransferButton.backgroundColor = UIColor(red: 254.0 / 255.0, green: 254.0 / 255.0, blue: 254.0 / 255.0, alpha: 0.16)
             }
             return true
         }
-        
-        launchConnectTransferButton.isEnabled = isEnabled
-        // Adjust opacity based on button enabled state
-        if isEnabled {
-            launchConnectTransferButton.backgroundColor = UIColor(red: 254.0 / 255.0, green: 254.0 / 255.0, blue: 254.0 / 255.0, alpha: 0.24)
-        } else {
-            launchConnectTransferButton.backgroundColor = UIColor(red: 254.0 / 255.0, green: 254.0 / 255.0, blue: 254.0 / 255.0, alpha: 0.16)
-        }
+
         return true
-    }
-}
-
-
-extension String {
-    func isStringLink() -> Bool {
-        let types: NSTextCheckingResult.CheckingType = [.link]
-        let detector = try? NSDataDetector(types: types.rawValue)
-        guard (detector != nil && !self.isEmpty) else { return false }
-        if detector!.numberOfMatches(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.count)) > 0 {
-            print(self.count)
-            return true
-        }
-        if UIApplication.shared.canOpenURL(URL.init(string: self)!) {
-            print("Validated deeplink")
-            return true
-        }
-        var returnValue = true
-            let mobileRegEx =  "[a-z]{1}://"  // {3} -> at least 3 alphabet are compulsory.
-
-            do {
-                let regex = try NSRegularExpression(pattern: mobileRegEx)
-                let nsString = self as NSString
-                let results = regex.matches(in: self, range: NSRange(location: 0, length: nsString.length))
-
-                if results.count == 0
-                {
-                    returnValue = false
-                }
-
-            } catch let error as NSError {
-                print("invalid regex: \(error.localizedDescription)")
-                returnValue = false
-            }
-
-            return  returnValue
-        
-      //  return false
     }
 }
 
