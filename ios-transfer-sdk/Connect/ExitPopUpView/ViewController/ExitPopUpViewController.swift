@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ExitPopUpDelegate: AnyObject{
+    func exitConnectTransfer()
+}
+
 class ExitPopUpViewController: UIViewController {
 
     //MARK: - Outlets
@@ -30,6 +34,8 @@ class ExitPopUpViewController: UIViewController {
     //MARK: - Variables
     private var exitPopUpViewModel: ExitPopUpViewModel
     private var currentNavigationController: UINavigationController
+    
+    weak var delegate: ExitPopUpDelegate?
     
     //MARK: - Init Method
     init(currentNavigationController: UINavigationController, partnerName: String, themeColor: UIColor) {
@@ -59,6 +65,7 @@ class ExitPopUpViewController: UIViewController {
     }
     
     @IBAction func exitButtonAction(_ sender: Any) {
+        self.delegate?.exitConnectTransfer()
         self.dismissPopUpView()
         self.currentNavigationController.dismiss(animated: true)
     }

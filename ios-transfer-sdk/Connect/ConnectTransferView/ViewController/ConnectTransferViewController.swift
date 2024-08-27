@@ -101,6 +101,7 @@ public class ConnectTransferViewController: UIViewController {
         DispatchQueue.main.async {
             let exitPopUpViewController = ExitPopUpViewController(currentNavigationController: navigationController, partnerName: self.transferViewModel.getPartnerName(), themeColor: self.transferViewModel.getThemeColor())
             exitPopUpViewController.modalPresentationStyle = .overCurrentContext
+            exitPopUpViewController.delegate = self
             self.present(exitPopUpViewController, animated: true)
         }
     }
@@ -270,5 +271,12 @@ fileprivate extension UILabel {
         self.text = text
         self.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         self.textColor = themeColor
+    }
+}
+
+//MARK: - Exit PopUp Delegate Methods
+extension ConnectTransferViewController: ExitPopUpDelegate {
+    func exitConnectTransfer() {
+        self.delegate?.onTransferEnd(self.transferViewModel.getResponseForDone(isError: true, reason: "exit"))
     }
 }

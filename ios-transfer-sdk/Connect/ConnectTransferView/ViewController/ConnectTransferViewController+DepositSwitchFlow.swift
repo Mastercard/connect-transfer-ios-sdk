@@ -58,7 +58,7 @@ extension ConnectTransferViewController {
         
         case .closed(let response):
             print("Close event:")
-            self.delegate?.onTransferEnd(self.transferViewModel.getResponseForDone(isError: true, reason: response.reason))
+            self.delegate?.onTransferEnd(self.transferViewModel.getResponseForDone(isError: true, reason: "exit"))
             
         case .error(let error):
             print("Transact returned with error:")

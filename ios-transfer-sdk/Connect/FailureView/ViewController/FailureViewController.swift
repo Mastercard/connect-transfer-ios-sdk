@@ -51,15 +51,10 @@ public class FailureViewController: UIViewController {
   
     //MARK: - Actions
     @IBAction func returnToButtonAction(_ sender: Any) {
-        
+        self.exitConnectTransfer()
     }
     
     @IBAction func tryAgainButtonAction(_ sender: Any) {
-    }
-    
-    //MARK: - Public Methods
-    public func loadConnectFailure(with urlString: String){
-        
     }
     
     //MARK: - Private Methods
@@ -92,6 +87,7 @@ public class FailureViewController: UIViewController {
         DispatchQueue.main.async {
             let exitPopUpViewController = ExitPopUpViewController(currentNavigationController: navigationController, partnerName: self.failureViewModel.getPartnerName(), themeColor: self.failureViewModel.getThemeColor())
             exitPopUpViewController.modalPresentationStyle = .overCurrentContext
+            exitPopUpViewController.delegate = self
             self.present(exitPopUpViewController, animated: true)
         }
     }
@@ -132,6 +128,22 @@ public class FailureViewController: UIViewController {
         self.returnToButton.setTitle(String(format: FailureViewControllerUtil.getReturnToButtonText(), self.failureViewModel.getPartnerName()), for: .normal)
         self.returnToButton.setTitleColor(self.failureViewModel.getThemeColor(), for: .normal)
         self.returnToButton.setBorder(borderRadius: 1, borderColor: self.failureViewModel.getThemeColor())
+    }
+    
+}
+
+//MARK: - Exit PopUp Delegate Methods
+extension FailureViewController: ExitPopUpDelegate {
+    func exitConnectTransfer() {
+        guard let currentNavigationController = self.navigationController else {
+            return
+        }
+        
+        guard let rootViewController = currentNavigationController.viewControllers.first as? ConnectTransferViewController else {
+            return
+        }
+        
+        rootViewController.exitConnectTransfer()
     }
     
 }
