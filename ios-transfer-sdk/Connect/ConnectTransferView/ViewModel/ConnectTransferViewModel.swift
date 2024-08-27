@@ -96,7 +96,7 @@ class ConnectTransferViewModel: NSObject {
         var transferModelURL = ""
         
         if let port = currentURL.port {
-            self.pdsBaseURLString = "https://\(host):\(port)"
+            self.pdsBaseURLString = "http://\(host):\(port)"
             
         }else {
             self.pdsBaseURLString = "https://\(host)"
@@ -179,11 +179,6 @@ extension ConnectTransferViewModel {
 //MARK: - Connect Transfer Event Methods
 extension ConnectTransferViewModel {
     
-    func getTransferEventCommonDataDict() -> NSDictionary? {
-        
-        self.transferEventCommonDataDict
-    }
-    
     private func setTransferEventCommonDataDict(fullPDSURL: URL) {
         
         guard let urlComponent = URLComponents(url: fullPDSURL, resolvingAgainstBaseURL: false) else {
@@ -213,7 +208,7 @@ extension ConnectTransferViewModel {
             if let type = item.getQueryValue(for: TransferEventDataName.type.rawValue) {
                 queryItems[TransferEventDataName.type.rawValue] = type
             }
-
+            
             if let sessionId = item.getQueryValue(for: "signature") {
                 queryItems[TransferEventDataName.sessionId.rawValue] = sessionId
             }
@@ -228,11 +223,51 @@ extension ConnectTransferViewModel {
         
     }
     
+    func getTransferEventCommonDataDict() -> NSDictionary? {
+        
+        self.transferEventCommonDataDict
+    }
+    
+    func getResponseForInitializeTransfer() -> NSDictionary? {
+        guard var commonResponse = getTransferEventCommonDataDict() as? [String: String] else {
+            return nil
+        }
+        
+        commonResponse[TransferEventDataName.action.rawValue] = UserEvents.INITIALIZE_TRANSFER.rawValue
+        
+        return commonResponse as NSDictionary
+    }
+    
+    func getResponseForTermsAndConditionsAccepted() -> NSDictionary? {
+        guard var commonResponse = getTransferEventCommonDataDict() as? [String: String] else {
+            return nil
+        }
+        
+        commonResponse[TransferEventDataName.action.rawValue] = UserEvents.TERMS_ACCEPTED.rawValue
+        
+        return commonResponse as NSDictionary
+    }
+    
+    func getResponseForInitializeDepositSwitch(productType: AtomicTransact.AtomicConfig.ProductType?) -> NSDictionary? {
+        guard var commonResponse = getTransferEventCommonDataDict() as? [String: String] else {
+            return nil
+        }
+        
+        commonResponse[TransferEventDataName.action.rawValue] = UserEvents.INITIALIZE_DEPOSIT_SWITCH.rawValue
+        
+        if let productType = productType {
+            commonResponse[TransferEventDataName.product.rawValue] = productType.rawValue
+        }
+        
+        return commonResponse as NSDictionary
+    }
+    
     func getResponseForDone(isError: Bool = false, reason: String?) -> NSDictionary? {
         guard var commonResponse = getTransferEventCommonDataDict() as? [String: String] else {
             return nil
         }
         
+        commonResponse[TransferEventDataName.action.rawValue] = UserEvents.END.rawValue
         commonResponse[TransferEventDataName.code.rawValue] = isError ? "100" : "200"
         
         if let reason = reason {

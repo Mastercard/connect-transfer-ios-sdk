@@ -36,9 +36,13 @@ enum TransferEventDataName: String {
     case depositAllocation = "depositAllocation"
     case status = "status"
     case expired = "expired"
+    case product = "product"
 }
 
 enum UserEvents: String{
+    case INITIALIZE_TRANSFER = "InitializeTransfer"
+    case TERMS_ACCEPTED = "TermsAccepted"
+    case INITIALIZE_DEPOSIT_SWITCH = "InitializeDepositSwitch"
     case SEARCH_PAYROLL_PROVIDER = "SearchPayrollProvider"
     case SELECT_PAYROLL_PROVIDER = "SelectPayrollProvider"
     case SUBMIT_CREDENTIALS = "SubmitCredentials"
@@ -47,6 +51,7 @@ enum UserEvents: String{
     case SUBMIT_ALLOCATION = "SubmitAllocation"
     case TASK_COMPLETED = "TaskCompleted"
     case UNAUTHORIZED = "Unauthorized"
+    case END = "End"
 }
 
 

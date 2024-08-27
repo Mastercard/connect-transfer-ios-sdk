@@ -52,7 +52,7 @@ public class ConnectTransferViewController: UIViewController {
     //MARK: - Actions
     @IBAction func nextButtonAction(_ sender: Any) {
         self.openDepositSwitchFlow()
-        self.delegate?.onTermsAndConditionsAccepted(self.transferViewModel.getTransferEventCommonDataDict())
+        self.delegate?.onTermsAndConditionsAccepted(self.transferViewModel.getResponseForTermsAndConditionsAccepted())
     }
     
     //MARK: - Public Methods
@@ -61,7 +61,7 @@ public class ConnectTransferViewController: UIViewController {
         self.transferViewModel.apiHitToGetTransferModel(urlString: urlString) { (isSuccess, error) in
             
             if isSuccess {
-                self.delegate?.onInitializeTransferDone(self.transferViewModel.getTransferEventCommonDataDict())
+                self.delegate?.onInitializeTransferDone(self.transferViewModel.getResponseForInitializeTransfer())
                 
             }else {
                 self.delegate?.onTransferEnd(self.transferViewModel.getResponseForDone(isError: true, reason: error))

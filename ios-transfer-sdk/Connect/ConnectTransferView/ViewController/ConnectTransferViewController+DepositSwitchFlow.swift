@@ -37,7 +37,7 @@ extension ConnectTransferViewController {
         switch interaction.name {
             
         case AtomicEvents.INITIALIZED_TRANSACT.rawValue:
-            self.delegate?.onInitializeDepositSwitch(self.transferViewModel.getTransferEventCommonDataDict())
+            self.delegate?.onInitializeDepositSwitch(self.transferViewModel.getResponseForInitializeDepositSwitch(productType: interaction.product))
             
         default:
             guard let atomicEvent = AtomicEvents(rawValue: interaction.name) else {
