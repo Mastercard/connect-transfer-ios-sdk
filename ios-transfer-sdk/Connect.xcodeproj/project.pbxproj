@@ -320,12 +320,12 @@
 		6B94CDDC23A819F20077D65A /* Connect */ = {
 			isa = PBXGroup;
 			children = (
-				777F62122C6A23E700A342AD /* FailureView */,
 				6B94CDDD23A819F20077D65A /* Connect.h */,
 				6B94CDDE23A819F20077D65A /* Info.plist */,
 				6B94CDF723A81AA50077D65A /* ConnectViewController.swift */,
 				F4C6E58B2C57AE8B00723739 /* ConnectTransferView */,
 				F4C6E5972C57C16000723739 /* ConnectTransferRedirectView */,
+				777F62122C6A23E700A342AD /* FailureView */,
 				F4F519212C64A18300557516 /* ExitPopUpView */,
 				F414C2CF2C610B4200A7ACAD /* NavigationView */,
 				F414C2D32C610B4200A7ACAD /* PoweredByView */,

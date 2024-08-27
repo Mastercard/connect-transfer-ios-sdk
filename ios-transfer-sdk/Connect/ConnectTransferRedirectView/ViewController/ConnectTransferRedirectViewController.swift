@@ -23,6 +23,7 @@ class ConnectTransferRedirectViewController: UIViewController {
     //MARK: - Variables
     private var redirectViewModel: ConnectTransferRedirectViewModel
     
+    //MARK: - Init Methods
     init(partnerName: String, themeColor: UIColor) {
         self.redirectViewModel = ConnectTransferRedirectViewModel(partnerName: partnerName, themeColor: themeColor)
         super.init(nibName: "ConnectTransferRedirectViewController", bundle: nil)
@@ -95,4 +96,5 @@ class ConnectTransferRedirectViewController: UIViewController {
             self.present(exitPopUpViewController, animated: true)
         }
     }
+    
 }
