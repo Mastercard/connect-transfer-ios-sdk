@@ -22,10 +22,11 @@ class ConnectTransferRedirectViewController: UIViewController {
     
     //MARK: - Variables
     private var redirectViewModel: ConnectTransferRedirectViewModel
+    var callbackForTransferFlowComplete:(()->Void)?
     
     //MARK: - Init Methods
-    init(partnerName: String, themeColor: UIColor) {
-        self.redirectViewModel = ConnectTransferRedirectViewModel(partnerName: partnerName, themeColor: themeColor)
+    init(partnerName: String, themeColor: UIColor, pdsBaseURLString: String?, transferModelToken: String?) {
+        self.redirectViewModel = ConnectTransferRedirectViewModel(partnerName: partnerName, themeColor: themeColor, pdsBaseURLString: pdsBaseURLString, transferModelToken: transferModelToken)
         super.init(nibName: "ConnectTransferRedirectViewController", bundle: nil)
     }
     
@@ -40,6 +41,11 @@ class ConnectTransferRedirectViewController: UIViewController {
         setUpNavigationView()
         setUpRedirectingLabel()
         setUpLoaderTheme()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        apiHitToCompleteTheTransferFlow()
     }
     
     deinit {
@@ -98,6 +104,13 @@ class ConnectTransferRedirectViewController: UIViewController {
         }
     }
     
+    func apiHitToCompleteTheTransferFlow() {
+        self.redirectViewModel.apiForConnectTranserComplete { _, _ in
+            if let callbackForTransferFlowComplete = self.callbackForTransferFlowComplete {
+                callbackForTransferFlowComplete()
+            }
+        }
+    }
 }
 
 //MARK: - Exit PopUp Delegate Methods

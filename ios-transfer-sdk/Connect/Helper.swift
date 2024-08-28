@@ -19,11 +19,30 @@ class Helper: NSObject {
     }
     
     class func getTermsAndConditionsURLString() -> String {
+        if currentAppLanguage() == "es" {
+            return "https://connect2.finicity.com/assets/html/connect-eula_es.html"
+        }
+        
         return "https://connect2.finicity.com/assets/html/connect-eula.html"
     }
     
     class func getPrivacyPolicyURLString() -> String {
+        
+        if currentAppLanguage() == "es" {
+            
+            return "https://www.finicitystg.com/privacy/es/"
+        }
+        
         return "https://finicity.com/privacy"
+    }
+    
+    class func currentAppLanguage() -> String {
+        if let appleLanguages = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String], let currentLanguage = appleLanguages.first, currentLanguage == "es" {
+            
+            return "es"
+        }
+        
+        return "en"
     }
 }
 
