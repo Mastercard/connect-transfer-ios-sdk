@@ -21,7 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		212CDB172565CB9700118601 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212CDB162565CB9700118601 /* Version.swift */; };
 		2134234C2583F6D200C06BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134234B2583F6D200C06BB8 /* AppDelegate.swift */; };
 		2134234E2583F6D200C06BB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134234D2583F6D200C06BB8 /* SceneDelegate.swift */; };
 		213423502583F6D200C06BB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134234F2583F6D200C06BB8 /* ViewController.swift */; };
@@ -29,7 +28,6 @@
 		213423552583F6D300C06BB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 213423542583F6D300C06BB8 /* Assets.xcassets */; };
 		213423582583F6D300C06BB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213423562583F6D300C06BB8 /* LaunchScreen.storyboard */; };
 		214B5BED25895E9F00FA6A1E /* TestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214B5BEC25895E9F00FA6A1E /* TestAppUITests.swift */; };
-		214B5BFF2589636C00FA6A1E /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212CDB162565CB9700118601 /* Version.swift */; };
 		214B5C052589655400FA6A1E /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D037E258942E900342EF5 /* AccessibilityIdentifier.swift */; };
 		216D037F258942E900342EF5 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D037E258942E900342EF5 /* AccessibilityIdentifier.swift */; };
 		6B94CDE423A819F30077D65A /* ConnectTransfer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B94CDDA23A819F20077D65A /* ConnectTransfer.framework */; };
@@ -40,7 +38,6 @@
 		770DCFB42B8CAD9800CBBAF4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFB02B8CAD9700CBBAF4 /* Config.swift */; };
 		7721065D2C78CB290094A6E6 /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = 7721065C2C78CB290094A6E6 /* AtomicTransact */; };
 		7721065F2C78CB2F0094A6E6 /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = 7721065E2C78CB2F0094A6E6 /* AtomicTransact */; };
-		77337E422BD817710028792D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77337E412BD817710028792D /* File.swift */; };
 		777F62132C6A23E700A342AD /* FailureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F62092C6A23E700A342AD /* FailureModel.swift */; };
 		777F62142C6A23E700A342AD /* FailureViewControllerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F620B2C6A23E700A342AD /* FailureViewControllerUtil.swift */; };
 		777F62152C6A23E700A342AD /* FailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F620D2C6A23E700A342AD /* FailureViewController.swift */; };
@@ -51,8 +48,6 @@
 		777F621A2C6A262200A342AD /* FailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F620D2C6A23E700A342AD /* FailureViewController.swift */; };
 		777F621B2C6A262500A342AD /* FailureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777F620E2C6A23E700A342AD /* FailureViewController.xib */; };
 		777F621C2C6A262900A342AD /* FailureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F62102C6A23E700A342AD /* FailureViewModel.swift */; };
-		779D15032943205300023178 /* OpenLinkURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779D15022943205300023178 /* OpenLinkURL.swift */; };
-		779D1504294333C400023178 /* OpenLinkURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779D15022943205300023178 /* OpenLinkURL.swift */; };
 		77EF09E32BCEC77300F5C0E5 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 77EF09E22BCEC76C00F5C0E5 /* PrivacyInfo.xcprivacy */; };
 		F411D73C2C66903B00BE39C2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */; };
 		F411D73D2C66917A00BE39C2 /* Localizable.xcstrings in Sources */ = {isa = PBXBuildFile; fileRef = F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */; };
@@ -76,6 +71,12 @@
 		F414C2E72C611CCC00A7ACAD /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414C2E02C611C4800A7ACAD /* UIImage+Extension.swift */; };
 		F414C2E82C611CCC00A7ACAD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414C2E22C611C6200A7ACAD /* UIImageView+Extension.swift */; };
 		F414C2E92C611CCC00A7ACAD /* UITapGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414C2E42C611C8200A7ACAD /* UITapGestureRecognizer+Extension.swift */; };
+		F48899752C77570B00639FFF /* ConnectTransferEventConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899742C77570B00639FFF /* ConnectTransferEventConfig.swift */; };
+		F48899762C77570B00639FFF /* ConnectTransferEventConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899742C77570B00639FFF /* ConnectTransferEventConfig.swift */; };
+		F48899782C77577100639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899772C77577000639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift */; };
+		F48899792C77577100639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899772C77577000639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift */; };
+		F488997B2C7757B100639FFF /* URLQueryItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488997A2C7757B100639FFF /* URLQueryItem+Extension.swift */; };
+		F488997C2C7757B100639FFF /* URLQueryItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488997A2C7757B100639FFF /* URLQueryItem+Extension.swift */; };
 		F4C6E5812C57696900723739 /* ConnectTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6E57F2C57696900723739 /* ConnectTransferViewController.swift */; };
 		F4C6E5822C57696900723739 /* ConnectTransferViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4C6E5802C57696900723739 /* ConnectTransferViewController.xib */; };
 		F4C6E5832C57698D00723739 /* ConnectTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6E57F2C57696900723739 /* ConnectTransferViewController.swift */; };
@@ -144,7 +145,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		212CDB162565CB9700118601 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		213423492583F6D200C06BB8 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2134234B2583F6D200C06BB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2134234D2583F6D200C06BB8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,13 +167,11 @@
 		770DCFAE2B8CAD9700CBBAF4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		770DCFAF2B8CAD9700CBBAF4 /* MastercardOpenBankingConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MastercardOpenBankingConnect.swift; sourceTree = "<group>"; };
 		770DCFB02B8CAD9700CBBAF4 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		77337E412BD817710028792D /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		777F62092C6A23E700A342AD /* FailureModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailureModel.swift; sourceTree = "<group>"; };
 		777F620B2C6A23E700A342AD /* FailureViewControllerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailureViewControllerUtil.swift; sourceTree = "<group>"; };
 		777F620D2C6A23E700A342AD /* FailureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailureViewController.swift; sourceTree = "<group>"; };
 		777F620E2C6A23E700A342AD /* FailureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FailureViewController.xib; sourceTree = "<group>"; };
 		777F62102C6A23E700A342AD /* FailureViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailureViewModel.swift; sourceTree = "<group>"; };
-		779D15022943205300023178 /* OpenLinkURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLinkURL.swift; sourceTree = "<group>"; };
 		77EF09E22BCEC76C00F5C0E5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		77F98BB02C0A0F6100AC7486 /* TestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp.entitlements; sourceTree = "<group>"; };
 		F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -187,6 +185,9 @@
 		F414C2E02C611C4800A7ACAD /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		F414C2E22C611C6200A7ACAD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		F414C2E42C611C8200A7ACAD /* UITapGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
+		F48899742C77570B00639FFF /* ConnectTransferEventConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectTransferEventConfig.swift; sourceTree = "<group>"; };
+		F48899772C77577000639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConnectTransferViewController+DepositSwitchFlow.swift"; sourceTree = "<group>"; };
+		F488997A2C7757B100639FFF /* URLQueryItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+Extension.swift"; sourceTree = "<group>"; };
 		F4C6E57F2C57696900723739 /* ConnectTransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectTransferViewController.swift; sourceTree = "<group>"; };
 		F4C6E5802C57696900723739 /* ConnectTransferViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectTransferViewController.xib; sourceTree = "<group>"; };
 		F4C6E5852C579CE000723739 /* TransferModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferModel.swift; sourceTree = "<group>"; };
@@ -294,7 +295,6 @@
 		6B94CDDC23A819F20077D65A /* Connect */ = {
 			isa = PBXGroup;
 			children = (
-                ios-transfer-sdk/ConnectTransfer.xcodeproj/project.pbxproj,
 				6B94CDDE23A819F20077D65A /* Info.plist */,
 				F4C6E58B2C57AE8B00723739 /* ConnectTransferView */,
 				F4C6E5972C57C16000723739 /* ConnectTransferRedirectView */,
@@ -302,10 +302,7 @@
 				F4F519212C64A18300557516 /* ExitPopUpView */,
 				F414C2CF2C610B4200A7ACAD /* NavigationView */,
 				F414C2D32C610B4200A7ACAD /* PoweredByView */,
-				212CDB162565CB9700118601 /* Version.swift */,
-				779D15022943205300023178 /* OpenLinkURL.swift */,
 				77EF09E22BCEC76C00F5C0E5 /* PrivacyInfo.xcprivacy */,
-				77337E412BD817710028792D /* File.swift */,
 				F4CF3FEF2C53AF0C006CA1E1 /* Helper.swift */,
 				F414C2DD2C61117A00A7ACAD /* Extensions */,
 				F4CF40162C53DD2E006CA1E1 /* ConnectMedia.xcassets */,
@@ -425,13 +422,23 @@
 				F414C2E42C611C8200A7ACAD /* UITapGestureRecognizer+Extension.swift */,
 				F4F519322C64CA8E00557516 /* UIView+Extension.swift */,
 				F411D73E2C6A53BA00BE39C2 /* Bundle+Extension.swift */,
+				F488997A2C7757B100639FFF /* URLQueryItem+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F48899732C7756F500639FFF /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F48899742C77570B00639FFF /* ConnectTransferEventConfig.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		F4C6E58B2C57AE8B00723739 /* ConnectTransferView */ = {
 			isa = PBXGroup;
 			children = (
+				F48899732C7756F500639FFF /* Config */,
 				F414C2CA2C610B1C00A7ACAD /* ViewModel */,
 				F412B8E72C5A0F9D00A27CC7 /* Model */,
 				F4C6E58C2C57AEB100723739 /* Util */,
@@ -453,6 +460,7 @@
 			children = (
 				F4C6E57F2C57696900723739 /* ConnectTransferViewController.swift */,
 				F4C6E5802C57696900723739 /* ConnectTransferViewController.xib */,
+				F48899772C77577000639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -745,6 +753,7 @@
 				F4F5192D2C64C52400557516 /* ExitPopUpViewControllerUtil.swift in Sources */,
 				F4F519282C64B3CF00557516 /* ExitPopUpViewController.swift in Sources */,
 				F4F519292C64B3CF00557516 /* ExitPopUpViewController.xib in Sources */,
+				F48899792C77577100639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift in Sources */,
 				F414C2E62C611CCC00A7ACAD /* UIApplication+Extension.swift in Sources */,
 				F414C2E72C611CCC00A7ACAD /* UIImage+Extension.swift in Sources */,
 				777F621A2C6A262200A342AD /* FailureViewController.swift in Sources */,
@@ -754,6 +763,7 @@
 				F414C2D92C610C9400A7ACAD /* NavigationView.swift in Sources */,
 				777F62182C6A261C00A342AD /* FailureModel.swift in Sources */,
 				F414C2DA2C610C9400A7ACAD /* NavigationView.xib in Sources */,
+				F488997C2C7757B100639FFF /* URLQueryItem+Extension.swift in Sources */,
 				F414C2DB2C610C9400A7ACAD /* PoweredByView.swift in Sources */,
 				F414C2DC2C610C9400A7ACAD /* PoweredByView.xib in Sources */,
 				F4C6E5A02C57CE2E00723739 /* ConnectTransferRedirectViewController.swift in Sources */,
@@ -763,12 +773,11 @@
 				F4C6E5832C57698D00723739 /* ConnectTransferViewController.swift in Sources */,
 				F4C6E5842C57698D00723739 /* ConnectTransferViewController.xib in Sources */,
 				F4CF3FF12C53B106006CA1E1 /* Helper.swift in Sources */,
+				F48899762C77570B00639FFF /* ConnectTransferEventConfig.swift in Sources */,
 				213423502583F6D200C06BB8 /* ViewController.swift in Sources */,
 				2134234C2583F6D200C06BB8 /* AppDelegate.swift in Sources */,
 				777F621C2C6A262900A342AD /* FailureViewModel.swift in Sources */,
 				2134234E2583F6D200C06BB8 /* SceneDelegate.swift in Sources */,
-				779D1504294333C400023178 /* OpenLinkURL.swift in Sources */,
-				214B5BFF2589636C00FA6A1E /* Version.swift in Sources */,
 				216D037F258942E900342EF5 /* AccessibilityIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -794,14 +803,13 @@
 				777F62172C6A23E700A342AD /* FailureViewModel.swift in Sources */,
 				F4C6E5892C579DB000723739 /* TransferViewControllerUtil.swift in Sources */,
 				F4F519372C65F02E00557516 /* ConnectTransferRedirectViewModel.swift in Sources */,
+				F48899752C77570B00639FFF /* ConnectTransferEventConfig.swift in Sources */,
 				F4F5192C2C64C1B700557516 /* ExitPopUpViewControllerUtil.swift in Sources */,
-				779D15032943205300023178 /* OpenLinkURL.swift in Sources */,
 				F414C2CB2C610B1C00A7ACAD /* ConnectTransferViewModel.swift in Sources */,
-				77337E422BD817710028792D /* File.swift in Sources */,
+				F48899782C77577100639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift in Sources */,
 				777F62142C6A23E700A342AD /* FailureViewControllerUtil.swift in Sources */,
 				F4C6E5812C57696900723739 /* ConnectTransferViewController.swift in Sources */,
 				777F62132C6A23E700A342AD /* FailureModel.swift in Sources */,
-				212CDB172565CB9700118601 /* Version.swift in Sources */,
 				777F62152C6A23E700A342AD /* FailureViewController.swift in Sources */,
 				F411D73F2C6A53BA00BE39C2 /* Bundle+Extension.swift in Sources */,
 				F414C2E52C611C8200A7ACAD /* UITapGestureRecognizer+Extension.swift in Sources */,
@@ -816,6 +824,7 @@
 				F4F519262C64A32F00557516 /* ExitPopUpViewController.swift in Sources */,
 				F414C2E32C611C6200A7ACAD /* UIImageView+Extension.swift in Sources */,
 				F4C6E5862C579CE000723739 /* TransferModel.swift in Sources */,
+				F488997B2C7757B100639FFF /* URLQueryItem+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
