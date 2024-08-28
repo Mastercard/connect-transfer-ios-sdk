@@ -1,6 +1,42 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "error_subtitle" : {
+      "comment" : "18",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We weren’t able to connect to your data."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No pudimos conectar con tus datos"
+          }
+        }
+      }
+    },
+    "error_title" : {
+      "comment" : "17",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Looks like there was an issue"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parece que hubo un problema"
+          }
+        }
+      }
+    },
     "exit_pop_up_subtitle" : {
       "comment" : "14",
       "extractionState" : "manual",
@@ -253,6 +289,24 @@
         }
       }
     },
+    "return_to_partner" : {
+      "comment" : "20",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Return to %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver a %@"
+          }
+        }
+      }
+    },
     "terms_and_condtions_text" : {
       "comment" : "8",
       "extractionState" : "manual",
@@ -267,6 +321,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Términos y condiciones"
+          }
+        }
+      }
+    },
+    "try_again" : {
+      "comment" : "19",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try again"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver a intentarlo"
           }
         }
       }

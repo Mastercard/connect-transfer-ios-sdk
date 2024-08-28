@@ -23,6 +23,7 @@ class ConnectTransferRedirectViewController: UIViewController {
     //MARK: - Variables
     private var redirectViewModel: ConnectTransferRedirectViewModel
     
+    //MARK: - Init Methods
     init(partnerName: String, themeColor: UIColor) {
         self.redirectViewModel = ConnectTransferRedirectViewModel(partnerName: partnerName, themeColor: themeColor)
         super.init(nibName: "ConnectTransferRedirectViewController", bundle: nil)
@@ -92,7 +93,26 @@ class ConnectTransferRedirectViewController: UIViewController {
         DispatchQueue.main.async {
             let exitPopUpViewController = ExitPopUpViewController(currentNavigationController: navigationController, partnerName: self.redirectViewModel.getPartnerName(), themeColor: self.redirectViewModel.getThemeColor())
             exitPopUpViewController.modalPresentationStyle = .overCurrentContext
+            exitPopUpViewController.delegate = self
             self.present(exitPopUpViewController, animated: true)
         }
     }
+    
+}
+
+//MARK: - Exit PopUp Delegate Methods
+extension ConnectTransferRedirectViewController: ExitPopUpDelegate {
+    func exitConnectTransfer() {
+        
+        guard let currentNavigationController = self.navigationController else {
+            return
+        }
+        
+        guard let rootViewController = currentNavigationController.viewControllers.first as? ConnectTransferViewController else {
+            return
+        }
+        
+        rootViewController.exitConnectTransfer()
+    }
+    
 }
