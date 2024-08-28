@@ -326,6 +326,110 @@
         "printedName": "ConnectTransferViewController",
         "children": [
           {
+            "kind": "Var",
+            "name": "delegate",
+            "printedName": "delegate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "(any ConnectTransfer.ConnectTransferEventDelegate)?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15ConnectTransfer0aB14ViewControllerC8delegateAA0aB13EventDelegate_pSgvp",
+            "mangledName": "$s15ConnectTransfer0aB14ViewControllerC8delegateAA0aB13EventDelegate_pSgvp",
+            "moduleName": "ConnectTransfer",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "Custom",
+              "ReferenceOwnership",
+              "AccessControl"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any ConnectTransfer.ConnectTransferEventDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ConnectTransferEventDelegate",
+                        "printedName": "any ConnectTransfer.ConnectTransferEventDelegate",
+                        "usr": "s:15ConnectTransfer0aB13EventDelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15ConnectTransfer0aB14ViewControllerC8delegateAA0aB13EventDelegate_pSgvg",
+                "mangledName": "$s15ConnectTransfer0aB14ViewControllerC8delegateAA0aB13EventDelegate_pSgvg",
+                "moduleName": "ConnectTransfer",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any ConnectTransfer.ConnectTransferEventDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ConnectTransferEventDelegate",
+                        "printedName": "any ConnectTransfer.ConnectTransferEventDelegate",
+                        "usr": "s:15ConnectTransfer0aB13EventDelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15ConnectTransfer0aB14ViewControllerC8delegateAA0aB13EventDelegate_pSgvs",
+                "mangledName": "$s15ConnectTransfer0aB14ViewControllerC8delegateAA0aB13EventDelegate_pSgvs",
+                "moduleName": "ConnectTransfer",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15ConnectTransfer0aB14ViewControllerC8delegateAA0aB13EventDelegate_pSgvM",
+                "mangledName": "$s15ConnectTransfer0aB14ViewControllerC8delegateAA0aB13EventDelegate_pSgvM",
+                "moduleName": "ConnectTransfer",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "viewDidLoad",
             "printedName": "viewDidLoad()",

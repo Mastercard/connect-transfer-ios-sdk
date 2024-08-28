@@ -1,58 +1,29 @@
 //
 //  ViewController.swift
-//  ConnectWrapper
+//  TestApp
 //
-//  Copyright © 2022 MastercardOpenBanking. All rights reserved.
+//  Created by Jimmie Wright on 12/11/20.
+//  Copyright © 2024 MastercardOpenBanking. All rights reserved.
 //
 
 import UIKit
-import Connect
+import ConnectTransfer
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var urlInput: UITextField!
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var connectButton: UIButton!
-    @IBOutlet weak var uiRedirectUrlTextBoxHeight: NSLayoutConstraint!
-    @IBOutlet weak var redirectUrlInput: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var pdsURLInput: UITextField!
+    @IBOutlet weak var launchConnectTransferButton: UIButton!
     
-    var connectViewController: ConnectViewController!
+    var transferViewController: ConnectTransferViewController!
     var connectNavController: UINavigationController!
     let gradientLayer = CAGradientLayer()
     
-    @IBOutlet weak var btnSTG: UIButton!
-    @IBOutlet weak var btnProd: UIButton!
-    @IBOutlet weak var btnRedirectUrl: UIButton!
-    
-    let radioController: RadioButtonController = RadioButtonController()
-    
-    @IBAction func btnSTGAction(_ sender: UIButton) {
-        uiRedirectUrlTextBoxHeight.constant = 0
-        radioController.buttonArrayUpdated(buttonSelected: sender)
-    }
-    
-    @IBAction func btnProdAction(_ sender: UIButton) {
-        uiRedirectUrlTextBoxHeight.constant = 0
-        radioController.buttonArrayUpdated(buttonSelected: sender)
-    }
-    
-    @IBAction func btnRedirectUrlAction(_ sender: UIButton) {
-        radioController.buttonArrayUpdated(buttonSelected: sender)
-        uiRedirectUrlTextBoxHeight.constant = 56
-    }
-    
-    
     override func viewDidLoad() {
-        uiRedirectUrlTextBoxHeight.constant = 0
-        radioController.buttonsArray = [btnSTG,btnProd,btnRedirectUrl]
-        radioController.defaultButton = btnProd
-        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        // Query Connect.xcframework for SDK version.
-        print("Connect.xcframework SDK version: \(sdkVersion())")
         
         self.navigationController?.navigationBar.isHidden = true
         setupViews()
@@ -61,11 +32,11 @@ class ViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(screenTapped))
         view.addGestureRecognizer(tapGesture)
         
-        urlInput.accessibilityIdentifier = AccessiblityIdentifer.urlTextField.rawValue
-        connectButton.accessibilityIdentifier = AccessiblityIdentifer.connectButton.rawValue
+        //urlInput.accessibilityIdentifier = AccessiblityIdentifer.UrlTextField.rawValue
         
         urlInput.becomeFirstResponder()
     }
+    
     
     // For iPad rotation need to adjust gradient frame size
     override func viewDidLayoutSubviews() {
@@ -86,10 +57,11 @@ class ViewController: UIViewController {
         activityIndicator.color = .white
         
         infoView.layer.cornerRadius = 8
-        connectButton.layer.cornerRadius = 24
-        connectButton.isEnabled = false
-        connectButton.setTitleColor(UIColor(red: 254.0/255.0, green: 254.0/255.0, blue: 254.0/255.0, alpha: 0.32), for: .disabled)
-        connectButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        
+        launchConnectTransferButton.layer.cornerRadius = 24
+        launchConnectTransferButton.isEnabled = false
+        launchConnectTransferButton.setTitleColor(UIColor(red: 254.0/255.0, green: 254.0/255.0, blue: 254.0/255.0, alpha: 0.32), for: .disabled)
+        launchConnectTransferButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
     }
     
     // Added gradient background layer to view hierarchy
@@ -98,7 +70,7 @@ class ViewController: UIViewController {
         gradientLayer.colors = [
             UIColor(red: 0.518, green: 0.714, blue: 0.427, alpha: 1).cgColor,
             UIColor(red: 0.004, green: 0.537, blue: 0.616, alpha: 1).cgColor,
-            UIColor(red: 0.008, green: 0.22, blue: 0.447, alpha: 1).cgColor
+            UIColor(red: 0.008, green: 0.22,  blue: 0.447, alpha: 1).cgColor
         ]
         gradientLayer.locations = [0, 0.4, 1]
         
@@ -109,93 +81,17 @@ class ViewController: UIViewController {
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    @IBAction func startButtonClicked(_ sender: UIButton) {
-        view.endEditing(true)
-        activityIndicator.startAnimating()
-        self.openWebKitConnectView()
-    }
     
-    func openWebKitConnectView() {
-        if let connectUrl = urlInput.text {
-            print("creating & loading connectViewController")
-            self.connectViewController = ConnectViewController()
-            self.connectViewController.delegate = self
-            
-            if(btnSTG.isSelected){
-                self.connectViewController.load(connectUrl,redirectUrl: "https://acme.finicitystg.com")
-            }
-            else if(btnProd.isSelected){
-                self.connectViewController.load(connectUrl,redirectUrl: "https://acmelending.net")
-            }
-            else if(btnRedirectUrl.isSelected){
-                if let redirectUrl = redirectUrlInput.text {
-                    if(redirectUrl == ""){
-                        self.connectViewController.load(connectUrl)
-                    }else{
-                        self.connectViewController.load(connectUrl,redirectUrl:redirectUrl)
-                    }
-                }
-               
-            }
-
-        } else {
-            print("no connect url provided.")
-            activityIndicator.stopAnimating()
+    @IBAction func launchConnectTransferAction(_ sender: Any) {
+        activityIndicator.startAnimating()
+        if let connectTransferUrl = pdsURLInput.text {
+            self.transferViewController = ConnectTransferViewController(nibName: "ConnectTransferViewController", bundle: nil)
+            self.transferViewController.delegate = self
+            self.transferViewController.loadConnectTransfer(with: connectTransferUrl)
         }
     }
-    
-    func displayData(_ data: NSDictionary?) {
-        print(data?.debugDescription ?? "no data in callback")
-    }
-    
-}
 
-extension ViewController: ConnectEventDelegate {
-    func onCancel(_ data: NSDictionary?) {
-        print("onCancel:")
-        displayData(data)
-        self.activityIndicator.stopAnimating()
-        // Needed to trigger deallocation of ConnectViewController
-        self.connectViewController = nil
-        self.connectNavController = nil
-    }
     
-    func onDone(_ data: NSDictionary?) {
-        print("onDone:")
-        displayData(data)
-        self.activityIndicator.stopAnimating()
-        // Needed to trigger deallocation of ConnectViewController
-        self.connectViewController = nil
-        self.connectNavController = nil
-    }
-    
-    func onError(_ data: NSDictionary?) {
-        print("onError:")
-        displayData(data)
-        self.activityIndicator.stopAnimating()
-        // Needed to trigger deallocation of ConnectViewController
-        self.connectViewController = nil
-        self.connectNavController = nil
-    }
-    
-    func onLoad() {
-        print("onLoad:")
-        self.connectNavController = UINavigationController(rootViewController: self.connectViewController)
-        self.connectNavController.modalPresentationStyle = .automatic
-        self.connectNavController.isModalInPresentation = true
-        self.connectNavController.presentationController?.delegate = self
-        self.present(self.connectNavController, animated: true)
-    }
-    
-    func onRoute(_ data: NSDictionary?) {
-        print("onRoute:")
-        displayData(data)
-    }
-    
-    func onUser(_ data: NSDictionary?) {
-        print("onUser:")
-        displayData(data)
-    }
 }
 
 extension ViewController: UIAdaptivePresentationControllerDelegate {
@@ -211,13 +107,68 @@ extension ViewController: UITextFieldDelegate {
         guard let text = textField.text else { return false }
         let newLength = text.count + string.count - range.length
         let isEnabled = newLength > 0
-        connectButton.isEnabled = isEnabled
-        // Adjust opacity based on button enabled state
-        if isEnabled {
-            connectButton.backgroundColor = UIColor(red: 254.0 / 255.0, green: 254.0 / 255.0, blue: 254.0 / 255.0, alpha: 0.24)
-        } else {
-            connectButton.backgroundColor = UIColor(red: 254.0 / 255.0, green: 254.0 / 255.0, blue: 254.0 / 255.0, alpha: 0.16)
+        
+        if textField == self.urlInput {
+            launchConnectTransferButton.isEnabled = isEnabled
+            // Adjust opacity based on button enabled state
+            if isEnabled {
+                launchConnectTransferButton.backgroundColor = UIColor(red: 254.0 / 255.0, green: 254.0 / 255.0, blue: 254.0 / 255.0, alpha: 0.24)
+            } else {
+                launchConnectTransferButton.backgroundColor = UIColor(red: 254.0 / 255.0, green: 254.0 / 255.0, blue: 254.0 / 255.0, alpha: 0.16)
+            }
+            return true
         }
+
         return true
     }
+}
+
+extension ViewController: ConnectTransferEventDelegate {
+    
+    func onInitializeTransferDone(_ data: NSDictionary?) {
+        print(data as Any)
+        if Thread.isMainThread {
+            self.activityIndicator.stopAnimating()
+            self.connectNavController = UINavigationController(rootViewController: self.transferViewController)
+            if(UIDevice.current.userInterfaceIdiom == .phone){
+                self.connectNavController.modalPresentationStyle = .fullScreen
+            }else{
+                self.connectNavController.modalPresentationStyle = .fullScreen
+            }
+            self.present(self.connectNavController, animated: true)
+        }else {
+            DispatchQueue.main.async {
+                self.onInitializeTransferDone(data)
+            }
+        }
+    }
+    
+    func onTermsAndConditionsAccepted(_ data: NSDictionary?) {
+        print(data as Any)
+    }
+    
+    func onInitializeDepositSwitch(_ data: NSDictionary?) {
+        print(data as Any)
+    }
+    
+    func onTransferEnd(_ data: NSDictionary?) {
+        print(data as Any)
+        if Thread.isMainThread {
+            self.activityIndicator.stopAnimating()
+            
+            let alert = UIAlertController(title: "Error", message: data!["reason"] as? String ?? "" , preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            self.present(alert, animated: true)
+            
+        }else {
+            DispatchQueue.main.async {
+                self.onTransferEnd(data)
+            }
+        }
+    }
+    
+    func onUserEvent(_ data: NSDictionary?) {
+        print(data as Any)
+    }
+    
 }

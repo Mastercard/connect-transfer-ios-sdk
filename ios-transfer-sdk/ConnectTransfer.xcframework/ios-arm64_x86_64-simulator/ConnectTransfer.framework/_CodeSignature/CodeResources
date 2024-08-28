@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		1/0ysECa35lxx1qn6LTuz7j+daw=
+		kD0R9HbNOiqoXn/IzLhvSgp0LRo=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		uhWiOg27qnR+eRY2ch4JkuKjCJs=
+		arb/YoLbpoPRxpz1zHet4Lf3Qow=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,19 +46,19 @@
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		uhWiOg27qnR+eRY2ch4JkuKjCJs=
+		arb/YoLbpoPRxpz1zHet4Lf3Qow=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		QErn8gjOJKU9i58GPgZW8W9qutk=
+		8zGN38Pj5ua811sps/J4M37Fp/A=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		1/0ysECa35lxx1qn6LTuz7j+daw=
+		kD0R9HbNOiqoXn/IzLhvSgp0LRo=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		UpMEkP+XdWLr5GZtF1mfPMQaX48=
+		DX6FuWyvGo8ki8c9PEENs6Pbnig=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -66,11 +66,11 @@
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		UpMEkP+XdWLr5GZtF1mfPMQaX48=
+		DX6FuWyvGo8ki8c9PEENs6Pbnig=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		wwHHPCLN3azPEQ/bbw9VzS245/8=
+		b+6E997EcW7aRfaSAErRLGNqwPg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -155,14 +155,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dVOpiVthatptEHVujfJxpXc403IJy8ilGT1/mAE57GQ=
+			xp1/lVjvTMj6C0IJ0cVzYDHEoMD/F7tWyd8pLDF1Mx4=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LqPHtlwhMViH2VoYefdvAEy5iBG4QteoV88EwHt9M9Y=
+			bPqKefaW4lH1sjI5H94Vknq4a7AnB8EpkTR1rLspnqs=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -176,28 +176,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LqPHtlwhMViH2VoYefdvAEy5iBG4QteoV88EwHt9M9Y=
+			bPqKefaW4lH1sjI5H94Vknq4a7AnB8EpkTR1rLspnqs=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			w1mvx0mt6q0pTbTYpQViFacuoEXe64zy+EKrPUI8A08=
+			AjjlSAtdffylxXdbzf2pnzU+Qotfy4belwSmJM+/AmA=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dVOpiVthatptEHVujfJxpXc403IJy8ilGT1/mAE57GQ=
+			xp1/lVjvTMj6C0IJ0cVzYDHEoMD/F7tWyd8pLDF1Mx4=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AbtIS5UyOroa1OJgT7LOZZnU5CaVJ8IEFNBQJ2GfH3E=
+			YurBG6Bg6SVURBSGNCLePf6S0NdvKjUNnvzpQ1EGmSM=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -211,14 +211,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AbtIS5UyOroa1OJgT7LOZZnU5CaVJ8IEFNBQJ2GfH3E=
+			YurBG6Bg6SVURBSGNCLePf6S0NdvKjUNnvzpQ1EGmSM=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QFU394v42sF3Y48Dd0tv01FS3qpfaYWDnwoBzJqvH+g=
+			+8i1ANiK27Wokc2W5+RTJ/mN4dCI0rRzVZpp70IaOzY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

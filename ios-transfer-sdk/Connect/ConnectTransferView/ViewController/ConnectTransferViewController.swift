@@ -41,7 +41,7 @@ public class ConnectTransferViewController: UIViewController {
     //MARK: - Variables
     var transferViewModel = ConnectTransferViewModel()
     var safariWebView: SFSafariViewController? = nil
-    weak var delegate: ConnectTransferEventDelegate?
+    public weak var delegate: ConnectTransferEventDelegate?
     
     //MARK: - Overriden Methods
     public override func viewDidLoad() {

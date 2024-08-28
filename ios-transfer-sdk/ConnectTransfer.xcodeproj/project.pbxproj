@@ -48,6 +48,7 @@
 		777F621A2C6A262200A342AD /* FailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F620D2C6A23E700A342AD /* FailureViewController.swift */; };
 		777F621B2C6A262500A342AD /* FailureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777F620E2C6A23E700A342AD /* FailureViewController.xib */; };
 		777F621C2C6A262900A342AD /* FailureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F62102C6A23E700A342AD /* FailureViewModel.swift */; };
+		77B3C23C2C7F38F400D6FDF3 /* ConnectTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = 77B3C23B2C7F38F400D6FDF3 /* ConnectTransfer.h */; };
 		77EF09E32BCEC77300F5C0E5 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 77EF09E22BCEC76C00F5C0E5 /* PrivacyInfo.xcprivacy */; };
 		F411D73C2C66903B00BE39C2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */; };
 		F411D73D2C66917A00BE39C2 /* Localizable.xcstrings in Sources */ = {isa = PBXBuildFile; fileRef = F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */; };
@@ -172,6 +173,7 @@
 		777F620D2C6A23E700A342AD /* FailureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailureViewController.swift; sourceTree = "<group>"; };
 		777F620E2C6A23E700A342AD /* FailureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FailureViewController.xib; sourceTree = "<group>"; };
 		777F62102C6A23E700A342AD /* FailureViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailureViewModel.swift; sourceTree = "<group>"; };
+		77B3C23B2C7F38F400D6FDF3 /* ConnectTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectTransfer.h; sourceTree = "<group>"; };
 		77EF09E22BCEC76C00F5C0E5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		77F98BB02C0A0F6100AC7486 /* TestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp.entitlements; sourceTree = "<group>"; };
 		F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 		6B94CDDC23A819F20077D65A /* Connect */ = {
 			isa = PBXGroup;
 			children = (
+				77B3C23B2C7F38F400D6FDF3 /* ConnectTransfer.h */,
 				6B94CDDE23A819F20077D65A /* Info.plist */,
 				F4C6E58B2C57AE8B00723739 /* ConnectTransferView */,
 				F4C6E5972C57C16000723739 /* ConnectTransferRedirectView */,
@@ -533,6 +536,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77B3C23C2C7F38F400D6FDF3 /* ConnectTransfer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

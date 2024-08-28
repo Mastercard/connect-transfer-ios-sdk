@@ -20,6 +20,7 @@ public protocol ConnectTransferEventDelegate : AnyObject {
   func onUserEvent(_ data: Foundation.NSDictionary?)
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class ConnectTransferViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) weak public var delegate: (any ConnectTransfer.ConnectTransferEventDelegate)?
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) public func loadConnectTransfer(with urlString: Swift.String)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
