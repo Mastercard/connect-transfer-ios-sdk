@@ -41,6 +41,10 @@ class ConnectTransferRedirectViewController: UIViewController {
         setUpNavigationView()
         setUpRedirectingLabel()
         setUpLoaderTheme()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         apiHitToCompleteTheTransferFlow()
     }
     
