@@ -294,8 +294,7 @@
 		6B94CDDC23A819F20077D65A /* Connect */ = {
 			isa = PBXGroup;
 			children = (
-                                ios-transfer-sdk/ConnectTransfer.xcodeproj/project.pbxproj
-				777F62122C6A23E700A342AD /* FailureView */,
+                ios-transfer-sdk/ConnectTransfer.xcodeproj/project.pbxproj,
 				6B94CDDE23A819F20077D65A /* Info.plist */,
 				F4C6E58B2C57AE8B00723739 /* ConnectTransferView */,
 				F4C6E5972C57C16000723739 /* ConnectTransferRedirectView */,
