@@ -1,0 +1,4 @@
+framework module ConnectTransfer {
+  header "ConnectTransfer-Swift.h"
+  requires objc
+}
