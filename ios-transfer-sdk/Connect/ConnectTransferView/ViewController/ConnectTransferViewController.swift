@@ -51,11 +51,8 @@ public class ConnectTransferViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func nextButtonAction(_ sender: Any) {
-       // self.openDepositSwitchFlow()
-        self.transferViewModel.apiForConnectTranserComplete { success, msg in
-            
-        }
-       // self.delegate?.onTermsAndConditionsAccepted(self.transferViewModel.getResponseForTermsAndConditionsAccepted())
+        self.openDepositSwitchFlow()
+        self.delegate?.onTermsAndConditionsAccepted(self.transferViewModel.getResponseForTermsAndConditionsAccepted())
     }
     
     //MARK: - Public Methods
