@@ -10,28 +10,27 @@ import UIKit
 
 class FailureViewControllerUtil: NSObject{
     
+    class func getLocalizedString(for key: String) -> String {
+        return Bundle.localizedString(forKey: key)
+    }
+    
     class func getFailureTitleText() -> String {
-        "Looks like there was an issue"
+        getLocalizedString(for: "error_title")
     }
     
     class func getFailureDescriptionText() -> String {
-        "We weren’t able to connect to your data."
+        getLocalizedString(for: "error_subtitle")
     }
     
     class func getTryAgainText() -> String {
-        "Try again"
+        getLocalizedString(for: "try_again")
     }
     
     class func getReturnToButtonText() -> String {
-        "Return to {Partner}"
+        getLocalizedString(for: "return_to_partner")
     }
     
-    
-    class func getDefaultOnLightTextColor() -> UIColor {
-        UIColor(red: 20/255, green: 20/255, blue: 19/255, alpha: 1.0)
-    }
-    
-    class func getRedirectingTextColor() -> UIColor {
+    class func getFailureTitleTextColor() -> UIColor {
         UIColor(red: 63/255, green: 75/255, blue: 88/255, alpha: 1.0)
     }
 }
