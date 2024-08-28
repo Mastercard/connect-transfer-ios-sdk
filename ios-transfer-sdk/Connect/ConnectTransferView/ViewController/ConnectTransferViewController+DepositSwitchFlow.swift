@@ -56,7 +56,7 @@ extension ConnectTransferViewController {
             print("Finish event:")
             self.openRedirectVC(responseData: response)
         
-        case .closed(let response):
+        case .closed(_):
             print("Close event:")
             self.delegate?.onTransferEnd(self.transferViewModel.getResponseForDone(isError: true, reason: "exit"))
             self.navigationController?.dismiss(animated: true)

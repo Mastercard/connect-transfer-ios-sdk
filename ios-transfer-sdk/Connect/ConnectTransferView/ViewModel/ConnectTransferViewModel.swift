@@ -97,6 +97,7 @@ class ConnectTransferViewModel: NSObject {
         
         if let port = currentURL.port {
             self.pdsBaseURLString = "http://\(host):\(port)/"
+
         }else {
             self.pdsBaseURLString = "https://\(host)/"
         }

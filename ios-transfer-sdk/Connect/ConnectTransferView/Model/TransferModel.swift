@@ -96,7 +96,7 @@ struct Metadata : Codable {
             return nil
         }
         
-        var metaDataDict = [CodingKeys.id.rawValue: id, CodingKeys.applicationName.rawValue: applicationName]
+        let metaDataDict = [CodingKeys.id.rawValue: id, CodingKeys.applicationName.rawValue: applicationName]
         
         return metaDataDict
     }
