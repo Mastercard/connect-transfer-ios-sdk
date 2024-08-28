@@ -7,13 +7,7 @@
 //
 
 import UIKit
-import AtomicTransact
 import SafariServices
-
-public protocol ConnectTransferEventDelegate: AnyObject {
-    func didLoadDone()
-    func didCloseWithError(error: String)
-}
 
 public class ConnectTransferViewController: UIViewController {
 
@@ -57,7 +51,8 @@ public class ConnectTransferViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func nextButtonAction(_ sender: Any) {
-        
+//        self.openDepositSwitchFlow()
+//        self.delegate?.onTermsAndConditionsAccepted(self.transferViewModel.getResponseForTermsAndConditionsAccepted())
         self.transferViewModel.apiForTermsAndConditionConsent() { (isSuccess, error) in
             
             if isSuccess {
@@ -68,10 +63,6 @@ public class ConnectTransferViewController: UIViewController {
             }
         }
         
-        DispatchQueue.main.async {
-            let connectTransferRedirectViewController = ConnectTransferRedirectViewController(partnerName: self.transferViewModel.getPartenrName(), themeColor: self.transferViewModel.getThemeColor())
-            self.navigationController?.pushViewController(connectTransferRedirectViewController, animated: true)
-        }
     }
     
     //MARK: - Public Methods
@@ -80,10 +71,10 @@ public class ConnectTransferViewController: UIViewController {
         self.transferViewModel.apiHitToGetTransferModel(urlString: urlString) { (isSuccess, error) in
             
             if isSuccess {
-                self.delegate?.didLoadDone()
+                self.delegate?.onInitializeTransferDone(self.transferViewModel.getResponseForInitializeTransfer())
                 
             }else {
-                self.delegate?.didCloseWithError(error: error ?? "")
+                self.delegate?.onTransferEnd(self.transferViewModel.getResponseForDone(isError: true, reason: error))
             }
         }
     }
@@ -118,8 +109,9 @@ public class ConnectTransferViewController: UIViewController {
         }
         
         DispatchQueue.main.async {
-            let exitPopUpViewController = ExitPopUpViewController(currentNavigationController: navigationController, partnerName: self.transferViewModel.getPartenrName(), themeColor: self.transferViewModel.getThemeColor())
+            let exitPopUpViewController = ExitPopUpViewController(currentNavigationController: navigationController, partnerName: self.transferViewModel.getPartnerName(), themeColor: self.transferViewModel.getThemeColor())
             exitPopUpViewController.modalPresentationStyle = .overCurrentContext
+            exitPopUpViewController.delegate = self
             self.present(exitPopUpViewController, animated: true)
         }
     }
@@ -144,9 +136,9 @@ public class ConnectTransferViewController: UIViewController {
     }
     
     private func setUpTransferDescription() {
-        let transferDescriptionMutableString = NSMutableAttributedString(string: String(format: TransferViewControllerUtil.getTransferDescriptionText(), self.transferViewModel.getPartenrName()), attributes: [NSAttributedString.Key.foregroundColor : TransferViewControllerUtil.getDefaultOnLightTextColor(), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)])
+        let transferDescriptionMutableString = NSMutableAttributedString(string: String(format: TransferViewControllerUtil.getTransferDescriptionText(), self.transferViewModel.getPartnerName()), attributes: [NSAttributedString.Key.foregroundColor : TransferViewControllerUtil.getDefaultOnLightTextColor(), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)])
         
-        let partenerNameRange = transferDescriptionMutableString.mutableString.range(of: self.transferViewModel.getPartenrName())
+        let partenerNameRange = transferDescriptionMutableString.mutableString.range(of: self.transferViewModel.getPartnerName())
         
         transferDescriptionMutableString.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)], range: partenerNameRange)
         
@@ -176,7 +168,7 @@ public class ConnectTransferViewController: UIViewController {
         
         self.step4Label.setUpStepLabelAttributes(text: "4", themeColor: self.transferViewModel.getThemeColor())
         
-        self.step4InstructionLabel.setUpStepInstructionAttribute(text: String(format: TransferViewControllerUtil.getTransferFourthStepText(), self.transferViewModel.getPartenrName()))
+        self.step4InstructionLabel.setUpStepInstructionAttribute(text: String(format: TransferViewControllerUtil.getTransferFourthStepText(), self.transferViewModel.getPartnerName()))
     }
     
     private func setUpTermsAndConditonsText(){
@@ -257,6 +249,13 @@ public class ConnectTransferViewController: UIViewController {
         
         self.present(self.safariWebView!, animated: true)
     }
+    
+    private func openRedirectVC() {
+        DispatchQueue.main.async {
+            let connectTransferRedirectViewController = ConnectTransferRedirectViewController(partnerName: self.transferViewModel.getPartnerName(), themeColor: self.transferViewModel.getThemeColor())
+            self.navigationController?.pushViewController(connectTransferRedirectViewController, animated: true)
+        }
+    }
 }
 
 //MARK: - SFSafariViewControllerDelegate Methods
@@ -282,5 +281,12 @@ fileprivate extension UILabel {
         self.text = text
         self.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         self.textColor = themeColor
+    }
+}
+
+//MARK: - Exit PopUp Delegate Methods
+extension ConnectTransferViewController: ExitPopUpDelegate {
+    func exitConnectTransfer() {
+        self.delegate?.onTransferEnd(self.transferViewModel.getResponseForDone(isError: true, reason: "exit"))
     }
 }
