@@ -54,7 +54,19 @@ extension ConnectTransferViewController {
             
         case .finished(let response):
             print("Finish event:")
-            self.delegate?.onTransferEnd(self.transferViewModel.getResponseForFinish(responseData: response))
+            self.transferViewModel.apiForTermsAndConditionConsent() { (isSuccess, error) in
+                
+                if isSuccess {
+                    
+                }
+                
+                else {
+                }
+                
+                self.delegate?.onTransferEnd(self.transferViewModel.getResponseForFinish(responseData: response))
+            }
+            
+            
         
         case .closed(let response):
             print("Close event:")

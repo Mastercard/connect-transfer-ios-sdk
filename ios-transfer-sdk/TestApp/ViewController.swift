@@ -25,9 +25,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        // Query Connect.xcframework for SDK version.
-        print("Connect.xcframework SDK version: \(sdkVersion())")
-        
         self.navigationController?.navigationBar.isHidden = true
         setupViews()
         

@@ -10,12 +10,12 @@ import UIKit
 import SafariServices
 
 public class ConnectTransferViewController: UIViewController {
-
+    
     //MARK: - Outlets
     @IBOutlet weak var parentViewWidth: NSLayoutConstraint!
     @IBOutlet weak var parentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var transferNavigationView: NavigationView!
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var transferDescriptionLabel: UILabel!
     
@@ -26,7 +26,7 @@ public class ConnectTransferViewController: UIViewController {
     @IBOutlet weak var step2View: UIView!
     @IBOutlet weak var step2Label: UILabel!
     @IBOutlet weak var step2InstructionLabel: UILabel!
-
+    
     @IBOutlet weak var step3View: UIView!
     @IBOutlet weak var step3Label: UILabel!
     @IBOutlet weak var step3InstructionLabel: UILabel!
@@ -51,8 +51,20 @@ public class ConnectTransferViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func nextButtonAction(_ sender: Any) {
+        
+        self.transferViewModel.apiForTermsAndConditionConsent() { (isSuccess, error) in
+            
+            if isSuccess {
+                
+            }
+            
+            else {
+            }
+        }
+        
         self.openDepositSwitchFlow()
         self.delegate?.onTermsAndConditionsAccepted(self.transferViewModel.getResponseForTermsAndConditionsAccepted())
+        
     }
     
     //MARK: - Public Methods
@@ -169,13 +181,13 @@ public class ConnectTransferViewController: UIViewController {
         transferTnCMutableString.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13, weight: .bold)], range: nextTextRange)
         
         let termsAndConditonRange = transferTnCMutableString.mutableString.range(of: TransferViewControllerUtil.getTermsAndConditionsText())
-
+        
         transferTnCMutableString.addAttributes([NSAttributedString.Key.foregroundColor: self.transferViewModel.getThemeColor(), NSAttributedString.Key.underlineStyle : 1, NSAttributedString.Key.underlineColor: self.transferViewModel.getThemeColor()], range: termsAndConditonRange)
-
+        
         let privacyNoticeRange = transferTnCMutableString.mutableString.range(of: TransferViewControllerUtil.getPrivacyNoticeText())
-
+        
         transferTnCMutableString.addAttributes([NSAttributedString.Key.foregroundColor: self.transferViewModel.getThemeColor(), NSAttributedString.Key.underlineStyle : 1, NSAttributedString.Key.underlineColor: self.transferViewModel.getThemeColor()], range: privacyNoticeRange)
-
+        
         let redirectAttachment = NSTextAttachment()
         redirectAttachment.image = UIImage(named: "redirect_icon")?.renderAlwaysWithTemplateMode()
         redirectAttachment.bounds = CGRect(x: 0, y: -3, width: 13, height: 13)
