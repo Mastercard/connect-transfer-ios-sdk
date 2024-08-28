@@ -32,6 +32,8 @@ class ConnectTransferViewModel: NSObject {
     
     func apiHitToGetTransferModel(urlString: String, completionHandler: @escaping (Bool, String?) -> Void) {
         
+        self.transferModelURString = urlString
+        
         guard let transferModelURL = self.getURLForTransferModelAPI(currentURLString: urlString) else {
             completionHandler(false, nil)
             return
@@ -90,7 +92,7 @@ class ConnectTransferViewModel: NSObject {
         var transferModelURL = ""
         
         if let port = currentURL.port {
-            transferModelURL = "https://\(host):\(port)/\(pdsAPIPath)?\(queryParams)"
+            transferModelURL = "http://\(host):\(port)/\(pdsAPIPath)?\(queryParams)"
             
         }else {
             transferModelURL = "https://\(host)/\(pdsAPIPath)?\(queryParams)"
@@ -158,10 +160,24 @@ class ConnectTransferViewModel: NSObject {
                 }
                 return
             }
-            guard let data = data, let response = response  else { return }
-            // handle data
-            DispatchQueue.main.async {
-                completionHandler(true, nil)
+            guard let data = data  else { return }
+            
+            if(response != nil){
+                let httpUrlResponse:HTTPURLResponse = response as! HTTPURLResponse
+                // handle data
+                if(httpUrlResponse.statusCode == 200){
+                    DispatchQueue.main.async {
+                        completionHandler(true,"Successfully completed transfer")
+                    }
+                }else{
+                    DispatchQueue.main.async {
+                        completionHandler(false, httpUrlResponse.description)
+                    }
+                }
+            }else{
+                DispatchQueue.main.async {
+                    completionHandler(false, "No Response from server")
+                }
             }
         }.resume()
     }
