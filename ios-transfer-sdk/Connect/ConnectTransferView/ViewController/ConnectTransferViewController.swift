@@ -251,13 +251,6 @@ public class ConnectTransferViewController: UIViewController {
         
         self.present(self.safariWebView!, animated: true)
     }
-    
-    private func openRedirectVC() {
-        DispatchQueue.main.async {
-            let connectTransferRedirectViewController = ConnectTransferRedirectViewController(partnerName: self.transferViewModel.getPartnerName(), themeColor: self.transferViewModel.getThemeColor())
-            self.navigationController?.pushViewController(connectTransferRedirectViewController, animated: true)
-        }
-    }
 }
 
 //MARK: - SFSafariViewControllerDelegate Methods
