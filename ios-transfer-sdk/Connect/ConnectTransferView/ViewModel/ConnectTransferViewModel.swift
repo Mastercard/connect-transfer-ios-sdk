@@ -10,7 +10,7 @@ import UIKit
 import Combine
 
 class ConnectTransferViewModel: NSObject {
-
+    
     private var transferModel: TransferModel? = nil
     private let pdsAPIPath = "server/authenticate/v2/transfer/deposit-switch"
     private let pdsTermsAndConditionAPIPath = "server/terms-and-policies"
@@ -31,6 +31,8 @@ class ConnectTransferViewModel: NSObject {
     }
     
     func apiHitToGetTransferModel(urlString: String, completionHandler: @escaping (Bool, String?) -> Void) {
+        
+        self.transferModelURString = urlString
         
         guard let transferModelURL = self.getURLForTransferModelAPI(currentURLString: urlString) else {
             completionHandler(false, nil)
@@ -90,7 +92,7 @@ class ConnectTransferViewModel: NSObject {
         var transferModelURL = ""
         
         if let port = currentURL.port {
-            transferModelURL = "https://\(host):\(port)/\(pdsAPIPath)?\(queryParams)"
+            transferModelURL = "http://\(host):\(port)/\(pdsAPIPath)?\(queryParams)"
             
         }else {
             transferModelURL = "https://\(host)/\(pdsAPIPath)?\(queryParams)"
@@ -117,7 +119,7 @@ class ConnectTransferViewModel: NSObject {
             
             UserDefaults.standard.synchronize()
         }
-    
+        
     }
     
     
@@ -132,27 +134,27 @@ class ConnectTransferViewModel: NSObject {
         let parameters : [String:Any] = ["context":"partner","language":"en","termsAndConditionsVersion":"20231121","privacyPolicyVersion":"20230925"]
         
         guard let httpBody = try? JSONSerialization.data(
-             withJSONObject: parameters,
-             options: []
-          )
+            withJSONObject: parameters,
+            options: []
+        )
         else {
-             return
+            return
         }
-
+        
         var urlRequest = URLRequest(url: termsAndConditionURL)
         urlRequest.httpMethod = "PUT"
-     
+        
         urlRequest.httpBody = httpBody// pass dictionary to data object and set it as request
-                
+        
         let headers = ["authorization": "Bearer " + (transferModel?.token)!]
-
-       
-
+        
+        
+        
         for (key, value) in headers {
             urlRequest.setValue(value, forHTTPHeaderField: key)
         }
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-         
+        
         
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
@@ -163,13 +165,28 @@ class ConnectTransferViewModel: NSObject {
                 }
                 return
             }
-          guard let data = data, let response = response  else { return }
-          // handle data
-            DispatchQueue.main.async {
-                completionHandler(true, nil)
+            
+            guard let data = data else { return }
+            
+            if(response != nil){
+                let httpUrlResponse:HTTPURLResponse = response as! HTTPURLResponse
+                // handle data
+                if(httpUrlResponse.statusCode == 200){
+                    DispatchQueue.main.async {
+                        completionHandler(true,"Successfully completed terms and conditions")
+                    }
+                }else{
+                    DispatchQueue.main.async {
+                        completionHandler(false, httpUrlResponse.description)
+                    }
+                }
+            }else{
+                DispatchQueue.main.async {
+                    completionHandler(false, "No Response from server")
+                }
             }
         }.resume()
-    
+        
         
     }
     
