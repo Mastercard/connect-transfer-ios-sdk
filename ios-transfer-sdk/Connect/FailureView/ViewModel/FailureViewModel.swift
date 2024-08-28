@@ -10,13 +10,27 @@ import UIKit
 import Combine
 
 class FailureViewModel: NSObject {
-
+    
+    private var partnerName: String
+    private var themeColor: UIColor
+    private var returnToButtonTitleTextColor: UIColor
+    
+    init(partnerName: String, themeColor: UIColor, returnToButtonTitleTextColor: UIColor = .white) {
+        self.partnerName = partnerName
+        self.themeColor = themeColor
+        self.returnToButtonTitleTextColor = returnToButtonTitleTextColor
+    }
+    
     func getThemeColor() -> UIColor {
-        return UIColor(red: 207/255, green: 69/255, blue: 0, alpha: 1.0)
+        return themeColor
     }
     
     func getReturnToButtonTitleTextColor() -> UIColor {
-        .white
+        returnToButtonTitleTextColor
+    }
+    
+    func getPartnerName() -> String {
+        self.partnerName
     }
     
 }

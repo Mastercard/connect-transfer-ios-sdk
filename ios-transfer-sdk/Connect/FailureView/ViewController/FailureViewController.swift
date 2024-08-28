@@ -28,18 +28,26 @@ public class FailureViewController: UIViewController {
     
     @IBOutlet weak var tryAgainButton: UIButton!
     @IBOutlet weak var returnToButton: UIButton!
-
     
     //MARK: - Variables
-    var failureViewModel = FailureViewModel()
+    var failureViewModel: FailureViewModel
     weak var delegate: FailureEventDelegate?
+    
+    //MARK: - Init Methods
+    init(partnerName: String, themeColor: UIColor) {
+        self.failureViewModel = FailureViewModel(partnerName: partnerName, themeColor: themeColor)
+        super.init(nibName: "FailureViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: - Overriden Methods
     public override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
     }
-    
   
     //MARK: - Actions
     @IBAction func returnToButtonAction(_ sender: Any) {
@@ -77,17 +85,20 @@ public class FailureViewController: UIViewController {
     }
     
     @objc func dismissFailureVC() {
+        guard let navigationController = self.navigationController else {
+            return
+        }
+        
         DispatchQueue.main.async {
-            self.navigationController?.dismiss(animated: true)
+            let exitPopUpViewController = ExitPopUpViewController(currentNavigationController: navigationController, partnerName: self.failureViewModel.getPartnerName(), themeColor: self.failureViewModel.getThemeColor())
+            exitPopUpViewController.modalPresentationStyle = .overCurrentContext
+            self.present(exitPopUpViewController, animated: true)
         }
     }
     
     private func setUpFailureNavigationView() {
         
-        self.failureNavigationView.backButtonCallback = {[weak self] in
-            guard let weakSelf = self else {return}
-            weakSelf.dismissFailureVC()
-        }
+        self.failureNavigationView.backButton.isHidden = true
         
         self.failureNavigationView.closeButtonCallback = {[weak self] in
             guard let weakSelf = self else {return}
@@ -98,11 +109,13 @@ public class FailureViewController: UIViewController {
     private func setUpFailureTitleLabel() {
         self.titleLabel.text = FailureViewControllerUtil.getFailureTitleText()
         self.titleLabel.font = UIFont.systemFont(ofSize: 21.33, weight: .bold)
-        self.titleLabel.textColor = FailureViewControllerUtil.getDefaultOnLightTextColor()
+        self.titleLabel.textColor = FailureViewControllerUtil.getFailureTitleTextColor()
     }
     
     private func setUpFailureDescription() {
-       
+        self.descriptionLabel.text = FailureViewControllerUtil.getFailureDescriptionText()
+        self.descriptionLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        self.descriptionLabel.textColor = FailureViewControllerUtil.getFailureTitleTextColor()
     }
     
     private func setUpTryAgainButton() {
@@ -116,11 +129,9 @@ public class FailureViewController: UIViewController {
     private func setUpReturnToButton() {
         self.returnToButton.backgroundColor = self.failureViewModel.getReturnToButtonTitleTextColor()
         self.returnToButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        self.returnToButton.setTitle(FailureViewControllerUtil.getReturnToButtonText(), for: .normal)
+        self.returnToButton.setTitle(String(format: FailureViewControllerUtil.getReturnToButtonText(), self.failureViewModel.getPartnerName()), for: .normal)
         self.returnToButton.setTitleColor(self.failureViewModel.getThemeColor(), for: .normal)
-        self.returnToButton.layer.borderColor = self.failureViewModel.getThemeColor().cgColor
-        self.returnToButton.layer.borderWidth = 1
-
+        self.returnToButton.setBorder(borderRadius: 1, borderColor: self.failureViewModel.getThemeColor())
     }
     
 }
