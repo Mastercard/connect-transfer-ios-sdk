@@ -93,16 +93,13 @@ class ConnectTransferViewModel: NSObject {
         guard let host = currentURL.host else {
             return nil
         }
-        
-        var transferModelURL = ""
-        
+
+        self.pdsBaseURLString = "https://\(host)/"    
         if let port = currentURL.port {
             self.pdsBaseURLString = "http://\(host):\(port)/"
-        }else {
-            self.pdsBaseURLString = "https://\(host)/"
         }
         
-        transferModelURL = "\(self.pdsBaseURLString!)\(pdsAPIPath)?\(queryParams)"
+        var transferModelURL = "\(self.pdsBaseURLString!)\(pdsAPIPath)?\(queryParams)"
         setUpAppLanguage(currentURLString: currentURLString)
         
         return URL(string: transferModelURL)
