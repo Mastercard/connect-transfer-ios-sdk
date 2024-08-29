@@ -11,10 +11,10 @@ import Combine
 import AtomicTransact
 
 class ConnectTransferViewModel: NSObject {
-
+    
     private var transferModel: TransferModel? = nil
     private let pdsAPIPath = "server/authenticate/v2/transfer/deposit-switch"
-    private let connectTransferCompleteAPIPath = "server/auto/v2/complete"
+    private let pdsTermsAndConditionAPIPath = "server/terms-and-policies"
     private var pdsAPIToken = Set<AnyCancellable>()
     private var transferEventCommonDataDict:NSDictionary?
     private var pdsBaseURLString:String?
@@ -122,6 +122,14 @@ class ConnectTransferViewModel: NSObject {
         self.transferModel?.transferData?.metadata?.getMetaDataDict()
     }
     
+    func getPDSBaseURLString() -> String? {
+        self.pdsBaseURLString
+    }
+    
+    func getTransferModelTokenString() -> String? {
+        self.transferModel?.token
+    }
+    
 }
 
 //MARK: - App Language Get Set Methods
@@ -142,19 +150,17 @@ extension ConnectTransferViewModel {
             
             UserDefaults.standard.synchronize()
         }
-        
     }
     
-    func apiForConnectTranserComplete(completionHandler: @escaping (Bool, String?) -> Void) {
+    // API for terms and conditions
+    func apiForTermsAndConditionConsent(completionHandler: @escaping (Bool, String?) -> Void) {
         
-        guard let connectTranserCompleteURL = self.getURLForConnectTranserComplete() else {
+        guard let termsAndConditionURL = self.getURLTermsAndConditionConsentAPI() else {
             completionHandler(false, nil)
             return
         }
         
-        
-        let parameters : [String:Any] = ["reportData":[]]
-        
+        let parameters : [String:Any] = ["context":"partner","language":"en","termsAndConditionsVersion":"20231121","privacyPolicyVersion":"20230925"]
         
         guard let httpBody = try? JSONSerialization.data(
             withJSONObject: parameters,
@@ -164,16 +170,15 @@ extension ConnectTransferViewModel {
             return
         }
         
-        var urlRequest = URLRequest(url: connectTranserCompleteURL)
-        urlRequest.httpMethod = "POST"
+        var urlRequest = URLRequest(url: termsAndConditionURL)
+        urlRequest.httpMethod = "PUT"
         urlRequest.httpBody = httpBody// pass dictionary to data object and set it as request
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
         
         let headers = ["authorization": "Bearer " + (transferModel?.token)!]
         for (key, value) in headers {
             urlRequest.setValue(value, forHTTPHeaderField: key)
         }
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
@@ -183,14 +188,14 @@ extension ConnectTransferViewModel {
                 }
                 return
             }
-            guard let data = data  else { return }
+            
             
             if(response != nil){
                 let httpUrlResponse:HTTPURLResponse = response as! HTTPURLResponse
                 // handle data
                 if(httpUrlResponse.statusCode == 200){
                     DispatchQueue.main.async {
-                        completionHandler(true,"Successfully completed transfer")
+                        completionHandler(true,"Successfully completed terms and conditions")
                     }
                 }else{
                     DispatchQueue.main.async {
@@ -203,17 +208,14 @@ extension ConnectTransferViewModel {
                 }
             }
         }.resume()
+        
     }
     
-    
-    func getURLForConnectTranserComplete() -> URL? {
-        
+    func getURLTermsAndConditionConsentAPI() -> URL? {
         guard let pdsBaseURLString = pdsBaseURLString else { return nil }
-        var transferModelURL = "\(pdsBaseURLString)\(connectTransferCompleteAPIPath)"
+        let transferModelURL = "\(pdsBaseURLString)\(pdsTermsAndConditionAPIPath)"
         return URL(string: transferModelURL)
-        
     }
-    
     
     private func getCurrentAppLanguage() -> String {
         if let appleLanguages = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String], let currentLanguage = appleLanguages.first {
