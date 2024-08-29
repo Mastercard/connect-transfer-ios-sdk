@@ -19,7 +19,7 @@ class TransferViewControllerUtil: NSObject{
     }
     
     class func getTransferDescriptionText() -> String {
-        "Allow Mastercard [Finicity, a Mastercard Company] to direct you to Atomic to securely connect to your payroll provider and manage changes to your deposit allocation." //getLocalizedString(for: "landing_page_subtitle")
+        "Allow Finicity, a Mastercard Company to direct you to Atomic to securely connect to your payroll provider and manage changes to your direct deposit." //getLocalizedString(for: "landing_page_subtitle")
     }
     
     class func getTransferFirstStepText() -> String {
@@ -39,7 +39,7 @@ class TransferViewControllerUtil: NSObject{
     }
     
     class func getTransferTermsAndConditionsAndPrivacyText() -> String {
-        "By pressing Next, you agree to Mastercard’s [Finicity’s] Terms of Use and Privacy Notice"//getLocalizedString(for: "landing_page_terms_and_condtions_info_text")
+        "By pressing Next, you agree to Finicity’s Terms of Use and Privacy Notice"//getLocalizedString(for: "landing_page_terms_and_condtions_info_text")
     }
     
     class func getTermsAndConditionsText() -> String {
@@ -63,11 +63,7 @@ class TransferViewControllerUtil: NSObject{
     }
     
     class func getFincityText() -> String {
-        "Finicity, a Mastercard company"
-    }
-    
-    class func getMastercardText() -> String {
-        "Mastercard"
+        "Finicity, a Mastercard Company"
     }
     
     class func getRedirectingText() -> String {
@@ -79,7 +75,7 @@ class TransferViewControllerUtil: NSObject{
     }
     
     class func getPermissionText() -> String {
-        "Mastercard [Finicity] only uses data with your permission"
+        "Finicity only uses data with your permission"
     }
     
     class func getDefaultOnLightTextColor() -> UIColor {
