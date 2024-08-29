@@ -9,15 +9,19 @@
 import Foundation
 
 extension Bundle {
-    private static var bundle: Bundle?
+    private static var languageBundle: Bundle?
     
-    static func setLanguage(_ language: String) {
-        let path = Bundle.main.path(forResource: language, ofType: "lproj")
+    static func setLanguage(_ language: String) {        
+        let path =  Bundle.getFrameworkBundle().path(forResource: language, ofType: "lproj")
         guard let bundlePath = path else { return }
-        bundle = Bundle(path: bundlePath)
+        languageBundle = Bundle(path: bundlePath)
     }
     
     static func localizedString(forKey key: String, value: String? = nil, table: String? = nil) -> String {
-        return bundle?.localizedString(forKey: key, value: value, table: table) ?? key
+        return languageBundle?.localizedString(forKey: key, value: value, table: table) ?? key
+    }
+    
+    class func getFrameworkBundle() -> Bundle {
+        Bundle(for: ConnectTransferViewController.self)
     }
 }

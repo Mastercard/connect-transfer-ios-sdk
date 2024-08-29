@@ -41,7 +41,7 @@ class ExitPopUpViewController: UIViewController {
     init(currentNavigationController: UINavigationController, partnerName: String, themeColor: UIColor) {
         self.currentNavigationController = currentNavigationController
         self.exitPopUpViewModel = ExitPopUpViewModel(partnerName: partnerName, themeColor: themeColor)
-        super.init(nibName: "ExitPopUpViewController", bundle: nil)
+        super.init(nibName: "ExitPopUpViewController", bundle: Bundle.getFrameworkBundle())
     }
     
     required init?(coder: NSCoder) {

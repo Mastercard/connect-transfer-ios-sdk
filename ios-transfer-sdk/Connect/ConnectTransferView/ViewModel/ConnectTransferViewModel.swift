@@ -59,7 +59,6 @@ class ConnectTransferViewModel: NSObject {
                 
                 switch completion {
                 case .failure(let error):
-                    print("error: \(error.localizedDescription)")
                     DispatchQueue.main.async {
                         completionHandler(false, error.localizedDescription)
                     }

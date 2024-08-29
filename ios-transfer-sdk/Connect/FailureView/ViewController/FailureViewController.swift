@@ -15,7 +15,7 @@ public protocol FailureEventDelegate: AnyObject {
     func didReturn(error: String)
 }
 
-public class FailureViewController: UIViewController {
+class FailureViewController: UIViewController {
 
     //MARK: - Outlets
     @IBOutlet weak var parentViewWidth: NSLayoutConstraint!
@@ -44,7 +44,7 @@ public class FailureViewController: UIViewController {
     }
     
     //MARK: - Overriden Methods
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
     }

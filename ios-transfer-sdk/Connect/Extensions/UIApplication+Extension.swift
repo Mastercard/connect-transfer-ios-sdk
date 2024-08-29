@@ -9,7 +9,7 @@
 import UIKit
 
 //MARK: - UIApplication Extension Methods
-public extension UIApplication {
+extension UIApplication {
     
     func currentUIWindow() -> UIWindow? {
         

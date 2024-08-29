@@ -9,7 +9,11 @@
 import UIKit
 
 //MARK: - UIImage Extension Methods
-public extension UIImage {
+extension UIImage {
+    
+    convenience init?(named: String) {
+        self.init(named: named, in: Bundle.getFrameworkBundle(), with: nil)
+    }
     
     func renderAlwaysWithTemplateMode() -> UIImage {
         self.withRenderingMode(.alwaysTemplate)

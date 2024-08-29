@@ -48,6 +48,15 @@ public class ConnectTransferViewController: UIViewController {
     var safariWebView: SFSafariViewController? = nil
     public weak var delegate: ConnectTransferEventDelegate?
     
+    //MARK: - Init Methods
+    public init() {
+        super.init(nibName: "ConnectTransferViewController", bundle: Bundle.getFrameworkBundle())
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //MARK: - Overriden Methods
     public override func viewDidLoad() {
         super.viewDidLoad()

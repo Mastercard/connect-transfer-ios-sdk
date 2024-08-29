@@ -9,7 +9,7 @@
 import UIKit
 
 //MARK: - UIImageView Extension Methods
-public extension UIImageView {
+extension UIImageView {
     
     func setLayerRotationToInfinite() {
         

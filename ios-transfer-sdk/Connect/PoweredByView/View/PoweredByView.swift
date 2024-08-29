@@ -33,7 +33,7 @@ class PoweredByView: UIView {
     //MARK: - Class Methods
     private func viewInit() {
         
-        guard let poweredByView = Bundle.main.loadNibNamed("PoweredByView", owner: self, options: [:])?.first as? UIView else {
+        guard let poweredByView = Bundle.getFrameworkBundle().loadNibNamed("PoweredByView", owner: self, options: [:])?.first as? UIView else {
             return
         }
         poweredByView.frame = self.bounds

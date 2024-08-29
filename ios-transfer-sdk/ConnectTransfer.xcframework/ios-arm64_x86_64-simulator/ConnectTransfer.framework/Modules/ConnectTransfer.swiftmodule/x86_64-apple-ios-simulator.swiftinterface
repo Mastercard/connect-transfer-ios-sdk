@@ -19,12 +19,11 @@ public protocol ConnectTransferEventDelegate : AnyObject {
   func onTransferEnd(_ data: Foundation.NSDictionary?)
   func onUserEvent(_ data: Foundation.NSDictionary?)
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class ConnectTransferViewController : UIKit.UIViewController {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class ConnectTransferViewController : UIKit.UIViewController {
   @_Concurrency.MainActor(unsafe) weak public var delegate: (any ConnectTransfer.ConnectTransferEventDelegate)?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) public func loadConnectTransfer(with urlString: Swift.String)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 extension ConnectTransfer.ConnectTransferViewController : SafariServices.SFSafariViewControllerDelegate {
@@ -33,22 +32,4 @@ extension ConnectTransfer.ConnectTransferViewController : SafariServices.SFSafar
 public protocol FailureEventDelegate : AnyObject {
   func didTryAgain()
   func didReturn(error: Swift.String)
-}
-@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class FailureViewController : UIKit.UIViewController {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @objc deinit
-}
-extension UIKit.UITapGestureRecognizer {
-  @_Concurrency.MainActor(unsafe) public func didTapAttributedTextInLabel(label: UIKit.UILabel, inRange targetRange: Foundation.NSRange) -> Swift.Bool
-}
-extension UIKit.UIImage {
-  public func renderAlwaysWithTemplateMode() -> UIKit.UIImage
-}
-extension UIKit.UIApplication {
-  @_Concurrency.MainActor(unsafe) public func currentUIWindow() -> UIKit.UIWindow?
-  @_Concurrency.MainActor(unsafe) public func getParentViewSizeForiPhone() -> CoreFoundation.CGSize
-}
-extension UIKit.UIImageView {
-  @_Concurrency.MainActor(unsafe) public func setLayerRotationToInfinite()
-  @_Concurrency.MainActor(unsafe) public func removeAllAnimations()
 }
