@@ -338,28 +338,35 @@ extension ConnectTransferViewModel {
         return commonResponse as NSDictionary
     }
     
-    func getResponseForDone(isError: Bool = false, reason: String?) -> NSDictionary? {
-        guard var commonResponse = getTransferEventCommonDataDict() as? [String: String] else {
+    func getResponseForClose(reason: String?) -> NSDictionary? {
+        guard var commonResponse = getTransferEventCommonDataDict() as? [String: Any] else {
             return nil
         }
         
         commonResponse[TransferEventDataName.action.rawValue] = UserEvents.END.rawValue
-        commonResponse[TransferEventDataName.code.rawValue] = isError ? "100" : "200"
         
-        if let reason = reason {
+        if reason == RedirectReason.UNKNOWN.rawValue ||  reason == RedirectReason.EXIT.rawValue {
+            commonResponse[TransferEventDataName.reason.rawValue] = RedirectReason.EXIT.rawValue
+            commonResponse[TransferEventDataName.code.rawValue] = "100"
+            
+        }else {
             commonResponse[TransferEventDataName.reason.rawValue] = reason
+            commonResponse[TransferEventDataName.code.rawValue] = "500"
         }
         
         return commonResponse as NSDictionary
     }
     
     func getResponseForFinish(responseData: AtomicTransact.TransactResponse.ResponseData) -> NSDictionary? {
-        
-        guard let responseForDone = getResponseForDone(reason: responseData.reason) as? [String:Any] else {
+        guard var commonResponse = getTransferEventCommonDataDict() as? [String: Any] else {
             return nil
         }
         
-        let dict = responseForDone.merging(responseData.data) { _, _ in }
+        commonResponse[TransferEventDataName.action.rawValue] = UserEvents.END.rawValue
+        commonResponse[TransferEventDataName.reason.rawValue] = RedirectReason.COMPLETE.rawValue
+        commonResponse[TransferEventDataName.code.rawValue] = "200"
+        
+        let dict = commonResponse.merging(responseData.data) { _, _ in }
         
         return dict as NSDictionary
     }

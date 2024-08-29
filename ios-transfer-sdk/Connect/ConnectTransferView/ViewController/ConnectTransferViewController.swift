@@ -90,7 +90,7 @@ public class ConnectTransferViewController: UIViewController {
                 self.delegate?.onInitializeTransferDone(self.transferViewModel.getResponseForInitializeTransfer())
                 
             }else {
-                self.delegate?.onTransferEnd(self.transferViewModel.getResponseForDone(isError: true, reason: error))
+                self.delegate?.onTransferEnd(self.transferViewModel.getResponseForClose(reason: error))
             }
         }
     }
@@ -304,6 +304,6 @@ fileprivate extension UILabel {
 //MARK: - Exit PopUp Delegate Methods
 extension ConnectTransferViewController: ExitPopUpDelegate {
     func exitConnectTransfer() {
-        self.delegate?.onTransferEnd(self.transferViewModel.getResponseForDone(isError: true, reason: "exit"))
+        self.delegate?.onTransferEnd(self.transferViewModel.getResponseForClose(reason: "exit"))
     }
 }

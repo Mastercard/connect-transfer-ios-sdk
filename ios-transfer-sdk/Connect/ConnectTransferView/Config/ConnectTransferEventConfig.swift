@@ -54,6 +54,13 @@ enum UserEvents: String{
     case END = "End"
 }
 
+enum RedirectReason: String {
+    case EXIT = "exit"
+    case ERROR = "error"
+    case TIMEOUT = "timeout"
+    case COMPLETE = "complete"
+    case UNKNOWN = "unknown"
+}
 
 enum AtomicEvents: String {
     

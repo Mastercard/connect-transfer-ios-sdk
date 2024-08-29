@@ -54,12 +54,16 @@ extension ConnectTransferViewController {
         case .finished(let response):
             self.openRedirectVC(responseData: response)
         
-        case .closed(_):
-            self.delegate?.onTransferEnd(self.transferViewModel.getResponseForDone(isError: true, reason: "exit"))
+        case .closed(let response):
+            var reason = response.reason
+            if let failReason = response.data["failReason"] as? String, failReason.count > 0 {
+                reason = failReason
+            }
+            self.delegate?.onTransferEnd(self.transferViewModel.getResponseForClose(reason: reason))
             self.navigationController?.dismiss(animated: true)
             
         case .error(let error):
-            self.delegate?.onTransferEnd(self.transferViewModel.getResponseForDone(isError: true, reason: error.localizedDescription))
+            self.delegate?.onTransferEnd(self.transferViewModel.getResponseForClose(reason: error.localizedDescription))
             self.navigationController?.dismiss(animated: true)
             
         default:
