@@ -70,7 +70,7 @@ extension ConnectTransferViewController {
     func openRedirectVC(responseData: AtomicTransact.TransactResponse.ResponseData) {
         DispatchQueue.main.async {
             let connectTransferRedirectViewController = ConnectTransferRedirectViewController(partnerName: self.transferViewModel.getPartnerName(), themeColor: self.transferViewModel.getThemeColor(), pdsBaseURLString: self.transferViewModel.getPDSBaseURLString(), transferModelToken: self.transferViewModel.getTransferModelTokenString())
-            self.navigationController?.pushViewController(connectTransferRedirectViewController, animated: true)
+            self.navigationController?.pushViewController(connectTransferRedirectViewController, animated: false)
             
             connectTransferRedirectViewController.callbackForTransferFlowComplete = {[weak self] in
                 
