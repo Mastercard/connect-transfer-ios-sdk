@@ -14,6 +14,7 @@ class ConnectTransferViewModel: NSObject {
 
     private var transferModel: TransferModel? = nil
     private let pdsAPIPath = "server/authenticate/v2/transfer/deposit-switch"
+    private let connectTransferCompleteAPIPath = "server/auto/v2/complete"
     private var pdsAPIToken = Set<AnyCancellable>()
     private var transferEventCommonDataDict:NSDictionary?
     private var pdsBaseURLString:String?
@@ -35,7 +36,7 @@ class ConnectTransferViewModel: NSObject {
     }
     
     func apiHitToGetTransferModel(urlString: String, completionHandler: @escaping (Bool, String?) -> Void) {
-        
+                
         guard let transferModelURL = self.getURLForTransferModelAPI(currentURLString: urlString) else {
             completionHandler(false, nil)
             return
@@ -92,17 +93,13 @@ class ConnectTransferViewModel: NSObject {
         guard let host = currentURL.host else {
             return nil
         }
-        
-        var transferModelURL = ""
-        
+
+        self.pdsBaseURLString = "https://\(host)/"    
         if let port = currentURL.port {
-            self.pdsBaseURLString = "http://\(host):\(port)"
-            
-        }else {
-            self.pdsBaseURLString = "https://\(host)"
+            self.pdsBaseURLString = "http://\(host):\(port)/"
         }
         
-        transferModelURL = "\(self.pdsBaseURLString!)/\(pdsAPIPath)?\(queryParams)"
+        var transferModelURL = "\(self.pdsBaseURLString!)\(pdsAPIPath)?\(queryParams)"
         setUpAppLanguage(currentURLString: currentURLString)
         
         return URL(string: transferModelURL)
@@ -145,16 +142,87 @@ extension ConnectTransferViewModel {
             
             UserDefaults.standard.synchronize()
         }
-    
+        
     }
+    
+    func apiForConnectTranserComplete(completionHandler: @escaping (Bool, String?) -> Void) {
+        
+        guard let connectTranserCompleteURL = self.getURLForConnectTranserComplete() else {
+            completionHandler(false, nil)
+            return
+        }
+        
+        
+        let parameters : [String:Any] = ["reportData":[]]
+        
+        
+        guard let httpBody = try? JSONSerialization.data(
+            withJSONObject: parameters,
+            options: []
+        )
+        else {
+            return
+        }
+        
+        var urlRequest = URLRequest(url: connectTranserCompleteURL)
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = httpBody// pass dictionary to data object and set it as request
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        
+        let headers = ["authorization": "Bearer " + (transferModel?.token)!]
+        for (key, value) in headers {
+            urlRequest.setValue(value, forHTTPHeaderField: key)
+        }
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                
+                DispatchQueue.main.async {
+                    completionHandler(false, error?.localizedDescription)
+                }
+                return
+            }
+            guard let data = data  else { return }
+            
+            if(response != nil){
+                let httpUrlResponse:HTTPURLResponse = response as! HTTPURLResponse
+                // handle data
+                if(httpUrlResponse.statusCode == 200){
+                    DispatchQueue.main.async {
+                        completionHandler(true,"Successfully completed transfer")
+                    }
+                }else{
+                    DispatchQueue.main.async {
+                        completionHandler(false, httpUrlResponse.description)
+                    }
+                }
+            }else{
+                DispatchQueue.main.async {
+                    completionHandler(false, "No Response from server")
+                }
+            }
+        }.resume()
+    }
+    
+    
+    func getURLForConnectTranserComplete() -> URL? {
+        
+        guard let pdsBaseURLString = pdsBaseURLString else { return nil }
+        var transferModelURL = "\(pdsBaseURLString)\(connectTransferCompleteAPIPath)"
+        return URL(string: transferModelURL)
+        
+    }
+    
     
     private func getCurrentAppLanguage() -> String {
         if let appleLanguages = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String], let currentLanguage = appleLanguages.first {
             return currentLanguage
         }
-
+        
         return "en" // Default Language
     }
+    
 }
 
 //MARK: - Deposit Switch Flow Config Methods
