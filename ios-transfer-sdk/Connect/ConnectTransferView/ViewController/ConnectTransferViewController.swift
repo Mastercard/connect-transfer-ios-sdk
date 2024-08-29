@@ -155,9 +155,9 @@ public class ConnectTransferViewController: UIViewController {
     private func setUpTransferDescription() {
         let transferDescriptionMutableString = NSMutableAttributedString(string: TransferViewControllerUtil.getTransferDescriptionText(), attributes: [NSAttributedString.Key.foregroundColor : TransferViewControllerUtil.getDefaultOnLightTextColor(), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)])
         
-        let mastercardNameRange = transferDescriptionMutableString.mutableString.range(of: TransferViewControllerUtil.getMastercardText())
+        let finicityNameRange = transferDescriptionMutableString.mutableString.range(of: TransferViewControllerUtil.getFincityText())
         
-        transferDescriptionMutableString.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)], range: mastercardNameRange)
+        transferDescriptionMutableString.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)], range: finicityNameRange)
         
         let atomicNameRange = transferDescriptionMutableString.mutableString.range(of: TransferViewControllerUtil.getAtomicText())
         
