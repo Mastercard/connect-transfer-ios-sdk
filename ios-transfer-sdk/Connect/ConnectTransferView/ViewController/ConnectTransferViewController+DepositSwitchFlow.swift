@@ -32,7 +32,6 @@ extension ConnectTransferViewController {
     }
     
     func handleInteractionEvents(interaction: TransactInteraction) {
-        print("Interaction event: \(interaction.name)")
         
         switch interaction.name {
             
@@ -53,21 +52,18 @@ extension ConnectTransferViewController {
         switch result {
             
         case .finished(let response):
-            print("Finish event:")
             self.openRedirectVC(responseData: response)
         
         case .closed(_):
-            print("Close event:")
             self.delegate?.onTransferEnd(self.transferViewModel.getResponseForDone(isError: true, reason: "exit"))
             self.navigationController?.dismiss(animated: true)
             
         case .error(let error):
-            print("Transact returned with error:")
             self.delegate?.onTransferEnd(self.transferViewModel.getResponseForDone(isError: true, reason: error.localizedDescription))
             self.navigationController?.dismiss(animated: true)
             
         default:
-            print("Default")
+            break
         }
     }
     

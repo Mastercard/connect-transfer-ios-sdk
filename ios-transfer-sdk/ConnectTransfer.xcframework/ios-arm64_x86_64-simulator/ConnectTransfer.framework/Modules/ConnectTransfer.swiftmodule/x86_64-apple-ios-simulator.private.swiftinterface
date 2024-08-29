@@ -1,0 +1,35 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ConnectTransfer
+import AtomicTransact
+import Combine
+import DeveloperToolsSupport
+import Foundation
+import SafariServices
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public protocol ConnectTransferEventDelegate : AnyObject {
+  func onInitializeTransferDone(_ data: Foundation.NSDictionary?)
+  func onTermsAndConditionsAccepted(_ data: Foundation.NSDictionary?)
+  func onInitializeDepositSwitch(_ data: Foundation.NSDictionary?)
+  func onTransferEnd(_ data: Foundation.NSDictionary?)
+  func onUserEvent(_ data: Foundation.NSDictionary?)
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class ConnectTransferViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) weak public var delegate: (any ConnectTransfer.ConnectTransferEventDelegate)?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) public func loadConnectTransfer(with urlString: Swift.String)
+  @objc deinit
+}
+extension ConnectTransfer.ConnectTransferViewController : SafariServices.SFSafariViewControllerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func safariViewControllerDidFinish(_ controller: SafariServices.SFSafariViewController)
+}
+public protocol FailureEventDelegate : AnyObject {
+  func didTryAgain()
+  func didReturn(error: Swift.String)
+}

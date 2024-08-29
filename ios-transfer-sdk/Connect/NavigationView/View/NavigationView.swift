@@ -50,7 +50,7 @@ class NavigationView: UIView {
     //MARK: - Class Methods
     private func viewInit() {
         
-        guard let navigationView = Bundle.main.loadNibNamed("NavigationView", owner: self, options: [:])?.first as? UIView else {
+        guard let navigationView = Bundle.getFrameworkBundle().loadNibNamed("NavigationView", owner: self, options: [:])?.first as? UIView else {
             return
         }
         navigationView.frame = self.bounds

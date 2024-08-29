@@ -27,7 +27,7 @@ class ConnectTransferRedirectViewController: UIViewController {
     //MARK: - Init Methods
     init(partnerName: String, themeColor: UIColor, pdsBaseURLString: String?, transferModelToken: String?) {
         self.redirectViewModel = ConnectTransferRedirectViewModel(partnerName: partnerName, themeColor: themeColor, pdsBaseURLString: pdsBaseURLString, transferModelToken: transferModelToken)
-        super.init(nibName: "ConnectTransferRedirectViewController", bundle: nil)
+        super.init(nibName: "ConnectTransferRedirectViewController", bundle: Bundle.getFrameworkBundle())
     }
     
     required init?(coder: NSCoder) {

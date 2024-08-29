@@ -14,11 +14,9 @@
 		6BE8C14123B137C8003C92AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BE8C13F23B137C8003C92AE /* Main.storyboard */; };
 		6BE8C14323B137C9003C92AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BE8C14223B137C9003C92AE /* Assets.xcassets */; };
 		6BE8C14623B137C9003C92AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BE8C14423B137C9003C92AE /* LaunchScreen.storyboard */; };
-		77B3C2592C7F5BE000D6FDF3 /* AtomicTransact.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B3C2572C7F5BD300D6FDF3 /* AtomicTransact.xcframework */; };
-		77B3C25A2C7F5BE000D6FDF3 /* AtomicTransact.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77B3C2572C7F5BD300D6FDF3 /* AtomicTransact.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		77B3C2632C7F5CDB00D6FDF3 /* ConnectTransfer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B3C2612C7F5CD700D6FDF3 /* ConnectTransfer.xcframework */; };
-		77B3C2642C7F5CDB00D6FDF3 /* ConnectTransfer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77B3C2612C7F5CD700D6FDF3 /* ConnectTransfer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77B3C2482C7F3C9F00D6FDF3 /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = 77B3C2472C7F3C9F00D6FDF3 /* AtomicTransact */; };
 		77F98BB22C0DE81900AC7486 /* RadioButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F98BB12C0DE81900AC7486 /* RadioButtonController.swift */; };
+		F488999A2C804A3400639FFF /* ConnectTransfer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F48899992C804A3400639FFF /* ConnectTransfer.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,8 +26,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				77B3C25A2C7F5BE000D6FDF3 /* AtomicTransact.xcframework in Embed Frameworks */,
-				77B3C2642C7F5CDB00D6FDF3 /* ConnectTransfer.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,10 +42,9 @@
 		6BE8C14223B137C9003C92AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BE8C14523B137C9003C92AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BE8C14723B137C9003C92AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		77B3C2572C7F5BD300D6FDF3 /* AtomicTransact.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AtomicTransact.xcframework; path = ../AtomicTransact.xcframework; sourceTree = "<group>"; };
-		77B3C2612C7F5CD700D6FDF3 /* ConnectTransfer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ConnectTransfer.xcframework; path = ../ConnectTransfer.xcframework; sourceTree = "<group>"; };
 		77ED08632A5EBD1100BB0E24 /* ConnectWrapper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ConnectWrapper.entitlements; sourceTree = "<group>"; };
 		77F98BB12C0DE81900AC7486 /* RadioButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonController.swift; sourceTree = "<group>"; };
+		F48899992C804A3400639FFF /* ConnectTransfer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ConnectTransfer.xcframework; path = ../ConnectTransfer.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77B3C2592C7F5BE000D6FDF3 /* AtomicTransact.xcframework in Frameworks */,
-				77B3C2632C7F5CDB00D6FDF3 /* ConnectTransfer.xcframework in Frameworks */,
+				77B3C2482C7F3C9F00D6FDF3 /* AtomicTransact in Frameworks */,
+				F488999A2C804A3400639FFF /* ConnectTransfer.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,8 +97,7 @@
 		6BE8C14D23B1486E003C92AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				77B3C2612C7F5CD700D6FDF3 /* ConnectTransfer.xcframework */,
-				77B3C2572C7F5BD300D6FDF3 /* AtomicTransact.xcframework */,
+				F48899992C804A3400639FFF /* ConnectTransfer.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -126,6 +120,7 @@
 			);
 			name = ConnectWrapper;
 			packageProductDependencies = (
+				77B3C2472C7F3C9F00D6FDF3 /* AtomicTransact */,
 			);
 			productName = ConnectWrapper;
 			productReference = 6BE8C13623B137C8003C92AE /* ConnectWrapper.app */;
@@ -156,6 +151,7 @@
 			);
 			mainGroup = 6BE8C12D23B137C8003C92AE;
 			packageReferences = (
+				77B3C2462C7F3C9F00D6FDF3 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */,
 			);
 			productRefGroup = 6BE8C13723B137C8003C92AE /* Products */;
 			projectDirPath = "";
@@ -406,6 +402,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		77B3C2462C7F3C9F00D6FDF3 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/atomicfi/atomic-transact-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 3.3.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		77B3C2472C7F3C9F00D6FDF3 /* AtomicTransact */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77B3C2462C7F3C9F00D6FDF3 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
+			productName = AtomicTransact;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6BE8C12E23B137C8003C92AE /* Project object */;
 }

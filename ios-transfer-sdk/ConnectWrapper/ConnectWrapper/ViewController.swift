@@ -85,13 +85,12 @@ class ViewController: UIViewController {
     @IBAction func launchConnectTransferAction(_ sender: Any) {
         activityIndicator.startAnimating()
         if let connectTransferUrl = pdsURLInput.text {
-           
-            self.transferViewController = ConnectTransferViewController(nibName: "ConnectTransferViewController", bundle: Bundle(identifier: "com.mastercard.openbanking.connect"))
+                        
+            self.transferViewController = ConnectTransferViewController()
             self.transferViewController.delegate = self
             self.transferViewController.loadConnectTransfer(with: connectTransferUrl)
         }
     }
-
     
 }
 

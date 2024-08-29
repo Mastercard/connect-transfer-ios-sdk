@@ -1,0 +1,54 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ConnectTransfer
+import AtomicTransact
+import Combine
+import DeveloperToolsSupport
+import Foundation
+import SafariServices
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public protocol ConnectTransferEventDelegate : AnyObject {
+  func onInitializeTransferDone(_ data: Foundation.NSDictionary?)
+  func onTermsAndConditionsAccepted(_ data: Foundation.NSDictionary?)
+  func onInitializeDepositSwitch(_ data: Foundation.NSDictionary?)
+  func onTransferEnd(_ data: Foundation.NSDictionary?)
+  func onUserEvent(_ data: Foundation.NSDictionary?)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class ConnectTransferViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) weak public var delegate: (any ConnectTransfer.ConnectTransferEventDelegate)?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) public func loadConnectTransfer(with urlString: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension ConnectTransfer.ConnectTransferViewController : SafariServices.SFSafariViewControllerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func safariViewControllerDidFinish(_ controller: SafariServices.SFSafariViewController)
+}
+public protocol FailureEventDelegate : AnyObject {
+  func didTryAgain()
+  func didReturn(error: Swift.String)
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class FailureViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc deinit
+}
+extension UIKit.UITapGestureRecognizer {
+  @_Concurrency.MainActor(unsafe) public func didTapAttributedTextInLabel(label: UIKit.UILabel, inRange targetRange: Foundation.NSRange) -> Swift.Bool
+}
+extension UIKit.UIImage {
+  public func renderAlwaysWithTemplateMode() -> UIKit.UIImage
+}
+extension UIKit.UIApplication {
+  @_Concurrency.MainActor(unsafe) public func currentUIWindow() -> UIKit.UIWindow?
+  @_Concurrency.MainActor(unsafe) public func getParentViewSizeForiPhone() -> CoreFoundation.CGSize
+}
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public func setLayerRotationToInfinite()
+  @_Concurrency.MainActor(unsafe) public func removeAllAnimations()
+}
