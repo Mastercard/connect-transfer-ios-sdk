@@ -67,18 +67,11 @@ public class ConnectTransferViewController: UIViewController {
     @IBAction func nextButtonAction(_ sender: Any) {
         
         self.transferViewModel.apiForTermsAndConditionConsent() { (isSuccess, error) in
-            
-            if isSuccess {
-                
-            }
-            
-            else {
-            }
+ 
         }
         
-        self.openDepositSwitchFlow()
         self.delegate?.onTermsAndConditionsAccepted(self.transferViewModel.getResponseForTermsAndConditionsAccepted())
-        
+        self.openRedirectVC()
     }
     
     //MARK: - Public Methods
@@ -272,6 +265,16 @@ public class ConnectTransferViewController: UIViewController {
         self.safariWebView?.delegate = self
         
         self.present(self.safariWebView!, animated: true)
+    }
+    
+    func openRedirectVC() {
+        
+        DispatchQueue.main.async {
+            let connectTransferRedirectViewController = ConnectTransferRedirectViewController(themeColor: self.transferViewModel.getThemeColor(), pdsBaseURLString: self.transferViewModel.getPDSBaseURLString(), transferModel: self.transferViewModel.getTransferModel())
+            connectTransferRedirectViewController.delegate = self
+            self.navigationController?.pushViewController(connectTransferRedirectViewController, animated: true)
+        }
+        
     }
 }
 

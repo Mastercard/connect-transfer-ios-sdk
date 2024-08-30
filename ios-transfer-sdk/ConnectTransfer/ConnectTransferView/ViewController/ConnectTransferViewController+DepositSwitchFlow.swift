@@ -10,26 +10,7 @@ import AtomicTransact
 import UIKit
 
 //MARK: - Transfer Flow
-extension ConnectTransferViewController {
-    
-    func openDepositSwitchFlow() {
-        guard let config = self.transferViewModel.getTransferConfig() else {
-            return
-        }
-        
-        Atomic.presentTransact(from: self, config: config) { [weak self] interaction in
-            
-            guard let weakSelf = self else {return}
-            
-            weakSelf.handleInteractionEvents(interaction: interaction)
-
-        } onCompletion: { [weak self] result in
-            
-            guard let weakSelf = self else {return}
-            
-            weakSelf.handleCompletionEvents(result: result)
-        }
-    }
+extension ConnectTransferViewController: RedirectViewDelegate {
     
     func handleInteractionEvents(interaction: TransactInteraction) {
         
@@ -47,50 +28,18 @@ extension ConnectTransferViewController {
         }
     }
     
-    func handleCompletionEvents(result: TransactResponse) {
-        
-        switch result {
-            
-        case .finished(let response):
-            self.openRedirectVC(responseData: response)
-        
-        case .closed(let response):
-            var reason = response.reason
-            if let failReason = response.data["failReason"] as? String, failReason.count > 0 {
-                reason = failReason
-            }
-            self.delegate?.onTransferEnd(self.transferViewModel.getResponseForClose(reason: reason))
-            self.navigationController?.dismiss(animated: true)
-            
-        case .error(let error):
-            self.delegate?.onTransferEnd(self.transferViewModel.getResponseForClose(reason: error.localizedDescription))
-            self.navigationController?.dismiss(animated: true)
-            
-        default:
-            break
-        }
+    func handleFinishedEvents(response: AtomicTransact.TransactResponse.ResponseData) {
+        self.delegate?.onTransferEnd(self.transferViewModel.getResponseForFinish(responseData: response))
     }
     
-    func openRedirectVC(responseData: AtomicTransact.TransactResponse.ResponseData) {
-        DispatchQueue.main.async {
-            let connectTransferRedirectViewController = ConnectTransferRedirectViewController(partnerName: self.transferViewModel.getPartnerName(), themeColor: self.transferViewModel.getThemeColor(), pdsBaseURLString: self.transferViewModel.getPDSBaseURLString(), transferModelToken: self.transferViewModel.getTransferModelTokenString())
-            self.navigationController?.pushViewController(connectTransferRedirectViewController, animated: false)
-            
-            connectTransferRedirectViewController.callbackForTransferFlowComplete = {[weak self] in
-                
-                guard let weakSelf = self else {return}
-                weakSelf.delegate?.onTransferEnd(weakSelf.transferViewModel.getResponseForFinish(responseData: responseData))
-                weakSelf.closeTransferFlow()
-            
-            }
+    func handleClosedEvents(response: AtomicTransact.TransactResponse.ResponseData) {
+        var reason = response.reason
+        if let failReason = response.data["failReason"] as? String, failReason.count > 0 {
+            reason = failReason
         }
+        self.delegate?.onTransferEnd(self.transferViewModel.getResponseForClose(reason: reason))
     }
     
-    func closeTransferFlow() {
-        DispatchQueue.main.async {
-            self.navigationController?.dismiss(animated: true)
-        }
-    }
 }
 
 

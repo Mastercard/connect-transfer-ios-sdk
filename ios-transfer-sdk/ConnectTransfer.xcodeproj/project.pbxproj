@@ -72,6 +72,8 @@
 		F414C2E72C611CCC00A7ACAD /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414C2E02C611C4800A7ACAD /* UIImage+Extension.swift */; };
 		F414C2E82C611CCC00A7ACAD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414C2E22C611C6200A7ACAD /* UIImageView+Extension.swift */; };
 		F414C2E92C611CCC00A7ACAD /* UITapGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414C2E42C611C8200A7ACAD /* UITapGestureRecognizer+Extension.swift */; };
+		F44A603A2C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A60392C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift */; };
+		F44A603B2C81EE7000B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A60392C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift */; };
 		F48899752C77570B00639FFF /* ConnectTransferEventConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899742C77570B00639FFF /* ConnectTransferEventConfig.swift */; };
 		F48899762C77570B00639FFF /* ConnectTransferEventConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899742C77570B00639FFF /* ConnectTransferEventConfig.swift */; };
 		F48899782C77577100639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899772C77577000639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift */; };
@@ -187,6 +189,7 @@
 		F414C2E02C611C4800A7ACAD /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		F414C2E22C611C6200A7ACAD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		F414C2E42C611C8200A7ACAD /* UITapGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
+		F44A60392C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectTransferRedirectViewController+DepositSwitchFlow.swift"; sourceTree = "<group>"; };
 		F48899742C77570B00639FFF /* ConnectTransferEventConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectTransferEventConfig.swift; sourceTree = "<group>"; };
 		F48899772C77577000639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConnectTransferViewController+DepositSwitchFlow.swift"; sourceTree = "<group>"; };
 		F488997A2C7757B100639FFF /* URLQueryItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+Extension.swift"; sourceTree = "<group>"; };
@@ -482,6 +485,7 @@
 			children = (
 				F4C6E5992C57C19300723739 /* ConnectTransferRedirectViewController.swift */,
 				F4C6E59A2C57C19300723739 /* ConnectTransferRedirectViewController.xib */,
+				F44A60392C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -748,6 +752,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F44A603B2C81EE7000B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift in Sources */,
 				777F62192C6A261F00A342AD /* FailureViewControllerUtil.swift in Sources */,
 				F411D7402C6A540900BE39C2 /* Bundle+Extension.swift in Sources */,
 				F411D73D2C66917A00BE39C2 /* Localizable.xcstrings in Sources */,
@@ -817,6 +822,7 @@
 				777F62152C6A23E700A342AD /* FailureViewController.swift in Sources */,
 				F411D73F2C6A53BA00BE39C2 /* Bundle+Extension.swift in Sources */,
 				F414C2E52C611C8200A7ACAD /* UITapGestureRecognizer+Extension.swift in Sources */,
+				F44A603A2C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift in Sources */,
 				F414C2D42C610B4200A7ACAD /* NavigationView.swift in Sources */,
 				F414C2D62C610B4200A7ACAD /* PoweredByView.swift in Sources */,
 				F414C2E12C611C4800A7ACAD /* UIImage+Extension.swift in Sources */,

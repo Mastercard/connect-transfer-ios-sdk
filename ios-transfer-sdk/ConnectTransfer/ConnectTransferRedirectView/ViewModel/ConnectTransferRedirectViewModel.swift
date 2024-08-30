@@ -7,21 +7,20 @@
 //
 
 import UIKit
+import AtomicTransact
 
 class ConnectTransferRedirectViewModel: NSObject {
 
-    private var partnerName: String
     private var themeColor: UIColor
     private var pdsBaseURLString: String?
-    private var transferModelToken: String?
     private var exitButtonTextColor: UIColor
     private let connectTransferCompleteAPIPath = "server/auto/v2/complete"
+    private var transferModel: TransferModel? = nil
     
-    init(partnerName: String, themeColor: UIColor, pdsBaseURLString: String?, transferModelToken: String?, exitButtonTextColor: UIColor = .white) {
-        self.partnerName = partnerName
+    init(themeColor: UIColor, pdsBaseURLString: String?, transferModel: TransferModel?, exitButtonTextColor: UIColor = .white) {
         self.themeColor = themeColor
         self.pdsBaseURLString = pdsBaseURLString
-        self.transferModelToken = transferModelToken
+        self.transferModel = transferModel
         self.exitButtonTextColor = exitButtonTextColor
     }
     
@@ -30,7 +29,11 @@ class ConnectTransferRedirectViewModel: NSObject {
     }
     
     func getPartnerName() -> String {
-        self.partnerName
+        return transferModel?.transferData?.metadata?.applicationName ?? ""
+    }
+    
+    func getTransferModelTokenString() -> String? {
+        self.transferModel?.token
     }
     
     // API for Transfer Complete
@@ -57,8 +60,7 @@ class ConnectTransferRedirectViewModel: NSObject {
         urlRequest.httpBody = httpBody// pass dictionary to data object and set it as request
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        
-        let headers = ["authorization": "Bearer " + (transferModelToken!)]
+        let headers = ["authorization": "Bearer " + (getTransferModelTokenString()!)]
         for (key, value) in headers {
             urlRequest.setValue(value, forHTTPHeaderField: key)
         }
@@ -102,4 +104,40 @@ class ConnectTransferRedirectViewModel: NSObject {
         return URL(string: transferModelURL)
     }
     
+    private func getTransferToken() -> String? {
+        self.transferModel?.transferData?.userToken
+    }
+    
+    private func getTransferProductType() -> AtomicConfig.ProductType? {
+
+        guard let productType = self.transferModel?.transferData?.product else {
+            return nil
+        }
+
+        return AtomicConfig.ProductType(rawValue: productType)
+    }
+
+    private func getMetaDataDict() -> [String: String]? {
+        self.transferModel?.transferData?.metadata?.getMetaDataDict()
+    }
+    
+}
+
+//MARK: - Deposit Switch Flow Config Methods
+extension ConnectTransferRedirectViewModel {
+    
+    func getTransferConfig() -> AtomicConfig? {
+
+        guard let publicToken = self.getTransferToken() else {
+            return nil
+        }
+
+        guard let product = self.getTransferProductType() else {
+            return nil
+        }
+        
+        let config = AtomicConfig(publicToken: publicToken, scope: .userLink, tasks: [.init(operation: product)], theme: .init(brandColor: self.getThemeColor(), dark: .light), language: Helper.getCurrentAppLanguage(), metadata: getMetaDataDict(), customer: AtomicConfig.Customer.init(name: getPartnerName()))
+
+        return config
+    }
 }

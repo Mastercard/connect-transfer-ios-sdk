@@ -41,8 +41,6 @@ class ConnectTransferViewModel: NSObject {
             completionHandler(false, nil)
             return
         }
-        
-        self.setTransferEventCommonDataDict(fullPDSURL: transferModelURL)
                 
         var urlRequest = URLRequest(url: transferModelURL)
         urlRequest.httpMethod = "POST"
@@ -60,6 +58,7 @@ class ConnectTransferViewModel: NSObject {
                 
                 switch completion {
                 case .failure(let error):
+                    self.setTransferEventCommonDataDict(fullPDSURL: transferModelURL)
                     print("error: \(error.localizedDescription)")
                     DispatchQueue.main.async {
                         completionHandler(false, error.localizedDescription)
@@ -72,6 +71,8 @@ class ConnectTransferViewModel: NSObject {
             }) { result in
                 
                 self.transferModel = result
+                self.setTransferEventCommonDataDict(fullPDSURL: transferModelURL)
+                
                 DispatchQueue.main.async {
                     completionHandler(true, nil)
                 }
@@ -99,35 +100,14 @@ class ConnectTransferViewModel: NSObject {
             self.pdsBaseURLString = "http://\(host):\(port)/"
         }
         
-        var transferModelURL = "\(self.pdsBaseURLString!)\(pdsAPIPath)?\(queryParams)"
+        let transferModelURL = "\(self.pdsBaseURLString!)\(pdsAPIPath)?\(queryParams)"
         setUpAppLanguage(currentURLString: currentURLString)
         
         return URL(string: transferModelURL)
     }
-
-    private func getTransferToken() -> String? {
-        self.transferModel?.transferData?.userToken
-    }
-
-    private func getTransferProductType() -> AtomicConfig.ProductType? {
-
-        guard let productType = self.transferModel?.transferData?.product else {
-            return nil
-        }
-
-        return AtomicConfig.ProductType(rawValue: productType)
-    }
-
-    private func getMetaDataDict() -> [String: String]? {
-        self.transferModel?.transferData?.metadata?.getMetaDataDict()
-    }
     
     func getPDSBaseURLString() -> String? {
         self.pdsBaseURLString
-    }
-    
-    func getTransferModelTokenString() -> String? {
-        self.transferModel?.token
     }
     
 }
@@ -215,34 +195,6 @@ extension ConnectTransferViewModel {
         guard let pdsBaseURLString = pdsBaseURLString else { return nil }
         let transferModelURL = "\(pdsBaseURLString)\(pdsTermsAndConditionAPIPath)"
         return URL(string: transferModelURL)
-    }
-    
-    private func getCurrentAppLanguage() -> String {
-        if let appleLanguages = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String], let currentLanguage = appleLanguages.first {
-            return currentLanguage
-        }
-        
-        return "en" // Default Language
-    }
-    
-}
-
-//MARK: - Deposit Switch Flow Config Methods
-extension ConnectTransferViewModel {
-    
-    func getTransferConfig() -> AtomicConfig? {
-
-        guard let publicToken = self.getTransferToken() else {
-            return nil
-        }
-
-        guard let product = self.getTransferProductType() else {
-            return nil
-        }
-        
-        let config = AtomicConfig(publicToken: publicToken, scope: .userLink, tasks: [.init(operation: product)], theme: .init(brandColor: self.getThemeColor(), dark: .light), language: getCurrentAppLanguage(), metadata: getMetaDataDict(), customer: AtomicConfig.Customer.init(name: getPartnerName()))
-
-        return config
     }
 }
 
