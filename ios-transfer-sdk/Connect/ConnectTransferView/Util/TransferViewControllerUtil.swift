@@ -19,7 +19,7 @@ class TransferViewControllerUtil: NSObject{
     }
     
     class func getTransferDescriptionText() -> String {
-        "Allow Finicity, a Mastercard Company to direct you to Atomic to securely connect to your payroll provider and manage changes to your direct deposit." //getLocalizedString(for: "landing_page_subtitle")
+        getLocalizedString(for: "landing_page_subtitle")
     }
     
     class func getTransferFirstStepText() -> String {
@@ -39,15 +39,15 @@ class TransferViewControllerUtil: NSObject{
     }
     
     class func getTransferTermsAndConditionsAndPrivacyText() -> String {
-        "By pressing Next, you agree to Finicity’s Terms of Use and Privacy Notice"//getLocalizedString(for: "landing_page_terms_and_condtions_info_text")
+        getLocalizedString(for: "landing_page_terms_and_condtions_info_text")
     }
     
     class func getTermsAndConditionsText() -> String {
-        "Terms of Use" //getLocalizedString(for: "terms_and_condtions_text")
+        getLocalizedString(for: "terms_and_condtions_text")
     }
     
     class func getPrivacyNoticeText() -> String {
-        "Privacy Notice"//getLocalizedString(for: "privacy_notice_text")
+        getLocalizedString(for: "privacy_notice_text")
     }
     
     class func getNextButtonText() -> String {
@@ -55,7 +55,7 @@ class TransferViewControllerUtil: NSObject{
     }
     
     class func getPoweredByText() -> String {
-        "Secured By"//getLocalizedString(for: "powered_by_text")
+        getLocalizedString(for: "secured_by_text")
     }
     
     class func getAtomicText() -> String {
@@ -71,11 +71,11 @@ class TransferViewControllerUtil: NSObject{
     }
     
     class func getStepInstructionText() -> String {
-        "You’ll need to"
+        getLocalizedString(for: "landing_page_step_instruction_text")
     }
     
     class func getPermissionText() -> String {
-        "Finicity only uses data with your permission"
+        getLocalizedString(for: "finicity_permission_text")
     }
     
     class func getDefaultOnLightTextColor() -> UIColor {
