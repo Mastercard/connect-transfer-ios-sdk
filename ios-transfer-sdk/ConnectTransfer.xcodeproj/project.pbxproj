@@ -275,7 +275,7 @@
 			children = (
 				F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */,
 				6BA9DA452416D35E00884A40 /* Config.xcconfig */,
-				6B94CDDC23A819F20077D65A /* Connect */,
+				6B94CDDC23A819F20077D65A /* ConnectTransfer */,
 				6B94CDE723A819F30077D65A /* ConnectTests */,
 				2134234A2583F6D200C06BB8 /* TestApp */,
 				214B5BEB25895E9F00FA6A1E /* TestAppUITests */,
@@ -294,7 +294,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6B94CDDC23A819F20077D65A /* Connect */ = {
+		6B94CDDC23A819F20077D65A /* ConnectTransfer */ = {
 			isa = PBXGroup;
 			children = (
 				77B3C23B2C7F38F400D6FDF3 /* ConnectTransfer.h */,
@@ -310,7 +310,7 @@
 				F414C2DD2C61117A00A7ACAD /* Extensions */,
 				F4CF40162C53DD2E006CA1E1 /* ConnectMedia.xcassets */,
 			);
-			path = Connect;
+			path = ConnectTransfer;
 			sourceTree = "<group>";
 		};
 		6B94CDE723A819F30077D65A /* ConnectTests */ = {
@@ -1129,7 +1129,7 @@
 				DYLIB_CURRENT_VERSION = 3;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
-				INFOPLIST_FILE = Connect/Info.plist;
+				INFOPLIST_FILE = ConnectTransfer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1170,7 +1170,7 @@
 				DYLIB_CURRENT_VERSION = 3;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
-				INFOPLIST_FILE = Connect/Info.plist;
+				INFOPLIST_FILE = ConnectTransfer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
