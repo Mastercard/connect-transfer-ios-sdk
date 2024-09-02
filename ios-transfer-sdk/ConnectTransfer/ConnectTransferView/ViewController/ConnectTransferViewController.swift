@@ -67,18 +67,11 @@ public class ConnectTransferViewController: UIViewController {
     @IBAction func nextButtonAction(_ sender: Any) {
         
         self.transferViewModel.apiForTermsAndConditionConsent() { (isSuccess, error) in
-            
-            if isSuccess {
-                
-            }
-            
-            else {
-            }
+ 
         }
         
-        self.openDepositSwitchFlow()
         self.delegate?.onTermsAndConditionsAccepted(self.transferViewModel.getResponseForTermsAndConditionsAccepted())
-        
+        self.openRedirectVC()
     }
     
     //MARK: - Public Methods
@@ -192,7 +185,7 @@ public class ConnectTransferViewController: UIViewController {
         self.lockIcon.image = UIImage(named: "lock")
         self.permissionLabel.text = TransferViewControllerUtil.getPermissionText()
         self.permissionLabel.textColor = TransferViewControllerUtil.getPermissionTextColor()
-        self.permissionLabel.font = UIFont.systemFont(ofSize: 10, weight: .medium)
+        self.permissionLabel.font = UIFont.systemFont(ofSize: 11, weight: .medium)
     }
     
     private func setUpTermsAndConditonsText(){
@@ -216,6 +209,11 @@ public class ConnectTransferViewController: UIViewController {
         let redirectIconString = NSMutableAttributedString(attachment: redirectAttachment)
         redirectIconString.addAttribute(.foregroundColor, value: self.transferViewModel.getThemeColor(), range: redirectIconString.mutableString.range(of: redirectIconString.string))
         transferTnCMutableString.append(redirectIconString)
+        
+        if Helper.getCurrentAppLanguage() == "es" {
+            let additonalStringForFinicityInSpanish = NSMutableAttributedString(string: "\(TransferViewControllerUtil.getFinicityTextForTnCInSpanish()) ", attributes: [NSAttributedString.Key.foregroundColor : TransferViewControllerUtil.getDefaultOnLightTextColor(), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)])
+            transferTnCMutableString.append(additonalStringForFinicityInSpanish)
+        }
         
         self.termsAndCondtionText.attributedText = transferTnCMutableString
         self.termsAndCondtionText.isUserInteractionEnabled = true
@@ -241,10 +239,16 @@ public class ConnectTransferViewController: UIViewController {
         
         let privacyPolicyRange = (text as NSString).range(of: TransferViewControllerUtil.getPrivacyNoticeText())
         
+        let redirectAttachment = NSTextAttachment()
+        redirectAttachment.image = UIImage(named: "redirect_icon")?.renderAlwaysWithTemplateMode()
+        redirectAttachment.bounds = CGRect(x: 0, y: -3, width: 13, height: 13)
+        let redirectIconString = NSMutableAttributedString(attachment: redirectAttachment)
+        let privacyPolicyIconRange = (text as NSString).range(of: redirectIconString.string)
+        
         if gesture.didTapAttributedTextInLabel(label: self.termsAndCondtionText, inRange: privacyPolicyRange) {
             self.loadURLInSafeContainer(urlString: Helper.getPrivacyPolicyURLString())
             
-        } else if gesture.didTapAttributedTextInLabel(label: self.termsAndCondtionText, inRange: termsAndConditonRange){
+        } else if gesture.didTapAttributedTextInLabel(label: self.termsAndCondtionText, inRange: termsAndConditonRange) ||  gesture.didTapAttributedTextInLabel(label: self.termsAndCondtionText, inRange: privacyPolicyIconRange){
             self.loadURLInSafeContainer(urlString: Helper.getTermsAndConditionsURLString())
             
         }
@@ -272,6 +276,16 @@ public class ConnectTransferViewController: UIViewController {
         self.safariWebView?.delegate = self
         
         self.present(self.safariWebView!, animated: true)
+    }
+    
+    func openRedirectVC() {
+        
+        DispatchQueue.main.async {
+            let connectTransferRedirectViewController = ConnectTransferRedirectViewController(themeColor: self.transferViewModel.getThemeColor(), pdsBaseURLString: self.transferViewModel.getPDSBaseURLString(), transferModel: self.transferViewModel.getTransferModel())
+            connectTransferRedirectViewController.delegate = self
+            self.navigationController?.pushViewController(connectTransferRedirectViewController, animated: true)
+        }
+        
     }
 }
 

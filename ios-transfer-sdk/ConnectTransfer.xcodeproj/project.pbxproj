@@ -72,10 +72,12 @@
 		F414C2E72C611CCC00A7ACAD /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414C2E02C611C4800A7ACAD /* UIImage+Extension.swift */; };
 		F414C2E82C611CCC00A7ACAD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414C2E22C611C6200A7ACAD /* UIImageView+Extension.swift */; };
 		F414C2E92C611CCC00A7ACAD /* UITapGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414C2E42C611C8200A7ACAD /* UITapGestureRecognizer+Extension.swift */; };
+		F44A603A2C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A60392C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift */; };
+		F44A603B2C81EE7000B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A60392C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift */; };
 		F48899752C77570B00639FFF /* ConnectTransferEventConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899742C77570B00639FFF /* ConnectTransferEventConfig.swift */; };
 		F48899762C77570B00639FFF /* ConnectTransferEventConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899742C77570B00639FFF /* ConnectTransferEventConfig.swift */; };
-		F48899782C77577100639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899772C77577000639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift */; };
-		F48899792C77577100639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899772C77577000639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift */; };
+		F48899782C77577100639FFF /* ConnectTransferViewController+RedirectViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899772C77577000639FFF /* ConnectTransferViewController+RedirectViewDelegate.swift */; };
+		F48899792C77577100639FFF /* ConnectTransferViewController+RedirectViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899772C77577000639FFF /* ConnectTransferViewController+RedirectViewDelegate.swift */; };
 		F488997B2C7757B100639FFF /* URLQueryItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488997A2C7757B100639FFF /* URLQueryItem+Extension.swift */; };
 		F488997C2C7757B100639FFF /* URLQueryItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488997A2C7757B100639FFF /* URLQueryItem+Extension.swift */; };
 		F4C6E5812C57696900723739 /* ConnectTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6E57F2C57696900723739 /* ConnectTransferViewController.swift */; };
@@ -187,8 +189,9 @@
 		F414C2E02C611C4800A7ACAD /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		F414C2E22C611C6200A7ACAD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		F414C2E42C611C8200A7ACAD /* UITapGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
+		F44A60392C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectTransferRedirectViewController+DepositSwitchFlow.swift"; sourceTree = "<group>"; };
 		F48899742C77570B00639FFF /* ConnectTransferEventConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectTransferEventConfig.swift; sourceTree = "<group>"; };
-		F48899772C77577000639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConnectTransferViewController+DepositSwitchFlow.swift"; sourceTree = "<group>"; };
+		F48899772C77577000639FFF /* ConnectTransferViewController+RedirectViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConnectTransferViewController+RedirectViewDelegate.swift"; sourceTree = "<group>"; };
 		F488997A2C7757B100639FFF /* URLQueryItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+Extension.swift"; sourceTree = "<group>"; };
 		F4C6E57F2C57696900723739 /* ConnectTransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectTransferViewController.swift; sourceTree = "<group>"; };
 		F4C6E5802C57696900723739 /* ConnectTransferViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectTransferViewController.xib; sourceTree = "<group>"; };
@@ -463,7 +466,7 @@
 			children = (
 				F4C6E57F2C57696900723739 /* ConnectTransferViewController.swift */,
 				F4C6E5802C57696900723739 /* ConnectTransferViewController.xib */,
-				F48899772C77577000639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift */,
+				F48899772C77577000639FFF /* ConnectTransferViewController+RedirectViewDelegate.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 			children = (
 				F4C6E5992C57C19300723739 /* ConnectTransferRedirectViewController.swift */,
 				F4C6E59A2C57C19300723739 /* ConnectTransferRedirectViewController.xib */,
+				F44A60392C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -748,6 +752,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F44A603B2C81EE7000B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift in Sources */,
 				777F62192C6A261F00A342AD /* FailureViewControllerUtil.swift in Sources */,
 				F411D7402C6A540900BE39C2 /* Bundle+Extension.swift in Sources */,
 				F411D73D2C66917A00BE39C2 /* Localizable.xcstrings in Sources */,
@@ -757,7 +762,7 @@
 				F4F5192D2C64C52400557516 /* ExitPopUpViewControllerUtil.swift in Sources */,
 				F4F519282C64B3CF00557516 /* ExitPopUpViewController.swift in Sources */,
 				F4F519292C64B3CF00557516 /* ExitPopUpViewController.xib in Sources */,
-				F48899792C77577100639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift in Sources */,
+				F48899792C77577100639FFF /* ConnectTransferViewController+RedirectViewDelegate.swift in Sources */,
 				F414C2E62C611CCC00A7ACAD /* UIApplication+Extension.swift in Sources */,
 				F414C2E72C611CCC00A7ACAD /* UIImage+Extension.swift in Sources */,
 				777F621A2C6A262200A342AD /* FailureViewController.swift in Sources */,
@@ -810,13 +815,14 @@
 				F48899752C77570B00639FFF /* ConnectTransferEventConfig.swift in Sources */,
 				F4F5192C2C64C1B700557516 /* ExitPopUpViewControllerUtil.swift in Sources */,
 				F414C2CB2C610B1C00A7ACAD /* ConnectTransferViewModel.swift in Sources */,
-				F48899782C77577100639FFF /* ConnectTransferViewController+DepositSwitchFlow.swift in Sources */,
+				F48899782C77577100639FFF /* ConnectTransferViewController+RedirectViewDelegate.swift in Sources */,
 				777F62142C6A23E700A342AD /* FailureViewControllerUtil.swift in Sources */,
 				F4C6E5812C57696900723739 /* ConnectTransferViewController.swift in Sources */,
 				777F62132C6A23E700A342AD /* FailureModel.swift in Sources */,
 				777F62152C6A23E700A342AD /* FailureViewController.swift in Sources */,
 				F411D73F2C6A53BA00BE39C2 /* Bundle+Extension.swift in Sources */,
 				F414C2E52C611C8200A7ACAD /* UITapGestureRecognizer+Extension.swift in Sources */,
+				F44A603A2C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift in Sources */,
 				F414C2D42C610B4200A7ACAD /* NavigationView.swift in Sources */,
 				F414C2D62C610B4200A7ACAD /* PoweredByView.swift in Sources */,
 				F414C2E12C611C4800A7ACAD /* UIImage+Extension.swift in Sources */,

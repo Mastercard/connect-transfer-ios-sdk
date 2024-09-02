@@ -73,6 +73,24 @@
         }
       }
     },
+    "finicity_mastercard_company_text" : {
+      "comment" : "22",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finicity, a Mastercard Company"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finicity, una empresa de Mastercard"
+          }
+        }
+      }
+    },
     "finicity_permission_text" : {
       "comment" : "21",
       "extractionState" : "manual",
@@ -175,8 +193,8 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Allow Finicity, a Mastercard Company to direct you to Atomic to securely connect to your payroll provider and manage changes to your direct deposit."
+            "state" : "translated",
+            "value" : "Permite que Finicity, una empresa de Mastercard, te dirija a Atomic para conectarte de forma segura con tu proveedor de nómina y administrar los cambios en tu depósito directo"
           }
         }
       }
@@ -194,7 +212,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Al presionar Siguiente, aceptas los Términos de uso y el Aviso de privacidad de Finicity"
+            "value" : "Al presionar Siguiente, aceptas los Términos de uso y el Aviso de privacidad"
           }
         }
       }

@@ -21,12 +21,13 @@ class ConnectTransferRedirectViewController: UIViewController {
     @IBOutlet weak var parentViewHeight: NSLayoutConstraint!
     
     //MARK: - Variables
-    private var redirectViewModel: ConnectTransferRedirectViewModel
-    var callbackForTransferFlowComplete:(()->Void)?
+    var redirectViewModel: ConnectTransferRedirectViewModel
+    weak var delegate: RedirectViewDelegate?
+    private var isAtomicFlowOpen = false
     
     //MARK: - Init Methods
-    init(partnerName: String, themeColor: UIColor, pdsBaseURLString: String?, transferModelToken: String?) {
-        self.redirectViewModel = ConnectTransferRedirectViewModel(partnerName: partnerName, themeColor: themeColor, pdsBaseURLString: pdsBaseURLString, transferModelToken: transferModelToken)
+    init(themeColor: UIColor, pdsBaseURLString: String?, transferModel: TransferModel?) {
+        self.redirectViewModel = ConnectTransferRedirectViewModel(themeColor: themeColor, pdsBaseURLString: pdsBaseURLString, transferModel: transferModel)
         super.init(nibName: "ConnectTransferRedirectViewController", bundle: Bundle.getFrameworkBundle())
     }
     
@@ -45,7 +46,11 @@ class ConnectTransferRedirectViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        apiHitToCompleteTheTransferFlow()
+        
+        if !isAtomicFlowOpen {
+            openDepositSwitchFlow()
+            isAtomicFlowOpen = true
+        }
     }
     
     deinit {
@@ -101,14 +106,6 @@ class ConnectTransferRedirectViewController: UIViewController {
             exitPopUpViewController.modalPresentationStyle = .overCurrentContext
             exitPopUpViewController.delegate = self
             self.present(exitPopUpViewController, animated: true)
-        }
-    }
-    
-    func apiHitToCompleteTheTransferFlow() {
-        self.redirectViewModel.apiForConnectTranserComplete { _, _ in
-            if let callbackForTransferFlowComplete = self.callbackForTransferFlowComplete {
-                callbackForTransferFlowComplete()
-            }
         }
     }
 }

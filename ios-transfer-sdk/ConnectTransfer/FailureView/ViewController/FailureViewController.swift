@@ -10,9 +10,8 @@ import UIKit
 import AtomicTransact
 import SafariServices
 
-public protocol FailureEventDelegate: AnyObject {
+protocol FailureEventDelegate: AnyObject {
     func didTryAgain()
-    func didReturn(error: String)
 }
 
 class FailureViewController: UIViewController {
@@ -52,9 +51,12 @@ class FailureViewController: UIViewController {
     //MARK: - Actions
     @IBAction func returnToButtonAction(_ sender: Any) {
         self.exitConnectTransfer()
+        self.navigationController?.dismiss(animated: true)
     }
     
     @IBAction func tryAgainButtonAction(_ sender: Any) {
+        self.delegate?.didTryAgain()
+        self.navigationController?.popViewController(animated: false)
     }
     
     //MARK: - Private Methods

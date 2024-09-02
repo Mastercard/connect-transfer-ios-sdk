@@ -19,7 +19,7 @@ class Helper: NSObject {
     }
     
     class func getTermsAndConditionsURLString() -> String {
-        if currentAppLanguage() == "es" {
+        if getCurrentAppLanguage() == "es" {
             return "https://connect2.finicity.com/assets/html/connect-eula_es.html"
         }
         
@@ -28,7 +28,7 @@ class Helper: NSObject {
     
     class func getPrivacyPolicyURLString() -> String {
         
-        if currentAppLanguage() == "es" {
+        if getCurrentAppLanguage() == "es" {
             
             return "https://www.finicitystg.com/privacy/es/"
         }
@@ -36,7 +36,7 @@ class Helper: NSObject {
         return "https://finicity.com/privacy"
     }
     
-    class func currentAppLanguage() -> String {
+    class func getCurrentAppLanguage() -> String {
         if let appleLanguages = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String], let currentLanguage = appleLanguages.first, currentLanguage == "es" {
             
             return "es"

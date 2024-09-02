@@ -63,7 +63,11 @@ class TransferViewControllerUtil: NSObject{
     }
     
     class func getFincityText() -> String {
-        "Finicity, a Mastercard Company"
+        getLocalizedString(for: "finicity_mastercard_company_text")
+    }
+    
+    class func getFinicityTextForTnCInSpanish() -> String {
+        "de Finicity"
     }
     
     class func getRedirectingText() -> String {
@@ -71,7 +75,7 @@ class TransferViewControllerUtil: NSObject{
     }
     
     class func getStepInstructionText() -> String {
-        getLocalizedString(for: "landing_page_step_instruction_text")
+        "\(getLocalizedString(for: "landing_page_step_instruction_text")):"
     }
     
     class func getPermissionText() -> String {
