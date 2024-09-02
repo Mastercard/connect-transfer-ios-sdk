@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import ConnectTransfer
 
 class ViewController: UIViewController {
     
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(screenTapped))
         view.addGestureRecognizer(tapGesture)
         
-        urlInput.accessibilityIdentifier = AccessiblityIdentifer.UrlTextField.rawValue
+        //urlInput.accessibilityIdentifier = AccessiblityIdentifer.UrlTextField.rawValue
         
         urlInput.becomeFirstResponder()
     }
@@ -85,12 +85,12 @@ class ViewController: UIViewController {
     @IBAction func launchConnectTransferAction(_ sender: Any) {
         activityIndicator.startAnimating()
         if let connectTransferUrl = pdsURLInput.text {
+                        
             self.transferViewController = ConnectTransferViewController()
             self.transferViewController.delegate = self
             self.transferViewController.loadConnectTransfer(with: connectTransferUrl)
         }
     }
-
     
 }
 
@@ -133,7 +133,7 @@ extension ViewController: ConnectTransferEventDelegate {
             if(UIDevice.current.userInterfaceIdiom == .phone){
                 self.connectNavController.modalPresentationStyle = .fullScreen
             }else{
-                self.connectNavController.modalPresentationStyle = .fullScreen
+                self.connectNavController.modalPresentationStyle = .automatic
             }
             self.present(self.connectNavController, animated: true)
         }else {

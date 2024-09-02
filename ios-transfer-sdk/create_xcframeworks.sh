@@ -5,14 +5,14 @@
 #
 # Build from terminal command line with following command.
 #
-# ./create_xcframeworks Connect
+# ./create_xcframeworks ConnectTransfer
 #
 
 # Release dir path
 OUTPUT_DIR_PATH=build
 
 if [[ -z $1 ]]; then
-    echo "Output dir was not set. try to run ./create_xcframeworks.sh Connect"
+    echo "Output dir was not set. try to run ./create_xcframeworks.sh ConnectTransfer"
     exit 1;
 fi
 
@@ -34,7 +34,7 @@ function archivePathDevice {
 function archive {
     echo "▸ Starts archiving the scheme: ${1} for destination: ${2};\n▸ Archive path: ${3}.xcarchive"
     xcodebuild archive \
-    -project Connect.xcodeproj \
+    -project ConnectTransfer.xcodeproj \
     -scheme ${1} \
     -destination "${2}" \
     -archivePath "${3}" \
@@ -44,7 +44,7 @@ function archive {
 
 # Builds archive for iOS simulator & device
 function buildArchive {
-  SCHEME=Connect
+  SCHEME=ConnectTransfer
   archive $SCHEME "generic/platform=iOS Simulator" $(archivePathSimulator $SCHEME)
   archive $SCHEME "generic/platform=iOS" $(archivePathDevice $SCHEME)
 }
@@ -60,12 +60,12 @@ function createXCFramework {
             -framework ${FRAMEWORK_DEVICE_DIR}/${1}.framework \
             -output ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework
    
-  cp ${FRAMEWORK_SIMULATOR_DIR}/${1}.framework/Modules/Connect.swiftmodule/arm64-apple-ios-simulator.swiftmodule ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework/ios-arm64_x86_64-simulator/Connect.framework/Modules/Connect.swiftmodule
-  cp ${FRAMEWORK_SIMULATOR_DIR}/${1}.framework/Modules/Connect.swiftmodule/arm64.swiftmodule ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework/ios-arm64_x86_64-simulator/Connect.framework/Modules/Connect.swiftmodule
-  cp ${FRAMEWORK_SIMULATOR_DIR}/${1}.framework/Modules/Connect.swiftmodule/x86_64-apple-ios-simulator.swiftmodule ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework/ios-arm64_x86_64-simulator/Connect.framework/Modules/Connect.swiftmodule
-  cp ${FRAMEWORK_SIMULATOR_DIR}/${1}.framework/Modules/Connect.swiftmodule/x86_64.swiftmodule ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework/ios-arm64_x86_64-simulator/Connect.framework/Modules/Connect.swiftmodule
-  cp ${FRAMEWORK_DEVICE_DIR}/${1}.framework/Modules/Connect.swiftmodule/arm64-apple-ios.swiftmodule ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework/ios-arm64/Connect.framework/Modules/Connect.swiftmodule
-  cp ${FRAMEWORK_DEVICE_DIR}/${1}.framework/Modules/Connect.swiftmodule/arm64.swiftmodule ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework/ios-arm64/Connect.framework/Modules/Connect.swiftmodule
+  cp ${FRAMEWORK_SIMULATOR_DIR}/${1}.framework/Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.swiftmodule ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework/ios-arm64_x86_64-simulator/ConnectTransfer.framework/Modules/ConnectTransfer.swiftmodule
+  cp ${FRAMEWORK_SIMULATOR_DIR}/${1}.framework/Modules/ConnectTransfer.swiftmodule/arm64.swiftmodule ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework/ios-arm64_x86_64-simulator/ConnectTransfer.framework/Modules/ConnectTransfer.swiftmodule
+  cp ${FRAMEWORK_SIMULATOR_DIR}/${1}.framework/Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.swiftmodule ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework/ios-arm64_x86_64-simulator/ConnectTransfer.framework/Modules/ConnectTransfer.swiftmodule
+  cp ${FRAMEWORK_SIMULATOR_DIR}/${1}.framework/Modules/ConnectTransfer.swiftmodule/x86_64.swiftmodule ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework/ios-arm64_x86_64-simulator/ConnectTransfer.framework/Modules/ConnectTransfer.swiftmodule
+  cp ${FRAMEWORK_DEVICE_DIR}/${1}.framework/Modules/ConnectTransfer.swiftmodule/arm64-apple-ios.swiftmodule ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework/ios-arm64/ConnectTransfer.framework/Modules/ConnectTransfer.swiftmodule
+  cp ${FRAMEWORK_DEVICE_DIR}/${1}.framework/Modules/ConnectTransfer.swiftmodule/arm64.swiftmodule ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework/ios-arm64/ConnectTransfer.framework/Modules/ConnectTransfer.swiftmodule
   
   cp -r "${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework" "${SRCROOT}"
 }
@@ -76,7 +76,7 @@ rm -rf $OUTPUT_DIR_PATH
 
 #### Dynamic Framework ####
 
-DYNAMIC_FRAMEWORK=Connect
+DYNAMIC_FRAMEWORK=ConnectTransfer
 
 echo "▸ Archive $DYNAMIC_FRAMEWORK"
 buildArchive ${DYNAMIC_FRAMEWORK}

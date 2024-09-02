@@ -73,6 +73,42 @@
         }
       }
     },
+    "finicity_mastercard_company_text" : {
+      "comment" : "22",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finicity, a Mastercard Company"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finicity, una empresa de Mastercard"
+          }
+        }
+      }
+    },
+    "finicity_permission_text" : {
+      "comment" : "21",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finicity only uses data with your permission"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finicity, solo utiliza los datos con tu permiso"
+          }
+        }
+      }
+    },
     "landing_page_instruction_first_step_text" : {
       "comment" : "3",
       "extractionState" : "manual",
@@ -87,24 +123,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Busca a tu empleador o proveedor de nómina"
-          }
-        }
-      }
-    },
-    "landing_page_instruction_fourth_step_text" : {
-      "comment" : "6",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "That’s it! Return to %@"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Listo! Volver a %@"
           }
         }
       }
@@ -145,6 +163,24 @@
         }
       }
     },
+    "landing_page_step_instruction_text" : {
+      "comment" : "6",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ll need to"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tendrás que"
+          }
+        }
+      }
+    },
     "landing_page_subtitle" : {
       "comment" : "2",
       "extractionState" : "manual",
@@ -152,13 +188,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ uses Atomic, a partner of Finicity, a Mastercard company, to securely connect to your payroll provider."
+            "value" : "Allow Finicity, a Mastercard Company to direct you to Atomic to securely connect to your payroll provider and manage changes to your direct deposit."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ utiliza Atomic, un socio de Finicity, a Mastercard company, para conectarse de forma segura con tu proveedor de nómina."
+            "value" : "Permite que Finicity, una empresa de Mastercard, te dirija a Atomic para conectarte de forma segura con tu proveedor de nómina y administrar los cambios en tu depósito directo"
           }
         }
       }
@@ -170,13 +206,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "By pressing Next, you agree to Fincity’s Terms and Conditions and Privacy Notice"
+            "value" : "By pressing Next, you agree to Finicity’s Terms of Use and Privacy Notice"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Al presionar Siguiente, acepas los Términos y condiciones y el Aviso de privacidad de Finicity."
+            "value" : "Al presionar Siguiente, aceptas los Términos de uso y el Aviso de privacidad"
           }
         }
       }
@@ -235,24 +271,6 @@
         }
       }
     },
-    "powered_by_text" : {
-      "comment" : "10",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Powered by"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desarrollado por"
-          }
-        }
-      }
-    },
     "privacy_notice_text" : {
       "comment" : "9",
       "extractionState" : "manual",
@@ -307,6 +325,24 @@
         }
       }
     },
+    "secured_by_text" : {
+      "comment" : "10",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Secured by"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Protegido por"
+          }
+        }
+      }
+    },
     "terms_and_condtions_text" : {
       "comment" : "8",
       "extractionState" : "manual",
@@ -314,13 +350,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Terms and Conditions"
+            "value" : "Terms of Use"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Términos y condiciones"
+            "value" : "Términos de uso"
           }
         }
       }
