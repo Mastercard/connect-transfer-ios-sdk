@@ -185,7 +185,7 @@ public class ConnectTransferViewController: UIViewController {
         self.lockIcon.image = UIImage(named: "lock")
         self.permissionLabel.text = TransferViewControllerUtil.getPermissionText()
         self.permissionLabel.textColor = TransferViewControllerUtil.getPermissionTextColor()
-        self.permissionLabel.font = UIFont.systemFont(ofSize: 10, weight: .medium)
+        self.permissionLabel.font = UIFont.systemFont(ofSize: 11, weight: .medium)
     }
     
     private func setUpTermsAndConditonsText(){
