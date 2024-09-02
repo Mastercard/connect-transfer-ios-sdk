@@ -140,7 +140,14 @@ extension ConnectTransferViewModel {
             return
         }
         
-        let parameters : [String:Any] = ["context":"partner","language":"en","termsAndConditionsVersion":"20231121","privacyPolicyVersion":"20230925"]
+       
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let dateObj:Date = Date()
+        let currentDateAndTime = dateFormatter.string(from: dateObj)
+                
+        let parameters : [String:Any] = ["context":"partner","workflow": "CONNECT_PDS","language":"en-US","termsAndConditionsAcceptedDate":currentDateAndTime,"privacyPolicyAcceptedDate":currentDateAndTime]
+
         
         guard let httpBody = try? JSONSerialization.data(
             withJSONObject: parameters,
