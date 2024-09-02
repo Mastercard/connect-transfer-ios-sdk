@@ -66,6 +66,10 @@ class TransferViewControllerUtil: NSObject{
         "Finicity, a Mastercard Company"
     }
     
+    class func getFinicityTextForTnCInSpanish() -> String {
+        "de Finicity"
+    }
+    
     class func getRedirectingText() -> String {
         getLocalizedString(for: "redirecting_text")
     }

@@ -210,6 +210,11 @@ public class ConnectTransferViewController: UIViewController {
         redirectIconString.addAttribute(.foregroundColor, value: self.transferViewModel.getThemeColor(), range: redirectIconString.mutableString.range(of: redirectIconString.string))
         transferTnCMutableString.append(redirectIconString)
         
+        if Helper.getCurrentAppLanguage() == "es" {
+            let additonalStringForFinicityInSpanish = NSMutableAttributedString(string: "\(TransferViewControllerUtil.getFinicityTextForTnCInSpanish()) ", attributes: [NSAttributedString.Key.foregroundColor : TransferViewControllerUtil.getDefaultOnLightTextColor(), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)])
+            transferTnCMutableString.append(additonalStringForFinicityInSpanish)
+        }
+        
         self.termsAndCondtionText.attributedText = transferTnCMutableString
         self.termsAndCondtionText.isUserInteractionEnabled = true
         let tapGestureOfTnC = UITapGestureRecognizer(target: self, action: #selector(tappedOnLabel(_ :)))
@@ -234,10 +239,16 @@ public class ConnectTransferViewController: UIViewController {
         
         let privacyPolicyRange = (text as NSString).range(of: TransferViewControllerUtil.getPrivacyNoticeText())
         
+        let redirectAttachment = NSTextAttachment()
+        redirectAttachment.image = UIImage(named: "redirect_icon")?.renderAlwaysWithTemplateMode()
+        redirectAttachment.bounds = CGRect(x: 0, y: -3, width: 13, height: 13)
+        let redirectIconString = NSMutableAttributedString(attachment: redirectAttachment)
+        let privacyPolicyIconRange = (text as NSString).range(of: redirectIconString.string)
+        
         if gesture.didTapAttributedTextInLabel(label: self.termsAndCondtionText, inRange: privacyPolicyRange) {
             self.loadURLInSafeContainer(urlString: Helper.getPrivacyPolicyURLString())
             
-        } else if gesture.didTapAttributedTextInLabel(label: self.termsAndCondtionText, inRange: termsAndConditonRange){
+        } else if gesture.didTapAttributedTextInLabel(label: self.termsAndCondtionText, inRange: termsAndConditonRange) ||  gesture.didTapAttributedTextInLabel(label: self.termsAndCondtionText, inRange: privacyPolicyIconRange){
             self.loadURLInSafeContainer(urlString: Helper.getTermsAndConditionsURLString())
             
         }
