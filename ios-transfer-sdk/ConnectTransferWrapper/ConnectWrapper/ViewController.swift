@@ -133,7 +133,7 @@ extension ViewController: ConnectTransferEventDelegate {
             if(UIDevice.current.userInterfaceIdiom == .phone){
                 self.connectNavController.modalPresentationStyle = .fullScreen
             }else{
-                self.connectNavController.modalPresentationStyle = .fullScreen
+                self.connectNavController.modalPresentationStyle = .automatic
             }
             self.present(self.connectNavController, animated: true)
         }else {
