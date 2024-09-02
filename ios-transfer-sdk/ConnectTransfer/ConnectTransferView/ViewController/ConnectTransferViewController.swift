@@ -132,6 +132,7 @@ public class ConnectTransferViewController: UIViewController {
             guard let weakSelf = self else {return}
             weakSelf.dismissTransferVC()
         }
+        self.transferNavigationView.backButton.isHidden = true
         
         self.transferNavigationView.closeButtonCallback = {[weak self] in
             guard let weakSelf = self else {return}
@@ -245,10 +246,10 @@ public class ConnectTransferViewController: UIViewController {
         let redirectIconString = NSMutableAttributedString(attachment: redirectAttachment)
         let privacyPolicyIconRange = (text as NSString).range(of: redirectIconString.string)
         
-        if gesture.didTapAttributedTextInLabel(label: self.termsAndCondtionText, inRange: privacyPolicyRange) {
+        if gesture.didTapAttributedTextInLabel(label: self.termsAndCondtionText, inRange: privacyPolicyRange) ||  gesture.didTapAttributedTextInLabel(label: self.termsAndCondtionText, inRange: privacyPolicyIconRange){
             self.loadURLInSafeContainer(urlString: Helper.getPrivacyPolicyURLString())
             
-        } else if gesture.didTapAttributedTextInLabel(label: self.termsAndCondtionText, inRange: termsAndConditonRange) ||  gesture.didTapAttributedTextInLabel(label: self.termsAndCondtionText, inRange: privacyPolicyIconRange){
+        } else if gesture.didTapAttributedTextInLabel(label: self.termsAndCondtionText, inRange: termsAndConditonRange) {
             self.loadURLInSafeContainer(urlString: Helper.getTermsAndConditionsURLString())
             
         }
