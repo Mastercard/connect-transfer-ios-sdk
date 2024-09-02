@@ -14,9 +14,10 @@
 		6BE8C14123B137C8003C92AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BE8C13F23B137C8003C92AE /* Main.storyboard */; };
 		6BE8C14323B137C9003C92AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BE8C14223B137C9003C92AE /* Assets.xcassets */; };
 		6BE8C14623B137C9003C92AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BE8C14423B137C9003C92AE /* LaunchScreen.storyboard */; };
+		775E2CFA2C85A7610058E00E /* ConnectTransfer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F48899992C804A3400639FFF /* ConnectTransfer.xcframework */; };
+		775E2CFB2C85A7610058E00E /* ConnectTransfer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F48899992C804A3400639FFF /* ConnectTransfer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		77B3C2482C7F3C9F00D6FDF3 /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = 77B3C2472C7F3C9F00D6FDF3 /* AtomicTransact */; };
 		77F98BB22C0DE81900AC7486 /* RadioButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F98BB12C0DE81900AC7486 /* RadioButtonController.swift */; };
-		F488999A2C804A3400639FFF /* ConnectTransfer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F48899992C804A3400639FFF /* ConnectTransfer.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +27,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				775E2CFB2C85A7610058E00E /* ConnectTransfer.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,7 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77B3C2482C7F3C9F00D6FDF3 /* AtomicTransact in Frameworks */,
-				F488999A2C804A3400639FFF /* ConnectTransfer.xcframework in Frameworks */,
+				775E2CFA2C85A7610058E00E /* ConnectTransfer.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,7 +335,7 @@
 				CODE_SIGN_ENTITLEMENTS = ConnectWrapper/ConnectWrapper.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = 5R8RGDXM32;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -360,7 +362,7 @@
 				CODE_SIGN_ENTITLEMENTS = ConnectWrapper/ConnectWrapper.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = 5R8RGDXM32;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
