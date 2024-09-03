@@ -56,7 +56,7 @@ class ExitPopUpViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.exitPopUpView.applyRoundedCorners(cornerRadius: 16, corners: [.topLeft, .topRight])
+        self.exitPopUpView.applyRoundedCorners(cornerRadius: 16, corners: [.layerMaxXMinYCorner, .layerMinXMinYCorner])
     }
 
     //MARK: - Actions

@@ -15,15 +15,9 @@ extension UIView {
         self.layer.borderWidth = borderRadius
     }
     
-    func applyRoundedCorners(cornerRadius: CGFloat, corners: UIRectCorner) {
-        let path = UIBezierPath(roundedRect: bounds,
-                                byRoundingCorners: corners,
-                                cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
-        
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.cgPath
-        shapeLayer.frame = bounds
-        
-        layer.mask = shapeLayer
+    func applyRoundedCorners(cornerRadius: CGFloat, corners: CACornerMask) {        
+        self.clipsToBounds = true
+        self.layer.cornerRadius = cornerRadius
+        self.layer.maskedCorners = corners //[.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
 }
