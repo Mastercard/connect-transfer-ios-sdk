@@ -10,7 +10,7 @@ import XCTest
 //import MastercardOpenBankingConnect
 
 var dynamicGeneratedUrl: String? = nil
-let badExpiredUrl = "https://connect.finicity.com?consumerId=dbceec20d8b97174e6aed204856f5a55&customerId=1016927519&partnerId=2445582695152&redirectUri=http%3A%2F%2Flocalhost%3A3001%2Fcustomers%2FredirectHandler&signature=abb1762e5c640f02823c56332daede3fe2f2143f4f5b8be6ec178ac72d7dbc5a&timestamp=1607806595887&ttl=1607813795887"
+let badExpiredUrl = "https://connect2.finicitystg.com/transfer?customerId=7001515842&origin=url&partnerId=2445582169622&signature=c89647351a1bb2b93b3625c52b6023a8e809d0472e4af6bf015bc95f65094965&timestamp=1725346318530&ttl=1725432718530&type=transferDepositSwitch"
 
 class TestAppUITests: XCTestCase {
     
@@ -63,8 +63,8 @@ class TestAppUITests: XCTestCase {
         uiTextField.typeText(badExpiredUrl)
         app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
         // Wait 15 seconds for WebView with Exit button
-        XCTAssert(app.webViews.webViews.webViews.buttons["EXIT"].waitForExistence(timeout: 15))
-        app.webViews.webViews.webViews.buttons["EXIT"].tap()
+        XCTAssert(app.buttons["Ok"].waitForExistence(timeout: 15))
+        app.buttons["Ok"].tap()
         
         sleep(2)
     }
@@ -79,7 +79,7 @@ class TestAppUITests: XCTestCase {
         
         // Steps:
         // 1. Fill in textfield with good URL
-        // 2. Tap Connect Button to launch WKWebView
+        // 2. Tap Connect Button to launch PDS flow
         // 3. Assert Exit button exists
         // 4. Tap Exit button
         // 5. Assert Yes button exists
@@ -90,12 +90,12 @@ class TestAppUITests: XCTestCase {
         app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
         
         // Wait 5 seconds for WebView with Exit button
-        let webViewsQuery = app.webViews.webViews.webViews
-        //        XCTAssert(webViewsQuery.buttons["Skip to main content"].waitForExistence(timeout: 15))
-        //        webViewsQuery.otherElements["Exit link, navigation"].tap()
+        XCTAssert(app.buttons["close"].waitForExistence(timeout: 15))
+        app.buttons["close"].tap()
+        
         // Wait 5 seconds for WebView with Yes button
-        XCTAssert(webViewsQuery.buttons["Exit"].waitForExistence(timeout: 15))
-        webViewsQuery.buttons["Exit"].tap()
+        XCTAssert(app.buttons["Yes, exit"].waitForExistence(timeout: 15))
+        app.buttons["Yes, exit"].tap()
         
         sleep(2)
     }

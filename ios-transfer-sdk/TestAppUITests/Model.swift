@@ -20,6 +20,7 @@ struct CustomerModelRequest : Codable {
     let username: String
     let firstName: String
     let lastName: String
+    let applicationId: String
 }
 
 struct CustomerModelResult : Codable {
@@ -37,7 +38,14 @@ struct ConsumerModelResult : Codable {
 struct GenerateUrlModelRequest : Codable {
     let partnerId: String
     let customerId: String
-    let consumerId: String
+    let accounts: [Account]
+}
+
+// MARK: - Account
+struct Account: Codable {
+    let accountNumber: String
+    let bankIdentifier: String
+    let type: String
 }
 
 struct GenerateUrlModelResult: Codable {
