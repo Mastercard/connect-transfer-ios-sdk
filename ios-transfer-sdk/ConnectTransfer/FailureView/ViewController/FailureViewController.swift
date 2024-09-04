@@ -15,27 +15,35 @@ protocol FailureEventDelegate: AnyObject {
 }
 
 class FailureViewController: UIViewController {
-
+    
     //MARK: - Outlets
     @IBOutlet weak var parentViewWidth: NSLayoutConstraint!
     @IBOutlet weak var parentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var failureNavigationView: NavigationView!
     @IBOutlet weak var poweredByView: PoweredByView!
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet weak var tryAgainButton: UIButton!
-    @IBOutlet weak var returnToButton: UIButton!
+    @IBOutlet weak var returnToPartnerOrExitButton: UIButton!
     
     //MARK: - Variables
     var failureViewModel: FailureViewModel
     weak var delegate: FailureEventDelegate?
     
+    enum FailureViewControllerState: String {
+      case FailureViewExitState, FailureViewRetryState
+    }
+    
+    var failureViewControllerState: FailureViewControllerState?
+
+    
     //MARK: - Init Methods
-    init(partnerName: String, themeColor: UIColor) {
+    init(partnerName: String, themeColor: UIColor, failureViewControllerState: FailureViewControllerState) {
         self.failureViewModel = FailureViewModel(partnerName: partnerName, themeColor: themeColor)
         super.init(nibName: "FailureViewController", bundle: nil)
+        self.failureViewControllerState = failureViewControllerState
     }
     
     required init?(coder: NSCoder) {
@@ -47,7 +55,7 @@ class FailureViewController: UIViewController {
         super.viewDidLoad()
         setUpViews()
     }
-  
+    
     //MARK: - Actions
     @IBAction func returnToButtonAction(_ sender: Any) {
         self.exitConnectTransfer()
@@ -125,11 +133,19 @@ class FailureViewController: UIViewController {
     
     
     private func setUpReturnToButton() {
-        self.returnToButton.backgroundColor = self.failureViewModel.getReturnToButtonTitleTextColor()
-        self.returnToButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        self.returnToButton.setTitle(String(format: FailureViewControllerUtil.getReturnToButtonText(), self.failureViewModel.getPartnerName()), for: .normal)
-        self.returnToButton.setTitleColor(self.failureViewModel.getThemeColor(), for: .normal)
-        self.returnToButton.setBorder(borderRadius: 1, borderColor: self.failureViewModel.getThemeColor())
+        if( self.failureViewControllerState == FailureViewControllerState.FailureViewRetryState){
+            self.returnToPartnerOrExitButton.backgroundColor = self.failureViewModel.getReturnToButtonTitleTextColor()
+            self.returnToPartnerOrExitButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            self.returnToPartnerOrExitButton.setTitle(String(format: FailureViewControllerUtil.getReturnToButtonText(), self.failureViewModel.getPartnerName()), for: .normal)
+            self.returnToPartnerOrExitButton.setTitleColor(self.failureViewModel.getThemeColor(), for: .normal)
+            self.returnToPartnerOrExitButton.setBorder(borderRadius: 1, borderColor: self.failureViewModel.getThemeColor())
+        }
+        else{
+            self.returnToPartnerOrExitButton.backgroundColor = self.failureViewModel.getThemeColor()
+            self.returnToPartnerOrExitButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            self.returnToPartnerOrExitButton.setTitle(FailureViewControllerUtil.getExitText(), for: .normal)
+            self.returnToPartnerOrExitButton.setTitleColor(self.failureViewModel.getReturnToButtonTitleTextColor(), for: .normal)
+        }
     }
     
 }

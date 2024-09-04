@@ -58,7 +58,7 @@ extension ConnectTransferRedirectViewController {
     
     func openFailureVC() {
         DispatchQueue.main.async {
-            let failureVC = FailureViewController(partnerName: self.redirectViewModel.getPartnerName(), themeColor: self.redirectViewModel.getThemeColor())
+            let failureVC = FailureViewController(partnerName: self.redirectViewModel.getPartnerName(), themeColor: self.redirectViewModel.getThemeColor(), failureViewControllerState: FailureViewController.FailureViewControllerState.FailureViewRetryState)
             failureVC.delegate = self
             self.navigationController?.pushViewController(failureVC, animated: true)
         }

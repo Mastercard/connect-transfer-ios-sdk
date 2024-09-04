@@ -37,6 +37,18 @@
         }
       }
     },
+    "Exit" : {
+      "comment" : "23",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salida"
+          }
+        }
+      }
+    },
     "exit_pop_up_subtitle" : {
       "comment" : "14",
       "extractionState" : "manual",
