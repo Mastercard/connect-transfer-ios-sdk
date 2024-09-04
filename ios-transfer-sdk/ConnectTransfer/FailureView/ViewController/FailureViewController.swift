@@ -139,12 +139,14 @@ class FailureViewController: UIViewController {
             self.returnToPartnerOrExitButton.setTitle(String(format: FailureViewControllerUtil.getReturnToButtonText(), self.failureViewModel.getPartnerName()), for: .normal)
             self.returnToPartnerOrExitButton.setTitleColor(self.failureViewModel.getThemeColor(), for: .normal)
             self.returnToPartnerOrExitButton.setBorder(borderRadius: 1, borderColor: self.failureViewModel.getThemeColor())
+            self.returnToPartnerOrExitButton.isHidden = false
         }
         else{
             self.returnToPartnerOrExitButton.backgroundColor = self.failureViewModel.getThemeColor()
             self.returnToPartnerOrExitButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
             self.returnToPartnerOrExitButton.setTitle(FailureViewControllerUtil.getExitText(), for: .normal)
             self.returnToPartnerOrExitButton.setTitleColor(self.failureViewModel.getReturnToButtonTitleTextColor(), for: .normal)
+            self.returnToPartnerOrExitButton.isHidden = true
         }
     }
     
