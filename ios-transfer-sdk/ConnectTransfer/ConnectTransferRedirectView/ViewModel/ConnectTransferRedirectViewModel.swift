@@ -136,7 +136,7 @@ extension ConnectTransferRedirectViewModel {
             return nil
         }
         
-        let config = AtomicConfig(publicToken: publicToken, scope: .userLink, tasks: [.init(operation: product)], theme: .init(brandColor: self.getThemeColor(), dark: .light), language: Helper.getCurrentAppLanguage(), metadata: getMetaDataDict(), customer: AtomicConfig.Customer.init(name: getPartnerName()))
+        let config = AtomicConfig(publicToken: publicToken, scope: .userLink, tasks: [.init(operation: product)], theme: .init(brandColor: self.getThemeColor(), dark: .light), language: Helper.getCurrentAppLanguage(), deeplink: .init(step: .searchCompany), metadata: getMetaDataDict(), customer: AtomicConfig.Customer.init(name: getPartnerName()))
 
         return config
     }
