@@ -24,6 +24,9 @@ save_variables:
   artifacts:
     reports:
       dotenv: keys.env
+  tags:
+    - xcode
+
   
 
 read_variables:
