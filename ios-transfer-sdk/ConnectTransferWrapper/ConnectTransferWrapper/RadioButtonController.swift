@@ -1,6 +1,6 @@
 //
 //  RadioButtonController.swift
-//  ConnectWrapper
+//  ConnectTransferWrapper
 //
 //  Created by Prathamesh Salawkar on 03/06/24.
 //  Copyright © 2024 finicity. All rights reserved.

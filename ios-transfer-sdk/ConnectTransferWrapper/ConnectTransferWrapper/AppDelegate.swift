@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  ConnectWrapper
+//  ConnectTransferWrapper
 //
 //  Copyright © 2022 MastercardOpenBanking. All rights reserved.
 //

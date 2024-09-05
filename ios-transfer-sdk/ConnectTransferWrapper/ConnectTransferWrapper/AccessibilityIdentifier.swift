@@ -1,6 +1,6 @@
 //
 //  AccessibilityIdentifier.swift
-//  ConnectWrapper
+//  ConnectTransferWrapper
 //
 //  Created by Jimmie Wright on 2/2/21.
 //  Copyright © 2021 MastercardOpenBanking. All rights reserved.
