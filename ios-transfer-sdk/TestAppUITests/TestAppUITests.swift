@@ -249,14 +249,24 @@ class TestAppUITests: XCTestCase {
         
         XCTAssert(app.webViews.webViews.webViews.buttons["Lowe's"].waitForExistence(timeout: 15))
         
-        app.webViews.webViews.webViews.buttons["Lowe's"].tap()
+        app.webViews.webViews.webViews.buttons["Lowe's"].doubleTap()
         
-        sleep(15)
+        
+       // app.buttons["Lowe's"].tap()
+        
+        app.webViews.searchFields["find your payroll provider"].tap()
+        app.webViews.searchFields["find your payroll provider"].typeText("Lowe's")
+        
+        sleep(5)
+        app.webViews.webViews.webViews.buttons["Lowe's"].tap(wait: 20, test: self)
         
 //        XCTAssert(app.webViews.buttons["Submit"].waitForExistence(timeout: 15))
         
         sleep(2)
     }
+    
+    
+    
     
     
 //        sleep(2)
@@ -347,4 +357,14 @@ class TestAppUITests: XCTestCase {
     }
     
     
+}
+
+extension XCUIElement {
+    func tap(wait: Int, test: XCTestCase) {
+        if !isHittable {
+            test.expectation(for: NSPredicate(format: "hittable == true"), evaluatedWith: self, handler: nil)
+            test.waitForExpectations(timeout: TimeInterval(wait), handler: nil)
+        }
+        tap()
+    }
 }
