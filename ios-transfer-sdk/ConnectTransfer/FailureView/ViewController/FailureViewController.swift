@@ -12,9 +12,15 @@ import SafariServices
 
 protocol FailureEventDelegate: AnyObject {
     func didTryAgain()
+    func didReturnToPartnerOrExit(errorCode: String?)
 }
 
 class FailureViewController: UIViewController {
+    
+    //MARK: - FailureViewControllerState
+    enum FailureViewControllerState: String {
+      case FailureViewExitState, FailureViewRetryState
+    }
     
     //MARK: - Outlets
     @IBOutlet weak var parentViewWidth: NSLayoutConstraint!
@@ -31,17 +37,11 @@ class FailureViewController: UIViewController {
     //MARK: - Variables
     var failureViewModel: FailureViewModel
     weak var delegate: FailureEventDelegate?
-    
-    enum FailureViewControllerState: String {
-      case FailureViewExitState, FailureViewRetryState
-    }
-    
     var failureViewControllerState: FailureViewControllerState?
-
     
     //MARK: - Init Methods
-    init(partnerName: String, themeColor: UIColor, failureViewControllerState: FailureViewControllerState) {
-        self.failureViewModel = FailureViewModel(partnerName: partnerName, themeColor: themeColor)
+    init(partnerName: String?, themeColor: UIColor, errorModel: ErrorModel?, failureViewControllerState: FailureViewControllerState) {
+        self.failureViewModel = FailureViewModel(partnerName: partnerName, themeColor: themeColor, errorModel: errorModel)
         super.init(nibName: "FailureViewController", bundle: nil)
         self.failureViewControllerState = failureViewControllerState
     }
@@ -58,7 +58,7 @@ class FailureViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func returnToButtonAction(_ sender: Any) {
-        self.exitConnectTransfer()
+        self.delegate?.didReturnToPartnerOrExit(errorCode: self.failureViewModel.getErrorModelCode())
         self.navigationController?.dismiss(animated: true)
     }
     
@@ -105,6 +105,7 @@ class FailureViewController: UIViewController {
     private func setUpFailureNavigationView() {
         
         self.failureNavigationView.backButton.isHidden = true
+        self.failureNavigationView.closeButton.isHidden = self.failureViewControllerState == .FailureViewExitState
         
         self.failureNavigationView.closeButtonCallback = {[weak self] in
             guard let weakSelf = self else {return}
@@ -119,9 +120,14 @@ class FailureViewController: UIViewController {
     }
     
     private func setUpFailureDescription() {
-        self.descriptionLabel.text = FailureViewControllerUtil.getFailureDescriptionText()
         self.descriptionLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         self.descriptionLabel.textColor = FailureViewControllerUtil.getFailureTitleTextColor()
+        
+        if let errorMsg = self.failureViewModel.getErrorModelMessage() {
+            self.descriptionLabel.text = errorMsg
+        }else {
+            self.descriptionLabel.text = FailureViewControllerUtil.getFailureDescriptionText()
+        }
     }
     
     private func setUpTryAgainButton() {
@@ -139,14 +145,14 @@ class FailureViewController: UIViewController {
             self.returnToPartnerOrExitButton.setTitle(String(format: FailureViewControllerUtil.getReturnToButtonText(), self.failureViewModel.getPartnerName()), for: .normal)
             self.returnToPartnerOrExitButton.setTitleColor(self.failureViewModel.getThemeColor(), for: .normal)
             self.returnToPartnerOrExitButton.setBorder(borderRadius: 1, borderColor: self.failureViewModel.getThemeColor())
-            self.returnToPartnerOrExitButton.isHidden = false
+            self.tryAgainButton.isHidden = false
         }
         else{
             self.returnToPartnerOrExitButton.backgroundColor = self.failureViewModel.getThemeColor()
             self.returnToPartnerOrExitButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
             self.returnToPartnerOrExitButton.setTitle(FailureViewControllerUtil.getExitText(), for: .normal)
             self.returnToPartnerOrExitButton.setTitleColor(self.failureViewModel.getReturnToButtonTitleTextColor(), for: .normal)
-            self.returnToPartnerOrExitButton.isHidden = true
+            self.tryAgainButton.isHidden = true
         }
     }
     
