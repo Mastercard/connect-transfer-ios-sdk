@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConnectTransferViewController" customModule="Connect" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConnectTransferViewController" customModule="ConnectTransfer" customModuleProvider="target">
             <connections>
                 <outlet property="allStepsView" destination="LFU-6P-e3r" id="R9U-TU-7Zm"/>
                 <outlet property="lockIcon" destination="miX-qR-RE3" id="RkS-xc-VLi"/>
@@ -17,6 +17,8 @@
                 <outlet property="parentViewWidth" destination="EkH-K2-3sE" id="bA9-LA-u7c"/>
                 <outlet property="permissionLabel" destination="Wpe-DU-IJT" id="1jv-Tt-Kcy"/>
                 <outlet property="permissionView" destination="2u0-Mb-ude" id="Ofn-Yf-PJT"/>
+                <outlet property="progressLoaderImageView" destination="9AT-Gw-OJQ" id="0rZ-1Y-On4"/>
+                <outlet property="progressView" destination="IeC-S2-s7h" id="aEU-Oj-PYV"/>
                 <outlet property="step1InstructionLabel" destination="RTG-ad-jiu" id="rAE-KJ-u5K"/>
                 <outlet property="step1Label" destination="i7G-bu-8eR" id="rpS-kn-cqv"/>
                 <outlet property="step1View" destination="drv-37-ySU" id="UfW-Qi-3c0"/>
@@ -43,7 +45,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8k-ib-bwu">
                     <rect key="frame" x="0.0" y="59" width="430" height="839"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hai-tc-Ght" customClass="NavigationView" customModule="Connect" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hai-tc-Ght" customClass="NavigationView" customModule="ConnectTransfer" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="430" height="40"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -236,21 +238,40 @@
                                 <action selector="nextButtonAction:" destination="-1" eventType="touchUpInside" id="Bz7-77-FNZ"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNN-zP-Jbl" customClass="PoweredByView" customModule="Connect" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNN-zP-Jbl" customClass="PoweredByView" customModule="ConnectTransfer" customModuleProvider="target">
                             <rect key="frame" x="24" y="815" width="382" height="19"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="19" id="EbR-Ou-ucc"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IeC-S2-s7h">
+                            <rect key="frame" x="0.0" y="0.0" width="430" height="839"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loader" translatesAutoresizingMaskIntoConstraints="NO" id="9AT-Gw-OJQ">
+                                    <rect key="frame" x="182" y="386.66666666666669" width="66" height="66"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="9AT-Gw-OJQ" secondAttribute="height" id="KAo-PB-OkC"/>
+                                        <constraint firstAttribute="height" constant="66" id="iFY-GR-yVa"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="9AT-Gw-OJQ" firstAttribute="centerX" secondItem="IeC-S2-s7h" secondAttribute="centerX" id="gJ2-tT-rab"/>
+                                <constraint firstItem="9AT-Gw-OJQ" firstAttribute="centerY" secondItem="IeC-S2-s7h" secondAttribute="centerY" id="l5v-2F-2u7"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="IeC-S2-s7h" firstAttribute="top" secondItem="I8k-ib-bwu" secondAttribute="top" id="3ht-Ji-oEb"/>
                         <constraint firstItem="z9M-Bc-ObD" firstAttribute="top" secondItem="hai-tc-Ght" secondAttribute="bottom" constant="40" id="5B8-UO-GYv"/>
                         <constraint firstItem="347-8c-Sog" firstAttribute="top" secondItem="j08-On-LV8" secondAttribute="bottom" constant="10" id="6tj-tl-RWo"/>
                         <constraint firstItem="hJu-9F-knZ" firstAttribute="trailing" secondItem="z9M-Bc-ObD" secondAttribute="trailing" id="9b3-12-H7M"/>
                         <constraint firstItem="hai-tc-Ght" firstAttribute="leading" secondItem="I8k-ib-bwu" secondAttribute="leading" id="A4i-GS-dC9"/>
                         <constraint firstItem="BNN-zP-Jbl" firstAttribute="top" secondItem="347-8c-Sog" secondAttribute="bottom" constant="40" id="Afo-6T-xrY"/>
+                        <constraint firstAttribute="bottom" secondItem="IeC-S2-s7h" secondAttribute="bottom" id="CSn-bZ-nGV"/>
                         <constraint firstAttribute="width" constant="430" id="EkH-K2-3sE"/>
                         <constraint firstItem="hJu-9F-knZ" firstAttribute="top" secondItem="z9M-Bc-ObD" secondAttribute="bottom" constant="20" id="L7u-Rw-iZM"/>
                         <constraint firstItem="j08-On-LV8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2u0-Mb-ude" secondAttribute="bottom" constant="10" id="MKO-Ji-bUN"/>
@@ -262,6 +283,7 @@
                         <constraint firstAttribute="trailing" secondItem="BNN-zP-Jbl" secondAttribute="trailing" constant="24" id="S9O-6n-YFd"/>
                         <constraint firstAttribute="trailing" secondItem="LFU-6P-e3r" secondAttribute="trailing" constant="24" id="U2U-cc-u7N"/>
                         <constraint firstAttribute="height" constant="839" id="Uwc-li-apE"/>
+                        <constraint firstAttribute="trailing" secondItem="IeC-S2-s7h" secondAttribute="trailing" id="WE8-8z-q4i"/>
                         <constraint firstItem="LFU-6P-e3r" firstAttribute="top" secondItem="hJu-9F-knZ" secondAttribute="bottom" constant="30" id="ZAP-eZ-IrD"/>
                         <constraint firstItem="hai-tc-Ght" firstAttribute="top" secondItem="I8k-ib-bwu" secondAttribute="top" id="ZQf-mr-RKW"/>
                         <constraint firstItem="BNN-zP-Jbl" firstAttribute="leading" secondItem="I8k-ib-bwu" secondAttribute="leading" constant="24" id="dF5-S6-gxZ"/>
@@ -272,6 +294,7 @@
                         <constraint firstAttribute="trailing" secondItem="hai-tc-Ght" secondAttribute="trailing" id="uE0-lD-iro"/>
                         <constraint firstItem="2u0-Mb-ude" firstAttribute="top" secondItem="LFU-6P-e3r" secondAttribute="bottom" constant="10" id="uYU-ks-STa"/>
                         <constraint firstItem="z9M-Bc-ObD" firstAttribute="leading" secondItem="I8k-ib-bwu" secondAttribute="leading" constant="24" id="whk-eD-eJ6"/>
+                        <constraint firstItem="IeC-S2-s7h" firstAttribute="leading" secondItem="I8k-ib-bwu" secondAttribute="leading" id="zIj-P1-GWJ"/>
                         <constraint firstItem="LFU-6P-e3r" firstAttribute="leading" secondItem="I8k-ib-bwu" secondAttribute="leading" constant="24" id="zMx-Dx-QS1"/>
                     </constraints>
                 </view>
@@ -282,10 +305,11 @@
                 <constraint firstItem="I8k-ib-bwu" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="OXy-X0-VfG"/>
                 <constraint firstItem="I8k-ib-bwu" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="rAZ-F1-ETH"/>
             </constraints>
-            <point key="canvasLocation" x="136.23188405797103" y="18.75"/>
+            <point key="canvasLocation" x="135.34883720930233" y="18.66952789699571"/>
         </view>
     </objects>
     <resources>
+        <image name="loader" width="66" height="66"/>
         <image name="lock" width="11" height="14"/>
     </resources>
 </document>

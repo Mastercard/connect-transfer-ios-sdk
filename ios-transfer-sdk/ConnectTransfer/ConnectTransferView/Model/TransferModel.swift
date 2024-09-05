@@ -101,3 +101,15 @@ struct Metadata : Codable {
         return metaDataDict
     }
 }
+
+// MARK: - Welcome
+struct ErrorModel: Codable {
+    let code, status, message, userMessage: String
+    let tags: String
+
+    enum CodingKeys: String, CodingKey {
+        case code, status, message
+        case userMessage = "user_message"
+        case tags
+    }
+}

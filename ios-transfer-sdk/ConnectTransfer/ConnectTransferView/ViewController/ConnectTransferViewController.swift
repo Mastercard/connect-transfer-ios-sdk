@@ -43,13 +43,17 @@ public class ConnectTransferViewController: UIViewController {
     @IBOutlet weak var termsAndCondtionText: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     
+    @IBOutlet weak var progressView: UIView!
+    @IBOutlet weak var progressLoaderImageView: UIImageView!
+    
     //MARK: - Variables
-    var transferViewModel = ConnectTransferViewModel()
+    var transferViewModel: ConnectTransferViewModel
     var safariWebView: SFSafariViewController? = nil
     public weak var delegate: ConnectTransferEventDelegate?
     
     //MARK: - Init Methods
-    public init() {
+    public init(connectTransferURLString: String) {
+        self.transferViewModel = ConnectTransferViewModel(connectTransferURLString: connectTransferURLString)
         super.init(nibName: "ConnectTransferViewController", bundle: Bundle.getFrameworkBundle())
     }
     
@@ -61,8 +65,10 @@ public class ConnectTransferViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+        setUpProgressView()
+        loadConnectTransfer()
     }
-    
+      
     //MARK: - Actions
     @IBAction func nextButtonAction(_ sender: Any) {
         
@@ -74,31 +80,24 @@ public class ConnectTransferViewController: UIViewController {
         self.openRedirectVC()
     }
     
-    //MARK: - Public Methods
-    public func loadConnectTransfer(with urlString: String){
-        
-        self.transferViewModel.apiHitToGetTransferModel(urlString: urlString) { (isSuccess, error) in
-            
-            if isSuccess {
-                self.delegate?.onInitializeTransferDone(self.transferViewModel.getResponseForInitializeTransfer())
-                
-            }else {
-                self.delegate?.onTransferEnd(self.transferViewModel.getResponseForClose(reason: error))
-            }
-        }
-    }
-    
     //MARK: - Private Methods
     private func setUpViews() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.setUpParentViewDimension()
         self.setUpTransferNavigationView()
-        self.setUpTransferTitleLabel()
-        self.setUpTransferDescription()
-        self.setUpStepsView()
-        self.setUpPermissionView()
-        self.setUpTermsAndConditonsText()
-        self.setUpNextButton()
+    }
+    
+    private func setUpProgressView() {
+        self.progressLoaderImageView.removeAllAnimations()
+        self.progressLoaderImageView.image = UIImage(named: "loader")?.renderAlwaysWithTemplateMode()
+        self.progressLoaderImageView.tintColor = UIColor.gray
+        progressLoaderImageView.setLayerRotationToInfinite()
+    }
+    
+    private func hideProgressView() {
+        self.progressLoaderImageView.removeAllAnimations()
+        self.progressView.isHidden = true
+        self.progressLoaderImageView.isHidden = true
     }
     
     private func setUpParentViewDimension() {
@@ -110,6 +109,35 @@ public class ConnectTransferViewController: UIViewController {
             self.parentViewWidth.constant = Helper.returnFinalSizeForIpad().width
             self.parentViewHeight.constant = Helper.returnFinalSizeForIpad().height
         }
+    }
+    
+    private func loadConnectTransfer(){
+        
+        self.transferViewModel.apiHitToGetTransferModel() { (isSuccess) in
+            
+            DispatchQueue.main.async {
+                
+                if isSuccess {
+                    self.hideProgressView()
+                    self.setViewAppearance()
+                    self.delegate?.onInitializeTransferDone(self.transferViewModel.getResponseForInitializeTransfer())
+                    
+                }else {
+                    let failureVc = FailureViewController(partnerName: nil, themeColor: self.transferViewModel.getThemeColor(), errorModel: self.transferViewModel.getErrorModel(), failureViewControllerState: .FailureViewExitState)
+                    failureVc.delegate = self
+                    self.navigationController?.pushViewController(failureVc, animated: false)
+                }
+            }
+        }
+    }
+    
+    private func setViewAppearance() {
+        self.setUpTransferTitleLabel()
+        self.setUpTransferDescription()
+        self.setUpStepsView()
+        self.setUpPermissionView()
+        self.setUpTermsAndConditonsText()
+        self.setUpNextButton()
     }
     
     @objc func dismissTransferVC() {
@@ -319,6 +347,18 @@ fileprivate extension UILabel {
 //MARK: - Exit PopUp Delegate Methods
 extension ConnectTransferViewController: ExitPopUpDelegate {
     func exitConnectTransfer() {
-        self.delegate?.onTransferEnd(self.transferViewModel.getResponseForClose(reason: "exit"))
+        self.delegate?.onTransferEnd(self.transferViewModel.getResponseForClose(reason: RedirectReason.EXIT.rawValue))
     }
+}
+
+//MARK: - Failure Event Delegate Methods
+extension ConnectTransferViewController: FailureEventDelegate {
+    
+    func didReturnToPartnerOrExit(errorCode: String?) {
+        self.delegate?.onTransferEnd(self.transferViewModel.getResponseForClose(reason: RedirectReason.ERROR.rawValue, errorCode: errorCode))
+    }
+    
+    func didTryAgain() {
+    }
+
 }
