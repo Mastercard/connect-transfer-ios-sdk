@@ -35,6 +35,8 @@ read_variables:
     - echo "$FINICITY_APP_KEY_SAVED"
     - echo "$PARTNER_ID_SAVED"
     - echo "$PARTNER_SECRET_SAVED"
+  tags:
+    - xcode
   
 
 build_project:
