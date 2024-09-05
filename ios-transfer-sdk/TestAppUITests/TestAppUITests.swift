@@ -174,7 +174,7 @@ class TestAppUITests: XCTestCase {
         // 4. Connect Transfer Screen will appear
         // 5. Tap on Next Button
         // 6. Deposit Switch flow will appear
-        // 7. Check if Deposit switch flow got initialized by checking the  button exist
+        // 7. Check if Deposit switch flow got initialized by checking the "find your payroll provider" exists
         
         
         let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]
@@ -189,7 +189,8 @@ class TestAppUITests: XCTestCase {
         sleep(2)
     }
     
-    func test03AddBankAccount() throws {
+    //MARK: - Deposit Switch Flow TestCases
+    func test06SelectPayrollProvider() throws {
         
         XCTAssertNotNil(dynamicGeneratedUrl)
         
@@ -197,11 +198,67 @@ class TestAppUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]//.typeText(badExpiredUrl)
+        // Steps:
+        // 1. Fill in textfield with Good URL (Dynamic Generated URL)
+        // 2. Tap Connect Transfer Button to launch Connect Transfer
+        // 3. Wait for validation of the URL
+        // 4. Connect Transfer Screen will appear
+        // 5. Tap on Next Button
+        // 6. Deposit Switch flow will appear
+        // 7. Click on the Payroll Provider "Lowe's"
+        
+        
+        let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]
         uiTextField.typeText(dynamicGeneratedUrl!)
         app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
         
+        XCTAssert(app.buttons["Next"].waitForExistence(timeout: 5))
         app.buttons["Next"].tap()
+        
+        XCTAssert(app.webViews.buttons["Lowe's"].waitForExistence(timeout: 15))
+        
+        app.buttons["Lowe's"].tap()
+        
+        sleep(2)
+    }
+    
+    func test07SubmitCredentials() throws {
+        
+        XCTAssertNotNil(dynamicGeneratedUrl)
+        
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        // Steps:
+        // 1. Fill in textfield with Good URL (Dynamic Generated URL)
+        // 2. Tap Connect Transfer Button to launch Connect Transfer
+        // 3. Wait for validation of the URL
+        // 4. Connect Transfer Screen will appear
+        // 5. Tap on Next Button
+        // 6. Deposit Switch flow will appear
+        // 7. Click on the Payroll Provider "Lowe's"
+        
+        
+        let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]
+        uiTextField.typeText(dynamicGeneratedUrl!)
+        app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
+        
+        XCTAssert(app.buttons["Next"].waitForExistence(timeout: 5))
+        app.buttons["Next"].tap()
+        
+        XCTAssert(app.webViews.webViews.webViews.buttons["Lowe's"].waitForExistence(timeout: 15))
+        
+        app.webViews.webViews.webViews.buttons["Lowe's"].tap()
+        
+        sleep(15)
+        
+//        XCTAssert(app.webViews.buttons["Submit"].waitForExistence(timeout: 15))
+        
+        sleep(2)
+    }
+    
+    
 //        sleep(2)
         
 //        let webViewsQuery = app.webViews.webViews.webViews
@@ -240,7 +297,7 @@ class TestAppUITests: XCTestCase {
 //        webViewsQuery.buttons["Submit"].tap()
         
 //        sleep(2)
-    }
+//    }
     
     func test06AddOAuthBankAccount() throws {
         
