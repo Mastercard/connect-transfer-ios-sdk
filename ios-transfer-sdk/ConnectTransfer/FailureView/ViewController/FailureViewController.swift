@@ -42,7 +42,7 @@ class FailureViewController: UIViewController {
     //MARK: - Init Methods
     init(partnerName: String?, themeColor: UIColor, errorModel: ErrorModel?, failureViewControllerState: FailureViewControllerState) {
         self.failureViewModel = FailureViewModel(partnerName: partnerName, themeColor: themeColor, errorModel: errorModel)
-        super.init(nibName: "FailureViewController", bundle: nil)
+        super.init(nibName: "FailureViewController", bundle: Bundle.getFrameworkBundle())
         self.failureViewControllerState = failureViewControllerState
     }
     
