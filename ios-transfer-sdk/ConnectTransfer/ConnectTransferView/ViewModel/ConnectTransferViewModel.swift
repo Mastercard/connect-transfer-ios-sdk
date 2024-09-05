@@ -392,3 +392,15 @@ extension ConnectTransferViewModel {
         return commonResponse as NSDictionary
     }
 }
+
+
+
+// won't ship with production code thanks to #if DEBUG
+// add a good comment with "WHY this is needed 😉"
+#if DEBUG
+extension ConnectTransferViewModel {
+    public func testConnectTransferURLString() -> String {
+        return self.connectTransferURLString
+    }
+}
+#endif

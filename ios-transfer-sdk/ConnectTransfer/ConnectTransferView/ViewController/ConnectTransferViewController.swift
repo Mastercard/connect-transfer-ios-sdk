@@ -316,6 +316,15 @@ public class ConnectTransferViewController: UIViewController {
         }
         
     }
+    
+    // MARK: - JailBroken functions
+    internal func hasBeenJailBroken() -> Bool {
+        let fileMgr = FileManager()
+        if fileMgr.fileExists(atPath: "Applications/Cydia.app") || fileMgr.fileExists(atPath: "/Library/MobileSubstrate/MobileSubstrate.dylib") {
+            return true
+        }
+        return false
+    }
 }
 
 //MARK: - SFSafariViewControllerDelegate Methods

@@ -31,7 +31,7 @@
 		214B5C052589655400FA6A1E /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D037E258942E900342EF5 /* AccessibilityIdentifier.swift */; };
 		216D037F258942E900342EF5 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D037E258942E900342EF5 /* AccessibilityIdentifier.swift */; };
 		6B94CDE423A819F30077D65A /* ConnectTransfer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B94CDDA23A819F20077D65A /* ConnectTransfer.framework */; };
-		6B94CDE923A819F30077D65A /* ConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B94CDE823A819F30077D65A /* ConnectTests.swift */; };
+		6B94CDE923A819F30077D65A /* ConnectTransferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B94CDE823A819F30077D65A /* ConnectTransferTests.swift */; };
 		770DCFB12B8CAD9800CBBAF4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFAE2B8CAD9700CBBAF4 /* Model.swift */; };
 		770DCFB22B8CAD9800CBBAF4 /* MastercardOpenBankingConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFAF2B8CAD9700CBBAF4 /* MastercardOpenBankingConnect.swift */; };
 		770DCFB32B8CAD9800CBBAF4 /* MastercardOpenBankingConnectAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFAD2B8CAD9700CBBAF4 /* MastercardOpenBankingConnectAPI.swift */; };
@@ -163,7 +163,7 @@
 		6B94CDDA23A819F20077D65A /* ConnectTransfer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConnectTransfer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B94CDDE23A819F20077D65A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B94CDE323A819F30077D65A /* ConnectTransferTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectTransferTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B94CDE823A819F30077D65A /* ConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectTests.swift; sourceTree = "<group>"; };
+		6B94CDE823A819F30077D65A /* ConnectTransferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectTransferTests.swift; sourceTree = "<group>"; };
 		6B94CDEA23A819F30077D65A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BA9DA452416D35E00884A40 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		770DCFAD2B8CAD9700CBBAF4 /* MastercardOpenBankingConnectAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MastercardOpenBankingConnectAPI.swift; sourceTree = "<group>"; };
@@ -279,7 +279,7 @@
 				F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */,
 				6BA9DA452416D35E00884A40 /* Config.xcconfig */,
 				6B94CDDC23A819F20077D65A /* ConnectTransfer */,
-				6B94CDE723A819F30077D65A /* ConnectTests */,
+				6B94CDE723A819F30077D65A /* ConnectTransferTests */,
 				2134234A2583F6D200C06BB8 /* TestApp */,
 				214B5BEB25895E9F00FA6A1E /* TestAppUITests */,
 				6B94CDDB23A819F20077D65A /* Products */,
@@ -316,13 +316,13 @@
 			path = ConnectTransfer;
 			sourceTree = "<group>";
 		};
-		6B94CDE723A819F30077D65A /* ConnectTests */ = {
+		6B94CDE723A819F30077D65A /* ConnectTransferTests */ = {
 			isa = PBXGroup;
 			children = (
-				6B94CDE823A819F30077D65A /* ConnectTests.swift */,
+				6B94CDE823A819F30077D65A /* ConnectTransferTests.swift */,
 				6B94CDEA23A819F30077D65A /* Info.plist */,
 			);
-			path = ConnectTests;
+			path = ConnectTransferTests;
 			sourceTree = "<group>";
 		};
 		777F620A2C6A23E700A342AD /* Model */ = {
@@ -842,7 +842,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B94CDE923A819F30077D65A /* ConnectTests.swift in Sources */,
+				6B94CDE923A819F30077D65A /* ConnectTransferTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1206,7 +1206,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ConnectTests/Info.plist;
+				INFOPLIST_FILE = ConnectTransferTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1224,7 +1224,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ConnectTests/Info.plist;
+				INFOPLIST_FILE = ConnectTransferTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
