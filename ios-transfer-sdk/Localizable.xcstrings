@@ -92,7 +92,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Finicity, a Mastercard Company"
+            "value" : "Finicity, a Mastercard company"
           }
         },
         "es" : {
@@ -110,13 +110,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Finicity only uses data with your permission"
+            "value" : "Finicity, a Mastercard company only uses data with your permission"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Finicity, solo utiliza los datos con tu permiso"
+            "value" : "Finicity, una empresa de Mastercard, solo utiliza los datos con tu permiso"
           }
         }
       }
@@ -200,7 +200,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Allow Finicity, a Mastercard Company to direct you to Atomic to securely connect to your payroll provider and manage changes to your direct deposit."
+            "value" : "Allow Finicity, a Mastercard company to direct you to Atomic to securely connect to your payroll provider and manage changes to your direct deposit."
           }
         },
         "es" : {
