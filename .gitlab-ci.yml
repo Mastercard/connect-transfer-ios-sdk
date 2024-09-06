@@ -24,6 +24,9 @@ save_variables:
   artifacts:
     reports:
       dotenv: keys.env
+  tags:
+    - xcode
+
   
 
 read_variables:
@@ -32,6 +35,8 @@ read_variables:
     - echo "$FINICITY_APP_KEY_SAVED"
     - echo "$PARTNER_ID_SAVED"
     - echo "$PARTNER_SECRET_SAVED"
+  tags:
+    - xcode
   
 
 build_project:
@@ -39,7 +44,7 @@ build_project:
   script:
     - echo "$FINICITY_APP_KEY_SAVED"
 #    - xcodebuild -project Connect.xcodeproj -scheme TestApp -derivedDataPath derivedData -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest' FINICITY_APP_KEY=$FINICITY_APP_KEY_SAVED ONLY_ACTIVE_ARCH=YES | xcpretty
-    - xcrun xcodebuild test -project ConnectTransfer.xcodeproj -scheme TestApp -derivedDataPath derivedData -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest' FINICITY_APP_KEY=$FINICITY_APP_KEY_SAVED ONLY_ACTIVE_ARCH=YES | xcpretty
+    - xcrun xcodebuild test -project ios-transfer-sdk/ConnectTransfer.xcodeproj -scheme TestApp -derivedDataPath derivedData -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest' FINICITY_APP_KEY=$FINICITY_APP_KEY_SAVED ONLY_ACTIVE_ARCH=YES | xcpretty
   artifacts:
     name: "derived-data"
     paths:
