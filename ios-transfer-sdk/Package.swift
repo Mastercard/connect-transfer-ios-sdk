@@ -10,17 +10,25 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "ConnectTransfer",
-            targets: ["ConnectTransfer"]),
+            targets: ["ConnectTransferSDK"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/atomicfi/atomic-transact-ios.git", from: "3.3.4")
+        .package(url: "https://github.com/atomicfi/atomic-transact-ios.git", exact: "3.3.4")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .binaryTarget(
             name: "ConnectTransfer",
-            path: "ConnectTransfer.xcframework",
-            dependencies: ["AtomicSDK"]),
+            path: "ConnectTransfer.xcframework"
+        ),
+        .target(
+            name: "ConnectTransferSDK",
+            dependencies: [
+                "ConnectTransfer",
+                .product(name: "AtomicTransact", package: "atomic-transact-ios"),
+            ],
+            path: "Sources"
+        )
     ]
 )
