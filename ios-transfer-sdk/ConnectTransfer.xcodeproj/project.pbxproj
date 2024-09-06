@@ -176,9 +176,6 @@
 		777F620E2C6A23E700A342AD /* FailureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FailureViewController.xib; sourceTree = "<group>"; };
 		777F62102C6A23E700A342AD /* FailureViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailureViewModel.swift; sourceTree = "<group>"; };
 		77B3C23B2C7F38F400D6FDF3 /* ConnectTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectTransfer.h; sourceTree = "<group>"; };
-		77D914152C8AF56C00AC314B /* TestAppUITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestAppUITests; sourceTree = "<group>"; };
-		77D914272C8B32AA00AC314B /* TestAppUITests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TestAppUITests copy-Info.plist"; path = "/Users/e113257/connect-transfer-ios-sdk/ios-transfer-sdk/TestAppUITests copy-Info.plist"; sourceTree = "<absolute>"; };
-		77D914282C8B33EA00AC314B /* TestAppUITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestAppUITests; sourceTree = "<group>"; };
 		77EF09E22BCEC76C00F5C0E5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		77F98BB02C0A0F6100AC7486 /* TestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp.entitlements; sourceTree = "<group>"; };
 		F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -279,8 +276,6 @@
 		6B94CDD023A819F20077D65A = {
 			isa = PBXGroup;
 			children = (
-				77D914282C8B33EA00AC314B /* TestAppUITests */,
-				77D914152C8AF56C00AC314B /* TestAppUITests */,
 				F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */,
 				6BA9DA452416D35E00884A40 /* Config.xcconfig */,
 				6B94CDDC23A819F20077D65A /* ConnectTransfer */,
@@ -288,7 +283,6 @@
 				2134234A2583F6D200C06BB8 /* TestApp */,
 				214B5BEB25895E9F00FA6A1E /* TestAppUITests */,
 				6B94CDDB23A819F20077D65A /* Products */,
-				77D914272C8B32AA00AC314B /* TestAppUITests copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
