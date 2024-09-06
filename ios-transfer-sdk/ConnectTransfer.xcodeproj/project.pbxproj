@@ -132,6 +132,13 @@
 			remoteGlobalIDString = 6B94CDD923A819F20077D65A;
 			remoteInfo = Connect;
 		};
+		77C97BB62C8B3E0200670E58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B94CDD123A819F20077D65A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B94CDD923A819F20077D65A;
+			remoteInfo = ConnectTransfer;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -579,6 +586,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				77C97BB72C8B3E0200670E58 /* PBXTargetDependency */,
 				214B5BF025895E9F00FA6A1E /* PBXTargetDependency */,
 			);
 			name = TestAppUITests;
@@ -864,6 +872,11 @@
 			target = 6B94CDD923A819F20077D65A /* ConnectTransfer */;
 			targetProxy = 6B94CDE523A819F30077D65A /* PBXContainerItemProxy */;
 		};
+		77C97BB72C8B3E0200670E58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6B94CDD923A819F20077D65A /* ConnectTransfer */;
+			targetProxy = 77C97BB62C8B3E0200670E58 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -897,6 +910,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5R8RGDXM32;
+				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = TestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -927,6 +941,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5R8RGDXM32;
+				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = TestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
