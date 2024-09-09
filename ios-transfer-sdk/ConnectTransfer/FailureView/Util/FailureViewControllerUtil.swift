@@ -26,6 +26,10 @@ class FailureViewControllerUtil: NSObject{
         getLocalizedString(for: "try_again")
     }
     
+    class func getExitText() -> String {
+        getLocalizedString(for: "Exit")
+    }
+    
     class func getReturnToButtonText() -> String {
         getLocalizedString(for: "return_to_partner")
     }

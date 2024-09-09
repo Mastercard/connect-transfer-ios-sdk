@@ -83,11 +83,16 @@ class ViewController: UIViewController {
     
     
     @IBAction func launchConnectTransferAction(_ sender: Any) {
-        activityIndicator.startAnimating()
         if let connectTransferUrl = pdsURLInput.text {
-            self.transferViewController = ConnectTransferViewController()
+            self.transferViewController = ConnectTransferViewController(connectTransferURLString: connectTransferUrl)
             self.transferViewController.delegate = self
-            self.transferViewController.loadConnectTransfer(with: connectTransferUrl)
+            self.connectNavController = UINavigationController(rootViewController: self.transferViewController)
+            if(UIDevice.current.userInterfaceIdiom == .phone){
+                self.connectNavController.modalPresentationStyle = .fullScreen
+            }else{
+                self.connectNavController.modalPresentationStyle = .automatic
+            }
+            self.present(self.connectNavController, animated: true)
         }
     }
 
@@ -127,20 +132,6 @@ extension ViewController: ConnectTransferEventDelegate {
     
     func onInitializeTransferDone(_ data: NSDictionary?) {
         print(data as Any)
-        if Thread.isMainThread {
-            self.activityIndicator.stopAnimating()
-            self.connectNavController = UINavigationController(rootViewController: self.transferViewController)
-            if(UIDevice.current.userInterfaceIdiom == .phone){
-                self.connectNavController.modalPresentationStyle = .fullScreen
-            }else{
-                self.connectNavController.modalPresentationStyle = .fullScreen
-            }
-            self.present(self.connectNavController, animated: true)
-        }else {
-            DispatchQueue.main.async {
-                self.onInitializeTransferDone(data)
-            }
-        }
     }
     
     func onTermsAndConditionsAccepted(_ data: NSDictionary?) {
@@ -154,7 +145,6 @@ extension ViewController: ConnectTransferEventDelegate {
     func onTransferEnd(_ data: NSDictionary?) {
         print(data as Any)
         if Thread.isMainThread {
-            self.activityIndicator.stopAnimating()
             
             let alert = UIAlertController(title: "Error", message: data!["reason"] as? String ?? "" , preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
