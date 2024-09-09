@@ -12,7 +12,7 @@ import WebKit
 
 class ConnectTransferTests: XCTestCase {
     
-   
+    
     
     var onLoadCalled = false
     var onDoneCalled = false
@@ -27,6 +27,7 @@ class ConnectTransferTests: XCTestCase {
     var onRouteExp: XCTestExpectation? = nil
     var onUserExp: XCTestExpectation? = nil
     var onCancelExp: XCTestExpectation? = nil
+    var connectNavController: UINavigationController!
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -54,154 +55,171 @@ class ConnectTransferTests: XCTestCase {
         self.onCancelExp = nil
     }
     
-//    func testToken() {
-//         let awesomeToken = ProcessInfo.processInfo.environment["FINICITY_APP_KEY_SAVED"]!
-//         print(awesomeToken)
-//         XCTAssertFalse(awesomeToken.isEmpty)
-//   }
+    //    func testToken() {
+    //         let awesomeToken = ProcessInfo.processInfo.environment["FINICITY_APP_KEY_SAVED"]!
+    //         print(awesomeToken)
+    //         XCTAssertFalse(awesomeToken.isEmpty)
+    //   }
     
     
     func testLoad() {
-        let cvc = ConnectTransferViewController(connectTransferURLString: "connectTransferUrl")
-        cvc.delegate = self
-        XCTAssertEqual("connectTransferUrl", cvc.transferViewModel.testConnectTransferURLString())
-       // cvc.unloadChildWebView()
-      //  cvc.postWindowClosedMessage()
-        XCTAssertNil(cvc.presentedViewController)
+        let ctvc = ConnectTransferViewController(connectTransferURLString: "connectTransferUrl")
+        ctvc.delegate = self
+        XCTAssertEqual("connectTransferUrl", ctvc.transferViewModel.testConnectTransferURLString())
+        XCTAssertNil(ctvc.presentedViewController)
     }
     
     
-//    func testUnload() {
-//        let cvc = ConnectViewController()
-//        cvc.load("testConnectUrl")
-//        cvc.delegate = self
-//        XCTAssertEqual("testConnectUrl", cvc.connectUrl)
-//        cvc.unloadChildWebView()
-//        if(cvc.webView != nil){
-//            cvc.webViewDidClose(cvc.webView)
-//        }
-//        // cvc.postWindowClosedMessage()
-//        XCTAssertNil(cvc.presentedViewController)
-//    }
-//    
-//    func testLoadWebView() {
-//        self.onLoadExp = expectation(description: "Loaded callback")
-//        let cvc = ConnectViewController()
-//        cvc.load("testConnectUrl")
-//        cvc.delegate = self
-//        waitForExpectations(timeout: 3) { _ in
-//            XCTAssertTrue(self.onLoadCalled)
-//            XCTAssertEqual("testConnectUrl", cvc.connectUrl)
-//        }
-//    }
-//    
-//    func testLoadDeeplink() {
-//        let cvc = ConnectViewController()
-//        cvc.load("testConnectUrl",redirectUrl: "partnerapp://")
-//        cvc.delegate = self
-//        XCTAssertEqual("testConnectUrl", cvc.connectUrl)
-//    }
-//    func testLoadUniversallink() {
-//        let cvc = ConnectViewController()
-//        cvc.load("testConnectUrl",redirectUrl: "https://acmelending.net")
-//        cvc.delegate = self
-//        XCTAssertEqual("testConnectUrl", cvc.connectUrl)
-//    }
-//    
-//    
-//    func testLoadWebViewDeeplink() {
-//        self.onLoadExp = expectation(description: "Loaded callback")
-//        let cvc = ConnectViewController()
-//        cvc.load("testConnectUrl",redirectUrl: "partnerapp://")
-//        cvc.delegate = self
-//        
-//        let expectation = XCTestExpectation(description: "Completed Ping Connect")
-//        DispatchQueue.main.async {
-//            cvc.pingConnect()
-//            expectation.fulfill()
-//        }
-//        
-//        wait(for: [expectation], timeout: 10.0)
-//        
-//        waitForExpectations(timeout: 3) { _ in
-//            XCTAssertTrue(self.onLoadCalled)
-//            XCTAssertEqual("testConnectUrl", cvc.connectUrl)
-//        }
-//    }
-//    
-//    func testLoadWebChildWebView() {
-//        
-//        self.onLoadExp = expectation(description: "Loaded callback")
-//        let cvc = ConnectViewController()
-//        cvc.load("testConnectUrl",redirectUrl: "partnerapp://")
-//        cvc.delegate = self
-//        
-//        let expectation = XCTestExpectation(description: "Completed Ping Connect")
-//        DispatchQueue.main.async {
-//            cvc.loadChildWebView(url: URL(string: "testChildUrl")!)
-//            expectation.fulfill()
-//        }
-//        
-//        wait(for: [expectation], timeout: 10.0)
-//        
-//        waitForExpectations(timeout: 3) { _ in
-//            XCTAssertTrue(self.onLoadCalled)
-//            XCTAssertEqual("testConnectUrl", cvc.connectUrl)
-//        }
-//    }
-//    
-//    func testMemoryLeak() {
-//        self.onLoadExp = expectation(description: "Loaded callback")
-//        let cvc = ConnectViewController()
-//        cvc.load("testConnectUrl")
-//        cvc.delegate = self
-//        waitForExpectations(timeout: 3) { _ in
-//            XCTAssertTrue(self.onLoadCalled)
-//            XCTAssertEqual("testConnectUrl", cvc.connectUrl)
-//        }
-//        
-//        cvc.close()
-//        cvc.unload()
-//        
-//        addTeardownBlock { [weak cvc] in
-//            XCTAssertNil(cvc)
-//        }
-//    }
-//    
-//    
-//    func testCallbacks() {
-//        let cvc = ConnectViewController()
-//        cvc.load("testConnectUrl")
-//        cvc.delegate = self
-//        
-//        cvc.handleLoadingComplete()
-//        XCTAssertTrue(self.onLoadCalled)
-//        
-//        self.message = ["key": "value"]
-//        cvc.handleConnectCancel(nil)
-//        XCTAssertTrue(self.onCancelCalled)
-//        XCTAssertEqual(nil, self.message)
-//        
-//        self.message = ["key": "value"]
-//        cvc.handleConnectComplete(nil)
-//        XCTAssertTrue(self.onDoneCalled)
-//        XCTAssertEqual(nil, self.message)
-//        
-//        self.message = ["key": "value"]
-//        cvc.handleConnectError(nil)
-//        XCTAssertTrue(self.onErrorCalled)
-//        XCTAssertEqual(nil, self.message)
-//        
-//        self.message = ["key": "value"]
-//        cvc.handleConnectUser(nil)
-//        XCTAssertTrue(self.onUserCalled)
-//        XCTAssertEqual(nil, self.message)
-//        
-//        self.message = ["key": "value"]
-//        cvc.handleConnectRoute(nil)
-//        XCTAssertTrue(self.onRouteCalled)
-//        XCTAssertEqual(nil, self.message)
-//    }
+    func testUnload() {
+        let ctvc = ConnectTransferViewController(connectTransferURLString: "connectTransferUrl")
+        ctvc.delegate = self
+        XCTAssertEqual("connectTransferUrl", ctvc.transferViewModel.testConnectTransferURLString())
+        
+        ctvc.exitConnectTransfer()
+        XCTAssertNil(ctvc.presentedViewController)
+    }
+    
+    func testLoadView() {
+        let ctvc = ConnectTransferViewController(connectTransferURLString: "connectTransferUrl")
+        ctvc.delegate = self
+        self.connectNavController = UINavigationController(rootViewController: ctvc)
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.makeKeyAndVisible()
+        window.rootViewController =  self.connectNavController
+        
+        XCTAssertEqual("connectTransferUrl",  ctvc.transferViewModel.testConnectTransferURLString())
+        
+    }
+    
+    func testLoadRedirectView() {
+        let ctvc = ConnectTransferViewController(connectTransferURLString: "connectTransferUrl")
+        ctvc.delegate = self
+        self.connectNavController = UINavigationController(rootViewController: ctvc)
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.makeKeyAndVisible()
+        window.rootViewController =  self.connectNavController
+        
+        ctvc.openRedirectVC()
+        sleep(10)
+        
+        XCTAssertNotNil(ctvc.navigationController?.topViewController)
+        XCTAssertTrue(((ctvc.navigationController?.topViewController?.isKind(of: ConnectTransferRedirectViewController.classForCoder())) != nil))
+        XCTAssertEqual("connectTransferUrl",  ctvc.transferViewModel.testConnectTransferURLString())
+        
+        ctvc.delegate?.onTransferEnd(NSDictionary(object: "onTransferEnd",forKey: "onTransferEnd" as NSCopying))
+    }
+    
+    
+    //
+    //    func testLoadDeeplink() {
+    //        let cvc = ConnectViewController()
+    //        cvc.load("testConnectUrl",redirectUrl: "partnerapp://")
+    //        cvc.delegate = self
+    //        XCTAssertEqual("testConnectUrl", cvc.connectUrl)
+    //    }
+    //    func testLoadUniversallink() {
+    //        let cvc = ConnectViewController()
+    //        cvc.load("testConnectUrl",redirectUrl: "https://acmelending.net")
+    //        cvc.delegate = self
+    //        XCTAssertEqual("testConnectUrl", cvc.connectUrl)
+    //    }
+    //
+    //
+    //    func testLoadWebViewDeeplink() {
+    //        self.onLoadExp = expectation(description: "Loaded callback")
+    //        let cvc = ConnectViewController()
+    //        cvc.load("testConnectUrl",redirectUrl: "partnerapp://")
+    //        cvc.delegate = self
+    //
+    //        let expectation = XCTestExpectation(description: "Completed Ping Connect")
+    //        DispatchQueue.main.async {
+    //            cvc.pingConnect()
+    //            expectation.fulfill()
+    //        }
+    //
+    //        wait(for: [expectation], timeout: 10.0)
+    //
+    //        waitForExpectations(timeout: 3) { _ in
+    //            XCTAssertTrue(self.onLoadCalled)
+    //            XCTAssertEqual("testConnectUrl", cvc.connectUrl)
+    //        }
+    //    }
+    //
+    //    func testLoadWebChildWebView() {
+    //
+    //        self.onLoadExp = expectation(description: "Loaded callback")
+    //        let cvc = ConnectViewController()
+    //        cvc.load("testConnectUrl",redirectUrl: "partnerapp://")
+    //        cvc.delegate = self
+    //
+    //        let expectation = XCTestExpectation(description: "Completed Ping Connect")
+    //        DispatchQueue.main.async {
+    //            cvc.loadChildWebView(url: URL(string: "testChildUrl")!)
+    //            expectation.fulfill()
+    //        }
+    //
+    //        wait(for: [expectation], timeout: 10.0)
+    //
+    //        waitForExpectations(timeout: 3) { _ in
+    //            XCTAssertTrue(self.onLoadCalled)
+    //            XCTAssertEqual("testConnectUrl", cvc.connectUrl)
+    //        }
+    //    }
+    //
+    //    func testMemoryLeak() {
+    //        self.onLoadExp = expectation(description: "Loaded callback")
+    //        let cvc = ConnectViewController()
+    //        cvc.load("testConnectUrl")
+    //        cvc.delegate = self
+    //        waitForExpectations(timeout: 3) { _ in
+    //            XCTAssertTrue(self.onLoadCalled)
+    //            XCTAssertEqual("testConnectUrl", cvc.connectUrl)
+    //        }
+    //
+    //        cvc.close()
+    //        cvc.unload()
+    //
+    //        addTeardownBlock { [weak cvc] in
+    //            XCTAssertNil(cvc)
+    //        }
+    //    }
+    //
+    //
+    //    func testCallbacks() {
+    //        let cvc = ConnectViewController()
+    //        cvc.load("testConnectUrl")
+    //        cvc.delegate = self
+    //
+    //        cvc.handleLoadingComplete()
+    //        XCTAssertTrue(self.onLoadCalled)
+    //
+    //        self.message = ["key": "value"]
+    //        cvc.handleConnectCancel(nil)
+    //        XCTAssertTrue(self.onCancelCalled)
+    //        XCTAssertEqual(nil, self.message)
+    //
+    //        self.message = ["key": "value"]
+    //        cvc.handleConnectComplete(nil)
+    //        XCTAssertTrue(self.onDoneCalled)
+    //        XCTAssertEqual(nil, self.message)
+    //
+    //        self.message = ["key": "value"]
+    //        cvc.handleConnectError(nil)
+    //        XCTAssertTrue(self.onErrorCalled)
+    //        XCTAssertEqual(nil, self.message)
+    //
+    //        self.message = ["key": "value"]
+    //        cvc.handleConnectUser(nil)
+    //        XCTAssertTrue(self.onUserCalled)
+    //        XCTAssertEqual(nil, self.message)
+    //
+    //        self.message = ["key": "value"]
+    //        cvc.handleConnectRoute(nil)
+    //        XCTAssertTrue(self.onRouteCalled)
+    //        XCTAssertEqual(nil, self.message)
+    //    }
     
     func testJailBreakCheck() {
         let cvc = ConnectTransferViewController(connectTransferURLString: "connectTransferUrl")
