@@ -25,7 +25,7 @@ let package = Package(
         .target(
             name: "ConnectTransferWrapper",
             dependencies: [
-                "ConnectTransfer",
+                .target(name: "ConnectTransfer"),
                 .product(name: "AtomicTransact", package: "atomic-transact-ios"),
             ],
             path: "Sources"
