@@ -15,9 +15,15 @@ class ConnectTransferViewModel: NSObject {
     private var transferModel: TransferModel? = nil
     private let pdsAPIPath = "server/authenticate/v2/transfer/deposit-switch"
     private let pdsTermsAndConditionAPIPath = "server/terms-and-policies"
-    private var pdsAPIToken = Set<AnyCancellable>()
-    private var transferEventCommonDataDict:NSDictionary?
-    private var pdsBaseURLString:String?
+    private var transferEventCommonDataDict: NSDictionary?
+    private var pdsBaseURLString: String?
+    private var connectTransferURLString: String
+    private var errorModel: ErrorModel? = nil
+    
+    init(connectTransferURLString: String) {
+        self.connectTransferURLString = connectTransferURLString
+        super.init()
+    }
     
     func getThemeColor() -> UIColor {
         return UIColor(red: 207/255, green: 69/255, blue: 0, alpha: 1.0)
@@ -31,53 +37,61 @@ class ConnectTransferViewModel: NSObject {
         self.transferModel
     }
     
+    func getErrorModel() -> ErrorModel? {
+        self.errorModel
+    }
+    
     func getNextButtonTitleTextColor() -> UIColor {
         .white
     }
     
-    func apiHitToGetTransferModel(urlString: String, completionHandler: @escaping (Bool, String?) -> Void) {
+    func apiHitToGetTransferModel(completionHandler: @escaping (Bool) -> Void) {
                 
-        guard let transferModelURL = self.getURLForTransferModelAPI(currentURLString: urlString) else {
-            completionHandler(false, nil)
+        guard let transferModelURL = self.getURLForTransferModelAPI(currentURLString: self.connectTransferURLString) else {
+            completionHandler(false)
             return
         }
                 
         var urlRequest = URLRequest(url: transferModelURL)
         urlRequest.httpMethod = "POST"
         
-        URLSession.shared.dataTaskPublisher(for: urlRequest)
-            .tryMap() { result in
-                guard let httpResponse = result.response as? HTTPURLResponse, httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 else {
-                    throw URLError(.badServerResponse)
-                }
-                return result.data
-            }
-            .decode(type: TransferModel.self, decoder: JSONDecoder())
-            .eraseToAnyPublisher()
-            .sink(receiveCompletion: { (completion) in
-                
-                switch completion {
-                case .failure(let error):
-                    self.setTransferEventCommonDataDict(fullPDSURL: transferModelURL)
-                    print("error: \(error.localizedDescription)")
-                    DispatchQueue.main.async {
-                        completionHandler(false, error.localizedDescription)
-                    }
-                    
-                case .finished:
-                    break
-                }
-                
-            }) { result in
-                
-                self.transferModel = result
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
                 self.setTransferEventCommonDataDict(fullPDSURL: transferModelURL)
+                completionHandler(false)
+                return
+            }
+            
+            switch httpResponse.statusCode {
                 
-                DispatchQueue.main.async {
-                    completionHandler(true, nil)
+            case 200, 201:
+                
+                if let responseData = data, let transferModel = try? JSONDecoder().decode(TransferModel.self, from: responseData) {
+                    self.transferModel = transferModel
+                    self.setTransferEventCommonDataDict(fullPDSURL: transferModelURL)
+                    
+                    completionHandler(true)
+                    
+                }else {
+                    completionHandler(false)
+                }
+                
+                break
+                
+            default:
+                self.setTransferEventCommonDataDict(fullPDSURL: transferModelURL)
+                if let responseData = data, let errorModel = try? JSONDecoder().decode(ErrorModel.self, from: responseData) {
+                    self.errorModel = errorModel
+                    
+                    completionHandler(false)
+                    
+                }else {
+                    completionHandler(false)
                 }
             }
-            .store(in: &pdsAPIToken)
+            
+        }.resume()
         
     }
     
@@ -291,7 +305,7 @@ extension ConnectTransferViewModel {
         return commonResponse as NSDictionary
     }
     
-    func getResponseForClose(reason: String?) -> NSDictionary? {
+    func getResponseForClose(reason: String?, errorCode: String? = nil) -> NSDictionary? {
         guard var commonResponse = getTransferEventCommonDataDict() as? [String: Any] else {
             return nil
         }
@@ -304,7 +318,7 @@ extension ConnectTransferViewModel {
             
         }else {
             commonResponse[TransferEventDataName.reason.rawValue] = reason
-            commonResponse[TransferEventDataName.code.rawValue] = "500"
+            commonResponse[TransferEventDataName.code.rawValue] = errorCode != nil ? errorCode! : "500"
         }
         
         return commonResponse as NSDictionary

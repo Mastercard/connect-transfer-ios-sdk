@@ -58,7 +58,7 @@ extension ConnectTransferRedirectViewController {
     
     func openFailureVC() {
         DispatchQueue.main.async {
-            let failureVC = FailureViewController(partnerName: self.redirectViewModel.getPartnerName(), themeColor: self.redirectViewModel.getThemeColor())
+            let failureVC = FailureViewController(partnerName: self.redirectViewModel.getPartnerName(), themeColor: self.redirectViewModel.getThemeColor(), errorModel: nil, failureViewControllerState: .FailureViewRetryState)
             failureVC.delegate = self
             self.navigationController?.pushViewController(failureVC, animated: true)
         }
@@ -83,6 +83,17 @@ extension ConnectTransferRedirectViewController {
 
 //MARK: - FailureEventDelegate Method
 extension ConnectTransferRedirectViewController: FailureEventDelegate {
+    func didReturnToPartnerOrExit(errorCode: String?) {
+        guard let currentNavigationController = self.navigationController else {
+            return
+        }
+        
+        guard let rootViewController = currentNavigationController.viewControllers.first as? ConnectTransferViewController else {
+            return
+        }
+        
+        rootViewController.didReturnToPartnerOrExit(errorCode: errorCode)
+    }
     
     func didTryAgain() {
         loaderImageView.setLayerRotationToInfinite()

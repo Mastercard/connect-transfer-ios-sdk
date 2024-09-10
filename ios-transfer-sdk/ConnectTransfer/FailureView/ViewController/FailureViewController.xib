@@ -8,14 +8,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FailureViewController" customModule="Connect" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FailureViewController" customModule="ConnectTransfer" customModuleProvider="target">
             <connections>
                 <outlet property="descriptionLabel" destination="hJu-9F-knZ" id="uTW-2c-lY4"/>
                 <outlet property="failureNavigationView" destination="hai-tc-Ght" id="pRh-lT-Fkb"/>
                 <outlet property="parentViewHeight" destination="Uwc-li-apE" id="Hxv-HC-U56"/>
                 <outlet property="parentViewWidth" destination="EkH-K2-3sE" id="bA9-LA-u7c"/>
                 <outlet property="poweredByView" destination="BNN-zP-Jbl" id="eOe-2I-fjG"/>
-                <outlet property="returnToButton" destination="347-8c-Sog" id="fNs-Ch-ZjF"/>
+                <outlet property="returnToPartnerOrExitButton" destination="347-8c-Sog" id="WzW-ID-PYJ"/>
                 <outlet property="titleLabel" destination="z9M-Bc-ObD" id="Ca3-uM-JpB"/>
                 <outlet property="tryAgainButton" destination="ICd-nh-eAz" id="Sya-dJ-wum"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -29,7 +29,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8k-ib-bwu">
                     <rect key="frame" x="0.0" y="59" width="430" height="839"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hai-tc-Ght" customClass="NavigationView" customModule="Connect" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hai-tc-Ght" customClass="NavigationView" customModule="ConnectTransfer" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="430" height="40"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -46,10 +46,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We weren’t able to connect to your data." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJu-9F-knZ">
-                            <rect key="frame" x="24" y="98" width="382" height="22"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="22" id="XR5-iG-pYg"/>
-                            </constraints>
+                            <rect key="frame" x="24" y="98" width="382" height="19.333333333333329"/>
                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -70,7 +67,7 @@
                                 <action selector="returnToButtonAction:" destination="-1" eventType="touchUpInside" id="RWL-S6-Hfo"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNN-zP-Jbl" customClass="PoweredByView" customModule="Connect" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNN-zP-Jbl" customClass="PoweredByView" customModule="ConnectTransfer" customModuleProvider="target">
                             <rect key="frame" x="24" y="815" width="382" height="19"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -94,7 +91,7 @@
                             </connections>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame" translatesAutoresizingMaskIntoConstraints="NO" id="3UU-da-SWq">
-                            <rect key="frame" x="65" y="180" width="300" height="250"/>
+                            <rect key="frame" x="65" y="177.33333333333337" width="300" height="250"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="250" id="Bx0-LN-kmj"/>
                                 <constraint firstAttribute="width" constant="300" id="sgu-zJ-aVs"/>
