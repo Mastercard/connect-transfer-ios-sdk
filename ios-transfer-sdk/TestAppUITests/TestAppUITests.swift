@@ -10,7 +10,7 @@ import XCTest
 //import MastercardOpenBankingConnect
 
 var dynamicGeneratedUrl: String? = nil
-let badExpiredUrl = "https://connect.finicity.com?consumerId=dbceec20d8b97174e6aed204856f5a55&customerId=1016927519&partnerId=2445582695152&redirectUri=http%3A%2F%2Flocalhost%3A3001%2Fcustomers%2FredirectHandler&signature=abb1762e5c640f02823c56332daede3fe2f2143f4f5b8be6ec178ac72d7dbc5a&timestamp=1607806595887&ttl=1607813795887"
+let badExpiredUrl = "https://connect2.finicitystg.com/transfer?customerId=7001515842&origin=url&partnerId=2445582169622&signature=c89647351a1bb2b93b3625c52b6023a8e809d0472e4af6bf015bc95f65094965&timestamp=1725346318530&ttl=1725432718530&type=transferDepositSwitch"
 
 class TestAppUITests: XCTestCase {
     
@@ -20,7 +20,7 @@ class TestAppUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         
-        //    First time setup called try and dynamically generate a Connect URL using linked in static library Connect
+        // First time setup called try and dynamically generate a Connect PDS URL using linked in static library Connect
         if dynamicGeneratedUrl == nil {
             let onGenerateExp = expectation(description: "generate url")
             MastercardOpenBankingConnect.generateUrlLink { success, urlLink in
@@ -40,14 +40,12 @@ class TestAppUITests: XCTestCase {
     }
     
     func testToken() {
-        let awesomeToken = ProcessInfo.processInfo.environment["FINICITY_APP_KEY_SAVED"]!
-        print(awesomeToken)
+//        let awesomeToken = ProcessInfo.processInfo.environment["FINICITY_APP_KEY_SAVED"]!
+//        print(awesomeToken)
         //  XCTAssertFalse(awesomeToken.isEmpty, awesomeToken)
     }
     
-    
-    
-    
+    //MARK: - Launching Screen TestCases
     func test01BadUrl() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
@@ -55,21 +53,51 @@ class TestAppUITests: XCTestCase {
         
         // Steps:
         // 1. Fill in textfield with bad/expired URL
-        // 2. Tap Connect Button to launch WKWebView
-        // 3. Assert Exit button exists
-        // 4. Tap Exit button
+        // 2. Tap Connect Transfer Button to launch Connect Transfer
+        // 3. Wait for validation of the URL
+        // 4. Will go to failure screen
+        // 5. Tap on Exit button
         
-        let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]//.typeText(badExpiredUrl)
+        let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]
         uiTextField.typeText(badExpiredUrl)
         app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
-        // Wait 15 seconds for WebView with Exit button
-        XCTAssert(app.webViews.webViews.webViews.buttons["EXIT"].waitForExistence(timeout: 15))
-        app.webViews.webViews.webViews.buttons["EXIT"].tap()
+        
+        sleep(3)
+        
+        XCTAssert(app.buttons["Exit"].waitForExistence(timeout: 15))
+        app.buttons["Exit"].tap()
         
         sleep(2)
     }
     
-    func test02GoodUrlCancel() throws {
+    func test02LaunchConnectTransferWithGoodURL() throws {
+        XCTAssertNotNil(dynamicGeneratedUrl)
+        
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        // Steps:
+        // 1. Fill in textfield with Good URL (Dynamic Generated URL)
+        // 2. Tap Connect Transfer Button to launch Connect Transfer
+        // 3. Wait for validation of the URL
+        // 4. Connect Transfer Screen will appear
+        // 5. Check the same by checking if next button exist
+        
+        let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]
+        uiTextField.typeText(dynamicGeneratedUrl!)
+        app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
+        
+        sleep(5)
+        
+        let nextButton = app.buttons["Next"]
+        XCTAssert(nextButton.waitForExistence(timeout: 15))
+        
+        sleep(2)
+    }
+    
+    //MARK: - Landing Screen TestCases
+    func test03CloseLandingScreen() throws {
         
         XCTAssertNotNil(dynamicGeneratedUrl)
         
@@ -79,9 +107,9 @@ class TestAppUITests: XCTestCase {
         
         // Steps:
         // 1. Fill in textfield with good URL
-        // 2. Tap Connect Button to launch WKWebView
+        // 2. Tap Connect Transfer Button to launch Connect Transfer flow
         // 3. Assert Exit button exists
-        // 4. Tap Exit button
+        // 4. Tap Cross button
         // 5. Assert Yes button exists
         // 6. Tap Yes button
         
@@ -89,18 +117,20 @@ class TestAppUITests: XCTestCase {
         uiTextField.typeText(dynamicGeneratedUrl!)
         app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
         
-        // Wait 5 seconds for WebView with Exit button
-        let webViewsQuery = app.webViews.webViews.webViews
-        //        XCTAssert(webViewsQuery.buttons["Skip to main content"].waitForExistence(timeout: 15))
-        //        webViewsQuery.otherElements["Exit link, navigation"].tap()
-        // Wait 5 seconds for WebView with Yes button
-        XCTAssert(webViewsQuery.buttons["Exit"].waitForExistence(timeout: 15))
-        webViewsQuery.buttons["Exit"].tap()
+        sleep(5)
+        
+        XCTAssert(app.buttons["close"].waitForExistence(timeout: 5))
+        app.buttons["close"].tap()
+        
+        XCTAssert(app.buttons["Yes, exit"].waitForExistence(timeout: 5))
+        app.buttons["Yes, exit"].tap()
         
         sleep(2)
     }
     
-    func test03AddBankAccount() throws {
+    func test04SafariViewController() throws {
+        /// Need to be discussed
+        
         
         XCTAssertNotNil(dynamicGeneratedUrl)
         
@@ -108,78 +138,62 @@ class TestAppUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]//.typeText(badExpiredUrl)
-        uiTextField.typeText(dynamicGeneratedUrl!)
-        app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
-        
-        let webViewsQuery = app.webViews.webViews.webViews
-        XCTAssert(webViewsQuery.buttons["Next"].waitForExistence(timeout: 15))
-        webViewsQuery.buttons["Next"].tap()
-        XCTAssert(webViewsQuery.textFields["Search for your bank"].waitForExistence(timeout: 10))
-        webViewsQuery.textFields["Search for your bank"].tap()
-        webViewsQuery.textFields["Search for your bank"].typeText("finbank")
-        sleep(5)
-        XCTAssert(webViewsQuery.otherElements.staticTexts["FinBank"].waitForExistence(timeout: 15))
-        webViewsQuery.otherElements.staticTexts["FinBank"].tap()
-        
-        sleep(2)
-        
-        XCTAssert(webViewsQuery.buttons["Next"].waitForExistence(timeout: 15))
-        webViewsQuery.buttons["Next"].tap()
-        XCTAssert(webViewsQuery.staticTexts["Banking Userid"].waitForExistence(timeout: 15))
-        XCTAssert(webViewsQuery.staticTexts["Banking Password"].waitForExistence(timeout: 15))
-        webViewsQuery.textFields["Banking Userid"].tap()
-        webViewsQuery.textFields["Banking Userid"].typeText("demo")
-        webViewsQuery.secureTextFields["Banking Password"].tap()
-        webViewsQuery.secureTextFields["Banking Password"].typeText("go")
-        sleep(2)
-        app.keyboards.buttons["return"].tap()
-//        sleep(2)
-//        webViewsQuery.buttons["Submit"].tap()
-
-        sleep(5)
-        
-        app.switches.element(boundBy: 1).tap()
-        
-        webViewsQuery.staticTexts["Line of Credit"].swipeUp()
-        XCTAssert(webViewsQuery.buttons["Save"].waitForExistence(timeout: 5))
-        webViewsQuery.buttons["Save"].tap()
-        XCTAssert(webViewsQuery.buttons["Submit"].waitForExistence(timeout: 5))
-        webViewsQuery.buttons["Submit"].tap()
-        
-        sleep(2)
-    }
-    
-    
-    
-    
-    
-    func test05SafariViewController() throws {
-        
-        XCTAssertNotNil(dynamicGeneratedUrl)
-        
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+        // Steps:
+        // 1. Fill in textfield with good URL
+        // 2. Tap Connect Transfer Button to launch Connect Transfer flow
+        // 3. Tap on Privacy policy text
+        // 4. Assert Done button exists
+        // 5. Tap Done button
         
         app.textFields[AccessiblityIdentifer.UrlTextField.rawValue].typeText(dynamicGeneratedUrl!)
         app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
         
-        let webViewsQuery = app.webViews.webViews.webViews
-        
-        
-        XCTAssert(webViewsQuery.links["Privacy Notice"].waitForExistence(timeout: 20))
-        webViewsQuery.links["Privacy Notice"].tap()
         sleep(5)
         
-//        let doneButton = app.buttons["Done"]
-//        XCTAssert(doneButton.waitForExistence(timeout: 20))
-//        doneButton.tap()
+        app.buttons["By pressing Next, you agree to Finicity’s Terms of Use and Privacy Notice "].tap()
+        
+        sleep(3)
+        
+        XCTAssert(app.buttons["Done"].waitForExistence(timeout: 15))
+        let doneButton = app.buttons["Done"]
+        doneButton.tap()
+        
+        sleep(3)
+        
     }
     
+    func test05LaunchDepositSwitchFlow() throws {
+        XCTAssertNotNil(dynamicGeneratedUrl)
+        
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        // Steps:
+        // 1. Fill in textfield with Good URL (Dynamic Generated URL)
+        // 2. Tap Connect Transfer Button to launch Connect Transfer
+        // 3. Wait for validation of the URL
+        // 4. Connect Transfer Screen will appear
+        // 5. Tap on Next Button
+        // 6. Deposit Switch flow will appear
+        // 7. Check if Deposit switch flow got initialized by checking the "find your payroll provider" exists
+        
+        let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]
+        uiTextField.typeText(dynamicGeneratedUrl!)
+        app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
+        
+        sleep(5)
+        
+        XCTAssert(app.buttons["Next"].waitForExistence(timeout: 5))
+        app.buttons["Next"].tap()
+        
+        XCTAssert(app.staticTexts["find your payroll provider"].waitForExistence(timeout: 5))
+        
+        sleep(3)
+    }
     
-    
-    func test06AddOAuthBankAccount() throws {
+    //MARK: - Deposit Switch Flow TestCases
+    func test06SearchPayrollProvider() throws {
         
         XCTAssertNotNil(dynamicGeneratedUrl)
         
@@ -187,44 +201,399 @@ class TestAppUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]//.typeText(badExpiredUrl)
+        // Steps:
+        // 1. Fill in textfield with Good URL (Dynamic Generated URL)
+        // 2. Tap Connect Transfer Button to launch Connect Transfer
+        // 3. Wait for validation of the URL
+        // 4. Connect Transfer Screen will appear
+        // 5. Tap on Next Button
+        // 6. Deposit Switch flow will appear
+        // 7. Click on the search field
+        // 8. Search for "Workday"
+        
+        let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]
         uiTextField.typeText(dynamicGeneratedUrl!)
         app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
         
-        let webViewsQuery = app.webViews.webViews.webViews
-        sleep(1)
-        XCTAssert(webViewsQuery.buttons["Next"].waitForExistence(timeout: 15))
-        webViewsQuery.buttons["Next"].tap()
-        XCTAssert(webViewsQuery.textFields["Search for your bank"].waitForExistence(timeout: 10))
-        webViewsQuery.textFields["Search for your bank"].tap()
-        webViewsQuery.textFields["Search for your bank"].typeText("finbank Oauth")
-        sleep(1)
-        XCTAssert(webViewsQuery.staticTexts["Finbank OAuth"].waitForExistence(timeout: 15))
-        webViewsQuery.staticTexts["Finbank OAuth"].tap()
-        
-        sleep(1)
-        
-        XCTAssert(webViewsQuery.buttons["Next "].waitForExistence(timeout: 15))
-        webViewsQuery.buttons["Next "].tap()
         sleep(5)
-        XCTAssert(app.staticTexts["USERNAME"].waitForExistence(timeout: 15))
-        XCTAssert(app.staticTexts["PASSWORD"].waitForExistence(timeout: 15))
-        sleep(5)
-//        app.staticTexts["USERNAME"].tap()
-//        app.textFields["USERNAME"].typeText("profile_03")
-//        app.staticTexts["PASSWORD"].tap()
-//        app.secureTextFields["PASSWORD"].typeText("profile_03")
-//        app.buttons["NEXT"].tap()
-//        sleep(5)
-//        
-//        app.buttons["Allow"].tap()
         
-        let doneButton = app.buttons["Done"]
-        XCTAssert(doneButton.waitForExistence(timeout: 20))
-        doneButton.tap()
+        XCTAssert(app.buttons["Next"].waitForExistence(timeout: 5))
+        app.buttons["Next"].tap()
         
-        sleep(2)
+        sleep(10)
+        
+        let appWebView = app.webViews
+        
+        XCTAssert(appWebView.searchFields["find your payroll provider"].waitForExistence(timeout: 15))
+        appWebView.searchFields["find your payroll provider"].tap()
+        
+        sleep(3)
+        
+        appWebView.searchFields["find your payroll provider"].typeText("Workday")
+                
+        sleep(3)
     }
     
+    func test07SelectPayrollProvider() throws {
+        
+        XCTAssertNotNil(dynamicGeneratedUrl)
+        
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        // Steps:
+        // 1. Fill in textfield with Good URL (Dynamic Generated URL)
+        // 2. Tap Connect Transfer Button to launch Connect Transfer
+        // 3. Wait for validation of the URL
+        // 4. Connect Transfer Screen will appear
+        // 5. Tap on Next Button
+        // 6. Deposit Switch flow will appear
+        // 7. Click on the search field
+        // 8. Search for "Workday"
+        // 9. Click on the Payroll Provider "Workday"
+        // 10. Click on company "Home Depot"
+        
+        let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]
+        uiTextField.typeText(dynamicGeneratedUrl!)
+        app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
+        
+        XCTAssert(app.buttons["Next"].waitForExistence(timeout: 5))
+        app.buttons["Next"].tap()
+        
+        sleep(10)
+        
+        let appWebView = app.webViews
+        
+        XCTAssert(appWebView.searchFields["find your payroll provider"].waitForExistence(timeout: 15))
+        appWebView.searchFields["find your payroll provider"].tap()
+        
+        sleep(3)
+        
+        appWebView.searchFields["find your payroll provider"].typeText("Workday")
+                
+        sleep(3)
+        
+        XCTAssert(appWebView.buttons["Workday"].waitForExistence(timeout: 15))
+        appWebView.buttons["Workday"].tap()
+        
+        sleep(3)
+        
+        XCTAssert(appWebView.buttons["Home Depot"].waitForExistence(timeout: 15))
+        appWebView.buttons["Home Depot"].tap()
+        
+        sleep(3)
+        
+    }
+    
+    func test08EnterGoodCredentials() throws {
+        
+        XCTAssertNotNil(dynamicGeneratedUrl)
+        
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        // Steps:
+        // 1. Fill in textfield with Good URL (Dynamic Generated URL)
+        // 2. Tap Connect Transfer Button to launch Connect Transfer
+        // 3. Wait for validation of the URL
+        // 4. Connect Transfer Screen will appear
+        // 5. Tap on Next Button
+        // 6. Deposit Switch flow will appear
+        // 7. Click on the search field
+        // 8. Search for "Workday"
+        // 9. Click on the Payroll Provider "Workday"
+        // 10. Click on company "Home Depot"
+        // 11. Enter the username "test-good" and Click continue
+        // 12. Enter the password "qwerty" and Click continue
+        
+        let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]
+        uiTextField.typeText(dynamicGeneratedUrl!)
+        app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
+        
+        XCTAssert(app.buttons["Next"].waitForExistence(timeout: 5))
+        app.buttons["Next"].tap()
+        
+        sleep(10)
+        
+        let appWebView = app.webViews
+        
+        XCTAssert(appWebView.searchFields["find your payroll provider"].waitForExistence(timeout: 15))
+        appWebView.searchFields["find your payroll provider"].tap()
+        
+        sleep(3)
+        
+        appWebView.searchFields["find your payroll provider"].typeText("Workday")
+                
+        sleep(3)
+        XCTAssert(appWebView.buttons["Workday"].waitForExistence(timeout: 15))
+        appWebView.buttons["Workday"].tap()
+        
+        sleep(3)
+        XCTAssert(appWebView.buttons["Home Depot"].waitForExistence(timeout: 15))
+        appWebView.buttons["Home Depot"].tap()
+        
+        sleep(3)
+        XCTAssert(appWebView.textFields["Username"].waitForExistence(timeout: 15))
+        appWebView.textFields["Username"].typeText("test-good")
+        
+        XCTAssert(appWebView.buttons["Continue"].exists)
+        appWebView.buttons["Continue"].tap()
+        
+        sleep(3)
+        XCTAssert(appWebView.secureTextFields["Password"].waitForExistence(timeout: 15))
+        appWebView.secureTextFields["Password"].typeText("qwerty")
+        
+        XCTAssert(appWebView.buttons["Continue"].exists)
+        appWebView.buttons["Continue"].tap()
+        
+        sleep(3)
+    }
+    
+    func test09ChangeDepositAllocation() throws {
+        
+        XCTAssertNotNil(dynamicGeneratedUrl)
+        
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        
+        // Steps
+        // 1. Enter Good Credentils
+        // 2. Click on "Change deposit amount"
+        // 3. Click on "Specific amount"
+        // 4. Click on "111" to enter the amount
+        // 5. Click on Continue to confirm
+        
+        try self.test08EnterGoodCredentials()
+        
+        let appWebView = app.webViews
+        
+        XCTAssert(appWebView.buttons["Change deposit amount"].waitForExistence(timeout: 15))
+        appWebView.buttons["Change deposit amount"].tap()
+        
+        XCTAssert(appWebView.otherElements["Specific amount"].waitForExistence(timeout: 5))
+        appWebView.otherElements["Specific amount"].tap()
+        
+        XCTAssert(appWebView.buttons["1"].waitForExistence(timeout: 5))
+        appWebView.buttons["1"].tap()
+        appWebView.buttons["1"].tap()
+        appWebView.buttons["1"].tap()
+        
+        XCTAssert(appWebView.buttons["Continue"].waitForExistence(timeout: 5))
+        appWebView.buttons["Continue"].tap()
+        
+        sleep(3)
+        
+    }
+    
+    func test10SubmitGoodCredentials() throws {
+        
+        XCTAssertNotNil(dynamicGeneratedUrl)
+        
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        
+        // Steps
+        // 1. Enter Good Credentils
+        // 2. Change deposit allocation
+        // 3. Submit the credentials by tapping on Confirm
+        
+        try self.test09ChangeDepositAllocation()
+        
+        let appWebView = app.webViews
+        
+        XCTAssert(appWebView.buttons["Confirm"].waitForExistence(timeout: 5))
+        appWebView.buttons["Confirm"].tap()
+        
+        sleep(3)
+    }
+    
+    func test11ReturnToPartnerSuccessCase() throws {
+        XCTAssertNotNil(dynamicGeneratedUrl)
+        
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        
+        // Steps
+        // 1. Enter Good Credentils
+        // 2. Change deposit allocation
+        // 3. Submit the credentials by tapping on Confirm
+        // 4. Tap on return to partner
+        
+        try self.test10SubmitGoodCredentials()
+        
+        sleep(20)
+        
+        let appWebView = app.webViews
+        
+        let predicate = NSPredicate(format: "label BEGINSWITH[cd] 'Return to'")
+        XCTAssert(appWebView.buttons.element(matching: predicate).waitForExistence(timeout: 5))
+        
+        appWebView.buttons.element(matching: predicate).tap()
+        
+        sleep(3)
+        
+    }
+    
+    func test12EnterBadCredentials() throws {
+        
+        XCTAssertNotNil(dynamicGeneratedUrl)
+        
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        // Steps:
+        // 1. Fill in textfield with Good URL (Dynamic Generated URL)
+        // 2. Tap Connect Transfer Button to launch Connect Transfer
+        // 3. Wait for validation of the URL
+        // 4. Connect Transfer Screen will appear
+        // 5. Tap on Next Button
+        // 6. Deposit Switch flow will appear
+        // 7. Click on the search field
+        // 8. Search for "Workday"
+        // 9. Click on the Payroll Provider "Workday"
+        // 10. Click on company "Home Depot"
+        // 11. Enter the username "test-system-unavailable" and Click continue
+        // 12. Enter the password "qwerty" and Click continue
+        
+        let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]
+        uiTextField.typeText(dynamicGeneratedUrl!)
+        app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
+        
+        XCTAssert(app.buttons["Next"].waitForExistence(timeout: 5))
+        app.buttons["Next"].tap()
+        
+        sleep(10)
+        
+        let appWebView = app.webViews
+        
+        XCTAssert(appWebView.searchFields["find your payroll provider"].waitForExistence(timeout: 15))
+        appWebView.searchFields["find your payroll provider"].tap()
+        
+        sleep(3)
+        
+        appWebView.searchFields["find your payroll provider"].typeText("Workday")
+                
+        sleep(3)
+        XCTAssert(appWebView.buttons["Workday"].waitForExistence(timeout: 15))
+        appWebView.buttons["Workday"].tap()
+        
+        sleep(3)
+        XCTAssert(appWebView.buttons["Home Depot"].waitForExistence(timeout: 15))
+        appWebView.buttons["Home Depot"].tap()
+        
+        sleep(3)
+        XCTAssert(appWebView.textFields["Username"].waitForExistence(timeout: 15))
+        appWebView.textFields["Username"].typeText("test-system-unavailable")
+        
+        XCTAssert(appWebView.buttons["Continue"].exists)
+        appWebView.buttons["Continue"].tap()
+        
+        sleep(3)
+        XCTAssert(appWebView.secureTextFields["Password"].waitForExistence(timeout: 15))
+        appWebView.secureTextFields["Password"].typeText("qwerty")
+        
+        XCTAssert(appWebView.buttons["Continue"].exists)
+        appWebView.buttons["Continue"].tap()
+        
+        sleep(3)
+    }
+    
+    func test13SubmitBadCredentials() throws {
+        
+        XCTAssertNotNil(dynamicGeneratedUrl)
+        
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        
+        // Steps
+        // 1. Enter Bad Credentils
+        // 3. Submit the credentials by tapping on Confirm
+        
+        try self.test12EnterBadCredentials()
+        
+        let appWebView = app.webViews
+        
+        XCTAssert(appWebView.buttons["Confirm"].waitForExistence(timeout: 5))
+        appWebView.buttons["Confirm"].tap()
+        
+        sleep(3)
+    }
+    
+    func test14ReturnToPartnerFailureCase() throws {
+        XCTAssertNotNil(dynamicGeneratedUrl)
+        
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        
+        // Steps
+        // 1. Enter Bad Credentils
+        // 2. Submit the credentials by tapping on Confirm
+        // 3. Tap on Close
+        // 4. Tap on return to partner
+        
+        try self.test13SubmitBadCredentials()
+        
+        sleep(10)
+        
+        let appWebView = app.webViews
+        
+        XCTAssert(appWebView.buttons["Close"].waitForExistence(timeout: 5))
+        
+        appWebView.buttons["Close"].tap()
+        
+        let predicate = NSPredicate(format: "label BEGINSWITH[cd] 'Return to'")
+        XCTAssert(appWebView.buttons.element(matching: predicate).waitForExistence(timeout: 5))
+        
+        appWebView.buttons.element(matching: predicate).tap()
+        
+        sleep(3)
+        
+    }
+    
+    func test15CloseDepositSwitchFlow() throws {
+        XCTAssertNotNil(dynamicGeneratedUrl)
+        
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        // Steps:
+        // 1. Fill in textfield with Good URL (Dynamic Generated URL)
+        // 2. Tap Connect Transfer Button to launch Connect Transfer
+        // 3. Wait for validation of the URL
+        // 4. Connect Transfer Screen will appear
+        // 5. Tap on Next Button
+        // 6. Deposit Switch flow will appear
+        // 7. Check if Deposit switch flow got initialized by checking the "find your payroll provider" exists
+        
+        let uiTextField: XCUIElement = app.textFields[AccessiblityIdentifer.UrlTextField.rawValue]
+        uiTextField.typeText(dynamicGeneratedUrl!)
+        app.buttons[AccessiblityIdentifer.ConnectButton.rawValue].tap()
+        
+        sleep(5)
+        
+        XCTAssert(app.buttons["Next"].waitForExistence(timeout: 5))
+        app.buttons["Next"].tap()
+        
+        XCTAssert(app.staticTexts["find your payroll provider"].waitForExistence(timeout: 5))
+        
+        sleep(2)
+        
+        let appWebView = app.webViews
+        
+        XCTAssert(appWebView.buttons["Close"].waitForExistence(timeout: 5))
+        
+        appWebView.buttons["Close"].tap()
+        
+        let predicate = NSPredicate(format: "label BEGINSWITH[cd] 'Return to'")
+        XCTAssert(appWebView.buttons.element(matching: predicate).waitForExistence(timeout: 5))
+        
+        appWebView.buttons.element(matching: predicate).tap()
+        
+        sleep(3)
+    }
     
 }
