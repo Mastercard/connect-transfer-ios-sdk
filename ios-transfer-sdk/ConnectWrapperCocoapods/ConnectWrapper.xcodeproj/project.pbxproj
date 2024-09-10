@@ -15,6 +15,8 @@
 		6BE8C14323B137C9003C92AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BE8C14223B137C9003C92AE /* Assets.xcassets */; };
 		6BE8C14623B137C9003C92AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BE8C14423B137C9003C92AE /* LaunchScreen.storyboard */; };
 		7758F6902C35511C00BFC519 /* RadioButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7758F68F2C35511C00BFC519 /* RadioButtonController.swift */; };
+		778B67292C8F230600B904DA /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = 778B67282C8F230600B904DA /* AtomicTransact */; };
+		778B672B2C8F232900B904DA /* ConnectTransfer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778B672A2C8F232900B904DA /* ConnectTransfer.xcframework */; };
 		D246C7964CC42DB31BAB7D33 /* Pods_ConnectWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D7B54F01666CCF0709C6B4 /* Pods_ConnectWrapper.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,7 @@
 		6BE8C14523B137C9003C92AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BE8C14723B137C9003C92AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7758F68F2C35511C00BFC519 /* RadioButtonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonController.swift; sourceTree = "<group>"; };
+		778B672A2C8F232900B904DA /* ConnectTransfer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ConnectTransfer.xcframework; sourceTree = "<group>"; };
 		77E57C1E2A4DAE38007D7863 /* ConnectWrapper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ConnectWrapper.entitlements; sourceTree = "<group>"; };
 		800AF636A0AAC3D65A552958 /* Pods-ConnectWrapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectWrapper.release.xcconfig"; path = "Target Support Files/Pods-ConnectWrapper/Pods-ConnectWrapper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,7 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				778B672B2C8F232900B904DA /* ConnectTransfer.xcframework in Frameworks */,
 				D246C7964CC42DB31BAB7D33 /* Pods_ConnectWrapper.framework in Frameworks */,
+				778B67292C8F230600B904DA /* AtomicTransact in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +112,7 @@
 		6BE8C14D23B1486E003C92AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				778B672A2C8F232900B904DA /* ConnectTransfer.xcframework */,
 				19D7B54F01666CCF0709C6B4 /* Pods_ConnectWrapper.framework */,
 			);
 			name = Frameworks;
@@ -132,6 +138,9 @@
 			dependencies = (
 			);
 			name = ConnectWrapper;
+			packageProductDependencies = (
+				778B67282C8F230600B904DA /* AtomicTransact */,
+			);
 			productName = ConnectWrapper;
 			productReference = 6BE8C13623B137C8003C92AE /* ConnectWrapper.app */;
 			productType = "com.apple.product-type.application";
@@ -160,6 +169,9 @@
 				Base,
 			);
 			mainGroup = 6BE8C12D23B137C8003C92AE;
+			packageReferences = (
+				778B67272C8F230600B904DA /* XCRemoteSwiftPackageReference "atomic-transact-ios" */,
+			);
 			productRefGroup = 6BE8C13723B137C8003C92AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -478,6 +490,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		778B67272C8F230600B904DA /* XCRemoteSwiftPackageReference "atomic-transact-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/atomicfi/atomic-transact-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 3.3.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		778B67282C8F230600B904DA /* AtomicTransact */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 778B67272C8F230600B904DA /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
+			productName = AtomicTransact;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6BE8C12E23B137C8003C92AE /* Project object */;
 }
