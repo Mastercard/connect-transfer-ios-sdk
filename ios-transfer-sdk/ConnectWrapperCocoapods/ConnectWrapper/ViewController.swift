@@ -100,6 +100,7 @@ class ViewController: UIViewController {
         urlInput.becomeFirstResponder()
     }
     
+    
     // For iPad rotation need to adjust gradient frame size
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -281,6 +282,7 @@ extension ViewController: ConnectTransferEventDelegate {
             let alert = UIAlertController(title: "Error", message: data!["reason"] as? String ?? "" , preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
             self.present(alert, animated: true)
+            activityIndicator.stopAnimating()
             
         }else {
             DispatchQueue.main.async {

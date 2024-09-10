@@ -276,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1619" y="113"/>
+            <point key="canvasLocation" x="1677" y="138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aPw-Bm-ePk">
@@ -298,7 +298,7 @@
         <!--View Controller-->
         <scene sceneID="dja-Rd-LVE">
             <objects>
-                <viewController id="nah-13-MeV" customClass="ViewController" customModule="DemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nah-13-MeV" customClass="ViewController" customModule="ConnectWrapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2O4-LW-1i7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -577,9 +577,9 @@
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
                                 <exclude reference="Fdt-k5-HwB"/>
+                                <exclude reference="bQn-CR-nTE"/>
                                 <exclude reference="lfY-t1-Y5F"/>
                                 <exclude reference="nSd-YV-q3f"/>
-                                <exclude reference="bQn-CR-nTE"/>
                                 <include reference="BEW-kE-Cly"/>
                                 <exclude reference="Cjn-3d-9bc"/>
                                 <include reference="rAi-bv-pst"/>

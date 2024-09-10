@@ -1,5 +1,5 @@
 PODS:
-  - MastercardOpenBankingConnect (3.0.2)
+  - MastercardOpenBankingConnect (3.0.3)
 
 DEPENDENCIES:
   - MastercardOpenBankingConnect
@@ -9,7 +9,7 @@ SPEC REPOS:
     - MastercardOpenBankingConnect
 
 SPEC CHECKSUMS:
-  MastercardOpenBankingConnect: 648428cc58be2519c48490a5e183b137b3ecb6c7
+  MastercardOpenBankingConnect: 181b8695a08ada07e07f3269efda13e4163102d4
 
 PODFILE CHECKSUM: 5e24b61696ebac3a1a16968be96a4848e176d1e5
 

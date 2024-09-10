@@ -5,7 +5,7 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:*.acmelending.net</string>
-		<string>applinks:*.acme.fincitystg.com</string>
+		<string>applinks:*.acme.finicitystg.com</string>
 	</array>
 </dict>
 </plist>
