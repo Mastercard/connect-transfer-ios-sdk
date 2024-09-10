@@ -7,52 +7,85 @@
 
 import UIKit
 import Connect
+import ConnectTransfer
 
 class ViewController: UIViewController {
+   
+    
     
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var urlInput: UITextField!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var connectButton: UIButton!
     @IBOutlet weak var uiRedirectUrlTextBoxHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var uiConnectSDKRadioBtnWrapperViewHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var redirectUrlInput: UITextField!
     
-    var connectViewController: ConnectViewController!
-    var connectNavController: UINavigationController!
+    @IBOutlet weak var uiViewConnectSDKRadioBtnWrap: UIView!
+        var connectViewController: ConnectViewController!
+        var connectNavController: UINavigationController!
+    
+    var transferViewController: ConnectTransferViewController!
+    
     let gradientLayer = CAGradientLayer()
     
     @IBOutlet weak var btnSTG: UIButton!
     @IBOutlet weak var btnProd: UIButton!
     @IBOutlet weak var btnRedirectUrl: UIButton!
     
-    let radioController: RadioButtonController = RadioButtonController()
+    @IBOutlet weak var btnLaunchConnect: UIButton!
     
+    @IBOutlet weak var btnLaunchAtomic: UIButton!
+    
+    let radioControllerSelectAtomicOrConnectView: RadioButtonController = RadioButtonController()
+    
+    let radioControllerConnectSDK: RadioButtonController = RadioButtonController()
+    
+    // Select Connect SDK enviroment
     @IBAction func btnSTGAction(_ sender: UIButton) {
         uiRedirectUrlTextBoxHeight.constant = 0
-        radioController.buttonArrayUpdated(buttonSelected: sender)
+        radioControllerConnectSDK.buttonArrayUpdated(buttonSelected: sender)
     }
     
     @IBAction func btnProdAction(_ sender: UIButton) {
         uiRedirectUrlTextBoxHeight.constant = 0
-        radioController.buttonArrayUpdated(buttonSelected: sender)
+        radioControllerConnectSDK.buttonArrayUpdated(buttonSelected: sender)
     }
     
     @IBAction func btnRedirectUrlAction(_ sender: UIButton) {
-        radioController.buttonArrayUpdated(buttonSelected: sender)
+        radioControllerConnectSDK.buttonArrayUpdated(buttonSelected: sender)
         uiRedirectUrlTextBoxHeight.constant = 56
+    }
+    
+    
+    // Select View to be Launched
+    @IBAction func btnLauchConnectAction(_ sender: UIButton) {
+        uiViewConnectSDKRadioBtnWrap.isHidden = false
+        radioControllerSelectAtomicOrConnectView.buttonArrayUpdated(buttonSelected: sender)
+    }
+    
+    @IBAction func btnLaunchAtomicAction(_ sender: UIButton) {
+        uiViewConnectSDKRadioBtnWrap.isHidden = true
+        radioControllerSelectAtomicOrConnectView.buttonArrayUpdated(buttonSelected: sender)
     }
     
     
     override func viewDidLoad() {
         uiRedirectUrlTextBoxHeight.constant = 0
-        radioController.buttonsArray = [btnSTG,btnProd,btnRedirectUrl]
-        radioController.defaultButton = btnProd
+        radioControllerConnectSDK.buttonsArray = [btnSTG,btnProd,btnRedirectUrl]
+        radioControllerConnectSDK.defaultButton = btnProd
         
+        uiViewConnectSDKRadioBtnWrap.isHidden = false
+        radioControllerSelectAtomicOrConnectView.buttonsArray = [btnLaunchConnect,btnLaunchAtomic]
+        radioControllerSelectAtomicOrConnectView.defaultButton = btnLaunchConnect
+                
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         // Query Connect.xcframework for SDK version.
-        print("Connect.xcframework SDK version: \(sdkVersion())")
+        //print("Connect.xcframework SDK version: \(sdkVersion())")
         
         self.navigationController?.navigationBar.isHidden = true
         setupViews()
@@ -61,11 +94,12 @@ class ViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(screenTapped))
         view.addGestureRecognizer(tapGesture)
         
-        urlInput.accessibilityIdentifier = AccessiblityIdentifer.urlTextField.rawValue
-        connectButton.accessibilityIdentifier = AccessiblityIdentifer.connectButton.rawValue
+        //        urlInput.accessibilityIdentifier = AccessiblityIdentifer.urlTextField.rawValue
+        //        connectButton.accessibilityIdentifier = AccessiblityIdentifer.connectButton.rawValue
         
         urlInput.becomeFirstResponder()
     }
+    
     
     // For iPad rotation need to adjust gradient frame size
     override func viewDidLayoutSubviews() {
@@ -112,10 +146,24 @@ class ViewController: UIViewController {
     @IBAction func startButtonClicked(_ sender: UIButton) {
         view.endEditing(true)
         activityIndicator.startAnimating()
-        self.openWebKitConnectView()
+        
+        if(btnLaunchAtomic.isSelected){
+            // Load Atomic SDK
+            launchConnectTransferAction()
+        }
+        else{
+            //Load Connect SDK
+            self.openWebKitConnectView()
+        }
+        
+        
+       
     }
     
     func openWebKitConnectView() {
+        
+      
+        
         if let connectUrl = urlInput.text {
             print("creating & loading connectViewController")
             self.connectViewController = ConnectViewController()
@@ -143,6 +191,21 @@ class ViewController: UIViewController {
             activityIndicator.stopAnimating()
         }
     }
+    
+     func launchConnectTransferAction() {
+        if let connectTransferUrl = urlInput.text {
+            self.transferViewController = ConnectTransferViewController(connectTransferURLString: connectTransferUrl)
+            self.transferViewController.delegate = self
+            self.connectNavController = UINavigationController(rootViewController: self.transferViewController)
+            if(UIDevice.current.userInterfaceIdiom == .phone){
+                self.connectNavController.modalPresentationStyle = .fullScreen
+            }else{
+                self.connectNavController.modalPresentationStyle = .automatic
+            }
+            self.present(self.connectNavController, animated: true)
+        }
+    }
+    
     
     func displayData(_ data: NSDictionary?) {
         print(data?.debugDescription ?? "no data in callback")
@@ -197,6 +260,44 @@ extension ViewController: ConnectEventDelegate {
         displayData(data)
     }
 }
+
+extension ViewController: ConnectTransferEventDelegate {
+    
+    func onInitializeTransferDone(_ data: NSDictionary?) {
+        print(data as Any)
+    }
+    
+    func onTermsAndConditionsAccepted(_ data: NSDictionary?) {
+        print(data as Any)
+    }
+    
+    func onInitializeDepositSwitch(_ data: NSDictionary?) {
+        print(data as Any)
+    }
+    
+    func onTransferEnd(_ data: NSDictionary?) {
+        print(data as Any)
+        if Thread.isMainThread {
+            
+            let alert = UIAlertController(title: "Error", message: data!["reason"] as? String ?? "" , preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            self.present(alert, animated: true)
+            activityIndicator.stopAnimating()
+            
+        }else {
+            DispatchQueue.main.async {
+                self.onTransferEnd(data)
+            }
+        }
+    }
+    
+    func onUserEvent(_ data: NSDictionary?) {
+        print(data as Any)
+    }
+    
+}
+
+
 
 extension ViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
