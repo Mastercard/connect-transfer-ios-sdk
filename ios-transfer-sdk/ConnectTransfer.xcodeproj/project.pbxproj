@@ -36,8 +36,6 @@
 		770DCFB22B8CAD9800CBBAF4 /* MastercardOpenBankingConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFAF2B8CAD9700CBBAF4 /* MastercardOpenBankingConnect.swift */; };
 		770DCFB32B8CAD9800CBBAF4 /* MastercardOpenBankingConnectAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFAD2B8CAD9700CBBAF4 /* MastercardOpenBankingConnectAPI.swift */; };
 		770DCFB42B8CAD9800CBBAF4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFB02B8CAD9700CBBAF4 /* Config.swift */; };
-		7721065D2C78CB290094A6E6 /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = 7721065C2C78CB290094A6E6 /* AtomicTransact */; };
-		7721065F2C78CB2F0094A6E6 /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = 7721065E2C78CB2F0094A6E6 /* AtomicTransact */; };
 		777F62132C6A23E700A342AD /* FailureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F62092C6A23E700A342AD /* FailureModel.swift */; };
 		777F62142C6A23E700A342AD /* FailureViewControllerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F620B2C6A23E700A342AD /* FailureViewControllerUtil.swift */; };
 		777F62152C6A23E700A342AD /* FailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F620D2C6A23E700A342AD /* FailureViewController.swift */; };
@@ -74,6 +72,7 @@
 		F414C2E92C611CCC00A7ACAD /* UITapGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414C2E42C611C8200A7ACAD /* UITapGestureRecognizer+Extension.swift */; };
 		F44A603A2C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A60392C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift */; };
 		F44A603B2C81EE7000B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A60392C81EB3400B5200A /* ConnectTransferRedirectViewController+DepositSwitchFlow.swift */; };
+		F47349182C9047AF004CBE2A /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = F47349172C9047AF004CBE2A /* AtomicTransact */; };
 		F48899752C77570B00639FFF /* ConnectTransferEventConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899742C77570B00639FFF /* ConnectTransferEventConfig.swift */; };
 		F48899762C77570B00639FFF /* ConnectTransferEventConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899742C77570B00639FFF /* ConnectTransferEventConfig.swift */; };
 		F48899782C77577100639FFF /* ConnectTransferViewController+RedirectViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48899772C77577000639FFF /* ConnectTransferViewController+RedirectViewDelegate.swift */; };
@@ -214,7 +213,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7721065F2C78CB2F0094A6E6 /* AtomicTransact in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7721065D2C78CB290094A6E6 /* AtomicTransact in Frameworks */,
+				F47349182C9047AF004CBE2A /* AtomicTransact in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +560,6 @@
 			);
 			name = TestApp;
 			packageProductDependencies = (
-				7721065E2C78CB2F0094A6E6 /* AtomicTransact */,
 			);
 			productName = TestApp;
 			productReference = 213423492583F6D200C06BB8 /* TestApp.app */;
@@ -601,7 +598,7 @@
 			);
 			name = ConnectTransfer;
 			packageProductDependencies = (
-				7721065C2C78CB290094A6E6 /* AtomicTransact */,
+				F47349172C9047AF004CBE2A /* AtomicTransact */,
 			);
 			productName = Connect;
 			productReference = 6B94CDDA23A819F20077D65A /* ConnectTransfer.framework */;
@@ -667,7 +664,7 @@
 			);
 			mainGroup = 6B94CDD023A819F20077D65A;
 			packageReferences = (
-				7721065B2C78CB1B0094A6E6 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */,
+				F47349162C9047AF004CBE2A /* XCRemoteSwiftPackageReference "atomic-transact-ios" */,
 			);
 			productRefGroup = 6B94CDDB23A819F20077D65A /* Products */;
 			projectDirPath = "";
@@ -1321,25 +1318,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7721065B2C78CB1B0094A6E6 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */ = {
+		F47349162C9047AF004CBE2A /* XCRemoteSwiftPackageReference "atomic-transact-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/atomicfi/atomic-transact-ios";
 			requirement = {
 				kind = exactVersion;
-				version = 3.3.4;
+				version = 3.5.20;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7721065C2C78CB290094A6E6 /* AtomicTransact */ = {
+		F47349172C9047AF004CBE2A /* AtomicTransact */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7721065B2C78CB1B0094A6E6 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
-			productName = AtomicTransact;
-		};
-		7721065E2C78CB2F0094A6E6 /* AtomicTransact */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7721065B2C78CB1B0094A6E6 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
+			package = F47349162C9047AF004CBE2A /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
 			productName = AtomicTransact;
 		};
 /* End XCSwiftPackageProductDependency section */
