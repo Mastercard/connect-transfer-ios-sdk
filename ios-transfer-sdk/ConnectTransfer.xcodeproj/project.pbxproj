@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -36,6 +36,7 @@
 		770DCFB22B8CAD9800CBBAF4 /* MastercardOpenBankingConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFAF2B8CAD9700CBBAF4 /* MastercardOpenBankingConnect.swift */; };
 		770DCFB32B8CAD9800CBBAF4 /* MastercardOpenBankingConnectAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFAD2B8CAD9700CBBAF4 /* MastercardOpenBankingConnectAPI.swift */; };
 		770DCFB42B8CAD9800CBBAF4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DCFB02B8CAD9700CBBAF4 /* Config.swift */; };
+		774B7C8D2C9BF1CC000675FA /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = 774B7C8C2C9BF1CC000675FA /* AtomicTransact */; };
 		777F62132C6A23E700A342AD /* FailureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F62092C6A23E700A342AD /* FailureModel.swift */; };
 		777F62142C6A23E700A342AD /* FailureViewControllerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F620B2C6A23E700A342AD /* FailureViewControllerUtil.swift */; };
 		777F62152C6A23E700A342AD /* FailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F620D2C6A23E700A342AD /* FailureViewController.swift */; };
@@ -213,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774B7C8D2C9BF1CC000675FA /* AtomicTransact in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +282,7 @@
 				6B94CDE723A819F30077D65A /* ConnectTests */,
 				2134234A2583F6D200C06BB8 /* TestApp */,
 				214B5BEB25895E9F00FA6A1E /* TestAppUITests */,
+				774B7C8B2C9BF1CC000675FA /* Frameworks */,
 				6B94CDDB23A819F20077D65A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -321,6 +324,13 @@
 				6B94CDEA23A819F30077D65A /* Info.plist */,
 			);
 			path = ConnectTests;
+			sourceTree = "<group>";
+		};
+		774B7C8B2C9BF1CC000675FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		777F620A2C6A23E700A342AD /* Model */ = {
@@ -560,6 +570,7 @@
 			);
 			name = TestApp;
 			packageProductDependencies = (
+				774B7C8C2C9BF1CC000675FA /* AtomicTransact */,
 			);
 			productName = TestApp;
 			productReference = 213423492583F6D200C06BB8 /* TestApp.app */;
@@ -654,7 +665,7 @@
 				};
 			};
 			buildConfigurationList = 6B94CDD423A819F20077D65A /* Build configuration list for PBXProject "ConnectTransfer" */;
-			compatibilityVersion = "Xcode 12.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -894,7 +905,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5R8RGDXM32;
 				INFOPLIST_FILE = TestApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -923,7 +934,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5R8RGDXM32;
 				INFOPLIST_FILE = TestApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -948,7 +959,7 @@
 				DEVELOPMENT_TEAM = 5R8RGDXM32;
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = TestAppUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -971,7 +982,7 @@
 				DEVELOPMENT_TEAM = 5R8RGDXM32;
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = TestAppUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1040,7 +1051,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -1103,7 +1114,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -1134,7 +1145,7 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = ConnectTransfer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1175,7 +1186,7 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = ConnectTransfer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1204,6 +1215,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ConnectTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1222,6 +1234,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ConnectTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1239,7 +1252,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_STYLE = Automatic;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 arm64e x86_64";
@@ -1251,7 +1264,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_STYLE = Automatic;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 arm64e x86_64";
@@ -1329,6 +1342,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		774B7C8C2C9BF1CC000675FA /* AtomicTransact */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F47349162C9047AF004CBE2A /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
+			productName = AtomicTransact;
+		};
 		F47349172C9047AF004CBE2A /* AtomicTransact */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F47349162C9047AF004CBE2A /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
