@@ -29,24 +29,19 @@ public enum MastercardOpenBankingConnect {
             token = MastercardOpenBankingConnectAPI.request(endpoint: MastercardOpenBankingConnectEndpoints.authenticateEndpoint.url, params: authRequest, type: AuthenticationModelResult.self, appToken: false)
                 .flatMap { result -> AnyPublisher<CustomerModelResult, Error> in
                     ConfigProduction.token = result.token
-                    let customerRequest = CustomerModelRequest(username: "\(Int(Date().timeIntervalSince1970))", firstName: "oeu", lastName: "aoue")
+                    let customerRequest = CustomerModelRequest(username: "\(Int(Date().timeIntervalSince1970))", firstName: "oeu", lastName: "aoue", applicationId: ConfigProduction.applicationID)
                     return MastercardOpenBankingConnectAPI.request(endpoint: MastercardOpenBankingConnectEndpoints.customerEndpoint.url, params: customerRequest, type: CustomerModelResult.self)
                 }
-                .flatMap { result -> AnyPublisher<ConsumerModelResult, Error> in
-                    ConfigProduction.customerID = result.id
-                    let data = consumerTemplateString.data(using: .utf8)!
-                    let consumerRequest = try! JSONDecoder().decode(ConsumerModelRequest.self, from: data)
-                    let url = "https://api.finicity.com/decisioning/v1/customers/\(ConfigProduction.customerID)/consumer"
-                    return MastercardOpenBankingConnectAPI.request(endpoint: url, params: consumerRequest, type: ConsumerModelResult.self)
-                }
                 .flatMap { result -> AnyPublisher<GenerateUrlModelResult, Error> in
-                    ConfigProduction.consumerID = result.id
+                    let account = Account(accountNumber: "1111111111", bankIdentifier: "222222222", type: "checking")
+                    ConfigProduction.customerID = result.id
+                    
                     let generateRequest =
                         GenerateUrlModelRequest(
                             partnerId: ConfigProduction.partnerID,
                             customerId: ConfigProduction.customerID,
-                            consumerId: ConfigProduction.consumerID)
-                    return MastercardOpenBankingConnectAPI.request(endpoint: MastercardOpenBankingConnectEndpoints.generateUrlEndpoint.url, params: generateRequest, type: GenerateUrlModelResult.self)
+                            accounts: [account])
+                    return MastercardOpenBankingConnectAPI.request(endpoint: MastercardOpenBankingConnectEndpoints.generatePDSUrlEndpoint.url, params: generateRequest, type: GenerateUrlModelResult.self)
                 }
                 .sink(receiveCompletion: { (completion) in
                     // Called once, when the publisher completes.

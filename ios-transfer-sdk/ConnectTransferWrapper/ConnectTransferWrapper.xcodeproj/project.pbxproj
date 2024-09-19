@@ -14,9 +14,9 @@
 		6BE8C14123B137C8003C92AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BE8C13F23B137C8003C92AE /* Main.storyboard */; };
 		6BE8C14323B137C9003C92AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BE8C14223B137C9003C92AE /* Assets.xcassets */; };
 		6BE8C14623B137C9003C92AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BE8C14423B137C9003C92AE /* LaunchScreen.storyboard */; };
-		775E2CFA2C85A7610058E00E /* ConnectTransfer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F48899992C804A3400639FFF /* ConnectTransfer.xcframework */; };
-		775E2CFB2C85A7610058E00E /* ConnectTransfer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F48899992C804A3400639FFF /* ConnectTransfer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		77B3C2482C7F3C9F00D6FDF3 /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = 77B3C2472C7F3C9F00D6FDF3 /* AtomicTransact */; };
+		778B672E2C90066100B904DA /* ConnectTransfer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778B672C2C90063800B904DA /* ConnectTransfer.xcframework */; };
+		778B672F2C90066100B904DA /* ConnectTransfer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 778B672C2C90063800B904DA /* ConnectTransfer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		778B67332C90075700B904DA /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = 778B67322C90075700B904DA /* AtomicTransact */; };
 		77F98BB22C0DE81900AC7486 /* RadioButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F98BB12C0DE81900AC7486 /* RadioButtonController.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +27,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				775E2CFB2C85A7610058E00E /* ConnectTransfer.xcframework in Embed Frameworks */,
+				778B672F2C90066100B904DA /* ConnectTransfer.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,9 +44,9 @@
 		6BE8C14223B137C9003C92AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BE8C14523B137C9003C92AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BE8C14723B137C9003C92AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		778B672C2C90063800B904DA /* ConnectTransfer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ConnectTransfer.xcframework; sourceTree = "<group>"; };
 		77ED08632A5EBD1100BB0E24 /* ConnectTransferWrapper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ConnectTransferWrapper.entitlements; sourceTree = "<group>"; };
 		77F98BB12C0DE81900AC7486 /* RadioButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonController.swift; sourceTree = "<group>"; };
-		F48899992C804A3400639FFF /* ConnectTransfer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ConnectTransfer.xcframework; path = ../ConnectTransfer.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77B3C2482C7F3C9F00D6FDF3 /* AtomicTransact in Frameworks */,
-				775E2CFA2C85A7610058E00E /* ConnectTransfer.xcframework in Frameworks */,
+				778B672E2C90066100B904DA /* ConnectTransfer.xcframework in Frameworks */,
+				778B67332C90075700B904DA /* AtomicTransact in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +99,7 @@
 		6BE8C14D23B1486E003C92AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F48899992C804A3400639FFF /* ConnectTransfer.xcframework */,
+				778B672C2C90063800B904DA /* ConnectTransfer.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,7 +122,7 @@
 			);
 			name = ConnectTransferWrapper;
 			packageProductDependencies = (
-				77B3C2472C7F3C9F00D6FDF3 /* AtomicTransact */,
+				778B67322C90075700B904DA /* AtomicTransact */,
 			);
 			productName = ConnectWrapper;
 			productReference = 6BE8C13623B137C8003C92AE /* ConnectTransferWrapper.app */;
@@ -417,7 +417,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		77B3C2472C7F3C9F00D6FDF3 /* AtomicTransact */ = {
+		778B67322C90075700B904DA /* AtomicTransact */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 77B3C2462C7F3C9F00D6FDF3 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
 			productName = AtomicTransact;

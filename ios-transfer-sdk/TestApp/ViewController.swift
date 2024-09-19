@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         
         urlInput.accessibilityIdentifier = AccessiblityIdentifer.UrlTextField.rawValue
         
+        launchConnectTransferButton.accessibilityIdentifier = AccessiblityIdentifer.ConnectButton.rawValue
         urlInput.becomeFirstResponder()
     }
     
