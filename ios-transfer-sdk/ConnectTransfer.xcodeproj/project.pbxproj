@@ -40,6 +40,12 @@
 		774B7C872C9AAFD0000675FA /* AtomicTransact.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 774B7C852C9AAFD0000675FA /* AtomicTransact.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		774B7C892C9AAFDC000675FA /* AtomicTransact.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774B7C852C9AAFD0000675FA /* AtomicTransact.xcframework */; };
 		774B7C8A2C9AAFDC000675FA /* AtomicTransact.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 774B7C852C9AAFD0000675FA /* AtomicTransact.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		774B7C8E2C9C0174000675FA /* AtomicTransact.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774B7C852C9AAFD0000675FA /* AtomicTransact.xcframework */; };
+		774B7C8F2C9C0174000675FA /* AtomicTransact.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 774B7C852C9AAFD0000675FA /* AtomicTransact.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		774B7C912C9C0183000675FA /* ConnectTransfer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B94CDDA23A819F20077D65A /* ConnectTransfer.framework */; platformFilter = ios; };
+		774B7C922C9C0183000675FA /* ConnectTransfer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B94CDDA23A819F20077D65A /* ConnectTransfer.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		774B7C952C9C018E000675FA /* AtomicTransact.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774B7C852C9AAFD0000675FA /* AtomicTransact.xcframework */; };
+		774B7C962C9C018E000675FA /* AtomicTransact.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 774B7C852C9AAFD0000675FA /* AtomicTransact.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		777F62132C6A23E700A342AD /* FailureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F62092C6A23E700A342AD /* FailureModel.swift */; };
 		777F62142C6A23E700A342AD /* FailureViewControllerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F620B2C6A23E700A342AD /* FailureViewControllerUtil.swift */; };
 		777F62152C6A23E700A342AD /* FailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F620D2C6A23E700A342AD /* FailureViewController.swift */; };
@@ -133,6 +139,13 @@
 			remoteGlobalIDString = 6B94CDD923A819F20077D65A;
 			remoteInfo = Connect;
 		};
+		774B7C932C9C0183000675FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B94CDD123A819F20077D65A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B94CDD923A819F20077D65A;
+			remoteInfo = ConnectTransfer;
+		};
 		77C97BB62C8B3E0200670E58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6B94CDD123A819F20077D65A /* Project object */;
@@ -150,6 +163,29 @@
 			dstSubfolderSpec = 10;
 			files = (
 				774B7C872C9AAFD0000675FA /* AtomicTransact.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		774B7C902C9C0174000675FA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				774B7C922C9C0183000675FA /* ConnectTransfer.framework in Embed Frameworks */,
+				774B7C8F2C9C0174000675FA /* AtomicTransact.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		774B7C972C9C018E000675FA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				774B7C962C9C018E000675FA /* AtomicTransact.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +279,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774B7C912C9C0183000675FA /* ConnectTransfer.framework in Frameworks */,
+				774B7C8E2C9C0174000675FA /* AtomicTransact.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +296,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774B7C952C9C018E000675FA /* AtomicTransact.xcframework in Frameworks */,
 				6B94CDE423A819F30077D65A /* ConnectTransfer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,12 +643,14 @@
 				214B5BE625895E9F00FA6A1E /* Sources */,
 				214B5BE725895E9F00FA6A1E /* Frameworks */,
 				214B5BE825895E9F00FA6A1E /* Resources */,
+				774B7C902C9C0174000675FA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				77C97BB72C8B3E0200670E58 /* PBXTargetDependency */,
 				214B5BF025895E9F00FA6A1E /* PBXTargetDependency */,
+				774B7C942C9C0183000675FA /* PBXTargetDependency */,
 			);
 			name = TestAppUITests;
 			productName = TestAppUITests;
@@ -644,6 +685,7 @@
 				6B94CDDF23A819F30077D65A /* Sources */,
 				6B94CDE023A819F30077D65A /* Frameworks */,
 				6B94CDE123A819F30077D65A /* Resources */,
+				774B7C972C9C018E000675FA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -891,6 +933,12 @@
 			isa = PBXTargetDependency;
 			target = 6B94CDD923A819F20077D65A /* ConnectTransfer */;
 			targetProxy = 6B94CDE523A819F30077D65A /* PBXContainerItemProxy */;
+		};
+		774B7C942C9C0183000675FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 6B94CDD923A819F20077D65A /* ConnectTransfer */;
+			targetProxy = 774B7C932C9C0183000675FA /* PBXContainerItemProxy */;
 		};
 		77C97BB72C8B3E0200670E58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
