@@ -21,6 +21,22 @@ class ConnectTransferTests: XCTestCase {
     var onRouteCalled = false
     var onUserCalled = false
     var message: NSDictionary! = nil
+    
+    
+    var onInitializeTransferDoneCalled = false
+    var onTermsAndConditionsAcceptedCalled = false
+    var onInitializeDepositSwitchCalled = false
+    var onTransferEndCalled = false
+    var onUserEventCalled = false
+    
+    var onInitializeTransferDone: XCTestExpectation? = nil
+    var onTermsAndConditionsAccepted: XCTestExpectation? = nil
+    var onInitializeDepositSwitch: XCTestExpectation? = nil
+    var onTransferEnd: XCTestExpectation? = nil
+    var onUserEvent: XCTestExpectation? = nil
+    
+    
+    
     var onLoadExp: XCTestExpectation? = nil
     var onErrorExp: XCTestExpectation? = nil
     var onDoneExp: XCTestExpectation? = nil
@@ -112,19 +128,74 @@ class ConnectTransferTests: XCTestCase {
     }
     
     
-    //
-    //    func testLoadDeeplink() {
-    //        let cvc = ConnectViewController()
-    //        cvc.load("testConnectUrl",redirectUrl: "partnerapp://")
-    //        cvc.delegate = self
-    //        XCTAssertEqual("testConnectUrl", cvc.connectUrl)
-    //    }
-    //    func testLoadUniversallink() {
-    //        let cvc = ConnectViewController()
-    //        cvc.load("testConnectUrl",redirectUrl: "https://acmelending.net")
-    //        cvc.delegate = self
-    //        XCTAssertEqual("testConnectUrl", cvc.connectUrl)
-    //    }
+    func testLoadFailureView() {
+        let renderOAuthWebViewExpectation = expectation(description: "RenderFailureView")
+        
+        class ConnectTransferViewControllerMock: ConnectTransferViewController {
+            var renderOAuthWebViewExpectation: XCTestExpectation!
+            var didCallRenderOAuthWebView = false
+        }
+        
+        let ctvc = ConnectTransferViewControllerMock(connectTransferURLString: "connectTransferUrl")
+        XCTAssertEqual(ctvc.didCallRenderOAuthWebView, false)
+        ctvc.renderOAuthWebViewExpectation = renderOAuthWebViewExpectation
+        
+        ctvc.delegate = self
+        self.connectNavController = UINavigationController(rootViewController: ctvc)
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.makeKeyAndVisible()
+        window.rootViewController =  self.connectNavController
+        
+        
+        ctvc.testLoadConnectTransfer(shouldLoadConnectTransfer: true) { success in
+            if(success){
+                ctvc.didCallRenderOAuthWebView = true
+                renderOAuthWebViewExpectation.fulfill()
+            }
+        }
+        waitForExpectations(timeout: 1) { _ in
+            XCTAssertEqual(ctvc.didCallRenderOAuthWebView, true)
+        }
+        
+    }
+    
+    func testLoadFailOfFailureView() {
+        let renderOAuthWebViewExpectation = expectation(description: "RenderFailureView")
+        
+        class ConnectTransferViewControllerMock: ConnectTransferViewController {
+            var renderOAuthWebViewExpectation: XCTestExpectation!
+            var didCallRenderOAuthWebView = false
+        }
+        
+        let ctvc = ConnectTransferViewControllerMock(connectTransferURLString: "connectTransferUrl")
+        XCTAssertEqual(ctvc.didCallRenderOAuthWebView, false)
+        ctvc.renderOAuthWebViewExpectation = renderOAuthWebViewExpectation
+        
+        ctvc.delegate = self
+        self.connectNavController = UINavigationController(rootViewController: ctvc)
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.makeKeyAndVisible()
+        window.rootViewController =  self.connectNavController
+        
+        ctvc.testLoadConnectTransfer(shouldLoadConnectTransfer: false) { success in
+            if(success){
+                ctvc.didCallRenderOAuthWebView = true
+                renderOAuthWebViewExpectation.fulfill()
+            }else{
+                ctvc.didCallRenderOAuthWebView = false
+                renderOAuthWebViewExpectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 1) { _ in
+            XCTAssertEqual(ctvc.didCallRenderOAuthWebView, false)
+        }
+        
+    }
+    
+    
     //
     //
     //    func testLoadWebViewDeeplink() {
@@ -168,23 +239,33 @@ class ConnectTransferTests: XCTestCase {
     //        }
     //    }
     //
-    //    func testMemoryLeak() {
-    //        self.onLoadExp = expectation(description: "Loaded callback")
-    //        let cvc = ConnectViewController()
-    //        cvc.load("testConnectUrl")
-    //        cvc.delegate = self
-    //        waitForExpectations(timeout: 3) { _ in
-    //            XCTAssertTrue(self.onLoadCalled)
-    //            XCTAssertEqual("testConnectUrl", cvc.connectUrl)
-    //        }
-    //
-    //        cvc.close()
-    //        cvc.unload()
-    //
-    //        addTeardownBlock { [weak cvc] in
-    //            XCTAssertNil(cvc)
-    //        }
-    //    }
+        func testMemoryLeak() {
+            
+            let ctvc = ConnectTransferViewController(connectTransferURLString: "connectTransferUrl")
+            ctvc.delegate = self
+            self.connectNavController = UINavigationController(rootViewController: ctvc)
+            
+            let window = UIWindow(frame: UIScreen.main.bounds)
+            window.makeKeyAndVisible()
+            window.rootViewController =  self.connectNavController
+            
+            
+            self.onLoadExp = expectation(description: "Loaded callback")
+            let cvc = ConnectViewController()
+            cvc.load("testConnectUrl")
+            cvc.delegate = self
+            waitForExpectations(timeout: 3) { _ in
+                XCTAssertTrue(self.onLoadCalled)
+                XCTAssertEqual("testConnectUrl", cvc.connectUrl)
+            }
+    
+            cvc.close()
+            cvc.unload()
+    
+            addTeardownBlock { [weak cvc] in
+                XCTAssertNil(cvc)
+            }
+        }
     //
     //
     //    func testCallbacks() {
@@ -231,24 +312,29 @@ class ConnectTransferTests: XCTestCase {
 extension ConnectTransferTests: ConnectTransferEventDelegate {
     
     func onInitializeTransferDone(_ data: NSDictionary?) {
-        
+        self.onInitializeTransferDone?.fulfill()
     }
     
     func onTermsAndConditionsAccepted(_ data: NSDictionary?) {
-        
+        self.onTermsAndConditionsAccepted?.fulfill()
     }
     
     func onInitializeDepositSwitch(_ data: NSDictionary?) {
-        
+        self.onInitializeDepositSwitch?.fulfill()
     }
     
     func onTransferEnd(_ data: NSDictionary?) {
-        
+        self.onTransferEnd?.fulfill()
     }
     
     func onUserEvent(_ data: NSDictionary?) {
-        
+        self.onUserEvent?.fulfill()
     }
+    
+    
+    
+    
+    
     
     func onCancel(_ data: NSDictionary?) {
         self.onCancelCalled = true

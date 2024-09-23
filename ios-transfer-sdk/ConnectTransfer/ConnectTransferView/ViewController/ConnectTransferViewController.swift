@@ -371,3 +371,20 @@ extension ConnectTransferViewController: FailureEventDelegate {
     }
 
 }
+
+
+// won't ship with production code thanks to #if DEBUG
+// add a good comment with "WHY this is needed 😉"
+#if DEBUG
+extension ConnectTransferViewController {
+    public func testLoadConnectTransfer(shouldLoadConnectTransfer:Bool, completionHandler: @escaping (Bool) -> Void) {
+        if(shouldLoadConnectTransfer){
+            self.loadConnectTransfer()
+            completionHandler(true)
+        }else{
+            completionHandler(false)
+        }
+        
+    }
+}
+#endif
