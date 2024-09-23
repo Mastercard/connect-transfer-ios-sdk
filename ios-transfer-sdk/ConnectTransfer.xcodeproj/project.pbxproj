@@ -58,6 +58,7 @@
 		777F621C2C6A262900A342AD /* FailureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F62102C6A23E700A342AD /* FailureViewModel.swift */; };
 		77B3C23C2C7F38F400D6FDF3 /* ConnectTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = 77B3C23B2C7F38F400D6FDF3 /* ConnectTransfer.h */; };
 		77EF09E32BCEC77300F5C0E5 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 77EF09E22BCEC76C00F5C0E5 /* PrivacyInfo.xcprivacy */; };
+		F40A9D712CA1417D0066D7B5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */; };
 		F411D73C2C66903B00BE39C2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F411D73B2C66903B00BE39C2 /* Localizable.xcstrings */; };
 		F411D73F2C6A53BA00BE39C2 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F411D73E2C6A53BA00BE39C2 /* Bundle+Extension.swift */; };
 		F411D7402C6A540900BE39C2 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F411D73E2C6A53BA00BE39C2 /* Bundle+Extension.swift */; };
@@ -760,6 +761,7 @@
 			files = (
 				213423582583F6D300C06BB8 /* LaunchScreen.storyboard in Resources */,
 				213423552583F6D300C06BB8 /* Assets.xcassets in Resources */,
+				F40A9D712CA1417D0066D7B5 /* Localizable.xcstrings in Resources */,
 				777F621B2C6A262500A342AD /* FailureViewController.xib in Resources */,
 				213423532583F6D200C06BB8 /* Main.storyboard in Resources */,
 				F4EF923D2C638B96009F3A13 /* ConnectMedia.xcassets in Resources */,
