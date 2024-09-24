@@ -29,20 +29,12 @@ class ConnectTransferTests: XCTestCase {
     var onTransferEndCalled = false
     var onUserEventCalled = false
     
-    var onInitializeTransferDone: XCTestExpectation? = nil
-    var onTermsAndConditionsAccepted: XCTestExpectation? = nil
-    var onInitializeDepositSwitch: XCTestExpectation? = nil
-    var onTransferEnd: XCTestExpectation? = nil
-    var onUserEvent: XCTestExpectation? = nil
+    var onInitializeTransferDoneExp: XCTestExpectation? = nil
+    var onTermsAndConditionsAcceptedExp: XCTestExpectation? = nil
+    var onInitializeDepositSwitchExp: XCTestExpectation? = nil
+    var onTransferEndExp: XCTestExpectation? = nil
+    var onUserEventExp: XCTestExpectation? = nil
     
-    
-    
-    var onLoadExp: XCTestExpectation? = nil
-    var onErrorExp: XCTestExpectation? = nil
-    var onDoneExp: XCTestExpectation? = nil
-    var onRouteExp: XCTestExpectation? = nil
-    var onUserExp: XCTestExpectation? = nil
-    var onCancelExp: XCTestExpectation? = nil
     var connectNavController: UINavigationController!
     
     override func setUp() {
@@ -56,19 +48,19 @@ class ConnectTransferTests: XCTestCase {
     }
     
     func resetState() {
-        self.onLoadCalled = false
-        self.onDoneCalled = false
-        self.onErrorCalled = false
-        self.onCancelCalled = false
-        self.onRouteCalled = false
-        self.onUserCalled = false
-        self.message = nil
-        self.onLoadExp = nil
-        self.onErrorExp = nil
-        self.onDoneExp = nil
-        self.onRouteExp = nil
-        self.onUserExp = nil
-        self.onCancelExp = nil
+      
+        self.onInitializeTransferDoneCalled = false
+        self.onTermsAndConditionsAcceptedCalled = false
+        self.onInitializeDepositSwitchCalled = false
+        self.onTransferEndCalled = false
+        self.onUserEventCalled = false
+        
+        
+        self.onInitializeTransferDoneExp = nil
+        self.onTermsAndConditionsAcceptedExp = nil
+        self.onInitializeDepositSwitchExp = nil
+        self.onTransferEndExp = nil
+        self.onUserEventExp = nil
     }
     
     //    func testToken() {
@@ -194,51 +186,7 @@ class ConnectTransferTests: XCTestCase {
         }
         
     }
-    
-    
-    //
-    //
-    //    func testLoadWebViewDeeplink() {
-    //        self.onLoadExp = expectation(description: "Loaded callback")
-    //        let cvc = ConnectViewController()
-    //        cvc.load("testConnectUrl",redirectUrl: "partnerapp://")
-    //        cvc.delegate = self
-    //
-    //        let expectation = XCTestExpectation(description: "Completed Ping Connect")
-    //        DispatchQueue.main.async {
-    //            cvc.pingConnect()
-    //            expectation.fulfill()
-    //        }
-    //
-    //        wait(for: [expectation], timeout: 10.0)
-    //
-    //        waitForExpectations(timeout: 3) { _ in
-    //            XCTAssertTrue(self.onLoadCalled)
-    //            XCTAssertEqual("testConnectUrl", cvc.connectUrl)
-    //        }
-    //    }
-    //
-    //    func testLoadWebChildWebView() {
-    //
-    //        self.onLoadExp = expectation(description: "Loaded callback")
-    //        let cvc = ConnectViewController()
-    //        cvc.load("testConnectUrl",redirectUrl: "partnerapp://")
-    //        cvc.delegate = self
-    //
-    //        let expectation = XCTestExpectation(description: "Completed Ping Connect")
-    //        DispatchQueue.main.async {
-    //            cvc.loadChildWebView(url: URL(string: "testChildUrl")!)
-    //            expectation.fulfill()
-    //        }
-    //
-    //        wait(for: [expectation], timeout: 10.0)
-    //
-    //        waitForExpectations(timeout: 3) { _ in
-    //            XCTAssertTrue(self.onLoadCalled)
-    //            XCTAssertEqual("testConnectUrl", cvc.connectUrl)
-    //        }
-    //    }
-    //
+
         func testMemoryLeak() {
             
             let ctvc = ConnectTransferViewController(connectTransferURLString: "connectTransferUrl")
@@ -250,57 +198,40 @@ class ConnectTransferTests: XCTestCase {
             window.rootViewController =  self.connectNavController
             
             
-            self.onLoadExp = expectation(description: "Loaded callback")
-            let cvc = ConnectViewController()
-            cvc.load("testConnectUrl")
-            cvc.delegate = self
+            self.onInitializeTransferDoneExp = expectation(description: "Loaded connect transfer")
+            
             waitForExpectations(timeout: 3) { _ in
-                XCTAssertTrue(self.onLoadCalled)
-                XCTAssertEqual("testConnectUrl", cvc.connectUrl)
+                XCTAssertTrue(self.onInitializeTransferDoneCalled)
+                XCTAssertEqual("testConnectUrl", ctvc.transferViewModel.testConnectTransferURLString())
             }
     
-            cvc.close()
-            cvc.unload()
+            window.rootViewController = UINavigationController(rootViewController: UIViewController())
     
-            addTeardownBlock { [weak cvc] in
-                XCTAssertNil(cvc)
+            addTeardownBlock { [weak ctvc] in
+                XCTAssertNil(ctvc)
             }
         }
-    //
-    //
-    //    func testCallbacks() {
-    //        let cvc = ConnectViewController()
-    //        cvc.load("testConnectUrl")
-    //        cvc.delegate = self
-    //
-    //        cvc.handleLoadingComplete()
-    //        XCTAssertTrue(self.onLoadCalled)
-    //
-    //        self.message = ["key": "value"]
-    //        cvc.handleConnectCancel(nil)
-    //        XCTAssertTrue(self.onCancelCalled)
-    //        XCTAssertEqual(nil, self.message)
-    //
-    //        self.message = ["key": "value"]
-    //        cvc.handleConnectComplete(nil)
-    //        XCTAssertTrue(self.onDoneCalled)
-    //        XCTAssertEqual(nil, self.message)
-    //
-    //        self.message = ["key": "value"]
-    //        cvc.handleConnectError(nil)
-    //        XCTAssertTrue(self.onErrorCalled)
-    //        XCTAssertEqual(nil, self.message)
-    //
-    //        self.message = ["key": "value"]
-    //        cvc.handleConnectUser(nil)
-    //        XCTAssertTrue(self.onUserCalled)
-    //        XCTAssertEqual(nil, self.message)
-    //
-    //        self.message = ["key": "value"]
-    //        cvc.handleConnectRoute(nil)
-    //        XCTAssertTrue(self.onRouteCalled)
-    //        XCTAssertEqual(nil, self.message)
-    //    }
+    
+    
+        func testCallbacks() {
+            let ctvc = ConnectTransferViewController(connectTransferURLString: "connectTransferUrl")
+            ctvc.delegate = self
+            self.connectNavController = UINavigationController(rootViewController: ctvc)
+            
+            let window = UIWindow(frame: UIScreen.main.bounds)
+            window.makeKeyAndVisible()
+            window.rootViewController =  self.connectNavController
+       
+            XCTAssertTrue(self.onInitializeTransferDoneCalled)
+    
+            ctvc.nextButtonAction(Any.self)
+            XCTAssertTrue(self.onTermsAndConditionsAcceptedCalled)
+           
+            ctvc.testLoadConnectTransfer(shouldLoadConnectTransfer: true) { success in
+                XCTAssertTrue(self.onInitializeDepositSwitchCalled)
+            }
+           
+        }
     
     func testJailBreakCheck() {
         let cvc = ConnectTransferViewController(connectTransferURLString: "connectTransferUrl")
@@ -312,58 +243,33 @@ class ConnectTransferTests: XCTestCase {
 extension ConnectTransferTests: ConnectTransferEventDelegate {
     
     func onInitializeTransferDone(_ data: NSDictionary?) {
-        self.onInitializeTransferDone?.fulfill()
+        self.onInitializeTransferDoneCalled = true
+        self.message = data
+        self.onInitializeTransferDoneExp?.fulfill()
     }
     
     func onTermsAndConditionsAccepted(_ data: NSDictionary?) {
-        self.onTermsAndConditionsAccepted?.fulfill()
+        self.onTermsAndConditionsAcceptedCalled = true
+        self.message = data
+        self.onTermsAndConditionsAcceptedExp?.fulfill()
     }
     
     func onInitializeDepositSwitch(_ data: NSDictionary?) {
-        self.onInitializeDepositSwitch?.fulfill()
+        self.onInitializeDepositSwitchCalled = true
+        self.message = data
+        self.onInitializeDepositSwitchExp?.fulfill()
     }
     
     func onTransferEnd(_ data: NSDictionary?) {
-        self.onTransferEnd?.fulfill()
+        self.onTransferEndCalled = true
+        self.message = data
+        self.onTransferEndExp?.fulfill()
     }
     
     func onUserEvent(_ data: NSDictionary?) {
-        self.onUserEvent?.fulfill()
-    }
-    
-    
-    
-    
-    
-    
-    func onCancel(_ data: NSDictionary?) {
-        self.onCancelCalled = true
+        self.onUserEventCalled = true
         self.message = data
-        self.onCancelExp?.fulfill()
-    }
-    func onDone(_ data: NSDictionary?) {
-        self.onDoneCalled = true
-        self.message = data
-        self.onDoneExp?.fulfill()
-    }
-    func onError(_ data: NSDictionary?) {
-        self.onErrorCalled = true
-        self.message = data
-        self.onErrorExp?.fulfill()
-    }
-    func onLoad() {
-        self.onLoadCalled = true
-        self.onLoadExp?.fulfill()
-    }
-    func onRoute(_ data: NSDictionary?) {
-        self.onRouteCalled = true
-        self.message = data
-        self.onRouteExp?.fulfill()
-    }
-    func onUser(_ data: NSDictionary?) {
-        self.onUserCalled = true
-        self.message = data
-        self.onUserExp?.fulfill()
+        self.onUserEventExp?.fulfill()
     }
 }
 
