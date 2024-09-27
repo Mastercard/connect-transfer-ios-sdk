@@ -25,9 +25,10 @@ save_variables:
     reports:
       dotenv: keys.env
   tags:
-    - xcode
+    - gitlab-runner-macos
+    - us-west-2
+    - nonprod
 
-  
 
 read_variables:
   stage: readvariables
@@ -36,7 +37,9 @@ read_variables:
     - echo "$PARTNER_ID_SAVED"
     - echo "$PARTNER_SECRET_SAVED"
   tags:
-    - xcode
+    - gitlab-runner-macos
+    - us-west-2
+    - nonprod
   
 
 build_project:
@@ -51,7 +54,9 @@ build_project:
       - derivedData/
     expire_in: 1 days
   tags:
-    - xcode
+    - gitlab-runner-macos
+    - us-west-2
+    - nonprod
 
 coverage:
   stage: postbuild
@@ -66,7 +71,9 @@ coverage:
       - sonar-reports
     expire_in: 1 days
   tags:
-    - xcode
+    - gitlab-runner-macos
+    - us-west-2
+    - nonprod
 
 # scan container:
 #   image: dcr.fini.city/devops/osiris
@@ -79,5 +86,7 @@ sonarqube:
   script:
     - sonar-scanner
   tags:
-    - xcode
+    - gitlab-runner-macos
+    - us-west-2
+    - nonprod
   allow_failure: true
