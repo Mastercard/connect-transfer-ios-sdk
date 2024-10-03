@@ -20,6 +20,7 @@ save_variables:
     - echo "FINICITY_APP_KEY_SAVED=${FINICITY_APP_KEY}" >> keys.env
     - echo "PARTNER_ID_SAVED=${PARTNER_ID}" >> keys.env
     - echo "PARTNER_SECRET_SAVED=${PARTNER_SECRET}" >> keys.env
+    - echo "APPLICATION_ID_SAVED=${APPLICATION_ID}" >> keys.env
     - cat keys.env
   artifacts:
     reports:
