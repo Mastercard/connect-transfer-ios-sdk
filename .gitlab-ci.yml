@@ -24,6 +24,10 @@ save_variables:
   artifacts:
     reports:
       dotenv: keys.env
+  tags:
+    - gitlab-runner-macos
+    - us-west-2
+    - nonprod
 
 
 read_variables:
@@ -32,7 +36,10 @@ read_variables:
     - echo "$FINICITY_APP_KEY_SAVED"
     - echo "$PARTNER_ID_SAVED"
     - echo "$PARTNER_SECRET_SAVED"
-  
+  tags:
+    - gitlab-runner-macos
+    - us-west-2
+    - nonprod
 
 build_project:
   stage: build
