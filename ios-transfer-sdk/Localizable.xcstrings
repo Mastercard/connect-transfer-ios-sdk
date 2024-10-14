@@ -1,0 +1,414 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "error_subtitle" : {
+      "comment" : "18",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We weren’t able to connect to your data."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No pudimos conectar con tus datos"
+          }
+        }
+      }
+    },
+    "error_title" : {
+      "comment" : "17",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Looks like there was an issue"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parece que hubo un problema"
+          }
+        }
+      }
+    },
+    "Exit" : {
+      "comment" : "23",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salida"
+          }
+        }
+      }
+    },
+    "exit_pop_up_subtitle" : {
+      "comment" : "14",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you exit, you return back to %@ and your financial data won’t be connected or saved."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si sales, volverás a %@, y tus datos financieros no se conectarán ni se guardarán."
+          }
+        }
+      }
+    },
+    "exit_pop_up_title" : {
+      "comment" : "13",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to exit?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Confirmas que quieres salir?"
+          }
+        }
+      }
+    },
+    "finicity_mastercard_company_text" : {
+      "comment" : "22",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finicity, a Mastercard company"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finicity, una empresa de Mastercard"
+          }
+        }
+      }
+    },
+    "finicity_permission_text" : {
+      "comment" : "21",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finicity, a Mastercard company only uses data with your permission"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finicity, una empresa de Mastercard, solo utiliza los datos con tu permiso"
+          }
+        }
+      }
+    },
+    "landing_page_instruction_first_step_text" : {
+      "comment" : "3",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for your employer or payroll provider"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Busca a tu empleador o proveedor de nómina"
+          }
+        }
+      }
+    },
+    "landing_page_instruction_second_step_text" : {
+      "comment" : "4",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log in to your payroll provider"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia sesión en tu proveedor de nómina"
+          }
+        }
+      }
+    },
+    "landing_page_instruction_third_step_text" : {
+      "comment" : "5",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm your new direct deposit allocation"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirma tu nueva asignación de depósito directo"
+          }
+        }
+      }
+    },
+    "landing_page_step_instruction_text" : {
+      "comment" : "6",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ll need to"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tendrás que"
+          }
+        }
+      }
+    },
+    "landing_page_subtitle" : {
+      "comment" : "2",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allow Finicity, a Mastercard company to direct you to Atomic to securely connect to your payroll provider and manage changes to your direct deposit."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permite que Finicity, una empresa de Mastercard, te dirija a Atomic para conectarte de forma segura con tu proveedor de nómina y administrar los cambios en tu depósito directo"
+          }
+        }
+      }
+    },
+    "landing_page_terms_and_condtions_info_text" : {
+      "comment" : "7",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By pressing Next, you agree to Finicity’s Terms of Use and Privacy Notice"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Al presionar Siguiente, aceptas los Términos de uso y el Aviso de privacidad"
+          }
+        }
+      }
+    },
+    "landing_page_title" : {
+      "comment" : "1",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let’s manage your direct deposit"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gestionemos tu depósito directo"
+          }
+        }
+      }
+    },
+    "next_text" : {
+      "comment" : "11",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Siguiente"
+          }
+        }
+      }
+    },
+    "no_stay" : {
+      "comment" : "16",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No, stay"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No, continuar"
+          }
+        }
+      }
+    },
+    "privacy_notice_text" : {
+      "comment" : "9",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Notice"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aviso de privacidad"
+          }
+        }
+      }
+    },
+    "redirecting_text" : {
+      "comment" : "12",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redirecting..."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redirigiendo..."
+          }
+        }
+      }
+    },
+    "return_to_partner" : {
+      "comment" : "20",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Return to %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver a %@"
+          }
+        }
+      }
+    },
+    "secured_by_text" : {
+      "comment" : "10",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Secured by"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Protegido por"
+          }
+        }
+      }
+    },
+    "terms_and_condtions_text" : {
+      "comment" : "8",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms of Use"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Términos de uso"
+          }
+        }
+      }
+    },
+    "try_again" : {
+      "comment" : "19",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try again"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver a intentarlo"
+          }
+        }
+      }
+    },
+    "yes_exit" : {
+      "comment" : "15",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yes, exit"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sí, salir"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

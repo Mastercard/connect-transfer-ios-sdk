@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationView" customModule="Connect" customModuleProvider="target">
+            <connections>
+                <outlet property="backButton" destination="6wr-Ag-kGM" id="ado-bP-m2G"/>
+                <outlet property="closeButton" destination="4xV-Ll-IiI" id="ydM-Kl-LQA"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="510" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wr-Ag-kGM">
+                    <rect key="frame" x="8" y="0.0" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="4WM-oe-zHP"/>
+                        <constraint firstAttribute="width" secondItem="6wr-Ag-kGM" secondAttribute="height" id="EQR-Fg-J4d"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <connections>
+                        <action selector="backButtonAction:" destination="-1" eventType="touchUpInside" id="SDA-aK-euI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xV-Ll-IiI">
+                    <rect key="frame" x="462" y="0.0" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="4xV-Ll-IiI" secondAttribute="height" id="7kw-lA-D2P"/>
+                        <constraint firstAttribute="height" constant="40" id="REu-Xp-GV1"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <connections>
+                        <action selector="closeButtonAction:" destination="-1" eventType="touchUpInside" id="TRn-bj-dDm"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4xV-Ll-IiI" secondAttribute="trailing" constant="8" id="Wcf-aX-EOY"/>
+                <constraint firstItem="6wr-Ag-kGM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bWz-eR-b99"/>
+                <constraint firstAttribute="bottom" secondItem="4xV-Ll-IiI" secondAttribute="bottom" id="o8A-9L-NOH"/>
+                <constraint firstAttribute="bottom" secondItem="6wr-Ag-kGM" secondAttribute="bottom" id="rPX-5t-ncv"/>
+                <constraint firstItem="6wr-Ag-kGM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="rYn-mH-QQl"/>
+                <constraint firstItem="4xV-Ll-IiI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vz7-FG-wND"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="190.83969465648855" y="-266.19718309859155"/>
+        </view>
+    </objects>
+</document>
