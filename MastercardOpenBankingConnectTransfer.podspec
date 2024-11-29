@@ -12,6 +12,6 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "14.0"
   spec.source       = { :git => "https://github.com/Mastercard/connect-transfer-ios-sdk.git", :tag => "#{spec.version}" }
   spec.ios.vendored_frameworks = "ConnectTransfer.xcframework"
-  # spec.resource_bundles = {'MastercardOpenBankingConnectTransfer' => ['Source/*.xcprivacy']}
+  spec.resource_bundles = {'MastercardOpenBankingConnectTransfer' => ['Sources/*.xcprivacy']}
   spec.dependency "AtomicSDK", "3.8.18"
 end
