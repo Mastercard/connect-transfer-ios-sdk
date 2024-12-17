@@ -26,7 +26,6 @@
       "size" : "40x40"
     },
     {
-      "filename" : "MAConnectSDK.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
@@ -77,13 +76,11 @@
       "size" : "76x76"
     },
     {
-      "filename" : "MAConnectSDK152.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
-      "filename" : "MAConnectSDK167.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"

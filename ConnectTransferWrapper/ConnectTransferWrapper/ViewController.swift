@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     
     @IBAction func launchConnectTransferAction(_ sender: Any) {
         if let connectTransferUrl = pdsURLInput.text {
-            self.transferViewController = ConnectTransferViewController(connectTransferURLString: connectTransferUrl)
+            self.transferViewController = ConnectTransferViewController(connectTransferUrl: connectTransferUrl)
             self.transferViewController.delegate = self
             self.connectNavController = UINavigationController(rootViewController: self.transferViewController)
             if(UIDevice.current.userInterfaceIdiom == .phone){
@@ -126,16 +126,15 @@ extension ViewController: UITextFieldDelegate {
 }
 
 extension ViewController: ConnectTransferEventDelegate {
+    func onInitializeConnectTransfer(_ data: NSDictionary?) {
+        print(data as Any)
+    }
     
-    func onInitializeTransferDone(_ data: NSDictionary?) {
+    func onLaunchTransferSwitch(_ data: NSDictionary?) {
         print(data as Any)
     }
     
     func onTermsAndConditionsAccepted(_ data: NSDictionary?) {
-        print(data as Any)
-    }
-    
-    func onInitializeDepositSwitch(_ data: NSDictionary?) {
         print(data as Any)
     }
     
