@@ -101,8 +101,3 @@ extension ViewController: ConnectTransferEventDelegate {
 
 This repository contains a sample application ConnectTransferWrapper written in Swift (requires Xcode 14 or greater) that demonstrates integration and use of Connect Transfer iOS SDK.
 
-
-
-
-
-
