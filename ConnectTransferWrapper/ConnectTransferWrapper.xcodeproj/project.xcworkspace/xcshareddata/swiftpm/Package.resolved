@@ -1,0 +1,15 @@
+{
+  "originHash" : "e2c0a18679e1d7be5f131f3ad6f9b760b4e3e0efbbd1e914cda12cbc9bb217e5",
+  "pins" : [
+    {
+      "identity" : "atomic-transact-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/atomicfi/atomic-transact-ios",
+      "state" : {
+        "revision" : "cd0ae16f2d8a766de898af30e3f8bb1bb4450e81",
+        "version" : "3.8.18"
+      }
+    }
+  ],
+  "version" : 3
+}

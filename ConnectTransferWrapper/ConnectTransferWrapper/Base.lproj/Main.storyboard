@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kq2-j6-Ykk">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="aPw-Bm-ePk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="kq2-j6-Ykk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ttS-OF-EyZ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ohe-HS-TrW" kind="relationship" relationship="rootViewController" id="WWL-cr-9aV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kby-iU-NZu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Meo-qP-z85">
+            <objects>
+                <viewController id="ohe-HS-TrW" customClass="ViewController" customModule="ConnectTransferWrapper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0ZM-yf-4HQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="naE-GA-yir">
+                                <rect key="frame" x="139.5" y="48" width="135" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="TJf-X2-ZsF"/>
+                                    <constraint firstAttribute="height" id="cSb-N3-agP"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect Transfer SDK demo app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeD-ER-NI3">
+                                <rect key="frame" x="24" y="48" width="366" height="26"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqR-Uu-FvK">
+                                <rect key="frame" x="24" y="114" width="366" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get started, copy/paste a generated Connect Transfer URL value into the field below." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxR-1i-wmq">
+                                        <rect key="frame" x="16" y="16" width="334" height="58"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="0.096115757039999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="MxR-1i-wmq" firstAttribute="leading" secondItem="hqR-Uu-FvK" secondAttribute="leading" constant="16" id="VNW-6o-bCb"/>
+                                    <constraint firstAttribute="trailing" secondItem="MxR-1i-wmq" secondAttribute="trailing" constant="16" id="Wi0-Ow-icD"/>
+                                    <constraint firstItem="MxR-1i-wmq" firstAttribute="top" secondItem="hqR-Uu-FvK" secondAttribute="top" constant="16" id="bDT-fn-S6h"/>
+                                    <constraint firstAttribute="bottom" secondItem="MxR-1i-wmq" secondAttribute="bottom" constant="16" id="xMn-YU-dX7"/>
+                                    <constraint firstAttribute="height" constant="90" id="znN-cs-byP"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Gm3-EV-oLf">
+                                <rect key="frame" x="188.5" y="234" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Paste Generated Connect Transfer URL Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HPL-bJ-4Wh">
+                                <rect key="frame" x="24" y="301" width="366" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="v8X-Fl-fUO"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ohe-HS-TrW" id="eJq-iO-k0Z"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKo-u4-zxd">
+                                <rect key="frame" x="24" y="381" width="366" height="48"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="0.1620268486" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="oMn-Gu-2ZG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Launch Connect Transfer">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="launchConnectTransferAction:" destination="ohe-HS-TrW" eventType="touchUpInside" id="gMH-BH-xC3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CEg-ET-dp0"/>
+                        <color key="backgroundColor" red="0.0039215686269999999" green="0.53725490200000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="CEg-ET-dp0" firstAttribute="trailing" secondItem="hqR-Uu-FvK" secondAttribute="trailing" constant="24" id="3Nd-TP-pW5"/>
+                            <constraint firstItem="HPL-bJ-4Wh" firstAttribute="top" secondItem="Gm3-EV-oLf" secondAttribute="bottom" constant="30" id="3PI-4i-1UQ"/>
+                            <constraint firstItem="CEg-ET-dp0" firstAttribute="trailing" secondItem="NeD-ER-NI3" secondAttribute="trailing" constant="24" id="6jA-3o-KaS"/>
+                            <constraint firstItem="mKo-u4-zxd" firstAttribute="top" secondItem="HPL-bJ-4Wh" secondAttribute="bottom" constant="24" id="8Ah-O3-NwT"/>
+                            <constraint firstItem="CEg-ET-dp0" firstAttribute="trailing" secondItem="HPL-bJ-4Wh" secondAttribute="trailing" constant="24" id="8bS-JQ-DqJ"/>
+                            <constraint firstItem="HPL-bJ-4Wh" firstAttribute="leading" secondItem="CEg-ET-dp0" secondAttribute="leading" constant="24" id="9LO-42-ddJ"/>
+                            <constraint firstItem="mKo-u4-zxd" firstAttribute="leading" secondItem="HPL-bJ-4Wh" secondAttribute="leading" id="BGq-s4-WeS"/>
+                            <constraint firstItem="hqR-Uu-FvK" firstAttribute="leading" secondItem="CEg-ET-dp0" secondAttribute="leading" constant="24" id="GM6-Zh-RSO"/>
+                            <constraint firstItem="Gm3-EV-oLf" firstAttribute="top" secondItem="hqR-Uu-FvK" secondAttribute="bottom" constant="30" id="RPi-1B-hRg"/>
+                            <constraint firstItem="NeD-ER-NI3" firstAttribute="leading" secondItem="CEg-ET-dp0" secondAttribute="leading" constant="24" id="Zgf-RD-a07"/>
+                            <constraint firstItem="NeD-ER-NI3" firstAttribute="top" secondItem="naE-GA-yir" secondAttribute="bottom" id="aV5-uc-RSh"/>
+                            <constraint firstItem="naE-GA-yir" firstAttribute="top" secondItem="CEg-ET-dp0" secondAttribute="top" id="dLM-QW-Ha3"/>
+                            <constraint firstItem="naE-GA-yir" firstAttribute="centerX" secondItem="0ZM-yf-4HQ" secondAttribute="centerX" id="gse-w1-ySp"/>
+                            <constraint firstItem="Gm3-EV-oLf" firstAttribute="centerX" secondItem="0ZM-yf-4HQ" secondAttribute="centerX" id="sKq-nq-nLQ"/>
+                            <constraint firstItem="mKo-u4-zxd" firstAttribute="trailing" secondItem="HPL-bJ-4Wh" secondAttribute="trailing" id="u9r-6W-Qid"/>
+                            <constraint firstItem="hqR-Uu-FvK" firstAttribute="top" secondItem="NeD-ER-NI3" secondAttribute="bottom" constant="40" id="zFn-oB-XNv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qlh-F3-RDA"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Gm3-EV-oLf" id="j9x-Fo-nlT"/>
+                        <outlet property="infoView" destination="hqR-Uu-FvK" id="ip9-vJ-C5l"/>
+                        <outlet property="launchConnectTransferButton" destination="mKo-u4-zxd" id="zEV-nO-R7g"/>
+                        <outlet property="pdsURLInput" destination="HPL-bJ-4Wh" id="fvz-gB-iVL"/>
+                        <outlet property="urlInput" destination="HPL-bJ-4Wh" id="6ZE-XZ-ejK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lek-iz-Ti0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1090" y="121"/>
+        </scene>
+    </scenes>
+</document>
