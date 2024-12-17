@@ -1,7 +1,6 @@
-# Connect Transfer iOS SDK ChangeLog
+# Connect Transfer iOS SDK Changelog
 
-## Version 1.0.0 - 2024-11-27
+### 1.0.0 (December 17, 2024)
 
-### Changes
-- Initial release to CocoaPods.
-- New Connect Transfer iOS SDK to support Payroll Deposit Switch.
+Initial Release:
+- Connect Transfer iOS SDK to support Payroll Deposit Switch.
