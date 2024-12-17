@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21B338A625C9F4EC00111067 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B338A525C9F4EC00111067 /* AccessibilityIdentifier.swift */; };
 		6BE8C13A23B137C8003C92AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE8C13923B137C8003C92AE /* AppDelegate.swift */; };
 		6BE8C13C23B137C8003C92AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE8C13B23B137C8003C92AE /* SceneDelegate.swift */; };
 		6BE8C13E23B137C8003C92AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE8C13D23B137C8003C92AE /* ViewController.swift */; };
@@ -34,7 +33,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		21B338A525C9F4EC00111067 /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
 		6BE8C13623B137C8003C92AE /* ConnectTransferWrapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectTransferWrapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BE8C13923B137C8003C92AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BE8C13B23B137C8003C92AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 				6BE8C14223B137C9003C92AE /* Assets.xcassets */,
 				6BE8C14423B137C9003C92AE /* LaunchScreen.storyboard */,
 				6BE8C14723B137C9003C92AE /* Info.plist */,
-				21B338A525C9F4EC00111067 /* AccessibilityIdentifier.swift */,
 			);
 			path = ConnectTransferWrapper;
 			sourceTree = "<group>";
@@ -180,7 +177,6 @@
 				6BE8C13E23B137C8003C92AE /* ViewController.swift in Sources */,
 				6BE8C13A23B137C8003C92AE /* AppDelegate.swift in Sources */,
 				6BE8C13C23B137C8003C92AE /* SceneDelegate.swift in Sources */,
-				21B338A625C9F4EC00111067 /* AccessibilityIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

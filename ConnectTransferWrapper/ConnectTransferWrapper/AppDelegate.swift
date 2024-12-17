@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ConnectTransferWrapper
 //
-//  Copyright © 2022 MastercardOpenBanking. All rights reserved.
+//  Copyright © 2024 MastercardOpenBanking. All rights reserved.
 //
 
 import UIKit

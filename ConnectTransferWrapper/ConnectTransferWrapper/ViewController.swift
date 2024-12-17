@@ -1,8 +1,7 @@
 //
 //  ViewController.swift
-//  TestApp
+//  ConnectTransferWrapper
 //
-//  Created by Jimmie Wright on 12/11/20.
 //  Copyright © 2024 MastercardOpenBanking. All rights reserved.
 //
 
