@@ -16,6 +16,14 @@ Note that this Connect Transfer SDK is not suitable for Mastercard Open Banking 
 
 Install the Connect Transfer iOS SDK using CocoaPods Support or by manually dragging ConnectTransfer.xcframework into your Xcode project.
 
+### Swift Package Manager
+
+To install the Connect Transfer iOS SDK Please perform the below steps.
+Inside Xcode, go to Project Settings -> Project -> Package Dependencies and click the + to add a new Package.
+
+Enter the Package URL
+https://github.com/Mastercard/connect-transfer-ios-sdk
+
 ### CocoaPods
 
 To install the Connect Transfer iOS SDK include the following in your Podfile.
