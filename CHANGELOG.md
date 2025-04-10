@@ -1,6 +1,6 @@
 # Connect Transfer iOS SDK Changelog
 
-### 1.2.0 (April 8, 2025)
+### 1.2.0 (April 10, 2025)
 
 Changes:
 - Additional support for bill pay switch feature.
