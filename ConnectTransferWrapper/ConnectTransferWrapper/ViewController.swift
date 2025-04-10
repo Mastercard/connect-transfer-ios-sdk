@@ -139,17 +139,8 @@ extension ViewController: ConnectTransferEventDelegate {
     
     func onTransferEnd(_ data: NSDictionary?) {
         print(data as Any)
-        if Thread.isMainThread {
-            
-            let alert = UIAlertController(title: "Error", message: data!["reason"] as? String ?? "" , preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
-            self.present(alert, animated: true)
-            
-        }else {
-            DispatchQueue.main.async {
-                self.onTransferEnd(data)
-            }
-        }
+        self.transferViewController = nil
+        self.connectNavController = nil
     }
     
     func onUserEvent(_ data: NSDictionary?) {
