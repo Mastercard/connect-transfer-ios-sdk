@@ -1,13 +1,18 @@
 # Connect Transfer iOS SDK Changelog
 
+### 1.2.1 (April 28, 2025)
+
+Changed:
+- Send an error event in case of invalid URL passed.
+
 ### 1.2.0 (April 10, 2025)
 
-Changes:
+Changed:
 - Additional support for bill pay switch feature.
 
 ### 1.1.0 (March 26, 2025)
 
-Changes:
+Changed:
 - Added enhancements to support partner specific experience.
 
 ### 1.0.0 (December 17, 2024)

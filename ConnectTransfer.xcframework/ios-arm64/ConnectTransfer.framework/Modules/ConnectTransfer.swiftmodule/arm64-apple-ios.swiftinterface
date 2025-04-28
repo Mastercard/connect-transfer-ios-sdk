@@ -19,6 +19,7 @@ public protocol ConnectTransferEventDelegate : AnyObject {
   func onLaunchTransferSwitch(_ data: Foundation.NSDictionary?)
   func onTransferEnd(_ data: Foundation.NSDictionary?)
   func onUserEvent(_ data: Foundation.NSDictionary?)
+  func onErrorEvent(_ data: Foundation.NSDictionary?)
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class ConnectTransferViewController : UIKit.UIViewController {
   @_Concurrency.MainActor @preconcurrency weak public var delegate: (any ConnectTransfer.ConnectTransferEventDelegate)?

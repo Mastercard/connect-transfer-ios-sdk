@@ -147,4 +147,7 @@ extension ViewController: ConnectTransferEventDelegate {
         print(data as Any)
     }
     
+    func onErrorEvent(_ data: NSDictionary?) {
+        print(data as Any)
+    }
 }
