@@ -6,7 +6,7 @@ The Connect Transfer iOS SDK allows you to embed MastercardOpenBanking Connect T
 
 For details of how to integrate Connect Transfer using the Connect Transfer SDKs see the following:
 
-* [Integrating with Connect Transfer](https://developer.mastercard.com/open-banking-us/documentation/products/pay/deposit-switch/#using-the-connect-transfer-ios-and-android-sdks)
+* [Integrating with Connect Transfer](https://developer.mastercard.com/open-banking-us/documentation/products/pay/switch/connect-transfer)
 
 ## Compatibility
 

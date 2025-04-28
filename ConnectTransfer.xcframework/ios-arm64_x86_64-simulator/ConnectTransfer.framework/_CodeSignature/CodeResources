@@ -26,19 +26,19 @@
 		</data>
 		<key>Headers/ConnectTransfer-Swift.h</key>
 		<data>
-		OvdiQhEt3LEEqQa/qs09gqHzz9U=
+		VJS2SfhavqgvysTt8DXNBKpqbRk=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		3Cf6X/FP4sE9Pu7KhUmLRlV3rPo=
+		wfs8gkb/m9OKIMv8aiq3Uo9v5yA=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		NxHGvtagLRVmsJ9HvCG/wKCn21U=
+		AeuLLEMGDXQH4JkYHcCM2fe5SEY=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		Nbek9VMvqZUZzVsMRSL7IWqfqCU=
+		bqkLe74qnQGnXLQ+xHWxwxRyOuE=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,19 +46,19 @@
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		Nbek9VMvqZUZzVsMRSL7IWqfqCU=
+		bqkLe74qnQGnXLQ+xHWxwxRyOuE=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		6l+zfe1iFvootiTTXDL9zdtevLk=
+		kIZt2XWZh39WrTqekQpLRMf9jj4=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		NxHGvtagLRVmsJ9HvCG/wKCn21U=
+		AeuLLEMGDXQH4JkYHcCM2fe5SEY=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		qH3PoIc0sCVMB8JuaGDmvRpRFSQ=
+		p8X+y7S+x4jsi0hYapcSOJP51K8=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -66,11 +66,11 @@
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		qH3PoIc0sCVMB8JuaGDmvRpRFSQ=
+		p8X+y7S+x4jsi0hYapcSOJP51K8=
 		</data>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		hMKsDacVtvcmjWuNGTJM0zpaJjc=
+		nrQm8s3+fsGGApMMlcOzfa7F8KE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -148,21 +148,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NZvB3YMuYAzb571y6F+qS0Roixq3CEyehkCs2s9csJY=
+			feQAPWqWXI/2YUzJyeO4qZWsWwB2nAQwTTfq/bcOzmI=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eqo94kDaNqLSkZIYn++se5Kcop07OT3Gyduej2fgJTA=
+			0hD0+qZiFmTiU6o7covJT+0b6/bCFGI8phvsMB0FoQg=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ld8cjTFRwVyxszgBfO2aDU7IA9I/NyodrNg5qSUXJaQ=
+			DYdNSUfDygnJdjNV8upMN+gjD2bXY9h7GD3TXcgYXAQ=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -176,28 +176,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ld8cjTFRwVyxszgBfO2aDU7IA9I/NyodrNg5qSUXJaQ=
+			DYdNSUfDygnJdjNV8upMN+gjD2bXY9h7GD3TXcgYXAQ=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kgCPcfO3BNdAEvfFvHnGCjYK9uULGCOM0YL2CwHzkxs=
+			EutOeFLxoOmPTDTANK5BoNkyytT3IUFnTXI3IDIMzjs=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eqo94kDaNqLSkZIYn++se5Kcop07OT3Gyduej2fgJTA=
+			0hD0+qZiFmTiU6o7covJT+0b6/bCFGI8phvsMB0FoQg=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ML3ckJPiYWDvssFaP8LpqiZdL0KIN0P3C6ZZ83X489I=
+			8/21QL5lQLZ97nr0XuJ24dSnNSSszpq3ZIZ/HGxbBq0=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -211,14 +211,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ML3ckJPiYWDvssFaP8LpqiZdL0KIN0P3C6ZZ83X489I=
+			8/21QL5lQLZ97nr0XuJ24dSnNSSszpq3ZIZ/HGxbBq0=
 			</data>
 		</dict>
 		<key>Modules/ConnectTransfer.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tQbIxcOgd05NIJU++GdsXH5zILTACMOn57PIM6l6PdA=
+			ZHgRUBpQmhczyR7jmS1EIplwAHkOaVuXU978SvXu6i4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
