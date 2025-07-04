@@ -1,5 +1,10 @@
 # Connect Transfer iOS SDK Changelog
 
+### 1.3.0 (July 4, 2025)
+
+Changed:
+- Added task and auth events in Bill pay switch.
+
 ### 1.2.1 (April 28, 2025)
 
 Changed:

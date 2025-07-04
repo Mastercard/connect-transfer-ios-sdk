@@ -30,3 +30,31 @@ public protocol ConnectTransferEventDelegate : AnyObject {
 extension ConnectTransfer.ConnectTransferViewController : SafariServices.SFSafariViewControllerDelegate {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func safariViewControllerDidFinish(_ controller: SafariServices.SFSafariViewController)
 }
+public protocol ConnectTransferViewEventDelegate {
+  func onInitializeConnectTransfer(_ data: Foundation.NSDictionary?)
+  func onTermsAndConditionsAccepted(_ data: Foundation.NSDictionary?)
+  func onLaunchTransferSwitch(_ data: Foundation.NSDictionary?)
+  func onTransferEnd(_ data: Foundation.NSDictionary?)
+  func onUserEvent(_ data: Foundation.NSDictionary?)
+  func onErrorEvent(_ data: Foundation.NSDictionary?)
+}
+@_Concurrency.MainActor @preconcurrency public struct ConnectTransferView : SwiftUI.UIViewControllerRepresentable {
+  @_Concurrency.MainActor @preconcurrency public var delegate: (any ConnectTransfer.ConnectTransferViewEventDelegate)?
+  @_Concurrency.MainActor @preconcurrency public init(connectTransferUrl: Swift.String, delegate: (any ConnectTransfer.ConnectTransferViewEventDelegate)? = nil)
+  @_Concurrency.MainActor @preconcurrency public func makeUIViewController(context: ConnectTransfer.ConnectTransferView.Context) -> UIKit.UINavigationController
+  @_Concurrency.MainActor @preconcurrency public func updateUIViewController(_ uiViewController: UIKit.UINavigationController, context: ConnectTransfer.ConnectTransferView.Context)
+  @_Concurrency.MainActor @preconcurrency public func makeCoordinator() -> ConnectTransfer.Coordinator
+  public typealias Body = Swift.Never
+  public typealias Coordinator = ConnectTransfer.Coordinator
+  public typealias UIViewControllerType = UIKit.UINavigationController
+}
+@_hasMissingDesignatedInitializers public class Coordinator : ConnectTransfer.ConnectTransferEventDelegate {
+  public func onInitializeConnectTransfer(_ data: Foundation.NSDictionary?)
+  public func onLaunchTransferSwitch(_ data: Foundation.NSDictionary?)
+  public func onTermsAndConditionsAccepted(_ data: Foundation.NSDictionary?)
+  public func onTransferEnd(_ data: Foundation.NSDictionary?)
+  public func onUserEvent(_ data: Foundation.NSDictionary?)
+  public func onErrorEvent(_ data: Foundation.NSDictionary?)
+  @objc deinit
+}
+extension ConnectTransfer.ConnectTransferView : Swift.Sendable {}

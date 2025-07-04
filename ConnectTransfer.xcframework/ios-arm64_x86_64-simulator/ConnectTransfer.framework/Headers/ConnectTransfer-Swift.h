@@ -315,12 +315,12 @@ SWIFT_CLASS("_TtC15ConnectTransfer29ConnectTransferViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
+
 @class SFSafariViewController;
 
 @interface ConnectTransferViewController (SWIFT_EXTENSION(ConnectTransfer)) <SFSafariViewControllerDelegate>
 - (void)safariViewControllerDidFinish:(SFSafariViewController * _Nonnull)controller;
 @end
-
 
 
 
@@ -657,12 +657,12 @@ SWIFT_CLASS("_TtC15ConnectTransfer29ConnectTransferViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
+
 @class SFSafariViewController;
 
 @interface ConnectTransferViewController (SWIFT_EXTENSION(ConnectTransfer)) <SFSafariViewControllerDelegate>
 - (void)safariViewControllerDidFinish:(SFSafariViewController * _Nonnull)controller;
 @end
-
 
 
 

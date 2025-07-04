@@ -10,11 +10,11 @@ For details of how to integrate Connect Transfer using the Connect Transfer SDKs
 
 ## Compatibility
 
-The Connect Transfer iOS SDK supports iOS 14 or later.
+The Connect Transfer iOS SDK supports iOS 15.6 or later.
 Note that this Connect Transfer SDK is not suitable for Mastercard Open Banking Europe.
 
 ## ConnectTransferWrapper Swift Sample App
 
-This repository contains a sample application ConnectTransferWrapper written in Swift (requires Xcode 14 or greater) that demonstrates integration and use of Connect Transfer iOS SDK.
+This repository contains a sample application ConnectTransferWrapper written in Swift and ConnectTransferSwiftUIWrapper written in SwiftUI (requires Xcode 14 or greater) that demonstrates integration and use of Connect Transfer iOS SDK.
 
 
