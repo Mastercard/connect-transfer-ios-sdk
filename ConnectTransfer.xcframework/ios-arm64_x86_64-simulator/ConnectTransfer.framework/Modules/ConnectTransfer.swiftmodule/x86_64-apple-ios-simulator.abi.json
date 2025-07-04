@@ -111,6 +111,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ConnectTransfer",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -197,6 +207,23 @@
         "kind": "Import",
         "name": "Combine",
         "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "ConnectTransfer"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ConnectTransfer",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AtomicTransact",
+        "printedName": "AtomicTransact",
         "declKind": "Import",
         "moduleName": "ConnectTransfer"
       },
@@ -568,6 +595,23 @@
         "declAttributes": [
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ConnectTransfer",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "ConnectTransfer"
       },
       {
         "kind": "Import",
@@ -966,6 +1010,862 @@
       },
       {
         "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "ConnectTransfer",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ConnectTransferViewEventDelegate",
+        "printedName": "ConnectTransferViewEventDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "onInitializeConnectTransfer",
+            "printedName": "onInitializeConnectTransfer(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer0aB17ViewEventDelegateP012onInitializeaB0yySo12NSDictionaryCSgF",
+            "mangledName": "$s15ConnectTransfer0aB17ViewEventDelegateP012onInitializeaB0yySo12NSDictionaryCSgF",
+            "moduleName": "ConnectTransfer",
+            "genericSig": "<τ_0_0 where τ_0_0 : ConnectTransfer.ConnectTransferViewEventDelegate>",
+            "sugared_genericSig": "<Self where Self : ConnectTransfer.ConnectTransferViewEventDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onTermsAndConditionsAccepted",
+            "printedName": "onTermsAndConditionsAccepted(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer0aB17ViewEventDelegateP28onTermsAndConditionsAcceptedyySo12NSDictionaryCSgF",
+            "mangledName": "$s15ConnectTransfer0aB17ViewEventDelegateP28onTermsAndConditionsAcceptedyySo12NSDictionaryCSgF",
+            "moduleName": "ConnectTransfer",
+            "genericSig": "<τ_0_0 where τ_0_0 : ConnectTransfer.ConnectTransferViewEventDelegate>",
+            "sugared_genericSig": "<Self where Self : ConnectTransfer.ConnectTransferViewEventDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onLaunchTransferSwitch",
+            "printedName": "onLaunchTransferSwitch(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer0aB17ViewEventDelegateP08onLaunchB6SwitchyySo12NSDictionaryCSgF",
+            "mangledName": "$s15ConnectTransfer0aB17ViewEventDelegateP08onLaunchB6SwitchyySo12NSDictionaryCSgF",
+            "moduleName": "ConnectTransfer",
+            "genericSig": "<τ_0_0 where τ_0_0 : ConnectTransfer.ConnectTransferViewEventDelegate>",
+            "sugared_genericSig": "<Self where Self : ConnectTransfer.ConnectTransferViewEventDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onTransferEnd",
+            "printedName": "onTransferEnd(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer0aB17ViewEventDelegateP02onB3EndyySo12NSDictionaryCSgF",
+            "mangledName": "$s15ConnectTransfer0aB17ViewEventDelegateP02onB3EndyySo12NSDictionaryCSgF",
+            "moduleName": "ConnectTransfer",
+            "genericSig": "<τ_0_0 where τ_0_0 : ConnectTransfer.ConnectTransferViewEventDelegate>",
+            "sugared_genericSig": "<Self where Self : ConnectTransfer.ConnectTransferViewEventDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onUserEvent",
+            "printedName": "onUserEvent(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer0aB17ViewEventDelegateP06onUserD0yySo12NSDictionaryCSgF",
+            "mangledName": "$s15ConnectTransfer0aB17ViewEventDelegateP06onUserD0yySo12NSDictionaryCSgF",
+            "moduleName": "ConnectTransfer",
+            "genericSig": "<τ_0_0 where τ_0_0 : ConnectTransfer.ConnectTransferViewEventDelegate>",
+            "sugared_genericSig": "<Self where Self : ConnectTransfer.ConnectTransferViewEventDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onErrorEvent",
+            "printedName": "onErrorEvent(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer0aB17ViewEventDelegateP07onErrorD0yySo12NSDictionaryCSgF",
+            "mangledName": "$s15ConnectTransfer0aB17ViewEventDelegateP07onErrorD0yySo12NSDictionaryCSgF",
+            "moduleName": "ConnectTransfer",
+            "genericSig": "<τ_0_0 where τ_0_0 : ConnectTransfer.ConnectTransferViewEventDelegate>",
+            "sugared_genericSig": "<Self where Self : ConnectTransfer.ConnectTransferViewEventDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:15ConnectTransfer0aB17ViewEventDelegateP",
+        "mangledName": "$s15ConnectTransfer0aB17ViewEventDelegateP",
+        "moduleName": "ConnectTransfer",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ConnectTransferView",
+        "printedName": "ConnectTransferView",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "delegate",
+            "printedName": "delegate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any ConnectTransfer.ConnectTransferViewEventDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ConnectTransferViewEventDelegate",
+                    "printedName": "any ConnectTransfer.ConnectTransferViewEventDelegate",
+                    "usr": "s:15ConnectTransfer0aB17ViewEventDelegateP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15ConnectTransfer0aB4ViewV8delegateAA0abC13EventDelegate_pSgvp",
+            "mangledName": "$s15ConnectTransfer0aB4ViewV8delegateAA0abC13EventDelegate_pSgvp",
+            "moduleName": "ConnectTransfer",
+            "declAttributes": [
+              "HasInitialValue",
+              "Preconcurrency",
+              "Custom",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any ConnectTransfer.ConnectTransferViewEventDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ConnectTransferViewEventDelegate",
+                        "printedName": "any ConnectTransfer.ConnectTransferViewEventDelegate",
+                        "usr": "s:15ConnectTransfer0aB17ViewEventDelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15ConnectTransfer0aB4ViewV8delegateAA0abC13EventDelegate_pSgvg",
+                "mangledName": "$s15ConnectTransfer0aB4ViewV8delegateAA0abC13EventDelegate_pSgvg",
+                "moduleName": "ConnectTransfer",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any ConnectTransfer.ConnectTransferViewEventDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ConnectTransferViewEventDelegate",
+                        "printedName": "any ConnectTransfer.ConnectTransferViewEventDelegate",
+                        "usr": "s:15ConnectTransfer0aB17ViewEventDelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15ConnectTransfer0aB4ViewV8delegateAA0abC13EventDelegate_pSgvs",
+                "mangledName": "$s15ConnectTransfer0aB4ViewV8delegateAA0abC13EventDelegate_pSgvs",
+                "moduleName": "ConnectTransfer",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15ConnectTransfer0aB4ViewV8delegateAA0abC13EventDelegate_pSgvM",
+                "mangledName": "$s15ConnectTransfer0aB4ViewV8delegateAA0abC13EventDelegate_pSgvM",
+                "moduleName": "ConnectTransfer",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(connectTransferUrl:delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ConnectTransferView",
+                "printedName": "ConnectTransfer.ConnectTransferView",
+                "usr": "s:15ConnectTransfer0aB4ViewV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any ConnectTransfer.ConnectTransferViewEventDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ConnectTransferViewEventDelegate",
+                    "printedName": "any ConnectTransfer.ConnectTransferViewEventDelegate",
+                    "usr": "s:15ConnectTransfer0aB17ViewEventDelegateP"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15ConnectTransfer0aB4ViewV07connectB3Url8delegateACSS_AA0abC13EventDelegate_pSgtcfc",
+            "mangledName": "$s15ConnectTransfer0aB4ViewV07connectB3Url8delegateACSS_AA0abC13EventDelegate_pSgtcfc",
+            "moduleName": "ConnectTransfer",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "makeUIViewController",
+            "printedName": "makeUIViewController(context:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UINavigationController",
+                "printedName": "UIKit.UINavigationController",
+                "usr": "c:objc(cs)UINavigationController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewControllerRepresentableContext",
+                "printedName": "SwiftUI.UIViewControllerRepresentableContext<ConnectTransfer.ConnectTransferView>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ConnectTransferView",
+                    "printedName": "ConnectTransfer.ConnectTransferView",
+                    "usr": "s:15ConnectTransfer0aB4ViewV"
+                  }
+                ],
+                "usr": "s:7SwiftUI36UIViewControllerRepresentableContextV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer0aB4ViewV20makeUIViewController7contextSo012UINavigationF0C7SwiftUI0eF20RepresentableContextVyACG_tF",
+            "mangledName": "$s15ConnectTransfer0aB4ViewV20makeUIViewController7contextSo012UINavigationF0C7SwiftUI0eF20RepresentableContextVyACG_tF",
+            "moduleName": "ConnectTransfer",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "updateUIViewController",
+            "printedName": "updateUIViewController(_:context:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UINavigationController",
+                "printedName": "UIKit.UINavigationController",
+                "usr": "c:objc(cs)UINavigationController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewControllerRepresentableContext",
+                "printedName": "SwiftUI.UIViewControllerRepresentableContext<ConnectTransfer.ConnectTransferView>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ConnectTransferView",
+                    "printedName": "ConnectTransfer.ConnectTransferView",
+                    "usr": "s:15ConnectTransfer0aB4ViewV"
+                  }
+                ],
+                "usr": "s:7SwiftUI36UIViewControllerRepresentableContextV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer0aB4ViewV22updateUIViewController_7contextySo012UINavigationF0C_7SwiftUI0eF20RepresentableContextVyACGtF",
+            "mangledName": "$s15ConnectTransfer0aB4ViewV22updateUIViewController_7contextySo012UINavigationF0C_7SwiftUI0eF20RepresentableContextVyACGtF",
+            "moduleName": "ConnectTransfer",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "makeCoordinator",
+            "printedName": "makeCoordinator()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Coordinator",
+                "printedName": "ConnectTransfer.Coordinator",
+                "usr": "s:15ConnectTransfer11CoordinatorC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer0aB4ViewV15makeCoordinatorAA0E0CyF",
+            "mangledName": "$s15ConnectTransfer0aB4ViewV15makeCoordinatorAA0E0CyF",
+            "moduleName": "ConnectTransfer",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:15ConnectTransfer0aB4ViewV",
+        "mangledName": "$s15ConnectTransfer0aB4ViewV",
+        "moduleName": "ConnectTransfer",
+        "declAttributes": [
+          "Preconcurrency",
+          "Custom",
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UIViewControllerRepresentable",
+            "printedName": "UIViewControllerRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "UIViewControllerType",
+                "printedName": "UIViewControllerType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UINavigationController",
+                    "printedName": "UIKit.UINavigationController",
+                    "usr": "c:objc(cs)UINavigationController"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Coordinator",
+                "printedName": "Coordinator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Coordinator",
+                    "printedName": "ConnectTransfer.Coordinator",
+                    "usr": "s:15ConnectTransfer11CoordinatorC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI29UIViewControllerRepresentableP",
+            "mangledName": "$s7SwiftUI29UIViewControllerRepresentableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "View",
+            "printedName": "View",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Body",
+                "printedName": "Body",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Never",
+                    "printedName": "Swift.Never",
+                    "usr": "s:s5NeverO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI4ViewP",
+            "mangledName": "$s7SwiftUI4ViewP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Coordinator",
+        "printedName": "Coordinator",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "onInitializeConnectTransfer",
+            "printedName": "onInitializeConnectTransfer(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer11CoordinatorC012onInitializeaB0yySo12NSDictionaryCSgF",
+            "mangledName": "$s15ConnectTransfer11CoordinatorC012onInitializeaB0yySo12NSDictionaryCSgF",
+            "moduleName": "ConnectTransfer",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onLaunchTransferSwitch",
+            "printedName": "onLaunchTransferSwitch(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer11CoordinatorC08onLaunchB6SwitchyySo12NSDictionaryCSgF",
+            "mangledName": "$s15ConnectTransfer11CoordinatorC08onLaunchB6SwitchyySo12NSDictionaryCSgF",
+            "moduleName": "ConnectTransfer",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onTermsAndConditionsAccepted",
+            "printedName": "onTermsAndConditionsAccepted(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer11CoordinatorC28onTermsAndConditionsAcceptedyySo12NSDictionaryCSgF",
+            "mangledName": "$s15ConnectTransfer11CoordinatorC28onTermsAndConditionsAcceptedyySo12NSDictionaryCSgF",
+            "moduleName": "ConnectTransfer",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onTransferEnd",
+            "printedName": "onTransferEnd(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer11CoordinatorC02onB3EndyySo12NSDictionaryCSgF",
+            "mangledName": "$s15ConnectTransfer11CoordinatorC02onB3EndyySo12NSDictionaryCSgF",
+            "moduleName": "ConnectTransfer",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onUserEvent",
+            "printedName": "onUserEvent(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer11CoordinatorC11onUserEventyySo12NSDictionaryCSgF",
+            "mangledName": "$s15ConnectTransfer11CoordinatorC11onUserEventyySo12NSDictionaryCSgF",
+            "moduleName": "ConnectTransfer",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onErrorEvent",
+            "printedName": "onErrorEvent(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15ConnectTransfer11CoordinatorC12onErrorEventyySo12NSDictionaryCSgF",
+            "mangledName": "$s15ConnectTransfer11CoordinatorC12onErrorEventyySo12NSDictionaryCSgF",
+            "moduleName": "ConnectTransfer",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:15ConnectTransfer11CoordinatorC",
+        "mangledName": "$s15ConnectTransfer11CoordinatorC",
+        "moduleName": "ConnectTransfer",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ConnectTransferEventDelegate",
+            "printedName": "ConnectTransferEventDelegate",
+            "usr": "s:15ConnectTransfer0aB13EventDelegateP",
+            "mangledName": "$s15ConnectTransfer0aB13EventDelegateP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ConnectTransfer",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -1273,6 +2173,13 @@
       "value": "1.0"
     },
     {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/Helper.swift",
+      "kind": "StringLiteral",
+      "offset": 313,
+      "length": 5,
+      "value": "\"iOS\""
+    },
+    {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ExitPopUpView\/ViewController\/ExitPopUpViewController.swift",
       "kind": "StringLiteral",
       "offset": 659,
@@ -1282,294 +2189,294 @@
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 2957,
+      "offset": 3311,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 2960,
+      "offset": 3314,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 2972,
+      "offset": 3326,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 2975,
+      "offset": 3329,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 2986,
+      "offset": 3340,
       "length": 2,
       "value": "19"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 2989,
+      "offset": 3343,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "FloatLiteral",
-      "offset": 3001,
+      "offset": 3355,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3092,
+      "offset": 3446,
       "length": 2,
       "value": "63"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3095,
+      "offset": 3449,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3107,
+      "offset": 3461,
       "length": 2,
       "value": "75"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3110,
+      "offset": 3464,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3121,
+      "offset": 3475,
       "length": 2,
       "value": "88"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3124,
+      "offset": 3478,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "FloatLiteral",
-      "offset": 3136,
+      "offset": 3490,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3229,
+      "offset": 3583,
       "length": 3,
       "value": "249"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3233,
+      "offset": 3587,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3245,
+      "offset": 3599,
       "length": 3,
       "value": "249"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3249,
+      "offset": 3603,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3260,
+      "offset": 3614,
       "length": 3,
       "value": "249"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3264,
+      "offset": 3618,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "FloatLiteral",
-      "offset": 3276,
+      "offset": 3630,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3365,
+      "offset": 3719,
       "length": 3,
       "value": "223"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3369,
+      "offset": 3723,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3381,
+      "offset": 3735,
       "length": 3,
       "value": "223"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3385,
+      "offset": 3739,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3396,
+      "offset": 3750,
       "length": 3,
       "value": "223"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3400,
+      "offset": 3754,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "FloatLiteral",
-      "offset": 3412,
+      "offset": 3766,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3502,
+      "offset": 3856,
       "length": 3,
       "value": "150"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3506,
+      "offset": 3860,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3518,
+      "offset": 3872,
       "length": 3,
       "value": "145"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3522,
+      "offset": 3876,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3533,
+      "offset": 3887,
       "length": 3,
       "value": "139"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3537,
+      "offset": 3891,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "FloatLiteral",
-      "offset": 3549,
+      "offset": 3903,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3641,
+      "offset": 3995,
       "length": 3,
       "value": "216"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3645,
+      "offset": 3999,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3657,
+      "offset": 4011,
       "length": 3,
       "value": "216"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3661,
+      "offset": 4015,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3672,
+      "offset": 4026,
       "length": 3,
       "value": "216"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "IntegerLiteral",
-      "offset": 3676,
+      "offset": 4030,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Util\/TransferViewControllerUtil.swift",
       "kind": "FloatLiteral",
-      "offset": 3688,
+      "offset": 4042,
       "length": 3,
       "value": "1.0"
     },
@@ -1597,562 +2504,737 @@
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 713,
+      "offset": 716,
+      "length": 8,
+      "value": "\"origin\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 740,
       "length": 5,
       "value": "\"ttl\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 735,
+      "offset": 762,
       "length": 6,
       "value": "\"type\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 764,
+      "offset": 791,
       "length": 12,
       "value": "\"experience\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 798,
+      "offset": 825,
       "length": 11,
       "value": "\"sessionId\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 826,
+      "offset": 853,
       "length": 6,
       "value": "\"code\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 851,
+      "offset": 878,
       "length": 8,
       "value": "\"reason\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 878,
+      "offset": 905,
       "length": 8,
       "value": "\"action\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 909,
+      "offset": 936,
       "length": 12,
       "value": "\"searchTerm\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 949,
+      "offset": 976,
       "length": 17,
       "value": "\"payrollProvider\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 994,
+      "offset": 1021,
       "length": 17,
       "value": "\"billPayProvider\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1048,
+      "offset": 1075,
       "length": 26,
       "value": "\"billPayUserAuthenticated\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1104,
+      "offset": 1131,
       "length": 19,
       "value": "\"paymentMethodType\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1145,
+      "offset": 1172,
       "length": 11,
       "value": "\"inputType\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1179,
+      "offset": 1206,
       "length": 12,
       "value": "\"buttonName\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1217,
+      "offset": 1244,
       "length": 15,
       "value": "\"depositOption\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1262,
+      "offset": 1289,
       "length": 19,
       "value": "\"depositAllocation\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1300,
+      "offset": 1327,
       "length": 8,
       "value": "\"status\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1328,
+      "offset": 1355,
       "length": 9,
       "value": "\"expired\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1357,
+      "offset": 1384,
       "length": 9,
       "value": "\"product\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1437,
+      "offset": 1414,
+      "length": 10,
+      "value": "\"switchId\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1451,
+      "length": 16,
+      "value": "\"taskWorkflowId\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1487,
+      "length": 9,
+      "value": "\"company\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1519,
+      "length": 12,
+      "value": "\"identifier\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1551,
+      "length": 9,
+      "value": "\"payroll\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1585,
+      "length": 14,
+      "value": "\"switchStatus\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1638,
+      "length": 28,
+      "value": "\"transactSwitchStatusUpdate\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1695,
+      "length": 18,
+      "value": "\"switchFailReason\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1750,
+      "length": 26,
+      "value": "\"transactAuthStatusUpdate\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1808,
+      "length": 21,
+      "value": "\"transactDataRequest\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1853,
+      "length": 13,
+      "value": "\"oauthStatus\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1937,
       "length": 20,
       "value": "\"InitializeTransfer\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1484,
+      "offset": 1984,
       "length": 15,
       "value": "\"TermsAccepted\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1515,
+      "offset": 2015,
       "length": 5,
       "value": "\"End\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1538,
+      "offset": 2038,
       "length": 7,
       "value": "\"Error\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
-      "kind": "StringLiteral",
-      "offset": 1607,
-      "length": 5,
-      "value": "\"400\""
+      "kind": "IntegerLiteral",
+      "offset": 2104,
+      "length": 3,
+      "value": "400"
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2138,
+      "length": 2,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2172,
+      "length": 3,
+      "value": "500"
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2207,
+      "length": 3,
+      "value": "100"
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2234,
+      "length": 3,
+      "value": "401"
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2261,
+      "length": 4,
+      "value": "1440"
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2285,
+      "length": 3,
+      "value": "200"
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1637,
-      "length": 5,
-      "value": "\"500\""
-    },
-    {
-      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
-      "kind": "StringLiteral",
-      "offset": 1674,
-      "length": 5,
-      "value": "\"100\""
-    },
-    {
-      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
-      "kind": "StringLiteral",
-      "offset": 1699,
-      "length": 5,
-      "value": "\"200\""
-    },
-    {
-      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
-      "kind": "StringLiteral",
-      "offset": 1799,
+      "offset": 2383,
       "length": 25,
       "value": "\"InitializeDepositSwitch\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1860,
+      "offset": 2444,
       "length": 23,
       "value": "\"SearchPayrollProvider\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1919,
+      "offset": 2503,
       "length": 23,
       "value": "\"SelectPayrollProvider\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1973,
+      "offset": 2557,
       "length": 19,
       "value": "\"SubmitCredentials\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2018,
+      "offset": 2602,
       "length": 14,
       "value": "\"ExternalLink\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2070,
+      "offset": 2654,
       "length": 25,
       "value": "\"ChangeDefaultAllocation\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2125,
+      "offset": 2709,
       "length": 18,
       "value": "\"SubmitAllocation\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2170,
+      "offset": 2754,
       "length": 15,
       "value": "\"TaskCompleted\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2210,
+      "offset": 2794,
       "length": 14,
       "value": "\"Unauthorized\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2289,
+      "offset": 2862,
+      "length": 39,
+      "value": "\"SelectedCompanyThroughPayrollProvider\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 2953,
+      "length": 37,
+      "value": "\"SelectedCompanyThroughFranchisePage\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 3055,
       "length": 25,
       "value": "\"InitializeBillPaySwitch\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2356,
+      "offset": 3122,
       "length": 28,
       "value": "\"ViewSearchPaylinkCompanies\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2421,
+      "offset": 3187,
       "length": 24,
       "value": "\"SearchPaylinkCompanies\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2482,
+      "offset": 3248,
       "length": 24,
       "value": "\"SelectPaylinkCompanies\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2534,
+      "offset": 3300,
       "length": 16,
       "value": "\"ChangedPayment\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2580,
+      "offset": 3346,
       "length": 17,
       "value": "\"ViewedLoginPage\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2628,
+      "offset": 3394,
       "length": 19,
       "value": "\"UserAuthenticated\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2678,
+      "offset": 3444,
       "length": 18,
       "value": "\"ReturnToCustomer\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2746,
+      "offset": 3496,
+      "length": 20,
+      "value": "\"onAuthStatusUpdate\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 3550,
+      "length": 20,
+      "value": "\"onTaskStatusUpdate\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 3620,
       "length": 6,
       "value": "\"exit\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2770,
+      "offset": 3644,
       "length": 7,
       "value": "\"error\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2797,
+      "offset": 3671,
       "length": 9,
       "value": "\"timeout\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2827,
+      "offset": 3701,
       "length": 10,
       "value": "\"complete\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2857,
+      "offset": 3731,
       "length": 9,
       "value": "\"unknown\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2956,
+      "offset": 3830,
       "length": 22,
       "value": "\"Initialized Transact\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 3035,
+      "offset": 3909,
       "length": 46,
       "value": "\"Selected Company From Search By Company Page\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 3134,
+      "offset": 4008,
       "length": 42,
       "value": "\"Clicked Continue From Form On Login Page\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 3233,
+      "offset": 4107,
       "length": 46,
       "value": "\"Clicked Continue From Form On Interrupt Page\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 3349,
+      "offset": 4223,
       "length": 59,
       "value": "\"Clicked External Login Recovery Link From Login Help Page\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 3473,
+      "offset": 4347,
       "length": 54,
       "value": "\"Clicked Continue From Percentage Deposit Amount Page\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 3587,
+      "offset": 4461,
       "length": 49,
       "value": "\"Clicked Continue From Fixed Deposit Amount Page\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 3687,
+      "offset": 4561,
       "length": 40,
       "value": "\"Clicked Button To Start Authentication\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 3766,
+      "offset": 4640,
       "length": 28,
       "value": "\"Viewed Task Completed Page\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 3838,
+      "offset": 4712,
       "length": 33,
       "value": "\"Viewed Access Unauthorized Page\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 3909,
+      "offset": 4783,
       "length": 27,
       "value": "\"Viewed Expired Token Page\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 3995,
+      "offset": 4869,
       "length": 19,
       "value": "\"Search By Company\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4085,
+      "offset": 4970,
+      "length": 71,
+      "value": "\"Selected Company From Typeahead Search By Configurable Connector Page\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 5100,
+      "length": 48,
+      "value": "\"Selected Company From Search By Franchise Page\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 5224,
+      "length": 65,
+      "value": "\"Clicked Distribution Type From Select From Deposit Options Page\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 5360,
       "length": 31,
       "value": "\"Viewed Search By Company Page\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4153,
+      "offset": 5428,
       "length": 18,
       "value": "\"Search Companies\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4206,
+      "offset": 5481,
       "length": 24,
       "value": "\"Changed Payment Method\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4260,
+      "offset": 5535,
       "length": 19,
       "value": "\"Viewed Login Page\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4321,
+      "offset": 5596,
       "length": 31,
       "value": "\"Native SDK User Authenticated\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Config\/ConnectTransferEventConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4412,
+      "offset": 5687,
       "length": 49,
       "value": "\"Clicked Return To Customer From Selections Page\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Model\/TransferModel.swift",
       "kind": "StringLiteral",
-      "offset": 322,
+      "offset": 372,
       "length": 7,
       "value": "\"token\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Model\/TransferModel.swift",
       "kind": "StringLiteral",
-      "offset": 358,
+      "offset": 408,
       "length": 6,
       "value": "\"data\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Model\/TransferModel.swift",
       "kind": "StringLiteral",
-      "offset": 933,
+      "offset": 450,
+      "length": 21,
+      "value": "\"auditServiceDetails\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Model\/TransferModel.swift",
+      "kind": "StringLiteral",
+      "offset": 1153,
       "length": 12,
       "value": "\"experience\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Model\/TransferModel.swift",
       "kind": "StringLiteral",
-      "offset": 979,
+      "offset": 1199,
       "length": 19,
       "value": "\"internalPartnerId\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Model\/TransferModel.swift",
       "kind": "StringLiteral",
-      "offset": 1027,
+      "offset": 1247,
       "length": 14,
       "value": "\"customerType\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Model\/TransferModel.swift",
       "kind": "StringLiteral",
-      "offset": 1066,
+      "offset": 1286,
       "length": 10,
       "value": "\"metadata\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Model\/TransferModel.swift",
       "kind": "StringLiteral",
-      "offset": 1100,
+      "offset": 1320,
       "length": 9,
       "value": "\"product\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Model\/TransferModel.swift",
       "kind": "StringLiteral",
-      "offset": 1135,
+      "offset": 1355,
       "length": 11,
       "value": "\"userToken\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Model\/TransferModel.swift",
       "kind": "StringLiteral",
-      "offset": 2091,
+      "offset": 2311,
       "length": 5,
       "value": "\"PDS\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Model\/TransferModel.swift",
       "kind": "StringLiteral",
-      "offset": 2112,
+      "offset": 2332,
       "length": 5,
       "value": "\"BPS\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Model\/TransferModel.swift",
       "kind": "StringLiteral",
-      "offset": 2904,
+      "offset": 3124,
       "length": 4,
       "value": "\"id\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Model\/TransferModel.swift",
       "kind": "StringLiteral",
-      "offset": 2940,
+      "offset": 3160,
       "length": 17,
       "value": "\"applicationName\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/Model\/TransferModel.swift",
       "kind": "StringLiteral",
-      "offset": 4271,
+      "offset": 4491,
       "length": 14,
       "value": "\"user_message\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/AuditService\/AuditServiceHelper\/AuditServiceHelper.swift",
+      "kind": "StringLiteral",
+      "offset": 574,
+      "length": 36,
+      "value": "\"%@\/partners\/%@\/customers\/%@\/events\""
+    },
+    {
+      "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/AuditService\/AuditServiceHelper\/AuditServiceHelper.swift",
+      "kind": "StringLiteral",
+      "offset": 643,
+      "length": 22,
+      "value": "\"connect-transfer-sdk\""
     },
     {
       "filePath": "\/Users\/e164762\/Downloads\/MasterCard_Apps\/connect-transfer-ios-sdk\/ConnectTransfer\/ConnectTransferView\/ViewModel\/ConnectTransferViewModel.swift",

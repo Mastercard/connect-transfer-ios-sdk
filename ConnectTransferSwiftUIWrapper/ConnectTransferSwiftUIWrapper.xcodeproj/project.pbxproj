@@ -1,0 +1,407 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F401AF972DD5F485005B8D76 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F401AF912DD5F485005B8D76 /* Preview Assets.xcassets */; };
+		F401AF982DD5F485005B8D76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F401AF932DD5F485005B8D76 /* Assets.xcassets */; };
+		F401AF992DD5F485005B8D76 /* ConnectTransferSwiftUIWrapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401AF942DD5F485005B8D76 /* ConnectTransferSwiftUIWrapperApp.swift */; };
+		F401AF9A2DD5F485005B8D76 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401AF952DD5F485005B8D76 /* ContentView.swift */; };
+		F401AFA22DD5F58D005B8D76 /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = F401AFA12DD5F58D005B8D76 /* AtomicTransact */; };
+		F401AFA52DD5F70D005B8D76 /* ConnectTransfer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F401AFA42DD5F70D005B8D76 /* ConnectTransfer.xcframework */; };
+		F401AFA62DD5F70D005B8D76 /* ConnectTransfer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F401AFA42DD5F70D005B8D76 /* ConnectTransfer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F401AFA72DD5F70D005B8D76 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F401AFA62DD5F70D005B8D76 /* ConnectTransfer.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F401AF802DD5F47C005B8D76 /* ConnectTransferSwiftUIWrapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectTransferSwiftUIWrapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F401AF912DD5F485005B8D76 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F401AF932DD5F485005B8D76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F401AF942DD5F485005B8D76 /* ConnectTransferSwiftUIWrapperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectTransferSwiftUIWrapperApp.swift; sourceTree = "<group>"; };
+		F401AF952DD5F485005B8D76 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F401AFA42DD5F70D005B8D76 /* ConnectTransfer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ConnectTransfer.xcframework; path = ../ConnectTransfer.xcframework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F401AF7D2DD5F47C005B8D76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F401AFA22DD5F58D005B8D76 /* AtomicTransact in Frameworks */,
+				F401AFA52DD5F70D005B8D76 /* ConnectTransfer.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F401AF772DD5F47C005B8D76 = {
+			isa = PBXGroup;
+			children = (
+				F401AF962DD5F485005B8D76 /* ConnectTransferSwiftUIWrapper */,
+				F401AFA32DD5F70D005B8D76 /* Frameworks */,
+				F401AF812DD5F47C005B8D76 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F401AF812DD5F47C005B8D76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F401AF802DD5F47C005B8D76 /* ConnectTransferSwiftUIWrapper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F401AF922DD5F485005B8D76 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F401AF912DD5F485005B8D76 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F401AF962DD5F485005B8D76 /* ConnectTransferSwiftUIWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				F401AF922DD5F485005B8D76 /* Preview Content */,
+				F401AF932DD5F485005B8D76 /* Assets.xcassets */,
+				F401AF942DD5F485005B8D76 /* ConnectTransferSwiftUIWrapperApp.swift */,
+				F401AF952DD5F485005B8D76 /* ContentView.swift */,
+			);
+			path = ConnectTransferSwiftUIWrapper;
+			sourceTree = "<group>";
+		};
+		F401AFA32DD5F70D005B8D76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F401AFA42DD5F70D005B8D76 /* ConnectTransfer.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F401AF7F2DD5F47C005B8D76 /* ConnectTransferSwiftUIWrapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F401AF8E2DD5F47E005B8D76 /* Build configuration list for PBXNativeTarget "ConnectTransferSwiftUIWrapper" */;
+			buildPhases = (
+				F401AF7C2DD5F47C005B8D76 /* Sources */,
+				F401AF7D2DD5F47C005B8D76 /* Frameworks */,
+				F401AF7E2DD5F47C005B8D76 /* Resources */,
+				F401AFA72DD5F70D005B8D76 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ConnectTransferSwiftUIWrapper;
+			packageProductDependencies = (
+				F401AFA12DD5F58D005B8D76 /* AtomicTransact */,
+			);
+			productName = ConnectTransferSwiftUIWrapper;
+			productReference = F401AF802DD5F47C005B8D76 /* ConnectTransferSwiftUIWrapper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F401AF782DD5F47C005B8D76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					F401AF7F2DD5F47C005B8D76 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = F401AF7B2DD5F47C005B8D76 /* Build configuration list for PBXProject "ConnectTransferSwiftUIWrapper" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F401AF772DD5F47C005B8D76;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F401AFA02DD5F58D005B8D76 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F401AF812DD5F47C005B8D76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F401AF7F2DD5F47C005B8D76 /* ConnectTransferSwiftUIWrapper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F401AF7E2DD5F47C005B8D76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F401AF972DD5F485005B8D76 /* Preview Assets.xcassets in Resources */,
+				F401AF982DD5F485005B8D76 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F401AF7C2DD5F47C005B8D76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F401AF992DD5F485005B8D76 /* ConnectTransferSwiftUIWrapperApp.swift in Sources */,
+				F401AF9A2DD5F485005B8D76 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F401AF8C2DD5F47E005B8D76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F401AF8D2DD5F47E005B8D76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F401AF8F2DD5F47E005B8D76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ConnectTransferSwiftUIWrapper/Preview Content\"";
+				DEVELOPMENT_TEAM = 5R8RGDXM32;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mastercard.openbanking.connectwrapper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F401AF902DD5F47E005B8D76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ConnectTransferSwiftUIWrapper/Preview Content\"";
+				DEVELOPMENT_TEAM = 5R8RGDXM32;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mastercard.openbanking.connectwrapper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F401AF7B2DD5F47C005B8D76 /* Build configuration list for PBXProject "ConnectTransferSwiftUIWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F401AF8C2DD5F47E005B8D76 /* Debug */,
+				F401AF8D2DD5F47E005B8D76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F401AF8E2DD5F47E005B8D76 /* Build configuration list for PBXNativeTarget "ConnectTransferSwiftUIWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F401AF8F2DD5F47E005B8D76 /* Debug */,
+				F401AF902DD5F47E005B8D76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F401AFA02DD5F58D005B8D76 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/atomicfi/atomic-transact-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 3.9.23;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F401AFA12DD5F58D005B8D76 /* AtomicTransact */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F401AFA02DD5F58D005B8D76 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
+			productName = AtomicTransact;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F401AF782DD5F47C005B8D76 /* Project object */;
+}
