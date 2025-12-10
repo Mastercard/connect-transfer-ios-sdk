@@ -1,5 +1,10 @@
 # Connect Transfer iOS SDK Changelog
 
+### 1.3.1 (December 10, 2025)
+
+Changed:
+- Fixed end event issue of audit service
+
 ### 1.3.0 (July 4, 2025)
 
 Changed:

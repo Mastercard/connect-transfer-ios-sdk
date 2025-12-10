@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Connect Transfer iOS SDK allows you to embed MastercardOpenBanking Connect Transfer anywhere you want within your own mobile applications.
+The Connect Transfer iOS SDK allows you to embed Mastercard Open Finance Connect Transfer anywhere you want within your own mobile applications.
 
 For details of how to integrate Connect Transfer using the Connect Transfer SDKs see the following:
 
@@ -11,7 +11,7 @@ For details of how to integrate Connect Transfer using the Connect Transfer SDKs
 ## Compatibility
 
 The Connect Transfer iOS SDK supports iOS 15.6 or later.
-Note that this Connect Transfer SDK is not suitable for Mastercard Open Banking Europe.
+Note that this Connect Transfer SDK is not suitable for Mastercard Open Finance Europe.
 
 ## ConnectTransferWrapper Swift Sample App
 

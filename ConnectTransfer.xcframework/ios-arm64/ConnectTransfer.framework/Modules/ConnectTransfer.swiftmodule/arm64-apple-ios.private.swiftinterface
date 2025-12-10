@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios15.6 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ConnectTransfer
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.2.1 effective-5.10 (swiftlang-6.2.1.4.8 clang-1700.4.4.1)
+// swift-module-flags: -target arm64-apple-ios15.6 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ConnectTransfer
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.1
 import AtomicTransact
 import Combine
 import DeveloperToolsSupport
@@ -14,12 +14,24 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 public protocol ConnectTransferEventDelegate : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   func onInitializeConnectTransfer(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func onTermsAndConditionsAccepted(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func onLaunchTransferSwitch(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func onTransferEnd(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func onUserEvent(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func onErrorEvent(_ data: Foundation.NSDictionary?)
+  #endif
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class ConnectTransferViewController : UIKit.UIViewController {
   @_Concurrency.MainActor @preconcurrency weak public var delegate: (any ConnectTransfer.ConnectTransferEventDelegate)?
@@ -31,16 +43,30 @@ extension ConnectTransfer.ConnectTransferViewController : SafariServices.SFSafar
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func safariViewControllerDidFinish(_ controller: SafariServices.SFSafariViewController)
 }
 public protocol ConnectTransferViewEventDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
   func onInitializeConnectTransfer(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func onTermsAndConditionsAccepted(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func onLaunchTransferSwitch(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func onTransferEnd(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func onUserEvent(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func onErrorEvent(_ data: Foundation.NSDictionary?)
+  #endif
 }
 @_Concurrency.MainActor @preconcurrency public struct ConnectTransferView : SwiftUI.UIViewControllerRepresentable {
   @_Concurrency.MainActor @preconcurrency public var delegate: (any ConnectTransfer.ConnectTransferViewEventDelegate)?
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(connectTransferUrl: Swift.String, delegate: (any ConnectTransfer.ConnectTransferViewEventDelegate)? = nil)
+  #endif
   @_Concurrency.MainActor @preconcurrency public func makeUIViewController(context: ConnectTransfer.ConnectTransferView.Context) -> UIKit.UINavigationController
   @_Concurrency.MainActor @preconcurrency public func updateUIViewController(_ uiViewController: UIKit.UINavigationController, context: ConnectTransfer.ConnectTransferView.Context)
   @_Concurrency.MainActor @preconcurrency public func makeCoordinator() -> ConnectTransfer.Coordinator
@@ -49,12 +75,24 @@ public protocol ConnectTransferViewEventDelegate {
   public typealias UIViewControllerType = UIKit.UINavigationController
 }
 @_hasMissingDesignatedInitializers public class Coordinator : ConnectTransfer.ConnectTransferEventDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func onInitializeConnectTransfer(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func onLaunchTransferSwitch(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func onTermsAndConditionsAccepted(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func onTransferEnd(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func onUserEvent(_ data: Foundation.NSDictionary?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func onErrorEvent(_ data: Foundation.NSDictionary?)
+  #endif
   @objc deinit
 }
 extension ConnectTransfer.ConnectTransferView : Swift.Sendable {}

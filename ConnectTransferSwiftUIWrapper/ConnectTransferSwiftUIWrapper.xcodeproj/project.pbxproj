@@ -11,9 +11,9 @@
 		F401AF982DD5F485005B8D76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F401AF932DD5F485005B8D76 /* Assets.xcassets */; };
 		F401AF992DD5F485005B8D76 /* ConnectTransferSwiftUIWrapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401AF942DD5F485005B8D76 /* ConnectTransferSwiftUIWrapperApp.swift */; };
 		F401AF9A2DD5F485005B8D76 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401AF952DD5F485005B8D76 /* ContentView.swift */; };
-		F401AFA22DD5F58D005B8D76 /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = F401AFA12DD5F58D005B8D76 /* AtomicTransact */; };
 		F401AFA52DD5F70D005B8D76 /* ConnectTransfer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F401AFA42DD5F70D005B8D76 /* ConnectTransfer.xcframework */; };
 		F401AFA62DD5F70D005B8D76 /* ConnectTransfer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F401AFA42DD5F70D005B8D76 /* ConnectTransfer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F41E40442EE984C50026D91A /* AtomicTransact in Frameworks */ = {isa = PBXBuildFile; productRef = F41E40432EE984C50026D91A /* AtomicTransact */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,8 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F401AFA22DD5F58D005B8D76 /* AtomicTransact in Frameworks */,
 				F401AFA52DD5F70D005B8D76 /* ConnectTransfer.xcframework in Frameworks */,
+				F41E40442EE984C50026D91A /* AtomicTransact in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +114,7 @@
 			);
 			name = ConnectTransferSwiftUIWrapper;
 			packageProductDependencies = (
-				F401AFA12DD5F58D005B8D76 /* AtomicTransact */,
+				F41E40432EE984C50026D91A /* AtomicTransact */,
 			);
 			productName = ConnectTransferSwiftUIWrapper;
 			productReference = F401AF802DD5F47C005B8D76 /* ConnectTransferSwiftUIWrapper.app */;
@@ -145,7 +145,7 @@
 			mainGroup = F401AF772DD5F47C005B8D76;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F401AFA02DD5F58D005B8D76 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */,
+				F41E40422EE984C50026D91A /* XCRemoteSwiftPackageReference "atomic-transact-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F401AF812DD5F47C005B8D76 /* Products */;
@@ -385,20 +385,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F401AFA02DD5F58D005B8D76 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */ = {
+		F41E40422EE984C50026D91A /* XCRemoteSwiftPackageReference "atomic-transact-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/atomicfi/atomic-transact-ios";
 			requirement = {
 				kind = exactVersion;
-				version = 3.9.23;
+				version = 3.25.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F401AFA12DD5F58D005B8D76 /* AtomicTransact */ = {
+		F41E40432EE984C50026D91A /* AtomicTransact */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F401AFA02DD5F58D005B8D76 /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
+			package = F41E40422EE984C50026D91A /* XCRemoteSwiftPackageReference "atomic-transact-ios" */;
 			productName = AtomicTransact;
 		};
 /* End XCSwiftPackageProductDependency section */
