@@ -13,7 +13,7 @@ let package = Package(
             targets: ["ConnectTransferWrapper"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/atomicfi/atomic-transact-ios.git", exact: "3.25.0")
+        .package(url: "https://github.com/atomicfi/atomic-transact-ios.git", exact: "3.28.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

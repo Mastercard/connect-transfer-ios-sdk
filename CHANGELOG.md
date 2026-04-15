@@ -1,5 +1,11 @@
 # Connect Transfer iOS SDK Changelog
 
+### 1.3.2 (April 15, 2026)
+ 
+Changed:
+- Implemented a new event called ZeroSearchResultInSearchCompany for analytics purposes.
+- Atomic SDK dependency has been upgraded to version 3.28.0.
+
 ### 1.3.1 (December 10, 2025)
 
 Changed:
