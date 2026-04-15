@@ -1,6 +1,6 @@
 # Connect Transfer iOS SDK Changelog
 
-### 1.3.2 (April 13, 2026)
+### 1.3.2 (April 15, 2026)
  
 Changed:
 - Implemented a new event called ZeroSearchResultInSearchCompany for analytics purposes.
