@@ -13,20 +13,18 @@ let package = Package(
             targets: ["ConnectTransferWrapper"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/atomicfi/atomic-transact-ios.git", exact: "3.28.0")
+        .package(url: "https://github.com/atomicfi/atomic-transact-ios.git", exact: "3.32.0")
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .binaryTarget(
             name: "ConnectTransfer",
-            path: "ConnectTransfer.xcframework"
+            path: "ConnectTransfer-Dynamic.xcframework"
         ),
         .target(
             name: "ConnectTransferWrapper",
             dependencies: [
                 .target(name: "ConnectTransfer"),
-                .product(name: "AtomicTransact", package: "atomic-transact-ios"),
+                .product(name: "AtomicTransact-Dynamic", package: "atomic-transact-ios"),
             ],
             path: "Sources"
         )
