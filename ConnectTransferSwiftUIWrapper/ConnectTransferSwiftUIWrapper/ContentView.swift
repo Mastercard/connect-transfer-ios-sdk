@@ -22,7 +22,7 @@ struct ContentView: View {
                         
             VStack(alignment: .leading, spacing: 40) {
             
-                Text("ConnectTransfer SDK demo app")
+                Text("ConnectTransfer SwiftUI SDK demo app")
                     .font(.system(size: 21, weight: .bold))
                     .foregroundStyle(Color.white)
                     .padding(.top, 30)

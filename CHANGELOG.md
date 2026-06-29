@@ -1,5 +1,11 @@
 # Connect Transfer iOS SDK Changelog
 
+### 1.3.3 (June 29, 2026)
+
+Changed:
+- Added dynamic dependency for Atomic SDK to address OS warnings.
+- Upgraded Atomic SDK dependency to version 3.32.0.
+
 ### 1.3.2 (April 15, 2026)
  
 Changed:

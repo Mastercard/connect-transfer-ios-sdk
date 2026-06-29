@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|  
   spec.name         = "MastercardOpenBankingConnectTransfer"
   spec.module_name  = "ConnectTransfer"
-  spec.version      = "1.3.2"
+  spec.version      = "1.3.3"
   spec.summary      = "Connect Transfer iOS SDK"
   spec.description  = <<-DESC
                       The Connect Transfer iOS SDK allows you to embed MastercardOpenBanking Connect Transfer anywhere you want within your own mobile applications.
@@ -13,5 +13,5 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/Mastercard/connect-transfer-ios-sdk.git", :tag => "#{spec.version}" }
   spec.ios.vendored_frameworks = "ConnectTransfer.xcframework"
   spec.resource_bundles = {'MastercardOpenBankingConnectTransfer' => ['Sources/*.xcprivacy']}
-  spec.dependency "AtomicSDK", "3.28.0"
+  spec.dependency "AtomicSDK", "3.32.0"
 end
